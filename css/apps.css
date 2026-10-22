@@ -164,13 +164,12 @@
 /* Side Peeking Mascot (Right Edge with Backpack, matching Solari reference) */
 .solari-side-mascot {
   position: absolute;
-  right: 20px;
-  top: 155px;
-  width: 92px;
-  height: 92px;
-  z-index: 30;
-  pointer-events: auto;
-  cursor: pointer;
+  right: -20px;
+  top: 135px;
+  width: 90px;
+  height: 90px;
+  z-index: 20;
+  pointer-events: none;
   animation: mascotPeekSide 3.6s ease-in-out infinite alternate;
 }
 
@@ -188,20 +187,32 @@
 }
 
 /* ==========================================================================
-   CENTRAL LARGE OVERLAPPING PHOTO DECK
-   (4 Large Fanned Photo Cards overlapping across the middle of the folder)
+   PER-ROW OVERLAPPING PHOTO DECK
+   (4 Large Fanned Photo Cards overlapping directly on top of each project row)
    ========================================================================== */
-.solari-hero-photo-deck {
+.solari-row-photo-deck {
   position: absolute;
   left: calc(200px + (100% - 200px) * 0.44);
-  top: 54%;
-  transform: translate(-50%, -50%);
+  top: 50%;
+  transform: translate(-50%, -50%) scale(0.92);
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 25;
+  z-index: 50;
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.22s cubic-bezier(0.16, 1, 0.3, 1), 
+              transform 0.28s cubic-bezier(0.34, 1.56, 0.64, 1),
+              visibility 0.22s;
+}
+
+.solari-folder-row.is-active .solari-row-photo-deck,
+.solari-folder-row:hover .solari-row-photo-deck {
+  opacity: 1;
+  visibility: visible;
   pointer-events: auto;
-  transition: transform 0.3s ease;
+  transform: translate(-50%, -50%) scale(1);
 }
 
 .solari-deck-card {
@@ -252,21 +263,25 @@
   box-shadow: 0 28px 56px rgba(0, 0, 0, 0.38), 0 6px 14px rgba(0, 0, 0, 0.16);
 }
 
-/* Spring Fan Animation when switching projects */
-.solari-hero-photo-deck.is-fanning .solari-deck-card-1 {
-  animation: cardFan1 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+/* Spring Fan Animation when project row is hovered or active */
+.solari-folder-row.is-active .solari-deck-card-1,
+.solari-folder-row:hover .solari-deck-card-1 {
+  animation: cardFan1 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-.solari-hero-photo-deck.is-fanning .solari-deck-card-2 {
-  animation: cardFan2 0.52s cubic-bezier(0.34, 1.56, 0.64, 1);
+.solari-folder-row.is-active .solari-deck-card-2,
+.solari-folder-row:hover .solari-deck-card-2 {
+  animation: cardFan2 0.48s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-.solari-hero-photo-deck.is-fanning .solari-deck-card-3 {
-  animation: cardFan3 0.54s cubic-bezier(0.34, 1.56, 0.64, 1);
+.solari-folder-row.is-active .solari-deck-card-3,
+.solari-folder-row:hover .solari-deck-card-3 {
+  animation: cardFan3 0.51s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-.solari-hero-photo-deck.is-fanning .solari-deck-card-4 {
-  animation: cardFan4 0.56s cubic-bezier(0.34, 1.56, 0.64, 1);
+.solari-folder-row.is-active .solari-deck-card-4,
+.solari-folder-row:hover .solari-deck-card-4 {
+  animation: cardFan4 0.54s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 @keyframes cardFan1 {
@@ -482,9 +497,14 @@
   border-color: var(--row-accent);
 }
 
-.solari-folder-row:hover,
+.solari-folder-row:hover {
+  filter: brightness(1.03);
+  z-index: 70 !important;
+}
+
 .solari-folder-row.is-active {
   filter: brightness(1.03);
+  z-index: 60 !important;
 }
 
 /* Base Row 06 Contact Details & Buttons */

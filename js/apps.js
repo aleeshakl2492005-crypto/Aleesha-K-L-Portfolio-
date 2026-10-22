@@ -642,104 +642,53 @@ function initSolariProjects() {
   const backBtn = document.getElementById('solari-back-btn');
   const switcherPills = document.querySelectorAll('.solari-nav-pill');
   const folderRows = document.querySelectorAll('.solari-folder-row');
-  const photoDeck = document.getElementById('solari-hero-photo-deck');
-  const deckCards = photoDeck ? photoDeck.querySelectorAll('.solari-deck-card') : [];
+  const allDeckCards = document.querySelectorAll('.solari-deck-card');
 
   let currentProjectId = null;
   let activeDeckProjectId = 'emak';
 
-  const SOLARI_DECK_PREVIEWS = {
-    emak: {
-      id: 'emak',
-      cards: [
-        { src: "assets/ChatGPT Image Aug 13, 2026, 06_14_26 PM.png", badge: "Stage Hero", title: "EMAK Stage Full View" },
-        { src: "assets/ChatGPT Image Aug 13, 2026, 04_24_01 PM.png", badge: "Scenography", title: "EMAK Lighting & Scenography" },
-        { src: "assets/ChatGPT Image Aug 13, 2026, 05_14_34 PM.png", badge: "Sightlines", title: "EMAK VIP Podium Sightline" },
-        { src: "assets/ChatGPT Image Aug 13, 2026, 05_52_50 PM.png", badge: "Atmosphere", title: "EMAK Reflections & Atmosphere" }
-      ]
-    },
-    neithi: {
-      id: 'neithi',
-      cards: [
-        { src: "assets/ChatGPT Image Aug 14, 2026, 01_08_56 AM.png", badge: "Pavilion Entry", title: "Neithi Pavilion Entrance" },
-        { src: "assets/ChatGPT Image Aug 14, 2026, 01_12_50 AM.png", badge: "Interactive Station", title: "Spin The Bottle Station" },
-        { src: "assets/ChatGPT Image Aug 14, 2026, 01_14_40 AM.png", badge: "Curved Shelving", title: "Bottle-Shaped Shelving" },
-        { src: "assets/ChatGPT Image Aug 14, 2026, 01_16_02 AM.png", badge: "Sculptural Gel", title: "Oversized Gel Model" }
-      ]
-    },
-    radiomango: {
-      id: 'radiomango',
-      cards: [
-        { src: "assets/thira 1.1.png", badge: "Spadikam Truck", title: "Spadikam Roadshow Truck" },
-        { src: "assets/thira 1.5.png", badge: "DJ Platform", title: "DJ Platform & Audio Rig" },
-        { src: "assets/Thira 2.1.png", badge: "Temple Gables", title: "Kerala Temple Roof Wings" },
-        { src: "assets/thira 1.9.png", badge: "Pulikali Art", title: "Pulikali Tiger Graphics" }
-      ]
-    },
-    mandap: {
-      id: 'mandap',
-      cards: [
-        { src: "assets/ChatGPT Image Aug 14, 2026, 01_30_49 AM.png", badge: "Gopuram Roof", title: "Temple Gopuram Roof" },
-        { src: "assets/ChatGPT Image Aug 14, 2026, 01_36_55 AM.png", badge: "Tulasi Thara", title: "Tulasi Thara Pedestal" },
-        { src: "assets/ChatGPT Image Aug 14, 2026, 01_39_43 AM.png", badge: "Mural Backdrop", title: "Kerala Mural Backdrop" },
-        { src: "assets/ChatGPT Image Aug 14, 2026, 01_46_14 AM.png", badge: "Marigold Canopy", title: "Floral Marigold Canopy" }
-      ]
-    },
-    anime: {
-      id: 'anime',
-      cards: [
-        { src: "assets/ChatGPT Image Aug 14, 2026, 01_56_25 AM.png", badge: "Hero Stage", title: "Anime Stage Hero Set" },
-        { src: "assets/ChatGPT Image Aug 14, 2026, 02_06_30 AM.png", badge: "Neon Silhouettes", title: "Neon Silhouettes" },
-        { src: "assets/ChatGPT Image Aug 14, 2026, 04_28_13 AM.png", badge: "Ichiraku Bar", title: "Ichiraku Ramen Bar" },
-        { src: "assets/ChatGPT Image Aug 14, 2026, 04_50_55 AM.png", badge: "Torii Gate Arch", title: "Torii Gate Photo Arch" }
-      ]
-    }
-  };
-
-  function updateDeck(projId) {
-    if (!SOLARI_DECK_PREVIEWS[projId] || activeDeckProjectId === projId) return;
+  function activateFolderRow(projId) {
+    if (!projId || projId === 'contact') return;
     activeDeckProjectId = projId;
 
-    // Highlight row
     folderRows.forEach(r => {
-      r.classList.toggle('is-active', r.getAttribute('data-project-id') === projId);
+      const isMatch = r.getAttribute('data-project-id') === projId;
+      r.classList.toggle('is-active', isMatch);
+    });
+  }
+
+  // 1. Hover & Click listeners on folder rows
+  const folderRowsContainer = document.getElementById('solari-folder-rows');
+  if (folderRowsContainer) {
+    folderRowsContainer.addEventListener('mousemove', (e) => {
+      folderRows.forEach(row => {
+        const rect = row.getBoundingClientRect();
+        const rowTop = row.classList.contains('solari-row-01') ? rect.top - 30 : rect.top;
+        if (e.clientY >= rowTop && e.clientY < rect.bottom) {
+          const projId = row.getAttribute('data-project-id');
+          if (projId === 'contact') {
+            folderRows.forEach(r => r.classList.remove('is-active'));
+            activeDeckProjectId = null;
+          } else if (projId && projId !== activeDeckProjectId) {
+            activateFolderRow(projId);
+          }
+        }
+      });
     });
 
-    // Spring animation trigger
-    if (photoDeck) {
-      photoDeck.classList.remove('is-fanning');
-      void photoDeck.offsetWidth; // Force reflow
-      photoDeck.classList.add('is-fanning');
-    }
-
-    const data = SOLARI_DECK_PREVIEWS[projId];
-    data.cards.forEach((c, idx) => {
-      if (deckCards[idx]) {
-        const img = deckCards[idx].querySelector('.solari-deck-img');
-        const badge = deckCards[idx].querySelector('.solari-deck-badge');
-        if (img) {
-          img.src = c.src;
-          img.alt = c.title;
-        }
-        if (badge) badge.textContent = c.badge;
-        deckCards[idx].setAttribute('data-project-id', projId);
+    folderRowsContainer.addEventListener('mouseleave', () => {
+      if (!activeDeckProjectId || activeDeckProjectId === 'contact') {
+        activateFolderRow('emak');
       }
     });
   }
 
-  // Set initial deck state
-  if (deckCards.length > 0) {
-    deckCards.forEach(card => card.setAttribute('data-project-id', 'emak'));
-  }
-
-  // 1. Hover & Click listeners on folder rows
   folderRows.forEach(row => {
     const projId = row.getAttribute('data-project-id');
     if (!projId) return;
 
     if (projId !== 'contact') {
-      row.addEventListener('mouseenter', () => updateDeck(projId));
-      row.addEventListener('mouseover', () => updateDeck(projId));
+      row.addEventListener('mouseenter', () => activateFolderRow(projId));
 
       row.addEventListener('click', (e) => {
         openSolariProject(projId);
@@ -752,11 +701,17 @@ function initSolariProjects() {
           openSolariProject(projId);
         });
       }
+    } else {
+      // Hovering Contact row: clear active project photo decks so contact buttons & email are fully visible
+      row.addEventListener('mouseenter', () => {
+        folderRows.forEach(r => r.classList.remove('is-active'));
+        activeDeckProjectId = null;
+      });
     }
   });
 
-  // 2. Click on any card in the central photo deck opens that project
-  deckCards.forEach(card => {
+  // 2. Click on any card across all project decks opens that project
+  allDeckCards.forEach(card => {
     card.addEventListener('click', (e) => {
       e.stopPropagation();
       const projId = card.getAttribute('data-project-id') || activeDeckProjectId || 'emak';
