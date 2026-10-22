@@ -1,0 +1,2507 @@
+/* ==========================================================================
+   ALEESHA OS - APPS STYLING
+   File Explorer, Resume PDF Viewer, 3D Studio, UI/UX Lab, Notepad,
+   PowerShell Terminal, Mail Client, Groove Player, Recycle Bin
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. FILE EXPLORER (PROJECTS)
+   -------------------------------------------------------------------------- */
+/* --------------------------------------------------------------------------
+   1. SOLARI DESIGN TABBED FOLDER SYSTEM (PROJECTS)
+   Matching https://solari-design.framer.website/
+   Retro folder tabs, vibrant color blocking, perched mascot, and detailed case studies
+   -------------------------------------------------------------------------- */
+.solari-window-content {
+  background: #fbf7ee !important;
+  color: #1c1917;
+  overflow-y: auto;
+  overflow-x: hidden;
+  position: relative;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Plus Jakarta Sans", sans-serif;
+  height: 100%;
+}
+
+.solari-projects-wrap {
+  min-height: 100%;
+  padding: 22px 24px 44px 24px;
+  max-width: 100%;
+  margin: 0 auto;
+  position: relative;
+}
+
+/* Solari Brand Header (Matching Selena Reference, in soft pastel palette) */
+.solari-brand-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 34px;
+  padding-bottom: 16px;
+  border-bottom: 2px dashed rgba(99, 102, 241, 0.28);
+}
+
+.solari-brand-logo {
+  font-size: 3.6rem;
+  font-weight: 900;
+  color: #7c3aed;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  text-transform: uppercase;
+  text-shadow: 4px 4px 0px rgba(124, 58, 237, 0.16);
+  font-family: 'Fredoka', 'DynaPuff', 'Plus Jakarta Sans', cursive, sans-serif;
+}
+
+.solari-brand-tagline {
+  font-size: 0.86rem;
+  font-weight: 800;
+  color: #64748b;
+  margin-top: 8px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.solari-brand-stats {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 6px;
+}
+
+.solari-pill-badge {
+  background: #7c3aed;
+  color: #ffffff;
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  box-shadow: 0 4px 12px rgba(124, 58, 237, 0.25);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.solari-pill-sub {
+  font-size: 0.78rem;
+  color: #94a3b8;
+  font-weight: 600;
+}
+
+/* ==========================================================================
+   AUTHENTIC SOLARI MANILA FILE FOLDER CONTAINER
+   (Raised top tab ear, stepped down horizontal contour, and rounded base)
+   ========================================================================== */
+.solari-folder-container {
+  position: relative;
+  margin-top: 52px;
+  background: transparent;
+  padding-bottom: 24px;
+}
+
+/* Perched Mascot (Sitting directly on top of the folder horizontal border line) */
+.solari-perched-mascot {
+  position: absolute;
+  top: -74px;
+  right: 85px;
+  display: flex;
+  align-items: flex-end;
+  gap: 12px;
+  z-index: 35;
+  pointer-events: auto;
+  cursor: pointer;
+  animation: mascotPerchFloat 3.2s ease-in-out infinite alternate;
+}
+
+@keyframes mascotPerchFloat {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-6px); }
+}
+
+.solari-mascot-img {
+  width: 96px;
+  height: 96px;
+  object-fit: contain;
+  filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.22));
+  display: block;
+}
+
+.solari-mascot-speech {
+  background: #ffffff;
+  border: 2px solid #1c1917;
+  color: #1c1917;
+  font-size: 0.78rem;
+  font-weight: 850;
+  padding: 5px 14px;
+  border-radius: 14px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  white-space: nowrap;
+  position: relative;
+  margin-bottom: 34px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.solari-mascot-speech::after {
+  content: "";
+  position: absolute;
+  right: -7px;
+  top: 50%;
+  transform: translateY(-50%);
+  border-width: 6px 0 6px 7px;
+  border-style: solid;
+  border-color: transparent transparent transparent #ffffff;
+}
+
+.solari-mascot-speech::before {
+  content: "";
+  position: absolute;
+  right: -9px;
+  top: 50%;
+  transform: translateY(-50%);
+  border-width: 7px 0 7px 8px;
+  border-style: solid;
+  border-color: transparent transparent transparent #1c1917;
+}
+
+/* Side Peeking Mascot (Right Edge with Backpack, matching Solari reference) */
+.solari-side-mascot {
+  position: absolute;
+  right: 20px;
+  top: 155px;
+  width: 92px;
+  height: 92px;
+  z-index: 30;
+  pointer-events: auto;
+  cursor: pointer;
+  animation: mascotPeekSide 3.6s ease-in-out infinite alternate;
+}
+
+@keyframes mascotPeekSide {
+  0% { transform: translateY(0) rotate(2deg); }
+  100% { transform: translateY(-8px) rotate(-3deg); }
+}
+
+.solari-side-mascot img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.24));
+  display: block;
+}
+
+/* ==========================================================================
+   CENTRAL LARGE OVERLAPPING PHOTO DECK
+   (4 Large Fanned Photo Cards overlapping across the middle of the folder)
+   ========================================================================== */
+.solari-hero-photo-deck {
+  position: absolute;
+  left: calc(200px + (100% - 200px) * 0.44);
+  top: 54%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 25;
+  pointer-events: auto;
+  transition: transform 0.3s ease;
+}
+
+.solari-deck-card {
+  position: relative;
+  width: 236px;
+  height: 172px;
+  margin-left: -58px;
+  background: #ffffff;
+  border: 5px solid #ffffff;
+  border-radius: 14px;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.28), 0 3px 8px rgba(0, 0, 0, 0.12);
+  cursor: pointer;
+  overflow: hidden;
+  transform-origin: center bottom;
+  transition: transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.25s ease, z-index 0.1s;
+  flex-shrink: 0;
+}
+
+.solari-deck-card:first-child {
+  margin-left: 0;
+}
+
+/* Base Fanned Tilts matching Solari Reference Image */
+.solari-deck-card-1 {
+  z-index: 10;
+  transform: rotate(-8.5deg) translateY(6px);
+}
+
+.solari-deck-card-2 {
+  z-index: 11;
+  transform: rotate(-2.5deg) translateY(-8px);
+}
+
+.solari-deck-card-3 {
+  z-index: 12;
+  transform: rotate(3deg) translateY(-4px);
+}
+
+.solari-deck-card-4 {
+  z-index: 13;
+  transform: rotate(8.5deg) translateY(10px);
+}
+
+/* Hover Lift on Individual Deck Cards */
+.solari-deck-card:hover {
+  transform: translateY(-22px) scale(1.12) rotate(0deg) !important;
+  z-index: 45 !important;
+  box-shadow: 0 28px 56px rgba(0, 0, 0, 0.38), 0 6px 14px rgba(0, 0, 0, 0.16);
+}
+
+/* Spring Fan Animation when switching projects */
+.solari-hero-photo-deck.is-fanning .solari-deck-card-1 {
+  animation: cardFan1 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.solari-hero-photo-deck.is-fanning .solari-deck-card-2 {
+  animation: cardFan2 0.52s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.solari-hero-photo-deck.is-fanning .solari-deck-card-3 {
+  animation: cardFan3 0.54s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.solari-hero-photo-deck.is-fanning .solari-deck-card-4 {
+  animation: cardFan4 0.56s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes cardFan1 {
+  0% { transform: scale(0.8) rotate(-16deg) translateY(30px); opacity: 0.7; }
+  100% { transform: rotate(-8.5deg) translateY(6px); opacity: 1; }
+}
+
+@keyframes cardFan2 {
+  0% { transform: scale(0.8) rotate(-8deg) translateY(30px); opacity: 0.7; }
+  100% { transform: rotate(-2.5deg) translateY(-8px); opacity: 1; }
+}
+
+@keyframes cardFan3 {
+  0% { transform: scale(0.8) rotate(8deg) translateY(30px); opacity: 0.7; }
+  100% { transform: rotate(3deg) translateY(-4px); opacity: 1; }
+}
+
+@keyframes cardFan4 {
+  0% { transform: scale(0.8) rotate(16deg) translateY(30px); opacity: 0.7; }
+  100% { transform: rotate(8.5deg) translateY(10px); opacity: 1; }
+}
+
+.solari-deck-img-wrap {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 9px;
+  background: #f1f5f9;
+}
+
+.solari-deck-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.solari-deck-card:hover .solari-deck-img {
+  transform: scale(1.06);
+}
+
+.solari-deck-badge {
+  position: absolute;
+  bottom: 8px;
+  left: 8px;
+  background: rgba(28, 25, 23, 0.82);
+  color: #ffffff;
+  font-size: 0.68rem;
+  font-weight: 800;
+  padding: 3px 10px;
+  border-radius: 999px;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  pointer-events: none;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  letter-spacing: 0.02em;
+}
+
+/* ==========================================================================
+   STACKED MANILA FOLDER ROWS & RETRO 2.5PX BORDERS
+   ========================================================================== */
+.solari-folder-rows {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.solari-folder-row {
+  display: flex;
+  position: relative;
+  height: 58px;
+  margin-top: -2.5px;
+  cursor: pointer;
+  transition: filter 0.2s ease, transform 0.2s ease;
+  user-select: none;
+}
+
+.solari-folder-row:first-child {
+  margin-top: 0;
+}
+
+/* Row 01 with raised tab ear */
+.solari-row-01 {
+  height: 58px;
+}
+
+/* Left Tab Ear */
+.solari-tab-ear {
+  width: 200px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 16px 0 20px;
+  background: var(--row-color);
+  color: var(--row-text);
+  border: 2.5px solid #1c1917;
+  border-right: none;
+  position: relative;
+  z-index: 5;
+  font-family: 'Fredoka', 'Plus Jakarta Sans', sans-serif;
+  transition: background 0.2s, filter 0.2s;
+}
+
+.solari-tab-num {
+  font-size: 1.35rem;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+
+.solari-tab-name {
+  font-size: 0.96rem;
+  font-weight: 850;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+/* Raised Tab 01 Ear - Iconic Manila Folder Shape with Step-Down */
+.solari-ear-raised {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 200px;
+  height: 82px;
+  margin-top: 0;
+  border-radius: 16px 16px 0 0;
+  border: 2.5px solid #1c1917;
+  border-bottom: 2.5px solid #1c1917;
+  z-index: 8;
+  box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.05);
+}
+
+/* Base Tab 06 Ear */
+.solari-ear-base {
+  border-bottom-left-radius: 20px;
+  border-bottom: 2.5px solid #1c1917;
+}
+
+/* Right Tab Strip */
+.solari-tab-strip {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 20px 0 16px;
+  background: var(--row-color);
+  color: var(--row-text);
+  border: 2.5px solid #1c1917;
+  position: relative;
+  overflow: hidden;
+  transition: filter 0.2s ease;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+/* Top Strip (Row 01) with curved top-right corner and step-down connection */
+.solari-strip-top {
+  margin-left: 197.5px;
+  height: 58px;
+  border-top-right-radius: 24px;
+  border: 2.5px solid #1c1917;
+  border-left: none;
+}
+
+/* Base Strip (Row 06) with curved bottom-right corner */
+.solari-strip-base {
+  border-bottom-right-radius: 20px;
+}
+
+.solari-strip-item {
+  font-size: 0.82rem;
+  font-weight: 800;
+  white-space: nowrap;
+  opacity: 0.92;
+}
+
+.solari-strip-item.highlight {
+  background: rgba(255, 255, 255, 0.8);
+  padding: 3px 12px;
+  border-radius: 999px;
+  font-weight: 850;
+  color: var(--row-text);
+  border: 1.5px solid rgba(0, 0, 0, 0.14);
+  opacity: 1;
+}
+
+.solari-strip-action {
+  margin-left: auto;
+  background: #ffffff;
+  color: var(--row-text);
+  border: 2px solid #1c1917;
+  padding: 5px 14px;
+  border-radius: 999px;
+  font-size: 0.74rem;
+  font-weight: 850;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.06);
+  transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+  white-space: nowrap;
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+}
+
+.solari-folder-row:hover .solari-strip-action,
+.solari-folder-row.is-active .solari-strip-action {
+  transform: scale(1.06);
+  background: var(--row-accent);
+  color: #ffffff;
+  border-color: var(--row-accent);
+}
+
+.solari-folder-row:hover,
+.solari-folder-row.is-active {
+  filter: brightness(1.03);
+}
+
+/* Base Row 06 Contact Details & Buttons */
+.solari-strip-label {
+  font-size: 0.95rem;
+  font-weight: 900;
+  color: var(--row-text);
+  font-family: 'Fredoka', sans-serif;
+  letter-spacing: 0.01em;
+}
+
+.solari-strip-email {
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: var(--row-text);
+  opacity: 0.95;
+  letter-spacing: 0.02em;
+}
+
+.solari-base-actions {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.solari-btn-pill {
+  background: #ffffff;
+  color: #1c1917;
+  border: 2px solid #1c1917;
+  padding: 5px 14px;
+  border-radius: 999px;
+  font-size: 0.74rem;
+  font-weight: 850;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.06);
+  transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.solari-btn-pill:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+}
+
+.solari-btn-pill.primary {
+  background: #7c3aed;
+  color: #ffffff;
+  border-color: #7c3aed;
+}
+
+.solari-btn-pill.primary:hover {
+  background: #6d28d9;
+}
+
+/* Folder Inner Body Hidden in Stack View */
+.solari-folder-body {
+  display: none;
+}
+
+.solari-folder-preview-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+}
+
+.solari-folder-text-col {
+  flex: 1;
+}
+
+.solari-preview-badge {
+  font-size: 0.76rem;
+  font-weight: 800;
+  color: var(--folder-accent, #6366f1);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 6px;
+}
+
+.solari-preview-title {
+  font-size: 1.45rem;
+  font-weight: 900;
+  color: #1c1917;
+  line-height: 1.25;
+  margin-bottom: 10px;
+}
+
+.solari-preview-desc {
+  font-size: 0.9rem;
+  color: #475569;
+  line-height: 1.55;
+  margin-bottom: 16px;
+  max-width: 600px;
+}
+
+.solari-preview-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.solari-tag {
+  background: rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  padding: 4px 10px;
+  border-radius: 8px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #334155;
+}
+
+.solari-folder-thumb-col {
+  width: 240px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.solari-preview-thumb {
+  width: 100%;
+  height: 135px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+  border: 1.5px solid rgba(255, 255, 255, 0.8);
+  transition: transform 0.3s ease;
+}
+
+.solari-folder-row:hover .solari-preview-thumb {
+  transform: scale(1.03);
+}
+
+.solari-open-folder-btn {
+  background: var(--folder-accent, #6366f1);
+  color: #ffffff;
+  border: none;
+  padding: 9px 16px;
+  border-radius: 10px;
+  font-size: 0.84rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: all 0.2s ease;
+}
+
+.solari-open-folder-btn:hover {
+  filter: brightness(1.08);
+  transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   SOLARI DETAILED CASE STUDY VIEW
+   ========================================================================== */
+.solari-detail-view {
+  animation: solariSlideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes solariSlideUp {
+  0% { opacity: 0; transform: translateY(24px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.solari-detail-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 2px solid #e7e5e4;
+  position: sticky;
+  top: 0;
+  background: #fbf7ee;
+  z-index: 40;
+}
+
+.solari-back-btn {
+  background: #ffffff;
+  border: 2px solid #d6d3d1;
+  color: #1c1917;
+  padding: 8px 18px;
+  border-radius: 24px;
+  font-size: 0.86rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.solari-back-btn:hover {
+  background: #f5f5f4;
+  border-color: #a8a29e;
+  transform: translateY(-2px);
+}
+
+.solari-detail-pills {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.solari-nav-pill {
+  background: #ffffff;
+  border: 1.5px solid #d6d3d1;
+  color: #57534e;
+  padding: 6px 14px;
+  border-radius: 18px;
+  font-size: 0.78rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition: all 0.18s ease;
+}
+
+.solari-nav-pill:hover {
+  border-color: #78716c;
+  color: #1c1917;
+}
+
+.solari-nav-pill.active {
+  background: #1c1917;
+  color: #ffffff;
+  border-color: #1c1917;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Detailed Case Study Card */
+.solari-case-card {
+  background: #ffffff;
+  border: 2px solid #1c1917;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08);
+  margin-bottom: 40px;
+}
+
+.solari-case-hero {
+  background: var(--case-color, #c4b5fd);
+  color: #1e1b4b;
+  padding: 36px 40px;
+  position: relative;
+  border-bottom: 2px solid #1c1917;
+}
+
+.solari-case-index {
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: rgba(255, 255, 255, 0.65);
+  color: #1c1917;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 14px;
+  margin-bottom: 12px;
+}
+
+.solari-case-title {
+  font-size: 2.2rem;
+  font-weight: 900;
+  line-height: 1.2;
+  margin-bottom: 8px;
+  letter-spacing: -0.01em;
+  color: #0f172a;
+}
+
+.solari-case-subtitle {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #334155;
+  max-width: 800px;
+  margin-bottom: 20px;
+}
+
+.solari-case-meta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.solari-meta-badge {
+  background: rgba(255, 255, 255, 0.65);
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  color: #0f172a;
+  padding: 5px 14px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 800;
+}
+
+.solari-case-content {
+  padding: 36px 40px;
+}
+
+/* Segmented Media Switcher */
+.solari-media-tabs {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 24px;
+  border-bottom: 2px solid #f5f5f4;
+  padding-bottom: 12px;
+  overflow-x: auto;
+}
+
+.solari-media-tab-btn {
+  background: #f5f5f4;
+  border: 1.5px solid transparent;
+  color: #57534e;
+  padding: 8px 18px;
+  border-radius: 12px;
+  font-size: 0.84rem;
+  font-weight: 800;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.solari-media-tab-btn:hover {
+  background: #e7e5e4;
+  color: #1c1917;
+}
+
+.solari-media-tab-btn.active {
+  background: #1c1917;
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Render Gallery Grid */
+.solari-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.solari-gallery-item {
+  border-radius: 14px;
+  overflow: hidden;
+  position: relative;
+  background: #1c1917;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+  aspect-ratio: 16 / 10;
+}
+
+.solari-gallery-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.35s ease;
+}
+
+.solari-gallery-item:hover .solari-gallery-img {
+  transform: scale(1.06);
+}
+
+.solari-gallery-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 40%, rgba(0, 0, 0, 0.75) 100%);
+  display: flex;
+  align-items: flex-end;
+  padding: 14px 16px;
+  color: #ffffff;
+  font-size: 0.8rem;
+  font-weight: 700;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.solari-gallery-item:hover .solari-gallery-overlay {
+  opacity: 1;
+}
+
+.solari-gallery-zoom-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(6px);
+  color: #ffffff;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 0.72rem;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* Video Player Container */
+.solari-video-container {
+  margin-bottom: 32px;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #0c0a09;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+  position: relative;
+}
+
+.solari-video-player {
+  width: 100%;
+  max-height: 460px;
+  display: block;
+  outline: none;
+}
+
+.solari-video-caption {
+  padding: 12px 18px;
+  background: #1c1917;
+  color: #d6d3d1;
+  font-size: 0.82rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Case Narrative Sections */
+.solari-sections-grid {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  gap: 32px;
+  margin-bottom: 32px;
+}
+
+@media (max-width: 860px) {
+  .solari-sections-grid {
+    grid-template-columns: 1fr;
+  }
+  .solari-folder-preview-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .solari-folder-thumb-col {
+    width: 100%;
+  }
+}
+
+.solari-section-block {
+  background: #fafaf9;
+  border: 1.5px solid #e7e5e4;
+  border-radius: 16px;
+  padding: 24px;
+  margin-bottom: 20px;
+}
+
+.solari-section-block h3 {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #1c1917;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.solari-section-block p {
+  font-size: 0.92rem;
+  color: #44403c;
+  line-height: 1.65;
+  margin-bottom: 12px;
+}
+
+.solari-section-block p:last-child {
+  margin-bottom: 0;
+}
+
+.solari-specs-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.solari-spec-row {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #e7e5e4;
+  font-size: 0.86rem;
+}
+
+.solari-spec-label {
+  font-weight: 700;
+  color: #78716c;
+}
+
+.solari-spec-value {
+  font-weight: 800;
+  color: #1c1917;
+  text-align: right;
+}
+
+.solari-materials-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.solari-mat-pill {
+  background: #ffffff;
+  border: 1px solid #d6d3d1;
+  color: #292524;
+  padding: 5px 12px;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+/* Lightbox Modal */
+.solari-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.solari-lightbox.open {
+  display: flex;
+}
+
+.solari-lightbox-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(12, 10, 9, 0.88);
+  backdrop-filter: blur(14px);
+}
+
+.solari-lightbox-dialog {
+  position: relative;
+  z-index: 2;
+  max-width: 92vw;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  background: #1c1917;
+  border: 1.5px solid rgba(255, 255, 255, 0.2);
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5);
+  animation: lightboxZoom 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes lightboxZoom {
+  0% { transform: scale(0.92); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.solari-lightbox-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 20px;
+  background: #292524;
+  color: #ffffff;
+}
+
+.solari-lightbox-caption {
+  font-size: 0.92rem;
+  font-weight: 800;
+}
+
+.solari-lightbox-close {
+  background: transparent;
+  border: none;
+  color: #ffffff;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.solari-lightbox-close:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.solari-lightbox-content {
+  overflow: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+  background: #0c0a09;
+}
+
+.solari-lightbox-img {
+  max-width: 100%;
+  max-height: 78vh;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+
+/* --------------------------------------------------------------------------
+   2. RESUME PDF VIEWER (Pure White Theme)
+   -------------------------------------------------------------------------- */
+.resume-viewer-wrap {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: #ffffff;
+}
+
+.resume-toolbar {
+  height: 44px;
+  background: #ffffff;
+  border-bottom: 1px solid #f1f5f9;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  flex-shrink: 0;
+}
+
+.resume-tool-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.82rem;
+  color: #0f172a;
+  font-weight: 500;
+}
+
+.resume-tool-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.resume-email-btn {
+  background: #f0fdf4;
+  border: 1px solid #86efac;
+  color: #15803d;
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.15s ease;
+}
+
+.resume-email-btn:hover {
+  background: #16a34a;
+  border-color: #16a34a;
+  color: #ffffff;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(22, 163, 74, 0.25);
+}
+
+.resume-download-btn {
+  background: #0078d4;
+  border: 1px solid #106ebe;
+  color: #fff;
+  padding: 6px 16px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.15s;
+}
+
+.resume-download-btn:hover {
+  background: #106ebe;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 120, 212, 0.25);
+}
+
+.resume-paper-container {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px 24px 48px;
+  display: flex;
+  justify-content: center;
+  background: #ffffff;
+}
+
+.resume-paper {
+  width: 100%;
+  max-width: 820px;
+  background: #ffffff;
+  color: #1e293b;
+  border-radius: 0;
+  box-shadow: none;
+  padding: 16px 20px 48px;
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+.res-header {
+  border-bottom: 2px solid #0f172a;
+  padding-bottom: 16px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.res-name-col h1 {
+  font-size: 2.1rem;
+  font-weight: 800;
+  color: #0f172a;
+  letter-spacing: -0.01em;
+  margin-bottom: 4px;
+}
+
+.res-roles {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #0284c7;
+  line-height: 1.4;
+  max-width: 520px;
+}
+
+.res-contact-col {
+  text-align: right;
+  font-size: 0.82rem;
+  color: #475569;
+  line-height: 1.5;
+}
+
+.res-contact-col a {
+  color: #0284c7;
+  text-decoration: none;
+}
+
+.res-section {
+  margin-bottom: 20px;
+}
+
+.res-sec-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #0f172a;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-bottom: 1.5px solid #cbd5e1;
+  padding-bottom: 4px;
+  margin-bottom: 10px;
+}
+
+.res-summary-text {
+  font-size: 0.85rem;
+  color: #334155;
+  line-height: 1.55;
+  text-align: justify;
+}
+
+.res-job-item {
+  margin-bottom: 14px;
+}
+
+.res-job-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.88rem;
+  margin-bottom: 4px;
+}
+
+.res-job-role {
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.res-job-company {
+  color: #475569;
+  font-weight: 500;
+}
+
+.res-job-meta {
+  color: #64748b;
+  font-size: 0.8rem;
+}
+
+.res-job-bullets {
+  padding-left: 18px;
+  font-size: 0.82rem;
+  color: #334155;
+  line-height: 1.5;
+}
+
+.res-skills-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 8px;
+  font-size: 0.82rem;
+  color: #334155;
+}
+
+.res-skill-row {
+  line-height: 1.45;
+}
+
+.res-skill-label {
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.res-direct-email-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: #f0fdf4;
+  color: #16a34a;
+  border: 1px solid #bbf7d0;
+  padding: 3px 10px;
+  border-radius: 14px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-decoration: none;
+  margin-top: 4px;
+  transition: all 0.15s ease;
+}
+
+.res-direct-email-badge:hover {
+  background: #16a34a;
+  color: #ffffff;
+  border-color: #16a34a;
+  transform: translateY(-1px);
+}
+
+.resume-footer-cta {
+  margin-top: 28px;
+  padding: 16px 20px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.resume-cta-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-size: 0.84rem;
+  color: #334155;
+}
+
+.resume-cta-text strong {
+  color: #0f172a;
+}
+
+.resume-cta-btn {
+  background: #0078d4;
+  color: #ffffff;
+  padding: 8px 18px;
+  border-radius: 6px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.15s ease;
+}
+
+.resume-cta-btn:hover {
+  background: #106ebe;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 120, 212, 0.25);
+}
+
+
+/* --------------------------------------------------------------------------
+   3. ABOUT ALEESHA (NOTEPAD / BIO)
+   -------------------------------------------------------------------------- */
+.notepad-wrap {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.notepad-menubar {
+  height: 28px;
+  background: #f8fafc;
+  border-bottom: 1px solid #e2e8f0;
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  gap: 14px;
+  font-size: 0.75rem;
+  color: #64748b;
+}
+
+.notepad-menu-btn {
+  cursor: pointer;
+}
+
+.notepad-menu-btn:hover {
+  color: #0f172a;
+}
+
+.notepad-body {
+  flex: 1;
+  display: flex;
+  overflow: hidden;
+  background: #ffffff;
+}
+
+.notepad-profile-sidebar {
+  width: 250px;
+  background: #f8fafc;
+  border-right: 1px solid #e2e8f0;
+  padding: 24px 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  overflow-y: auto;
+}
+
+.notepad-avatar {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #0078d4;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  margin-bottom: 14px;
+}
+
+.notepad-name {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 4px;
+}
+
+.notepad-sub {
+  font-size: 0.78rem;
+  color: #0284c7;
+  font-weight: 600;
+  margin-bottom: 14px;
+}
+
+.notepad-status-tag {
+  background: #ecfdf5;
+  border: 1px solid #a7f3d0;
+  color: #059669;
+  font-size: 0.72rem;
+  padding: 4px 12px;
+  border-radius: 20px;
+  margin-bottom: 18px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 500;
+}
+
+.notepad-social-links {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+
+.notepad-link-btn {
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  color: #334155;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 0.78rem;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: center;
+  transition: all 0.15s;
+}
+
+.notepad-link-btn:hover {
+  background: #f1f5f9;
+  color: #0f172a;
+  border-color: #94a3b8;
+}
+
+.notepad-text-editor {
+  flex: 1;
+  padding: 24px 30px;
+  overflow-y: auto;
+  font-size: 0.9rem;
+  line-height: 1.65;
+  color: #1e293b;
+  background: #ffffff;
+}
+
+.notepad-text-editor h2 {
+  font-size: 1.4rem;
+  color: #0f172a;
+  margin-bottom: 12px;
+}
+
+.notepad-text-editor h3 {
+  font-size: 1.1rem;
+  color: #0284c7;
+  margin: 20px 0 8px 0;
+}
+
+.notepad-quote-box {
+  border-left: 3px solid #0078d4;
+  padding: 10px 18px;
+  background: #f0f9ff;
+  border-radius: 0 8px 8px 0;
+  margin: 16px 0;
+  font-style: italic;
+  color: #0369a1;
+}
+
+
+/* --------------------------------------------------------------------------
+   4. 3D & SPATIAL STUDIO (BLENDER / 3D VIEWER)
+   -------------------------------------------------------------------------- */
+.studio-3d-wrap {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.studio-toolbar {
+  height: 38px;
+  background: #f8fafc;
+  border-bottom: 1px solid #e2e8f0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 14px;
+  font-size: 0.78rem;
+  color: #334155;
+}
+
+.studio-viewport {
+  flex: 1;
+  position: relative;
+  background: radial-gradient(circle at 50% 50%, #f8fafc 0%, #e2e8f0 85%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* 3D Grid floor */
+.viewport-grid-floor {
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.06) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(0, 0, 0, 0.06) 1px, transparent 1px);
+  background-size: 40px 40px;
+  transform: perspective(600px) rotateX(60deg) translateY(-80px);
+  pointer-events: none;
+}
+
+/* Interactive 3D Showcase Object */
+.viewport-stage-model {
+  position: relative;
+  width: 320px;
+  height: 240px;
+  perspective: 900px;
+  transform-style: preserve-3d;
+  animation: slowOrbit 20s infinite linear;
+}
+
+@keyframes slowOrbit {
+  0% { transform: rotateY(0deg) rotateX(12deg); }
+  50% { transform: rotateY(180deg) rotateX(4deg); }
+  100% { transform: rotateY(360deg) rotateX(12deg); }
+}
+
+.model-cube {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: 1px solid rgba(0, 120, 212, 0.5);
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 10px 30px rgba(0, 120, 212, 0.15);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  text-align: center;
+  backdrop-filter: blur(4px);
+  color: #0f172a;
+}
+
+.viewport-overlay-ui {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  right: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  pointer-events: none;
+}
+
+.viewport-stats-card {
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-family: 'Consolas', monospace;
+  font-size: 0.74rem;
+  color: #0284c7;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  pointer-events: auto;
+}
+
+.studio-scene-switcher {
+  display: flex;
+  gap: 8px;
+  pointer-events: auto;
+}
+
+.scene-btn {
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  color: #334155;
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.scene-btn.active, .scene-btn:hover {
+  background: #0078d4;
+  border-color: #0078d4;
+  color: #ffffff;
+}
+
+
+/* --------------------------------------------------------------------------
+   5. POWERSHELL / TERMINAL
+   -------------------------------------------------------------------------- */
+.terminal-wrap {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: #0c1017;
+  font-family: 'Consolas', 'Courier New', monospace;
+  color: #38bdf8;
+  padding: 12px 16px;
+}
+
+.terminal-output {
+  flex: 1;
+  overflow-y: auto;
+  line-height: 1.5;
+  font-size: 0.85rem;
+  margin-bottom: 8px;
+}
+
+.term-line {
+  margin-bottom: 4px;
+}
+
+.term-line.cmd {
+  color: #f1f5f9;
+}
+
+.term-line.success {
+  color: #4ade80;
+}
+
+.term-line.warn {
+  color: #facc15;
+}
+
+.term-line.accent {
+  color: #f472b6;
+}
+
+.terminal-input-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+}
+
+.term-prompt {
+  color: #38bdf8;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.terminal-input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #fff;
+  font-family: inherit;
+  font-size: inherit;
+}
+
+
+/* --------------------------------------------------------------------------
+   6. GROOVE MUSIC / MEDIA PLAYER
+   -------------------------------------------------------------------------- */
+.groove-player-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  background: radial-gradient(circle at 50% 30%, #f8fafc 0%, #e2e8f0 100%);
+  padding: 24px;
+  text-align: center;
+}
+
+.vinyl-disk {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #000 30%, #18181b 31%, #27272a 70%, #09090b 100%);
+  border: 4px solid #cbd5e1;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  animation: spinVinyl 6s linear infinite;
+  animation-play-state: paused;
+}
+
+.vinyl-disk.playing {
+  animation-play-state: running;
+}
+
+@keyframes spinVinyl {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.vinyl-center {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #0078d4;
+  border: 2px solid #fff;
+}
+
+.groove-title {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #0f172a;
+  margin-bottom: 4px;
+}
+
+.groove-artist {
+  font-size: 0.82rem;
+  color: #64748b;
+  margin-bottom: 20px;
+}
+
+.groove-controls {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.groove-btn {
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 50%;
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #0f172a;
+  cursor: pointer;
+  transition: all 0.15s;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.groove-btn.main-play {
+  width: 52px;
+  height: 52px;
+  background: #0078d4;
+  border-color: #0078d4;
+  color: #ffffff;
+}
+
+.groove-btn:hover {
+  transform: scale(1.08);
+}
+
+
+/* --------------------------------------------------------------------------
+   7. CONTACT & MAIL CLIENT
+   -------------------------------------------------------------------------- */
+.mail-wrap {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: #ffffff;
+}
+
+.mail-toolbar {
+  height: 42px;
+  background: #f8fafc;
+  border-bottom: 1px solid #e2e8f0;
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.mail-body {
+  flex: 1;
+  display: flex;
+  overflow: hidden;
+}
+
+.mail-sidebar {
+  width: 220px;
+  background: #f8fafc;
+  border-right: 1px solid #e2e8f0;
+  padding: 16px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.mail-info-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 12px;
+  font-size: 0.78rem;
+}
+
+.mail-info-label {
+  color: #64748b;
+  margin-bottom: 2px;
+}
+
+.mail-info-val {
+  color: #0f172a;
+  font-weight: 500;
+  word-break: break-all;
+}
+
+.mail-compose-area {
+  flex: 1;
+  padding: 20px 24px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  background: #ffffff;
+}
+
+.mail-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.mail-input-label {
+  font-size: 0.78rem;
+  color: #475569;
+}
+
+.mail-input {
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  padding: 8px 12px;
+  color: #0f172a;
+  font-family: inherit;
+  font-size: 0.84rem;
+  outline: none;
+}
+
+.mail-input:focus {
+  border-color: #0078d4;
+}
+
+.mail-textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.mail-send-btn {
+  align-self: flex-start;
+  background: #0078d4;
+  border: none;
+  color: #fff;
+  padding: 10px 24px;
+  border-radius: 6px;
+  font-size: 0.84rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.15s;
+}
+
+.mail-send-btn:hover {
+  background: #106ebe;
+  transform: translateY(-1px);
+}
+
+/* --------------------------------------------------------------------------
+   8. RECYCLE BIN
+   -------------------------------------------------------------------------- */
+.bin-wrap {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 16px;
+  background: #ffffff;
+}
+
+.bin-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  border-bottom: 1px solid #e2e8f0;
+  padding-bottom: 10px;
+  color: #0f172a;
+}
+
+.bin-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  gap: 12px;
+}
+
+.bin-item {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 12px 8px;
+  text-align: center;
+  font-size: 0.76rem;
+  cursor: pointer;
+  transition: all 0.15s;
+  color: #0f172a;
+}
+
+.bin-item:hover {
+  background: #f1f5f9;
+  border-color: #cbd5e1;
+}
+
+.bin-empty-btn {
+  background: #fee2e2;
+  border: 1px solid #fca5a5;
+  color: #b91c1c;
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-size: 0.78rem;
+  cursor: pointer;
+}
+
+.bin-empty-btn:hover {
+  background: #fecaca;
+  color: #991b1b;
+}
+
+/* --------------------------------------------------------------------------
+   9. PHOTOGRAPHY GALLERY (PHOTOS APP)
+   -------------------------------------------------------------------------- */
+.photo-gallery-wrap {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: #ffffff;
+  overflow: hidden;
+  position: relative;
+}
+
+.photo-toolbar {
+  height: 48px;
+  background: #f8fafc;
+  border-bottom: 1px solid #e2e8f0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  flex-shrink: 0;
+}
+
+.photo-tabs {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  overflow-x: auto;
+}
+
+.photo-tab-btn {
+  background: transparent;
+  border: 1px solid transparent;
+  color: #475569;
+  font-size: 0.78rem;
+  font-weight: 500;
+  padding: 5px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.15s;
+}
+
+.photo-tab-btn:hover {
+  background: #f1f5f9;
+  color: #0f172a;
+}
+
+.photo-tab-btn.active {
+  background: #0078d4;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.photo-counter {
+  font-size: 0.76rem;
+  color: #64748b;
+  font-weight: 500;
+}
+
+.photo-grid-container {
+  flex: 1;
+  overflow-y: auto;
+  padding: 18px;
+}
+
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 16px;
+}
+
+.photo-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+  display: flex;
+  flex-direction: column;
+}
+
+.photo-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.08);
+  border-color: #cbd5e1;
+}
+
+.photo-card-img-wrap {
+  width: 100%;
+  height: 160px;
+  overflow: hidden;
+  background: #0f172a;
+  position: relative;
+}
+
+.photo-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.35s ease;
+}
+
+.photo-card:hover .photo-card-img {
+  transform: scale(1.04);
+}
+
+.photo-card-badge {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  background: rgba(15, 23, 42, 0.75);
+  backdrop-filter: blur(4px);
+  color: #ffffff;
+  font-size: 0.68rem;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+.photo-card-info {
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.photo-card-title {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #0f172a;
+  line-height: 1.3;
+}
+
+.photo-card-sub {
+  font-size: 0.74rem;
+  color: #64748b;
+  line-height: 1.4;
+  margin-top: 2px;
+}
+
+.photo-card-meta {
+  font-size: 0.68rem;
+  color: #0284c7;
+  font-weight: 500;
+  margin-top: 6px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* Photo Lightbox Modal */
+.photo-lightbox {
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.96);
+  backdrop-filter: blur(12px);
+  z-index: 100;
+  display: none;
+  flex-direction: column;
+  padding: 16px;
+}
+
+.photo-lightbox.open {
+  display: flex;
+}
+
+.lightbox-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #fff;
+  margin-bottom: 12px;
+}
+
+.lightbox-close-btn {
+  background: rgba(255, 255, 255, 0.15);
+  border: none;
+  color: #fff;
+  padding: 6px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.82rem;
+  font-weight: 600;
+  transition: background 0.15s;
+}
+
+.lightbox-close-btn:hover {
+  background: #e11d48;
+}
+
+.lightbox-body {
+  flex: 1;
+  display: flex;
+  gap: 20px;
+  overflow: hidden;
+}
+
+.lightbox-img-col {
+  flex: 1.5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #020617;
+  border-radius: 10px;
+  overflow: hidden;
+  padding: 8px;
+}
+
+.lightbox-img-col img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: 6px;
+}
+
+.lightbox-details-col {
+  flex: 1;
+  color: #f1f5f9;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 8px;
+  overflow-y: auto;
+}
+
+/* --------------------------------------------------------------------------
+   10. 3D & SPATIAL VIDEO REEL & ENHANCED VIEWPORT
+   -------------------------------------------------------------------------- */
+.studio-video-tab-btn {
+  background: rgba(139, 92, 246, 0.15);
+  border: 1px solid rgba(139, 92, 246, 0.4);
+  color: #a78bfa;
+  padding: 4px 12px;
+  border-radius: 6px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.15s;
+}
+
+.studio-video-tab-btn:hover,
+.studio-video-tab-btn.active {
+  background: #8b5cf6;
+  color: #ffffff;
+}
+
+.studio-video-panel {
+  flex: 1;
+  display: none;
+  flex-direction: column;
+  background: #090d16;
+  padding: 16px;
+  overflow-y: auto;
+}
+
+.studio-video-panel.active {
+  display: flex;
+}
+
+.video-card-container {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.spatial-gallery-panel {
+  display: none;
+  flex-direction: column;
+  gap: 16px;
+  padding: 16px;
+  background: #0f172a;
+  overflow-y: auto;
+}
+
+.spatial-gallery-panel.active {
+  display: flex;
+}
+
+.spatial-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+.spatial-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 10px;
+  overflow: hidden;
+  color: #fff;
+  transition: transform 0.2s;
+}
+
+.spatial-card:hover {
+  transform: translateY(-3px);
+  border-color: #38bdf8;
+}
+
+/* --------------------------------------------------------------------------
+   11. VISUAL PLAYGROUND
+   -------------------------------------------------------------------------- */
+.playground-wrap {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: #ffffff;
+  overflow: hidden;
+  position: relative;
+}
+
+.playground-toolbar {
+  height: 48px;
+  background: #f8fafc;
+  border-bottom: 1px solid #e2e8f0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  flex-shrink: 0;
+}
+
+.playground-grid-container {
+  flex: 1;
+  overflow-y: auto;
+  padding: 18px;
+}
+
+.playground-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 16px;
+}
+
+.playground-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+  display: flex;
+  flex-direction: column;
+}
+
+.playground-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.08);
+  border-color: #cbd5e1;
+}
+
+.playground-img-wrap {
+  width: 100%;
+  height: 150px;
+  overflow: hidden;
+  background: #f1f5f9;
+  position: relative;
+}
+
+.playground-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.35s ease;
+}
+
+.playground-card:hover .playground-img {
+  transform: scale(1.04);
+}
+
+.playground-info {
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.playground-title {
+  font-size: 0.86rem;
+  font-weight: 600;
+  color: #0f172a;
+  line-height: 1.3;
+}
+
+.playground-desc {
+  font-size: 0.74rem;
+  color: #64748b;
+  line-height: 1.4;
+  margin-top: 2px;
+}
+
+.playground-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-top: 8px;
+}
+
+.playground-tag {
+  font-size: 0.68rem;
+  background: #f1f5f9;
+  color: #475569;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+/* --------------------------------------------------------------------------
+   12. BEYOND THE BRIEF (EXPERIMENTAL LAB)
+   -------------------------------------------------------------------------- */
+.beyond-wrap {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: #ffffff;
+  overflow: hidden;
+  position: relative;
+}
+
+.beyond-toolbar {
+  height: 48px;
+  background: #f8fafc;
+  border-bottom: 1px solid #e2e8f0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  flex-shrink: 0;
+}
+
+.beyond-grid-container {
+  flex: 1;
+  overflow-y: auto;
+  padding: 18px;
+}
+
+.beyond-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 16px;
+}
+
+.beyond-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+  display: flex;
+  flex-direction: column;
+}
+
+.beyond-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.08);
+  border-color: #cbd5e1;
+}
+
+.beyond-img-wrap {
+  width: 100%;
+  height: 150px;
+  overflow: hidden;
+  background: #f8fafc;
+  position: relative;
+}
+
+.beyond-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.35s ease;
+}
+
+.beyond-card:hover .beyond-img {
+  transform: scale(1.04);
+}
+
+.beyond-info {
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.beyond-title {
+  font-size: 0.86rem;
+  font-weight: 600;
+  color: #0f172a;
+  line-height: 1.3;
+}
+
+.beyond-desc {
+  font-size: 0.74rem;
+  color: #64748b;
+  line-height: 1.4;
+  margin-top: 2px;
+}
+
+.beyond-badge {
+  display: inline-block;
+  align-self: flex-start;
+  font-size: 0.68rem;
+  font-weight: 600;
+  background: #fdf2f8;
+  color: #db2777;
+  border: 1px solid #fbcfe8;
+  padding: 2px 8px;
+  border-radius: 12px;
+  margin-bottom: 4px;
+}

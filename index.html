@@ -1,0 +1,1874 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aleesha K. L. — 3D Visual & Experience Designer Portfolio (Aleesha OS)</title>
+
+  <meta name="description"
+    content="Portfolio of Aleesha K. L. - Creative 3D Visualiser, UI/UX Designer, and Experience Designer pursuing B.Des at NIFT Kannur.">
+  <meta property="og:title" content="Aleesha K. L. — 3D Visual & Experience Designer Portfolio">
+  <meta property="og:description"
+    content="Interactive Windows OS-style portfolio featuring 3D stage designs, exhibition stalls, UI/UX case studies, and resume.">
+  <meta property="og:image" content="assets/profile.jpg">
+
+  <link rel="icon" href="assets/avatar_perch_transparent.png" type="image/png">
+  <link rel="apple-touch-icon" href="assets/avatar_perch_transparent.png">
+
+  <!-- Google Fonts: Fredoka for Solari Bubbly Typography & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700;800;900&family=Plus+Jakarta+Sans:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Core Stylesheets -->
+  <link rel="stylesheet" href="css/styles.css?v=15">
+  <link rel="stylesheet" href="css/boot-welcome.css?v=15">
+  <link rel="stylesheet" href="css/apps.css?v=15">
+</head>
+
+<body>
+  <!-- ======================================================================
+       SCREEN 1: WINDOWS LOCK / PROFILE WELCOME SCREEN
+       ====================================================================== -->
+  <div id="windows-welcome-screen">
+    <div class="welcome-vignette"></div>
+
+    <!-- Top Bar: Lock Screen Clock & Location Tag -->
+    <div class="welcome-top-bar">
+      <div class="welcome-clock-widget">
+        <div class="welcome-time" id="welcome-time">4:47</div>
+        <div class="welcome-date" id="welcome-date">Tuesday, October 6</div>
+      </div>
+      <div class="welcome-location-tag">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 2a8 8 0 0 0-8 8c0 5.25 8 12 8 12s8-6.75 8-12a8 8 0 0 0-8-8z" />
+          <circle cx="12" cy="10" r="3" />
+        </svg>
+        <span>Kochi, Kerala • NIFT Kannur</span>
+      </div>
+    </div>
+
+    <!-- Center Card: Animated 3D Avatar (1 to 9), "Hi, I'm Aleesha", and Typewriter Intro -->
+    <div class="welcome-center-card" id="welcome-center-card">
+      <div class="welcome-avatar-wrapper" id="welcome-avatar-wrapper" title="Click to interact with Aleesha!">
+        <img src="assets/avatar 8.png" alt="Aleesha Animated Avatar" class="welcome-avatar-img"
+          id="welcome-avatar-frame">
+        <div class="avatar-ring-glow"></div>
+        <div class="avatar-badge-status" title="Active"></div>
+      </div>
+
+      <h1 class="welcome-name">Hi, I'm Aleesha</h1>
+
+      <!-- Animated Typewriter Introduction -->
+      <div class="welcome-tagline-container">
+        <p class="welcome-tagline" id="welcome-typewriter-text">
+          <span class="type-lead">a creative exploring </span><strong class="hl-3d">3D visualisation</strong>, <strong
+            class="hl-spatial">spatial design</strong>, <strong class="hl-exp">experience design</strong>, and <strong
+            class="hl-vm">visual merchandising</strong>.
+        </p>
+      </div>
+
+      <!-- Windows Spinning Dots -->
+      <div class="windows-spinner-row">
+        <div class="windows-spinner">
+          <div class="windows-spinner-dot"></div>
+          <div class="windows-spinner-dot"></div>
+          <div class="windows-spinner-dot"></div>
+          <div class="windows-spinner-dot"></div>
+          <div class="windows-spinner-dot"></div>
+        </div>
+        <div class="welcome-text" id="welcome-text">Welcome</div>
+      </div>
+
+      <button class="welcome-signin-btn" id="welcome-signin-btn">Sign In</button>
+    </div>
+
+    <!-- Bottom Bar: Windows System Tray Icons (Wi-Fi, Accessibility, Power) -->
+    <div class="welcome-bottom-bar">
+      <div class="welcome-hints">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="10" />
+          <line x1="12" y1="16" x2="12" y2="12" />
+          <line x1="12" y1="8" x2="12.01" y2="8" />
+        </svg>
+        <span>Click anywhere or press Enter to launch Windows Homescreen</span>
+      </div>
+      <div class="welcome-system-icons">
+        <!-- Wi-Fi -->
+        <svg class="welcome-sys-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M5 12.55a11 11 0 0 1 14.08 0" />
+          <path d="M1.42 9a16 16 0 0 1 21.16 0" />
+          <path d="M8.53 16.11a6 6 0 0 1 6.95 0" />
+          <line x1="12" y1="20" x2="12.01" y2="20" />
+        </svg>
+        <!-- Accessibility -->
+        <svg class="welcome-sys-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="4" r="2" />
+          <path d="m5 9 7 2 7-2" />
+          <path d="M12 11v9" />
+          <path d="m8 15 4 5 4-5" />
+        </svg>
+        <!-- Power -->
+        <svg class="welcome-sys-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M18.36 6.64a9 9 0 1 1-12.73 0" />
+          <line x1="12" y1="2" x2="12" y2="12" />
+        </svg>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ======================================================================
+       SCREEN 3: THE WINDOWS HOMESCREEN (DESKTOP)
+       "and also after loading show the windows homescreen"
+       Complete interactive Windows PC desktop experience with Desktop Icons,
+       Draggable & Maximizable Windows, Taskbar, Start Menu, System Tray & Apps.
+       ====================================================================== -->
+  <main id="desktop-environment">
+    <div class="desktop-backdrop-tint"></div>
+
+    <!-- 3D Interactive Desktop Character (Aleesha) & Glossy Surface Reflection -->
+    <div class="desktop-3d-scene" id="desktop-3d-scene">
+      <div id="desktop-character" class="desktop-character-3d" title="Aleesha — 3D Visual & Experience Designer">
+        <div class="character-breathing-wrap">
+          <img src="assets/wallpaper avatar.png" alt="Aleesha 3D" draggable="false"
+            class="character-img character-img-default" id="character-main-img">
+          <img src="assets/laughing avatar.png" alt="Aleesha Laughing" draggable="false"
+            class="character-img character-img-laugh" id="character-laugh-img">
+        </div>
+        <div class="character-reflection">
+          <img src="assets/wallpaper avatar.png" alt="Reflection" draggable="false"
+            class="character-reflection-img character-reflection-default-img" id="character-reflection-img">
+
+        </div>
+        <div class="character-shadow"></div>
+      </div>
+    </div>
+
+    <!-- Floating Frosted Glass Windows 11 Dock (Matching Reference Image) -->
+    <div class="desktop-floating-dock" id="floating-dock">
+      <!-- 1. About Me -->
+      <button class="dock-btn dock-btn-avatar" data-app="about" title="About Me — Aleesha K. L.">
+        <div class="dock-avatar-circle">
+          <img src="assets/avatar 1.png" alt="About Me" class="dock-avatar-img">
+        </div>
+      </button>
+
+      <!-- 2. Windows -->
+      <button class="dock-btn dock-btn-win" data-app="start" title="Windows Start Menu">
+        <svg viewBox="0 0 24 24" fill="#0078d4" width="22" height="22">
+          <path d="M3 3h8v8H3zm10 0h8v8h-8zM3 13h8v8H3zm10 0h8v8h-8z" />
+        </svg>
+      </button>
+
+      <!-- 3. Search -->
+      <button class="dock-btn dock-btn-search" data-app="search" title="Search Projects & Files">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#f1f5f9" stroke-width="2.5" width="20" height="20">
+          <circle cx="11" cy="11" r="7" />
+          <line x1="21" y1="21" x2="16" y2="16" />
+        </svg>
+      </button>
+
+      <!-- 4. Skills (Notes Pad icon from assets) -->
+      <button class="dock-btn dock-btn-skills" data-app="skills" title="Skills & Tools">
+        <img src="assets/Windows_Notepad_icon.png" alt="Notepad Skills" class="dock-img-icon">
+      </button>
+
+      <!-- Vertical Divider | -->
+      <div class="dock-divider" aria-hidden="true"></div>
+
+      <!-- 5. LinkedIn -->
+      <a href="https://linkedin.com/in/aleeshakl" target="_blank" rel="noopener noreferrer"
+        class="dock-btn dock-social-btn dock-btn-linkedin" title="LinkedIn — Aleesha K. L.">
+        <img src="assets/LinkedIn_icon.svg.webp" alt="LinkedIn" class="dock-img-icon">
+      </a>
+
+      <!-- 6. Behance -->
+      <a href="https://behance.net/aleesha_kl" target="_blank" rel="noopener noreferrer"
+        class="dock-btn dock-social-btn dock-btn-behance" title="Behance — Aleesha K. L.">
+        <img src="assets/behance.jpg" alt="Behance" class="dock-img-icon">
+      </a>
+    </div>
+
+    <!-- Floating Desktop File Cards Arranged Around Central Character -->
+    <div class="desktop-mockup-icons-container" id="mockup-icons-container">
+
+      <!-- 1. Projects (Top-Left) -->
+      <div class="mockup-icon" data-pos="projects" data-app="projects"
+        title="Projects — 5 Featured Projects & Case Studies (Solari Design)">
+        <div class="mockup-thumb-card">
+          <img src="assets/thumb_desktop_projects.png" alt="Projects" class="mockup-thumb-img">
+        </div>
+        <div class="mockup-icon-label">Projects</div>
+      </div>
+
+      <!-- 2. About Me (Far-Left Upper) -->
+      <div class="mockup-icon" data-pos="about" data-app="about"
+        title="About Me — Multidisciplinary Designer Across 3D, Spatial, Experience & Visual Communication">
+        <div class="mockup-thumb-card">
+          <img src="assets/thumb_desktop_about.png" alt="About Me" class="mockup-thumb-img">
+        </div>
+        <div class="mockup-icon-label">About Me</div>
+      </div>
+
+      <!-- 3. Resume.pdf (Left-Mid) -->
+      <div class="mockup-icon" data-pos="resume" data-app="resume" title="Resume.pdf — View & Download Resume">
+        <div class="mockup-thumb-card">
+          <img src="assets/thumb_desktop_resume.png" alt="Resume.pdf" class="mockup-thumb-img">
+        </div>
+        <div class="mockup-icon-label">Resume.pdf</div>
+      </div>
+
+      <!-- 4. Contact Me (Bottom-Left) -->
+      <div class="mockup-icon" data-pos="contact" data-app="mail"
+        title="Contact Me — Email, LinkedIn, Behance & Contact Links">
+        <div class="mockup-thumb-card">
+          <img src="assets/thumb_desktop_contact.png" alt="Contact Me" class="mockup-thumb-img">
+        </div>
+        <div class="mockup-icon-label">Contact Me</div>
+      </div>
+
+      <!-- 5. 3D & Spatial (Top-Right) -->
+      <div class="mockup-icon" data-pos="spatial" data-app="studio3d"
+        title="3D & Spatial — 3D Visualisation, Event Stages, Stalls & Experiential Environments">
+        <div class="mockup-thumb-card">
+          <img src="assets/thumb_desktop_spatial.png" alt="3D & Spatial" class="mockup-thumb-img">
+        </div>
+        <div class="mockup-icon-label">3D & Spatial</div>
+      </div>
+
+      <!-- 6. Photography (Far-Right Upper) -->
+      <div class="mockup-icon" data-pos="photography" data-app="photography"
+        title="Photography — Editorial Shoots, Compositions & Visual Storytelling">
+        <div class="mockup-thumb-card">
+          <img src="assets/thumb_desktop_photography.png" alt="Photography" class="mockup-thumb-img">
+        </div>
+        <div class="mockup-icon-label">Photography</div>
+      </div>
+
+      <!-- 7. Visual Playground (Right-Mid) -->
+      <div class="mockup-icon" data-pos="playground" data-app="playground"
+        title="Visual Playground — UI/UX, Website Design, Graphic Design, Branding & Packaging">
+        <div class="mockup-thumb-card">
+          <img src="assets/thumb_desktop_playground.png" alt="Visual Playground" class="mockup-thumb-img">
+        </div>
+        <div class="mockup-icon-label">Visual Playground</div>
+      </div>
+
+      <!-- 8. Beyond the Brief (Bottom-Right) -->
+      <div class="mockup-icon" data-pos="beyond" data-app="beyond"
+        title="Beyond the Brief — Personal Projects, Experimental Concepts & Creative Explorations">
+        <div class="mockup-thumb-card">
+          <img src="assets/thumb_desktop_beyond.png" alt="Beyond the Brief" class="mockup-thumb-img">
+        </div>
+        <div class="mockup-icon-label">Beyond the Brief</div>
+      </div>
+
+    </div>
+
+    <!-- ====================================================================
+         FLOATING WINDOWS CONTAINER
+         ==================================================================== -->
+    <!-- 1. WINDOW: PROJECTS (FILE EXPLORER) -->
+    <div class="os-window" id="window-projects" style="width: 1040px; height: 720px; max-width: 96vw; max-height: 90vh;">
+      <div class="window-titlebar">
+        <div class="window-title-left">
+          <div class="window-title-icon">
+            <svg viewBox="0 0 24 24" fill="#8b5cf6">
+              <path d="M10 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-8l-2-2z" />
+            </svg>
+          </div>
+          <div class="window-title-text">Projects & Works — Solari Design System</div>
+        </div>
+        <div class="window-controls">
+          <button class="win-btn btn-min" title="Minimize"><svg viewBox="0 0 10 1">
+              <line x1="0" y1="0.5" x2="10" y2="0.5" stroke="currentColor" stroke-width="1.2" />
+            </svg></button>
+          <button class="win-btn btn-max" title="Maximize"><svg viewBox="0 0 10 10">
+              <rect x="0.5" y="0.5" width="9" height="9" fill="none" stroke="currentColor" stroke-width="1.2" />
+            </svg></button>
+          <button class="win-btn btn-close" title="Close"><svg viewBox="0 0 10 10">
+              <line x1="0" y1="0.5" x2="10" y2="10" stroke="currentColor" stroke-width="1.4" />
+              <line x1="10" y1="0" x2="0" y2="10" stroke="currentColor" stroke-width="1.4" />
+            </svg></button>
+        </div>
+      </div>
+
+      <div class="window-content solari-window-content">
+        <div class="solari-projects-wrap" id="solari-projects-wrap">
+
+          <!-- Solari Main View: Stacked Folders -->
+          <div class="solari-overview-view" id="solari-overview-view">
+            <!-- Top Solari Header with Selena/Aleesha Bubbly Typography & Mascot -->
+            <div class="solari-brand-header">
+              <div class="solari-brand-left">
+                <div class="solari-brand-logo">ALEESHA</div>
+                <div class="solari-brand-tagline">3D Spatial • Event Architecture • Exhibition Design</div>
+              </div>
+              <div class="solari-brand-stats">
+                <span class="solari-pill-badge">5 Internship Projects</span>
+                <span class="solari-pill-sub">Click any tab to view full case study</span>
+              </div>
+            </div>
+
+            <!-- Authentic Manila File Folder Container -->
+            <div class="solari-folder-container" id="solari-folder-container">
+
+              <!-- Mascot perched on Tab 01 (Zero background box, transparent avatar) -->
+              <div class="solari-perched-mascot" title="Hello! Click any folder tab below!">
+                <div class="solari-mascot-speech">Pick a project! ✦</div>
+                <img src="assets/avatar_perch_transparent.png" alt="Aleesha Mascot" class="solari-mascot-img">
+              </div>
+
+              <!-- Peeking Mascot on Right Edge (Zero background box, transparent laughing avatar with backpack) -->
+              <div class="solari-side-mascot" id="solari-side-mascot" title="Explore 3D renders!">
+                <img src="assets/avatar_peek_transparent.png" alt="Aleesha Peeking Mascot">
+              </div>
+
+              <!-- Large Central Overlapping Photo Deck (4 Fanned Polaroid/Print Cards with Spring Physics) -->
+              <div class="solari-hero-photo-deck" id="solari-hero-photo-deck" aria-label="Overlapping Project Photo Deck">
+                <div class="solari-deck-card solari-deck-card-1" data-card-idx="0" title="Click to view full case study">
+                  <div class="solari-deck-img-wrap">
+                    <img src="assets/ChatGPT Image Aug 13, 2026, 06_14_26 PM.png" alt="Stage Hero View" class="solari-deck-img">
+                  </div>
+                  <span class="solari-deck-badge">Stage Hero</span>
+                </div>
+                <div class="solari-deck-card solari-deck-card-2" data-card-idx="1" title="Click to view full case study">
+                  <div class="solari-deck-img-wrap">
+                    <img src="assets/ChatGPT Image Aug 13, 2026, 04_24_01 PM.png" alt="Scenography & Lighting" class="solari-deck-img">
+                  </div>
+                  <span class="solari-deck-badge">Scenography</span>
+                </div>
+                <div class="solari-deck-card solari-deck-card-3" data-card-idx="2" title="Click to view full case study">
+                  <div class="solari-deck-img-wrap">
+                    <img src="assets/ChatGPT Image Aug 13, 2026, 05_14_34 PM.png" alt="Sightlines & Podium" class="solari-deck-img">
+                  </div>
+                  <span class="solari-deck-badge">Sightlines</span>
+                </div>
+                <div class="solari-deck-card solari-deck-card-4" data-card-idx="3" title="Click to view full case study">
+                  <div class="solari-deck-img-wrap">
+                    <img src="assets/ChatGPT Image Aug 13, 2026, 05_52_50 PM.png" alt="Atmosphere & Reflections" class="solari-deck-img">
+                  </div>
+                  <span class="solari-deck-badge">Atmosphere</span>
+                </div>
+              </div>
+
+              <!-- Stacked Manila Folder Rows with Authentic Step-Down Contour -->
+              <div class="solari-folder-rows" id="solari-folder-rows">
+
+                <!-- 01 EMAK SILENT HEROES (Top Tab with raised ear) -->
+                <div class="solari-folder-row solari-row-01 is-active" data-project-id="emak"
+                  style="--row-color: #c4b5fd; --row-text: #2e1065; --row-accent: #7c3aed; z-index: 6;">
+                  <div class="solari-tab-ear solari-ear-raised">
+                    <span class="solari-tab-num">01</span>
+                    <span class="solari-tab-name">EMAK</span>
+                  </div>
+                  <div class="solari-tab-strip solari-strip-top">
+                    <span class="solari-strip-item">Awards Stage</span>
+                    <span class="solari-strip-item">Hyatt Regency</span>
+                    <span class="solari-strip-item">Fusion 360</span>
+                    <span class="solari-strip-item highlight">1 Week</span>
+                    <span class="solari-strip-action" data-project-id="emak">Open Project ✦</span>
+                  </div>
+                </div>
+
+                <!-- 02 NEITHI EXHIBITION STALL -->
+                <div class="solari-folder-row solari-row-02" data-project-id="neithi"
+                  style="--row-color: #a7f3d0; --row-text: #064e3b; --row-accent: #059669; z-index: 5;">
+                  <div class="solari-tab-ear">
+                    <span class="solari-tab-num">02</span>
+                    <span class="solari-tab-name">NEITHI</span>
+                  </div>
+                  <div class="solari-tab-strip">
+                    <span class="solari-strip-item">Exhibition Pavilion</span>
+                    <span class="solari-strip-item">Skincare & Haircare</span>
+                    <span class="solari-strip-item">3D Walkthrough</span>
+                    <span class="solari-strip-item highlight">2 Weeks</span>
+                    <span class="solari-strip-action" data-project-id="neithi">Open Project ✦</span>
+                  </div>
+                </div>
+
+                <!-- 03 RADIO MANGO THIRA 2026 -->
+                <div class="solari-folder-row solari-row-03" data-project-id="radiomango"
+                  style="--row-color: #bae6fd; --row-text: #0c4a6e; --row-accent: #0284c7; z-index: 4;">
+                  <div class="solari-tab-ear">
+                    <span class="solari-tab-num">03</span>
+                    <span class="solari-tab-name">THIRA</span>
+                  </div>
+                  <div class="solari-tab-strip">
+                    <span class="solari-strip-item">Roadshow Stage Truck</span>
+                    <span class="solari-strip-item">Cinema Spadikam</span>
+                    <span class="solari-strip-item">Pulikali Folklore</span>
+                    <span class="solari-strip-item highlight">1 Week</span>
+                    <span class="solari-strip-action" data-project-id="radiomango">Open Project ✦</span>
+                  </div>
+                </div>
+
+                <!-- 04 TRADITIONAL HINDU WEDDING MANDAP -->
+                <div class="solari-folder-row solari-row-04" data-project-id="mandap"
+                  style="--row-color: #fef08a; --row-text: #713f12; --row-accent: #ca8a04; z-index: 3;">
+                  <div class="solari-tab-ear">
+                    <span class="solari-tab-num">04</span>
+                    <span class="solari-tab-name">MANDAP</span>
+                  </div>
+                  <div class="solari-tab-strip">
+                    <span class="solari-strip-item">Temple Architecture</span>
+                    <span class="solari-strip-item">Tulasi Thara & Diyas</span>
+                    <span class="solari-strip-item">Layered Roofs</span>
+                    <span class="solari-strip-item highlight">1 Week</span>
+                    <span class="solari-strip-action" data-project-id="mandap">Open Project ✦</span>
+                  </div>
+                </div>
+
+                <!-- 05 ANIME THEMED BIRTHDAY PARTY -->
+                <div class="solari-folder-row solari-row-05" data-project-id="anime"
+                  style="--row-color: #fbcfe8; --row-text: #831843; --row-accent: #db2777; z-index: 2;">
+                  <div class="solari-tab-ear">
+                    <span class="solari-tab-num">05</span>
+                    <span class="solari-tab-name">ANIME</span>
+                  </div>
+                  <div class="solari-tab-strip">
+                    <span class="solari-strip-item">Naruto & Pokémon</span>
+                    <span class="solari-strip-item">Layered Backdrops</span>
+                    <span class="solari-strip-item">Neon Illumination</span>
+                    <span class="solari-strip-item highlight">1 Week</span>
+                    <span class="solari-strip-action" data-project-id="anime">Open Project ✦</span>
+                  </div>
+                </div>
+
+                <!-- 06 CONTACT & CONNECT (Base Row) -->
+                <div class="solari-folder-row solari-row-06 solari-row-base" data-project-id="contact"
+                  style="--row-color: #e0e7ff; --row-text: #312e81; --row-accent: #6366f1; z-index: 1;">
+                  <div class="solari-tab-ear solari-ear-base">
+                    <span class="solari-tab-num">06</span>
+                    <span class="solari-tab-name">CONTACT</span>
+                  </div>
+                  <div class="solari-tab-strip solari-strip-base">
+                    <span class="solari-strip-label">Say Hello</span>
+                    <span class="solari-strip-email">aleeshakl2495@gmail.com</span>
+                    <div class="solari-base-actions">
+                      <button class="solari-btn-pill" id="solari-btn-resume" type="button">Open Resume ✦</button>
+                      <button class="solari-btn-pill primary" id="solari-btn-contact" type="button">Say Hello ✦</button>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+          <!-- Solari Detailed View: Single Project Full Breakdown -->
+          <div class="solari-detail-view" id="solari-detail-view" style="display: none;">
+            <!-- Navigation Bar in Detailed View -->
+            <div class="solari-detail-nav">
+              <button class="solari-back-btn" id="solari-back-btn">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <line x1="19" y1="12" x2="5" y2="12" />
+                  <polyline points="12 19 5 12 12 5" />
+                </svg>
+                <span>All Projects Index</span>
+              </button>
+              <div class="solari-detail-pills" id="solari-project-switcher-pills">
+                <button class="solari-nav-pill active" data-project-id="emak">01 EMAK</button>
+                <button class="solari-nav-pill" data-project-id="neithi">02 NEITHI</button>
+                <button class="solari-nav-pill" data-project-id="radiomango">03 THIRA</button>
+                <button class="solari-nav-pill" data-project-id="mandap">04 MANDAP</button>
+                <button class="solari-nav-pill" data-project-id="anime">05 ANIME</button>
+              </div>
+            </div>
+
+            <!-- Injected Detailed Case Study Content -->
+            <div class="solari-detail-body" id="solari-detail-body">
+              <!-- Dynamically rendered by apps.js -->
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. WINDOW: RESUME.PDF VIEWER -->
+    <div class="os-window" id="window-resume" style="width: 860px; height: 580px;">
+      <div class="window-titlebar">
+        <div class="window-title-left">
+          <div class="window-title-icon">
+            <svg viewBox="0 0 24 24" fill="#e11d48">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+              <polyline points="14 2 14 8 20 8" />
+            </svg>
+          </div>
+          <div class="window-title-text">Adobe Acrobat Reader — Aleesha_Resume.pdf</div>
+        </div>
+        <div class="window-controls">
+          <button class="win-btn btn-min" title="Minimize"><svg viewBox="0 0 10 1">
+              <line x1="0" y1="0.5" x2="10" y2="0.5" stroke="currentColor" stroke-width="1.2" />
+            </svg></button>
+          <button class="win-btn btn-max" title="Maximize"><svg viewBox="0 0 10 10">
+              <rect x="0.5" y="0.5" width="9" height="9" fill="none" stroke="currentColor" stroke-width="1.2" />
+            </svg></button>
+          <button class="win-btn btn-close" title="Close"><svg viewBox="0 0 10 10">
+              <line x1="0" y1="0" x2="10" y2="10" stroke="currentColor" stroke-width="1.4" />
+              <line x1="10" y1="0" x2="0" y2="10" stroke="currentColor" stroke-width="1.4" />
+            </svg></button>
+        </div>
+      </div>
+
+      <div class="window-content">
+        <div class="resume-viewer-wrap">
+          <div class="resume-toolbar">
+            <div class="resume-tool-left">
+              <span>Aleesha_Resume.pdf (2 Pages)</span>
+              <span style="color:#64748b;">|</span>
+              <span>CGPA: 8.6 / 10 • NIFT Kannur</span>
+            </div>
+            <div class="resume-tool-actions">
+              <a href="mailto:aleeshakl2495@gmail.com" class="resume-email-btn" id="resume-direct-email-btn"
+                title="Send Direct Email to aleeshakl2495@gmail.com">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="2" y="4" width="20" height="16" rx="2" />
+                  <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+                </svg>
+                <span>Send Direct Email</span>
+              </a>
+              <a href="assets/Aleesha_Resume.pdf" download="Aleesha_KL_Resume.pdf" class="resume-download-btn">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                  <polyline points="7 10 12 15 17 10" />
+                  <line x1="12" y1="15" x2="12" y2="3" />
+                </svg>
+                <span>Download Resume (PDF)</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="resume-paper-container">
+            <div class="resume-paper">
+              <!-- Header -->
+              <div class="res-header">
+                <div class="res-name-col">
+                  <h1>ALEESHA K. L.</h1>
+                  <div class="res-roles">
+                    3D Visual Designer | UI/UX Designer | Experience Designer<br>
+                    Spatial Designer | Visual Merchandiser | AR/VR Visualiser
+                  </div>
+                </div>
+                <div class="res-contact-col">
+                  <div>Kochi, Kerala</div>
+                  <div>+91 7907149788</div>
+                  <div><a href="mailto:aleeshakl2495@gmail.com"
+                      style="color: #0284c7; text-decoration: underline;">aleeshakl2495@gmail.com</a></div>
+                  <div><a href="mailto:aleeshakl2495@gmail.com" class="res-direct-email-badge"><svg width="12"
+                        height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="2" y="4" width="20" height="16" rx="2" />
+                        <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+                      </svg><span>Send Direct Email</span></a></div>
+                  <div><a href="https://behance.net/aleesha_kl" target="_blank">behance.net/aleesha_kl</a></div>
+                  <div><a href="https://linkedin.com/in/aleeshakl" target="_blank">linkedin.com/in/aleeshakl</a></div>
+                </div>
+              </div>
+
+              <!-- Professional Summary -->
+              <div class="res-section">
+                <div class="res-sec-title">Professional Summary</div>
+                <p class="res-summary-text">
+                  Creative 3D Visualiser and Experience Designer pursuing a B.Des in Fashion Communication at NIFT
+                  Kannur (CGPA 8.6/10, 4th year). Experienced in designing immersive 3D stages, event sets, exhibition
+                  stalls and spatial layouts for weddings, corporate events, brand activations and award ceremonies.
+                  Skilled in Blender, Autodesk Fusion, SketchUp and Coohom to turn creative briefs into photorealistic,
+                  execution-ready visualisations, backed by strong UI/UX, brand identity and editorial design
+                  capabilities. Seeking an Experience Design, Spatial Design, Visual Merchandising or AR/VR
+                  Visualisation role where technical precision and creative storytelling create memorable brand
+                  experiences.
+                </p>
+              </div>
+
+              <!-- Professional Experience -->
+              <div class="res-section">
+                <div class="res-sec-title">Professional Experience</div>
+                <div class="res-job-item">
+                  <div class="res-job-header">
+                    <div>
+                      <span class="res-job-role">3D Visual Designer Intern</span> —
+                      <span class="res-job-company">Rainmakers Signature Experiences Pvt. Ltd.</span>
+                    </div>
+                    <div class="res-job-meta">Kochi, Kerala | Jun 2026 – Jul 2026</div>
+                  </div>
+                  <ul class="res-job-bullets">
+                    <li>Designed and developed 3D stage, set and event visualisations for weddings, corporate events,
+                      brand activations and award ceremonies.</li>
+                    <li>Created 3D concepts, spatial layouts, models, materials, lighting and photorealistic renders
+                      using Blender and Autodesk Fusion.</li>
+                    <li>Translated creative briefs into detailed, presentation-ready concepts tailored to event-specific
+                      requirements.</li>
+                    <li>Collaborated with design and production teams to deliver practical 3D solutions, accounting for
+                      scale, dimensions, spatial constraints and execution needs.</li>
+                  </ul>
+                </div>
+
+                <div class="res-job-item">
+                  <div class="res-job-header">
+                    <div>
+                      <span class="res-job-role">Graphic Design Intern</span> —
+                      <span class="res-job-company">Inamigos Foundation</span>
+                    </div>
+                    <div class="res-job-meta">Kochi, Kerala | Jun 2025 – Jul 2025</div>
+                  </div>
+                  <ul class="res-job-bullets">
+                    <li>Conceptualised and produced 15+ digital marketing assets (social posts, stories, event banners)
+                      for CSR campaigns, applying brand guidelines, colour theory and visual identity principles.</li>
+                    <li>Created print-ready and screen-optimised visuals in Adobe Photoshop and Illustrator, with strong
+                      layout and typography.</li>
+                    <li>Partnered with the outreach team to build cohesive visual narratives aligned with campaign
+                      messaging, delivering polished work under tight deadlines.</li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- Education -->
+              <div class="res-section">
+                <div class="res-sec-title">Education</div>
+                <div class="res-job-header">
+                  <div>
+                    <span class="res-job-role">Bachelor of Design (B.Des), Fashion Communication</span> —
+                    <span class="res-job-company">NIFT Kannur</span>
+                  </div>
+                  <div class="res-job-meta">2023 – 2027 | CGPA: 8.6 / 10</div>
+                </div>
+                <div style="font-size: 0.8rem; color: #475569; margin-top: 4px;">
+                  Currently in 4th year | Minor: Masters of Design<br>
+                  <strong>Coursework:</strong> Visual Communication, Brand Identity, Typography, UI/UX Design,
+                  Photography, Layout Design, Media Production, Set Design, Design Research, Digital Storytelling,
+                  Colour Theory.
+                </div>
+              </div>
+
+              <!-- Technical Skills -->
+              <div class="res-section">
+                <div class="res-sec-title">Technical Skills</div>
+                <div class="res-skills-grid">
+                  <div class="res-skill-row"><span class="res-skill-label">3D, Spatial & AR/VR:</span> Blender, Autodesk
+                    Fusion, SketchUp, Coohom, AR/VR Visualisation, 3D Modelling, Photorealistic Rendering, Lighting &
+                    Materials, 3D Animation, Spatial Planning, Set & Stage Design, Exhibition Design.</div>
+                  <div class="res-skill-row"><span class="res-skill-label">Experience & Visual Merchandising:</span>
+                    Experience Design, Event & Brand Activation Design, Visual Merchandising, Brand Presentation,
+                    Production Design.</div>
+                  <div class="res-skill-row"><span class="res-skill-label">UI/UX & Prototyping:</span> Figma,
+                    Wireframing, High-Fidelity Prototyping, User Research, Usability Testing, User Journey Mapping,
+                    Information Architecture, WCAG Accessibility, Design Systems.</div>
+                  <div class="res-skill-row"><span class="res-skill-label">Design & Visual:</span> Adobe Photoshop,
+                    Illustrator, InDesign, Lightroom, Canva, Brand Identity, Typography, Layout & Editorial Design, Art
+                    Direction.</div>
+                  <div class="res-skill-row"><span class="res-skill-label">Video & Web:</span> Adobe Premiere Pro,
+                    CapCut, HTML, CSS, Responsive Web Design.</div>
+                  <div class="res-skill-row"><span class="res-skill-label">Languages:</span> English (Fluent), Malayalam
+                    (Native), Hindi (Intermediate).</div>
+                </div>
+              </div>
+
+              <!-- Achievements & Activities -->
+              <div class="res-section">
+                <div class="res-sec-title">Achievements & Activities</div>
+                <ul class="res-job-bullets">
+                  <li><strong>NIFT Prospectus 2026</strong> — Contributed to page layouts, visual composition and
+                    publication design; photographed and edited images used throughout, maintaining visual consistency.
+                  </li>
+                  <li><strong>NIFT Graduation Show Booklet</strong> — Designed and developed the publication, covering
+                    layout, typography, visual hierarchy and structure.</li>
+                  <li><strong>NIFT Graduation Show Brand Manual</strong> — Developed the brand manual for the Graduation
+                    Show logo, defining usage specifications and supporting visual elements.</li>
+                  <li><strong>EOSS (Essentials of Success) Workshop</strong> — 3-day programme on communication,
+                    teamwork and professional skills.</li>
+                  <li><strong>AI for Youth Virtual Symposium (Intel-powered)</strong> — Participated in national
+                    symposium on AI tools.</li>
+                  <li><strong>Calligraphy & Hand-Lettering Workshop</strong> with Narayana Bhattathiri.</li>
+                </ul>
+              </div>
+
+              <!-- Footer Direct Email CTA -->
+              <div class="resume-footer-cta">
+                <div class="resume-cta-text">
+                  <strong>Interested in collaborating or discussing an opportunity?</strong>
+                  <span>Get in touch directly via email for projects, full-time roles, or inquiries.</span>
+                </div>
+                <a href="mailto:aleeshakl2495@gmail.com" class="resume-cta-btn">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="2" y="4" width="20" height="16" rx="2" />
+                    <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+                  </svg>
+                  <span>Send Direct Email (aleeshakl2495@gmail.com)</span>
+                </a>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. WINDOW: ABOUT ALEESHA (NOTEPAD) -->
+    <div class="os-window" id="window-about" style="width: 780px; height: 520px;">
+      <div class="window-titlebar">
+        <div class="window-title-left">
+          <div class="window-title-icon">
+            <svg viewBox="0 0 24 24" fill="#3b82f6">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+              <polyline points="14 2 14 8 20 8" />
+              <line x1="16" y1="13" x2="8" y2="13" />
+              <line x1="16" y1="17" x2="8" y2="17" />
+            </svg>
+          </div>
+          <div class="window-title-text">Notepad — About_Aleesha.txt</div>
+        </div>
+        <div class="window-controls">
+          <button class="win-btn btn-min" title="Minimize"><svg viewBox="0 0 10 1">
+              <line x1="0" y1="0.5" x2="10" y2="0.5" stroke="currentColor" stroke-width="1.2" />
+            </svg></button>
+          <button class="win-btn btn-max" title="Maximize"><svg viewBox="0 0 10 10">
+              <rect x="0.5" y="0.5" width="9" height="9" fill="none" stroke="currentColor" stroke-width="1.2" />
+            </svg></button>
+          <button class="win-btn btn-close" title="Close"><svg viewBox="0 0 10 10">
+              <line x1="0" y1="0" x2="10" y2="10" stroke="currentColor" stroke-width="1.4" />
+              <line x1="10" y1="0" x2="0" y2="10" stroke="currentColor" stroke-width="1.4" />
+            </svg></button>
+        </div>
+      </div>
+
+      <div class="window-content">
+        <div class="notepad-wrap">
+          <div class="notepad-menubar">
+            <span class="notepad-menu-btn">File</span>
+            <span class="notepad-menu-btn">Edit</span>
+            <span class="notepad-menu-btn">Format</span>
+            <span class="notepad-menu-btn">View</span>
+            <span class="notepad-menu-btn">Help</span>
+          </div>
+
+          <div class="notepad-body">
+            <div class="notepad-profile-sidebar">
+              <img src="assets/profile.jpg" alt="Aleesha K. L." class="notepad-avatar">
+              <div class="notepad-name">Aleesha K. L.</div>
+              <div class="notepad-sub">3D & Spatial Designer</div>
+              <div class="notepad-status-tag">
+                <span
+                  style="display:inline-block; width:6px; height:6px; border-radius:50%; background:#22c55e;"></span>
+                <span>Available for Roles</span>
+              </div>
+              <div class="notepad-social-links">
+                <a href="https://behance.net/aleesha_kl" target="_blank" class="notepad-link-btn">
+                  <span>Behance Profile</span>
+                </a>
+                <a href="https://linkedin.com/in/aleeshakl" target="_blank" class="notepad-link-btn">
+                  <span>LinkedIn Network</span>
+                </a>
+                <a href="mailto:aleeshakl2495@gmail.com" class="notepad-link-btn" id="about-send-email-btn">
+                  <span>Send Direct Email</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="notepad-text-editor">
+              <h2>Hello! I'm Aleesha.</h2>
+              <div class="notepad-quote-box">
+                "Multidisciplinary designer working across 3D visualisation, spatial design, experience design, and
+                visual communication."
+              </div>
+              <p>
+                I am a multidisciplinary designer pursuing a <strong>Bachelor of Design (B.Des) in Fashion Communication
+                  at NIFT Kannur</strong> (holding a <strong>8.6 / 10 CGPA</strong>, 4th year, with a Minor in Masters
+                of Design). I work across <strong>3D visualisation, spatial event set design, human-centred experience
+                  design, and visual communication</strong>.
+              </p>
+
+              <h3>My Creative Journey</h3>
+              <p>
+                My creative path is driven by transforming imaginative narratives into tangible, photorealistic spaces
+                and memorable brand experiences:
+              </p>
+              <ul style="padding-left: 20px; line-height: 1.6; font-size: 0.85rem; color: #334155;">
+                <li><strong>3D Visual Designer Intern</strong> at <em>Rainmakers Signature Experiences</em>: Designed 3D
+                  stage and set visualisations for grand weddings, festival stages, corporate events, and award
+                  ceremonies. Mastered spatial layout engineering, lighting simulations, and structural sightlines under
+                  tight production timelines using Blender and Autodesk Fusion.</li>
+                <li><strong>Graphic Design Intern</strong> at <em>Inamigos Foundation</em>: Spearheaded digital
+                  campaigns, social branding assets, and cohesive visual identities with strong typographic foundations.
+                </li>
+                <li><strong>NIFT Prospectus & Publications</strong>: Authored layout designs, art direction, and
+                  publication spreads celebrating craftsmanship and design heritage.</li>
+              </ul>
+
+              <h3>Design Interests & Specialisations</h3>
+              <p>
+                • <strong>3D Visualisation & Spatial Environments:</strong> 3D Modelling, Event Architecture, Stage
+                Visualisation, Exhibition Stalls, Lighting Rigs, Sightline Engineering, AR/VR Visualisation.<br>
+                • <strong>Experience Design & Visual Merchandising:</strong> Brand Activations, Experiential Spatial
+                Flow, Retail Merchandising Systems, Production Design.<br>
+                • <strong>Visual Communication & UI/UX:</strong> Human-centred Mobile/Web Design (Figma), Design
+                Systems, WCAG Accessibility, Brand Manuals, Packaging, Editorial Publications.
+              </p>
+
+              <h3>Design Philosophy</h3>
+              <p>
+                Design is neither purely functional nor purely aesthetic — it is an emotion experienced in physical and
+                digital space. Whether calculating sightlines and load clearances for a 60-foot festival stage, shaping
+                visitor circulation through an exhibition stall, or refining contrast ratios in an accessible health
+                interface, I bridge creative intuition with technical precision.
+              </p>
+
+              <h3>Let's Collaborate</h3>
+              <p>
+                I am actively seeking roles in <strong>3D Visualisation, Spatial Design, Experience Design, Visual
+                  Merchandising, and AR/VR</strong>. Let's create something unforgettable together!
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4. WINDOW: 3D & SPATIAL STUDIO -->
+    <div class="os-window" id="window-studio3d" style="width: 860px; height: 560px;">
+      <div class="window-titlebar">
+        <div class="window-title-left">
+          <div class="window-title-icon">
+            <svg viewBox="0 0 24 24" fill="#8b5cf6">
+              <circle cx="12" cy="12" r="10" />
+              <path d="m4.93 4.93 4.24 4.24" />
+              <path d="m14.83 9.17 4.24-4.24" />
+              <path d="m14.83 14.83 4.24 4.24" />
+              <path d="m9.17 14.83-4.24 4.24" />
+            </svg>
+          </div>
+          <div class="window-title-text">3D & Spatial Studio — Stages, Pavilions & Viewport</div>
+        </div>
+        <div class="window-controls">
+          <button class="win-btn btn-min" title="Minimize"><svg viewBox="0 0 10 1">
+              <line x1="0" y1="0.5" x2="10" y2="0.5" stroke="currentColor" stroke-width="1.2" />
+            </svg></button>
+          <button class="win-btn btn-max" title="Maximize"><svg viewBox="0 0 10 10">
+              <rect x="0.5" y="0.5" width="9" height="9" fill="none" stroke="currentColor" stroke-width="1.2" />
+            </svg></button>
+          <button class="win-btn btn-close" title="Close"><svg viewBox="0 0 10 10">
+              <line x1="0" y1="0.5" x2="10" y2="10" stroke="currentColor" stroke-width="1.4" />
+              <line x1="10" y1="0" x2="0" y2="10" stroke="currentColor" stroke-width="1.4" />
+            </svg></button>
+        </div>
+      </div>
+
+      <div class="window-content">
+        <div class="studio-3d-wrap">
+          <div class="studio-toolbar">
+            <div style="display:flex; align-items:center; gap:8px;">
+              <button class="studio-video-tab-btn active" id="btn-tab-viewport">3D Viewport</button>
+              <button class="studio-video-tab-btn" id="btn-tab-video">🎬 Video Reel</button>
+              <button class="studio-video-tab-btn" id="btn-tab-gallery">Spatial Showcase</button>
+            </div>
+            <div style="display:flex; align-items:center; gap:10px;">
+              <span id="viewport-scene-name" style="font-weight:600; color:#fff; font-size:0.8rem;">Radio Mango ×
+                Bharath Benz Stage</span>
+              <button class="scene-btn" id="wireframe-toggle-btn">Wireframe Mode</button>
+            </div>
+          </div>
+
+          <!-- Panel 1: Interactive 3D Viewport -->
+          <div class="studio-viewport" id="studio-viewport-panel">
+            <div class="viewport-grid-floor"></div>
+
+            <!-- Orbiting 3D Spatial Rig -->
+            <div class="viewport-stage-model" id="viewport-stage-model">
+              <div class="model-cube">
+                <div style="font-size: 2.8rem; margin-bottom: 8px;">🎪</div>
+                <h3 style="font-size: 1.1rem; color: #fff;">Spatial Stage Architecture</h3>
+                <p style="font-size: 0.75rem; color: #cbd5e1; margin-top: 4px;">Dynamic Lighting • Scale Calibration •
+                  Sightline Rays</p>
+              </div>
+            </div>
+
+            <!-- Viewport Overlay UI -->
+            <div class="viewport-overlay-ui">
+              <div class="viewport-stats-card">
+                <div>Engine: <strong>Cycles GPU Render</strong></div>
+                <div>Geometry: <strong id="viewport-poly-count">148,220 Tris</strong></div>
+                <div>Shaders: <strong>PBR Metallic / Glass / Volumetrics</strong></div>
+              </div>
+
+              <div class="studio-scene-switcher">
+                <button class="scene-btn active" data-scene="truck">Bharath Benz Stage</button>
+                <button class="scene-btn" data-scene="awards">Hyatt Regency Hall</button>
+                <button class="scene-btn" data-scene="stall">Neithi Pavilion</button>
+                <button class="scene-btn" data-scene="avatar">Aleesha 3D Figurine</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Panel 2: Embedded Video Reel (avatar_animation.mp4) -->
+          <div class="studio-video-panel" id="studio-video-panel">
+            <div class="video-card-container">
+              <div
+                style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid rgba(255,255,255,0.1); padding-bottom:8px;">
+                <div>
+                  <h3 style="color:#fff; font-size:1.05rem; margin:0;">Aleesha 3D Character & Motion Showcase</h3>
+                  <p style="color:#94a3b8; font-size:0.75rem; margin:2px 0 0 0;">Embedded 3D animation reel exported
+                    directly from Blender Cycles</p>
+                </div>
+                <span
+                  style="background:rgba(139, 92, 246, 0.18); color:#a78bfa; border:1px solid #8b5cf6; padding:3px 10px; border-radius:12px; font-size:0.72rem; font-weight:600;">1080p
+                  MP4</span>
+              </div>
+              <div
+                style="position:relative; width:100%; border-radius:10px; overflow:hidden; background:#000; box-shadow:0 8px 24px rgba(0,0,0,0.5);">
+                <video id="studio-embedded-video" src="assets/avatar_animation.mp4" controls autoplay loop playsinline
+                  style="width:100%; height:auto; display:block; max-height:380px; margin:0 auto;"></video>
+              </div>
+            </div>
+          </div>
+
+          <!-- Panel 3: Spatial Projects Gallery -->
+          <div class="spatial-gallery-panel" id="studio-gallery-panel">
+            <div class="spatial-grid">
+              <div class="spatial-card" onclick="window.openCaseStudy && window.openCaseStudy('radio-mango')">
+                <div style="height:140px; overflow:hidden; background:#1e293b;">
+                  <img src="assets/thira 1.1.png" alt="Radio Mango Stage"
+                    style="width:100%; height:100%; object-fit:cover;">
+                </div>
+                <div style="padding:12px;">
+                  <div style="font-size:0.7rem; color:#8b5cf6; font-weight:600;">3D EVENT & SET DESIGN</div>
+                  <div style="font-size:0.9rem; font-weight:600; margin:3px 0;">Radio Mango × Spadikam Onam Truck Stage
+                  </div>
+                  <div style="font-size:0.75rem; color:#cbd5e1; line-height:1.4;">Bharath Benz truck stage with
+                    authentic Kerala architecture and dynamic truss lighting.</div>
+                </div>
+              </div>
+
+              <div class="spatial-card" onclick="window.openCaseStudy && window.openCaseStudy('emak-awards')">
+                <div style="height:140px; overflow:hidden; background:#1e293b;">
+                  <img src="assets/ChatGPT Image Aug 13, 2026, 06_14_26 PM.png" alt="EMAK Grand Stage"
+                    style="width:100%; height:100%; object-fit:cover;">
+                </div>
+                <div style="padding:12px;">
+                  <div style="font-size:0.7rem; color:#8b5cf6; font-weight:600;">3D STAGE ARCHITECTURE</div>
+                  <div style="font-size:0.9rem; font-weight:600; margin:3px 0;">EMAK Silent Hero Awards Grand Stage
+                  </div>
+                  <div style="font-size:0.75rem; color:#cbd5e1; line-height:1.4;">Monumental 60 × 30 ft stage
+                    installation designed for Hyatt Regency, Thrissur.</div>
+                </div>
+              </div>
+
+              <div class="spatial-card" onclick="window.openCaseStudy && window.openCaseStudy('neithi-stall')">
+                <div style="height:140px; overflow:hidden; background:#1e293b;">
+                  <img src="assets/ChatGPT Image Aug 14, 2026, 01_08_56 AM.png" alt="Neithi Pavilion"
+                    style="width:100%; height:100%; object-fit:cover;">
+                </div>
+                <div style="padding:12px;">
+                  <div style="font-size:0.7rem; color:#14b8a6; font-weight:600;">EXHIBITION STALL</div>
+                  <div style="font-size:0.9rem; font-weight:600; margin:3px 0;">Neithi — 3D Exhibition Stall & Pavilion
+                  </div>
+                  <div style="font-size:0.75rem; color:#cbd5e1; line-height:1.4;">Curved partition screens, visitor
+                    circulation flow, and visual merchandising.</div>
+                </div>
+              </div>
+
+              <div class="spatial-card" onclick="window.openCaseStudy && window.openCaseStudy('madham')">
+                <div style="height:140px; overflow:hidden; background:#1e293b;">
+                  <img src="assets/ChatGPT Image Aug 14, 2026, 01_30_49 AM.png" alt="Traditional Mandap Stage"
+                    style="width:100%; height:100%; object-fit:cover;">
+                </div>
+                <div style="padding:12px;">
+                  <div style="font-size:0.7rem; color:#ec4899; font-weight:600;">SPATIAL BRAND ACTIVATION</div>
+                  <div style="font-size:0.9rem; font-weight:600; margin:3px 0;">MADHAM — Spatial Brand Architecture
+                  </div>
+                  <div style="font-size:0.75rem; color:#cbd5e1; line-height:1.4;">Vernacular timber forms, acoustic
+                    diffusion, and cove architectural lighting.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- 5. WINDOW: SKILLS & TOOLS MATRIX -->
+    <div class="os-window" id="window-skills" style="width: 760px; height: 500px;">
+      <div class="window-titlebar">
+        <div class="window-title-left">
+          <div class="window-title-icon">
+            <svg viewBox="0 0 24 24" fill="#8b5cf6">
+              <polygon
+                points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+            </svg>
+          </div>
+          <div class="window-title-text">System Capabilities — Skills & Software Matrix</div>
+        </div>
+        <div class="window-controls">
+          <button class="win-btn btn-min" title="Minimize"><svg viewBox="0 0 10 1">
+              <line x1="0" y1="0.5" x2="10" y2="0.5" stroke="currentColor" stroke-width="1.2" />
+            </svg></button>
+          <button class="win-btn btn-max" title="Maximize"><svg viewBox="0 0 10 10">
+              <rect x="0.5" y="0.5" width="9" height="9" fill="none" stroke="currentColor" stroke-width="1.2" />
+            </svg></button>
+          <button class="win-btn btn-close" title="Close"><svg viewBox="0 0 10 10">
+              <line x1="0" y1="0" x2="10" y2="10" stroke="currentColor" stroke-width="1.4" />
+              <line x1="10" y1="0" x2="0" y2="10" stroke="currentColor" stroke-width="1.4" />
+            </svg></button>
+        </div>
+      </div>
+
+      <div class="window-content" style="padding: 24px; overflow-y: auto;">
+        <h2 style="font-size: 1.3rem; margin-bottom: 16px;">Technical Competencies</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px;">
+
+          <div class="modal-spec-card">
+            <div style="font-weight: 600; color: #f43f5e; margin-bottom: 8px;">3D & Spatial Visualization</div>
+            <p style="font-size: 0.8rem; color: #cbd5e1; line-height: 1.5;">
+              Blender (Modeling, Lighting, Cycles, Eevee, Animation), Autodesk Fusion, SketchUp, Coohom, AR/VR
+              Visualisation, Spatial Layout Planning, Stage Architecture, Sightline Engineering.
+            </p>
+          </div>
+
+          <div class="modal-spec-card">
+            <div style="font-weight: 600; color: #38bdf8; margin-bottom: 8px;">Experience & Visual Merchandising</div>
+            <p style="font-size: 0.8rem; color: #cbd5e1; line-height: 1.5;">
+              Experience Design, Brand Activation Design, Exhibition Pavilion Architecture, Visual Merchandising, Event
+              Sets, Production Design.
+            </p>
+          </div>
+
+          <div class="modal-spec-card">
+            <div style="font-weight: 600; color: #4ade80; margin-bottom: 8px;">UI/UX & Prototyping</div>
+            <p style="font-size: 0.8rem; color: #cbd5e1; line-height: 1.5;">
+              Figma, Wireframing, High-Fidelity Interactive Prototyping, User Research, Usability Testing, Journey
+              Mapping, WCAG Accessibility, Design Systems.
+            </p>
+          </div>
+
+          <div class="modal-spec-card">
+            <div style="font-weight: 600; color: #fbbf24; margin-bottom: 8px;">Design, Editorial & Visual</div>
+            <p style="font-size: 0.8rem; color: #cbd5e1; line-height: 1.5;">
+              Adobe Photoshop, Illustrator, InDesign, Lightroom, Canva, Brand Identity & Manuals, Typography, Editorial
+              Publications, Art Direction.
+            </p>
+          </div>
+
+          <div class="modal-spec-card">
+            <div style="font-weight: 600; color: #a855f7; margin-bottom: 8px;">Video & Web Technology</div>
+            <p style="font-size: 0.8rem; color: #cbd5e1; line-height: 1.5;">
+              Adobe Premiere Pro, CapCut, HTML5, CSS3, Responsive Web Design.
+            </p>
+          </div>
+
+          <div class="modal-spec-card">
+            <div style="font-weight: 600; color: #ec4899; margin-bottom: 8px;">Languages & Soft Skills</div>
+            <p style="font-size: 0.8rem; color: #cbd5e1; line-height: 1.5;">
+              English (Fluent), Malayalam (Native), Hindi (Intermediate). Creative Problem-Solving, Cross-functional
+              Collaboration, Attention to Detail, Deadline Management.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- 6. WINDOW: POWERSHELL TERMINAL -->
+    <div class="os-window" id="window-terminal" style="width: 720px; height: 460px;">
+      <div class="window-titlebar">
+        <div class="window-title-left">
+          <div class="window-title-icon">
+            <svg viewBox="0 0 24 24" fill="#38bdf8">
+              <path d="M4 17l6-5-6-5" />
+              <line x1="12" y1="19" x2="20" y2="19" />
+            </svg>
+          </div>
+          <div class="window-title-text">Windows PowerShell — AleeshaOS v2026.1</div>
+        </div>
+        <div class="window-controls">
+          <button class="win-btn btn-min" title="Minimize"><svg viewBox="0 0 10 1">
+              <line x1="0" y1="0.5" x2="10" y2="0.5" stroke="currentColor" stroke-width="1.2" />
+            </svg></button>
+          <button class="win-btn btn-max" title="Maximize"><svg viewBox="0 0 10 10">
+              <rect x="0.5" y="0.5" width="9" height="9" fill="none" stroke="currentColor" stroke-width="1.2" />
+            </svg></button>
+          <button class="win-btn btn-close" title="Close"><svg viewBox="0 0 10 10">
+              <line x1="0" y1="0" x2="10" y2="10" stroke="currentColor" stroke-width="1.4" />
+              <line x1="10" y1="0" x2="0" y2="10" stroke="currentColor" stroke-width="1.4" />
+            </svg></button>
+        </div>
+      </div>
+
+      <div class="window-content">
+        <div class="terminal-wrap">
+          <div class="terminal-output" id="terminal-output">
+            <div class="term-line">Windows PowerShell [Version 10.0.22621.1]</div>
+            <div class="term-line">Copyright (C) Microsoft Corporation. All rights reserved.</div>
+            <div class="term-line accent">Aleesha OS Creative CLI Initialized.</div>
+            <div class="term-line">Type '<strong>help</strong>' to inspect portfolio commands.</div>
+          </div>
+          <div class="terminal-input-row">
+            <span class="term-prompt">PS C:\Users\Aleesha&gt;</span>
+            <input type="text" class="terminal-input" id="terminal-input" autofocus autocomplete="off"
+              spellcheck="false">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 7. WINDOW: GROOVE MUSIC PLAYER -->
+    <div class="os-window" id="window-music" style="width: 440px; height: 420px;">
+      <div class="window-titlebar">
+        <div class="window-title-left">
+          <div class="window-title-icon">
+            <svg viewBox="0 0 24 24" fill="#10b981">
+              <path d="M9 18V5l12-2v13" />
+              <circle cx="6" cy="18" r="3" />
+              <circle cx="18" cy="16" r="3" />
+            </svg>
+          </div>
+          <div class="window-title-text">Groove Music — Ambient Chill</div>
+        </div>
+        <div class="window-controls">
+          <button class="win-btn btn-min" title="Minimize"><svg viewBox="0 0 10 1">
+              <line x1="0" y1="0.5" x2="10" y2="0.5" stroke="currentColor" stroke-width="1.2" />
+            </svg></button>
+          <button class="win-btn btn-close" title="Close"><svg viewBox="0 0 10 10">
+              <line x1="0" y1="0" x2="10" y2="10" stroke="currentColor" stroke-width="1.4" />
+              <line x1="10" y1="0" x2="0" y2="10" stroke="currentColor" stroke-width="1.4" />
+            </svg></button>
+        </div>
+      </div>
+
+      <div class="window-content">
+        <div class="groove-player-wrap">
+          <div class="vinyl-disk" id="groove-vinyl">
+            <div class="vinyl-center"></div>
+          </div>
+          <div class="groove-title" id="groove-track-title">Kochi Sunset Shaders (Lo-Fi)</div>
+          <div class="groove-artist">Aleesha Chill Synth Engine</div>
+
+          <div class="groove-controls">
+            <button class="groove-btn main-play" id="groove-play-btn" title="Play Ambient Music">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+                <polygon points="5 3 19 12 5 21 5 3" />
+              </svg>
+            </button>
+            <button class="groove-btn" id="groove-next-btn" title="Next Track">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <polygon points="5 4 15 12 5 20 5 4" />
+                <line x1="19" y1="5" x2="19" y2="19" stroke="currentColor" stroke-width="2" />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 8. WINDOW: CONTACT & MAIL -->
+    <div class="os-window" id="window-mail" style="width: 740px; height: 500px;">
+      <div class="window-titlebar">
+        <div class="window-title-left">
+          <div class="window-title-icon">
+            <svg viewBox="0 0 24 24" fill="#0284c7">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+              <polyline points="22,6 12,13 2,6" />
+            </svg>
+          </div>
+          <div class="window-title-text">Contact Me — Windows Mail</div>
+        </div>
+        <div class="window-controls">
+          <button class="win-btn btn-min" title="Minimize"><svg viewBox="0 0 10 1">
+              <line x1="0" y1="0.5" x2="10" y2="0.5" stroke="currentColor" stroke-width="1.2" />
+            </svg></button>
+          <button class="win-btn btn-max" title="Maximize"><svg viewBox="0 0 10 10">
+              <rect x="0.5" y="0.5" width="9" height="9" fill="none" stroke="currentColor" stroke-width="1.2" />
+            </svg></button>
+          <button class="win-btn btn-close" title="Close"><svg viewBox="0 0 10 10">
+              <line x1="0" y1="0.5" x2="10" y2="10" stroke="currentColor" stroke-width="1.4" />
+              <line x1="10" y1="0" x2="0" y2="10" stroke="currentColor" stroke-width="1.4" />
+            </svg></button>
+        </div>
+      </div>
+
+      <div class="window-content">
+        <div class="mail-wrap">
+          <div class="mail-toolbar">New Message</div>
+          <div class="mail-body">
+            <div class="mail-sidebar">
+              <div class="mail-info-card">
+                <div class="mail-info-label">Email:</div>
+                <div class="mail-info-val"><a
+                    href="https://mail.google.com/mail/?view=cm&fs=1&to=aleeshakl2495@gmail.com&su=Portfolio+Inquiry"
+                    target="_blank" style="color:#38bdf8;">aleeshakl2495@gmail.com</a></div>
+              </div>
+              <div class="mail-info-card">
+                <div class="mail-info-label">Phone:</div>
+                <div class="mail-info-val"><a href="tel:+917907149788" style="color:#38bdf8;">+91 7907149788</a></div>
+              </div>
+              <div class="mail-info-card">
+                <div class="mail-info-label">Location:</div>
+                <div class="mail-info-val">Kochi, Kerala</div>
+              </div>
+              <div class="mail-info-card">
+                <div class="mail-info-label">Behance:</div>
+                <div class="mail-info-val"><a href="https://behance.net/aleesha_kl" target="_blank"
+                    style="color:#38bdf8;">behance.net/aleesha_kl</a></div>
+              </div>
+              <div class="mail-info-card">
+                <div class="mail-info-label">LinkedIn:</div>
+                <div class="mail-info-val"><a href="https://linkedin.com/in/aleeshakl" target="_blank"
+                    style="color:#38bdf8;">linkedin.com/in/aleeshakl</a></div>
+              </div>
+            </div>
+
+            <div class="mail-compose-area">
+              <div class="mail-input-group">
+                <label class="mail-input-label">To:</label>
+                <input type="text" class="mail-input" value="Aleesha K. L. <aleeshakl2495@gmail.com>" readonly>
+              </div>
+              <div class="mail-input-group">
+                <label class="mail-input-label">Your Name:</label>
+                <input type="text" class="mail-input" id="mail-name-input"
+                  placeholder="e.g. Design Recruiter / Collaborator">
+              </div>
+              <div class="mail-input-group">
+                <label class="mail-input-label">Your Email:</label>
+                <input type="email" class="mail-input" id="mail-email-input" placeholder="e.g. yourname@company.com">
+              </div>
+              <div class="mail-input-group" style="flex:1;">
+                <label class="mail-input-label">Message Brief:</label>
+                <textarea class="mail-input mail-textarea" id="mail-msg-input"
+                  placeholder="Hi Aleesha, I loved your 3D stage and spatial design portfolio..."></textarea>
+              </div>
+              <div style="display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin-top:8px;">
+                <button class="mail-send-btn" id="mail-send-btn">
+                  <span>Send Message</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="22" y1="2" x2="11" y2="13" />
+                    <polygon points="22 2 15 22 11 13 2 9 22 2" />
+                  </svg>
+                </button>
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=aleeshakl2495@gmail.com&su=Portfolio+Inquiry"
+                  target="_blank" rel="noopener noreferrer" class="mail-direct-client-link" id="mail-gmail-direct-btn"
+                  style="font-size:0.78rem; color:#0284c7; text-decoration:none; display:flex; align-items:center; gap:6px; padding:8px 14px; border-radius:6px; border:1px solid #bae6fd; background:#f0f9ff; font-weight:600;">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="2" y="4" width="20" height="16" rx="2" />
+                    <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+                  </svg>
+                  <span>Open in Gmail (Web)</span>
+                </a>
+                <a href="mailto:aleeshakl2495@gmail.com" class="mail-direct-client-link"
+                  style="font-size:0.78rem; color:#64748b; text-decoration:none; display:flex; align-items:center; gap:4px; padding:8px 10px;">
+                  <span>Desktop App</span>
+                </a>
+              </div>
+              <div id="mail-status-msg"
+                style="display:none; font-size:0.82rem; padding:10px 14px; border-radius:6px; margin-top:10px; line-height:1.45;">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 9. WINDOW: PHOTOGRAPHY (PHOTOS APP) -->
+    <div class="os-window" id="window-photography" style="width: 860px; height: 560px;">
+      <div class="window-titlebar">
+        <div class="window-title-left">
+          <div class="window-title-icon">
+            <svg viewBox="0 0 24 24" fill="#0284c7">
+              <circle cx="12" cy="12" r="3" />
+              <path
+                d="M19 4h-3.17L14.41 2H9.59L8.17 4H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2z" />
+            </svg>
+          </div>
+          <div class="window-title-text">Photos — Photography & Visual Storytelling</div>
+        </div>
+        <div class="window-controls">
+          <button class="win-btn btn-min" title="Minimize"><svg viewBox="0 0 10 1">
+              <line x1="0" y1="0.5" x2="10" y2="0.5" stroke="currentColor" stroke-width="1.2" />
+            </svg></button>
+          <button class="win-btn btn-max" title="Maximize"><svg viewBox="0 0 10 10">
+              <rect x="0.5" y="0.5" width="9" height="9" fill="none" stroke="currentColor" stroke-width="1.2" />
+            </svg></button>
+          <button class="win-btn btn-close" title="Close"><svg viewBox="0 0 10 10">
+              <line x1="0" y1="0" x2="10" y2="10" stroke="currentColor" stroke-width="1.4" />
+              <line x1="10" y1="0" x2="0" y2="10" stroke="currentColor" stroke-width="1.4" />
+            </svg></button>
+        </div>
+      </div>
+
+      <div class="window-content">
+        <div class="photo-gallery-wrap">
+          <div class="photo-toolbar">
+            <div class="photo-tabs">
+              <button class="photo-tab-btn active" data-photo-filter="all">All Photos (6)</button>
+              <button class="photo-tab-btn" data-photo-filter="editorial">Editorial Shoots</button>
+              <button class="photo-tab-btn" data-photo-filter="spatial">Spatial & Architecture</button>
+              <button class="photo-tab-btn" data-photo-filter="cultural">Cultural Storytelling</button>
+              <button class="photo-tab-btn" data-photo-filter="composition">Creative Compositions</button>
+            </div>
+            <div class="photo-counter">6 Photographic Works</div>
+          </div>
+
+          <div class="photo-grid-container">
+            <div class="photo-grid" id="photo-cards-container">
+              <!-- Rendered dynamically by apps.js -->
+            </div>
+          </div>
+
+          <!-- Lightbox Modal inside Photos App -->
+          <div class="photo-lightbox" id="photo-lightbox">
+            <div class="lightbox-topbar">
+              <div id="lightbox-title" style="font-weight:600; font-size:1rem;">Photo Preview</div>
+              <button class="lightbox-close-btn" id="lightbox-close-btn">Close Preview</button>
+            </div>
+            <div class="lightbox-body">
+              <div class="lightbox-img-col">
+                <img id="lightbox-img" src="" alt="Enlarged photo">
+              </div>
+              <div class="lightbox-details-col" id="lightbox-details">
+                <!-- Injected via JS -->
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- 10. WINDOW: VISUAL PLAYGROUND -->
+    <div class="os-window" id="window-playground" style="width: 860px; height: 560px;">
+      <div class="window-titlebar">
+        <div class="window-title-left">
+          <div class="window-title-icon">
+            <svg viewBox="0 0 24 24" fill="#f43f5e">
+              <rect x="3" y="3" width="7" height="7" />
+              <rect x="14" y="3" width="7" height="7" />
+              <rect x="14" y="14" width="7" height="7" />
+              <rect x="3" y="14" width="7" height="7" />
+            </svg>
+          </div>
+          <div class="window-title-text">Visual Playground — UI/UX, Website Design, Graphic Design & Packaging</div>
+        </div>
+        <div class="window-controls">
+          <button class="win-btn btn-min" title="Minimize"><svg viewBox="0 0 10 1">
+              <line x1="0" y1="0.5" x2="10" y2="0.5" stroke="currentColor" stroke-width="1.2" />
+            </svg></button>
+          <button class="win-btn btn-max" title="Maximize"><svg viewBox="0 0 10 10">
+              <rect x="0.5" y="0.5" width="9" height="9" fill="none" stroke="currentColor" stroke-width="1.2" />
+            </svg></button>
+          <button class="win-btn btn-close" title="Close"><svg viewBox="0 0 10 10">
+              <line x1="0" y1="0" x2="10" y2="10" stroke="currentColor" stroke-width="1.4" />
+              <line x1="10" y1="0" x2="0" y2="10" stroke="currentColor" stroke-width="1.4" />
+            </svg></button>
+        </div>
+      </div>
+
+      <div class="window-content">
+        <div class="playground-wrap">
+          <div class="playground-toolbar">
+            <div class="photo-tabs">
+              <button class="photo-tab-btn active" data-pg-filter="all">All Playground (6)</button>
+              <button class="photo-tab-btn" data-pg-filter="uiux">UI/UX & Web</button>
+              <button class="photo-tab-btn" data-pg-filter="packaging">Branding & Packaging</button>
+              <button class="photo-tab-btn" data-pg-filter="graphic">Graphic Design</button>
+              <button class="photo-tab-btn" data-pg-filter="editorial">Publication & Print</button>
+            </div>
+            <div class="photo-counter">6 Explorations</div>
+          </div>
+
+          <div class="playground-grid-container">
+            <div class="playground-grid" id="playground-cards-container">
+              <!-- Rendered dynamically by apps.js -->
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- 11. WINDOW: BEYOND THE BRIEF -->
+    <div class="os-window" id="window-beyond" style="width: 860px; height: 560px;">
+      <div class="window-titlebar">
+        <div class="window-title-left">
+          <div class="window-title-icon">
+            <svg viewBox="0 0 24 24" fill="#d946ef">
+              <polygon
+                points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+            </svg>
+          </div>
+          <div class="window-title-text">Beyond the Brief — Experimental Concepts & Creative Explorations</div>
+        </div>
+        <div class="window-controls">
+          <button class="win-btn btn-min" title="Minimize"><svg viewBox="0 0 10 1">
+              <line x1="0" y1="0.5" x2="10" y2="0.5" stroke="currentColor" stroke-width="1.2" />
+            </svg></button>
+          <button class="win-btn btn-max" title="Maximize"><svg viewBox="0 0 10 10">
+              <rect x="0.5" y="0.5" width="9" height="9" fill="none" stroke="currentColor" stroke-width="1.2" />
+            </svg></button>
+          <button class="win-btn btn-close" title="Close"><svg viewBox="0 0 10 10">
+              <line x1="0" y1="0" x2="10" y2="10" stroke="currentColor" stroke-width="1.4" />
+              <line x1="10" y1="0" x2="0" y2="10" stroke="currentColor" stroke-width="1.4" />
+            </svg></button>
+        </div>
+      </div>
+
+      <div class="window-content">
+        <div class="beyond-wrap">
+          <div class="beyond-toolbar">
+            <div class="photo-tabs">
+              <button class="photo-tab-btn active" data-by-filter="all">All Explorations (5)</button>
+              <button class="photo-tab-btn" data-by-filter="clay">3D Clay & Shaders</button>
+              <button class="photo-tab-btn" data-by-filter="calligraphy">Masterclass Lettering</button>
+              <button class="photo-tab-btn" data-by-filter="ai">AI For Youth</button>
+              <button class="photo-tab-btn" data-by-filter="sketch">Sketches & Process</button>
+            </div>
+            <div class="photo-counter">5 Unconventional Concepts</div>
+          </div>
+
+          <div class="beyond-grid-container">
+            <div class="beyond-grid" id="beyond-cards-container">
+              <!-- Rendered dynamically by apps.js -->
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- 12. WINDOW: RECYCLE BIN -->
+    <div class="os-window" id="window-bin" style="width: 580px; height: 380px;">
+      <div class="window-titlebar">
+        <div class="window-title-left">
+          <div class="window-title-icon">
+            <svg viewBox="0 0 24 24" fill="#94a3b8">
+              <polyline points="3 6 5 6 21 6" />
+              <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
+            </svg>
+          </div>
+          <div class="window-title-text">Recycle Bin</div>
+        </div>
+        <div class="window-controls">
+          <button class="win-btn btn-min" title="Minimize"><svg viewBox="0 0 10 1">
+              <line x1="0" y1="0.5" x2="10" y2="0.5" stroke="currentColor" stroke-width="1.2" />
+            </svg></button>
+          <button class="win-btn btn-close" title="Close"><svg viewBox="0 0 10 10">
+              <line x1="0" y1="0" x2="10" y2="10" stroke="currentColor" stroke-width="1.4" />
+              <line x1="10" y1="0" x2="0" y2="10" stroke="currentColor" stroke-width="1.4" />
+            </svg></button>
+        </div>
+      </div>
+
+      <div class="window-content">
+        <div class="bin-wrap">
+          <div class="bin-header">
+            <span style="font-size:0.8rem; color:#cbd5e1;">3 items in Recycle Bin</span>
+            <button class="bin-empty-btn" id="bin-empty-btn">Empty Recycle Bin</button>
+          </div>
+          <div class="bin-grid" id="bin-grid">
+            <div class="bin-item">
+              <div style="font-size:1.8rem; margin-bottom:4px;">🗑️</div>
+              <div>Generic 2D Layouts.obj</div>
+            </div>
+            <div class="bin-item">
+              <div style="font-size:1.8rem; margin-bottom:4px;">🗑️</div>
+              <div>Stock Templates.zip</div>
+            </div>
+            <div class="bin-item">
+              <div style="font-size:1.8rem; margin-bottom:4px;">🗑️</div>
+              <div>Cookie Cutter Ideas.blend</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 10. WINDOW: THIS PC / SYSTEM -->
+    <div class="os-window" id="window-system" style="width: 620px; height: 420px;">
+      <div class="window-titlebar">
+        <div class="window-title-left">
+          <div class="window-title-icon">
+            <svg viewBox="0 0 24 24" fill="#0078d4">
+              <rect x="2" y="3" width="20" height="14" rx="2" />
+              <line x1="8" y1="21" x2="16" y2="21" />
+              <line x1="12" y1="17" x2="12" y2="21" />
+            </svg>
+          </div>
+          <div class="window-title-text">System Properties — Aleesha OS Pro</div>
+        </div>
+        <div class="window-controls">
+          <button class="win-btn btn-min" title="Minimize"><svg viewBox="0 0 10 1">
+              <line x1="0" y1="0.5" x2="10" y2="0.5" stroke="currentColor" stroke-width="1.2" />
+            </svg></button>
+          <button class="win-btn btn-close" title="Close"><svg viewBox="0 0 10 10">
+              <line x1="0" y1="0" x2="10" y2="10" stroke="currentColor" stroke-width="1.4" />
+              <line x1="10" y1="0" x2="0" y2="10" stroke="currentColor" stroke-width="1.4" />
+            </svg></button>
+        </div>
+      </div>
+
+      <div class="window-content" style="padding: 24px;">
+        <div style="display:flex; align-items:center; gap:16px; margin-bottom:20px;">
+          <img src="assets/profile.jpg"
+            style="width:64px; height:64px; border-radius:50%; object-fit:cover; border:2px solid #f43f5e;">
+          <div>
+            <h2 style="font-size:1.3rem;">Aleesha K. L.</h2>
+            <div style="font-size:0.85rem; color:#94a3b8;">NIFT Kannur (B.Des Fashion Communication, 4th Year)</div>
+          </div>
+        </div>
+
+        <div
+          style="background:rgba(255,255,255,0.04); border-radius:8px; padding:16px; font-size:0.82rem; line-height:1.7;">
+          <div><strong>Operating System:</strong> AleeshaOS 2026.1 Creative Pro</div>
+          <div><strong>Academic Record:</strong> CGPA 8.6 / 10 (Minor in Masters of Design)</div>
+          <div><strong>Graphics Architecture:</strong> Blender Cycles GPU + Autodesk Fusion</div>
+          <div><strong>Design Kernel:</strong> Spatial Engineering • UI/UX Design Systems</div>
+          <div><strong>Location:</strong> Kochi, Kerala, India</div>
+        </div>
+      </div>
+    </div>
+
+    </div>
+
+  </main>
+
+
+  <!-- ======================================================================
+       WINDOWS TASKBAR (BOTTOM)
+       ====================================================================== -->
+  <footer id="taskbar">
+    <div class="taskbar-left-zone">
+      <!-- Start Button with authentic Windows logo -->
+      <button class="taskbar-start-btn" id="taskbar-start-btn" title="Start">
+        <svg viewBox="0 0 88 88" fill="none">
+          <path
+            d="M0 12.402l35.687-4.86.016 34.423-35.67.203L0 12.402zm35.67 33.529l.028 34.453L.028 75.48.016 46.104l35.682-.173zM40.97 6.848L87.982 0l.012 41.523-47.024.308V6.848zm47.027 39.083l-.015 42.069-47.012-6.57-.015-35.795 47.042.296z"
+            fill="#00adef" />
+        </svg>
+      </button>
+
+      <!-- Windows 11 Search Pill (Matching Mockup Image) -->
+      <div class="taskbar-search-pill" id="taskbar-search-pill" title="Search projects and apps">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#64748b" stroke-width="2.4">
+          <circle cx="11" cy="11" r="7.5" />
+          <line x1="21" y1="21" x2="16.5" y2="16.5" />
+        </svg>
+        <span class="search-placeholder">Search</span>
+      </div>
+    </div>
+
+    <!-- Taskbar System Tray (Right - Matching Mockup) -->
+    <div class="taskbar-tray">
+      <!-- Chevron Overflow -->
+      <div class="tray-item" id="tray-chevron-btn" title="Show hidden icons">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <polyline points="18 15 12 9 6 15" />
+        </svg>
+      </div>
+
+      <!-- Wi-Fi -->
+      <div class="tray-item" title="CreativeNet 5G — Connected">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M5 12.55a11 11 0 0 1 14.08 0" />
+          <path d="M1.42 9a16 16 0 0 1 21.16 0" />
+          <path d="M8.53 16.11a6 6 0 0 1 6.95 0" />
+          <line x1="12" y1="20" x2="12.01" y2="20" />
+        </svg>
+      </div>
+
+      <!-- Volume -->
+      <div class="tray-item" id="tray-vol-btn" title="Speakers (Sound Effects)">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
+          <path d="M19.07 4.93a10 10 0 0 1 0 14.14" />
+          <path d="M15.54 8.46a5 5 0 0 1 0 7.07" />
+        </svg>
+      </div>
+
+      <!-- Battery -->
+      <div class="tray-item" title="100% Fully Charged">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="1" y="6" width="18" height="12" rx="2" />
+          <line x1="23" y1="11" x2="23" y2="13" />
+        </svg>
+      </div>
+
+      <!-- Live Clock & Date -->
+      <div class="tray-item" id="tray-clock-btn" title="Open Calendar">
+        <div class="tray-clock-col">
+          <span class="tray-time" id="tray-time">9:41 PM</span>
+          <span class="tray-date" id="tray-date">14 Aug 2025</span>
+        </div>
+      </div>
+
+      <!-- Notification Center -->
+      <div class="tray-item" id="tray-notif-btn" title="Action Center">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />
+          <path d="M13.73 21a2 2 0 0 1-3.46 0" />
+        </svg>
+      </div>
+
+      <!-- Peek at Desktop -->
+      <div class="taskbar-show-desktop" id="btn-show-desktop" title="Show Desktop"></div>
+    </div>
+  </footer>
+
+
+  <!-- ======================================================================
+       WINDOWS START MENU
+       ====================================================================== -->
+  <div id="start-menu">
+    <div class="start-search-header">
+      <div class="start-search-bar">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8" />
+          <line x1="21" y1="21" x2="16.65" y2="16.65" />
+        </svg>
+        <input type="text" id="start-search-input" placeholder="Type here to search apps, files, skills...">
+      </div>
+    </div>
+
+    <div class="start-body">
+      <!-- Pinned Apps -->
+      <div class="start-section-title">
+        <span>Pinned Applications</span>
+        <span class="start-section-badge">Aleesha Suite</span>
+      </div>
+
+      <div class="start-pinned-grid">
+        <div class="start-app-tile" data-app="projects">
+          <svg viewBox="0 0 24 24" fill="#fbbf24">
+            <path d="M10 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-8l-2-2z" />
+          </svg>
+          <span class="start-app-name">Projects</span>
+        </div>
+        <div class="start-app-tile" data-app="resume">
+          <svg viewBox="0 0 24 24" fill="#e11d48">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+            <polyline points="14 2 14 8 20 8" />
+          </svg>
+          <span class="start-app-name">Resume</span>
+        </div>
+        <div class="start-app-tile" data-app="about">
+          <svg viewBox="0 0 24 24" fill="#3b82f6">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+            <polyline points="14 2 14 8 20 8" />
+            <line x1="16" y1="13" x2="8" y2="13" />
+            <line x1="16" y1="17" x2="8" y2="17" />
+          </svg>
+          <span class="start-app-name">About</span>
+        </div>
+        <div class="start-app-tile" data-app="studio3d">
+          <svg viewBox="0 0 24 24" fill="#8b5cf6">
+            <circle cx="12" cy="12" r="10" />
+            <path d="m4.93 4.93 4.24 4.24" />
+            <path d="m14.83 9.17 4.24-4.24" />
+            <path d="m14.83 14.83 4.24 4.24" />
+            <path d="m9.17 14.83-4.24 4.24" />
+          </svg>
+          <span class="start-app-name">3D Studio</span>
+        </div>
+        <div class="start-app-tile" data-app="skills">
+          <svg viewBox="0 0 24 24" fill="#8b5cf6">
+            <polygon
+              points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+          </svg>
+          <span class="start-app-name">Skills</span>
+        </div>
+        <div class="start-app-tile" data-app="terminal">
+          <svg viewBox="0 0 24 24" fill="#38bdf8">
+            <path d="M4 17l6-5-6-5" />
+            <line x1="12" y1="19" x2="20" y2="19" />
+          </svg>
+          <span class="start-app-name">Terminal</span>
+        </div>
+      </div>
+
+      <!-- Recommended Files / Case Studies -->
+      <div class="start-section-title">
+        <span>Recommended Case Studies</span>
+      </div>
+
+      <div class="start-rec-list">
+        <div class="start-rec-item" data-app="projects">
+          <svg viewBox="0 0 24 24" fill="#8b5cf6">
+            <path d="M10 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-8l-2-2z" />
+          </svg>
+          <div class="start-rec-text">
+            <span class="start-rec-title">Radio Mango × Bharath Benz Stage</span>
+            <span class="start-rec-sub">3D Event & Set Design • Blender</span>
+          </div>
+        </div>
+
+        <div class="start-rec-item" data-app="projects">
+          <svg viewBox="0 0 24 24" fill="#8b5cf6">
+            <path d="M10 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-8l-2-2z" />
+          </svg>
+          <div class="start-rec-text">
+            <span class="start-rec-title">EMAK Silent Hero Awards</span>
+            <span class="start-rec-sub">60x30ft Stage Design • Hyatt Regency</span>
+          </div>
+        </div>
+
+        <div class="start-rec-item" data-app="projects">
+          <svg viewBox="0 0 24 24" fill="#f43f5e">
+            <rect x="5" y="2" width="14" height="20" rx="2" />
+          </svg>
+          <div class="start-rec-text">
+            <span class="start-rec-title">Apple Health App Redesign</span>
+            <span class="start-rec-sub">UI/UX Prototype • Figma</span>
+          </div>
+        </div>
+
+        <div class="start-rec-item" data-app="resume">
+          <svg viewBox="0 0 24 24" fill="#e11d48">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+          </svg>
+          <div class="start-rec-text">
+            <span class="start-rec-title">Aleesha_Resume_2026.pdf</span>
+            <span class="start-rec-sub">CGPA 8.6 • NIFT Kannur</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Start Menu Footer with Aleesha's Avatar & Power Options -->
+    <div class="start-footer">
+      <div class="start-user-bar" data-app="about">
+        <img src="assets/profile.jpg" alt="Aleesha" class="start-user-img">
+        <div class="start-user-info">
+          <span class="start-user-name">Aleesha K. L.</span>
+          <span class="start-user-role">3D & Experience Designer</span>
+        </div>
+      </div>
+
+      <div class="start-power-actions">
+        <button class="power-btn" id="start-power-btn" title="Power Options">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18.36 6.64a9 9 0 1 1-12.73 0" />
+            <line x1="12" y1="2" x2="12" y2="12" />
+          </svg>
+        </button>
+
+        <div class="power-popover" id="power-popover">
+          <div class="power-popover-item" id="pwr-lock">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="11" width="18" height="11" rx="2" />
+              <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+            </svg>
+            <span>Lock Screen</span>
+          </div>
+          <div class="power-popover-item" id="pwr-restart">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="1 4 1 10 7 10" />
+              <path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10" />
+            </svg>
+            <span>Restart (Re-Boot)</span>
+          </div>
+          <div class="power-popover-item" id="pwr-shutdown">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M18.36 6.64a9 9 0 1 1-12.73 0" />
+              <line x1="12" y1="2" x2="12" y2="12" />
+            </svg>
+            <span>Shut down</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ======================================================================
+       TRAY FLYOUTS (Calendar, Volume, Action Center)
+       ====================================================================== -->
+  <!-- Volume Flyout -->
+  <div class="tray-flyout" id="volume-flyout">
+    <div style="font-size:0.8rem; font-weight:600; margin-bottom:8px; color:#cbd5e1;">Speakers (Audio Effects)</div>
+    <div class="vol-row">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
+        <path d="M15.54 8.46a5 5 0 0 1 0 7.07" />
+      </svg>
+      <input type="range" id="vol-slider-input" min="0" max="1" step="0.05" value="0.6">
+    </div>
+  </div>
+
+  <!-- Calendar Flyout -->
+  <div class="tray-flyout" id="calendar-flyout">
+    <div class="cal-time-big" id="cal-time-big">4:47 PM</div>
+    <div class="cal-date-sub" id="cal-date-sub">Tuesday, October 6</div>
+    <div class="cal-header">
+      <span id="cal-month-title">October 2026</span>
+    </div>
+    <div class="cal-grid" id="cal-days-grid">
+      <!-- Days generated via main.js -->
+    </div>
+  </div>
+
+  <!-- Action Center Flyout -->
+  <div class="tray-flyout" id="notifications-flyout">
+    <div class="notif-header">
+      <span>Notifications</span>
+      <span style="font-size:0.75rem; color:#38bdf8; cursor:pointer;">Clear All</span>
+    </div>
+    <div class="notif-list">
+      <div class="notif-card">
+        <div class="notif-card-title">
+          <span>💼 Career Opportunity</span>
+          <span class="notif-card-time">Just now</span>
+        </div>
+        <div class="notif-card-desc">
+          Aleesha K. L. is available for roles in 3D Visualisation, Spatial Design, and UI/UX. Contact via Mail client!
+        </div>
+      </div>
+
+      <div class="notif-card">
+        <div class="notif-card-title">
+          <span>📁 Case Studies Ready</span>
+          <span class="notif-card-time">5m ago</span>
+        </div>
+        <div class="notif-card-desc">
+          Explore Radio Mango Truck Stage, EMAK Awards at Hyatt Regency, and Apple Health redesign in File Explorer.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Solari Project High-Res Render Lightbox Modal -->
+  <div class="solari-lightbox" id="solari-lightbox">
+    <div class="solari-lightbox-backdrop" id="solari-lightbox-backdrop"></div>
+    <div class="solari-lightbox-dialog">
+      <div class="solari-lightbox-header">
+        <div class="solari-lightbox-caption" id="solari-lightbox-caption">Render Preview</div>
+        <button class="solari-lightbox-close" id="solari-lightbox-close" title="Close Preview">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <line x1="18" y1="6" x2="6" y2="18" />
+            <line x1="6" y1="6" x2="18" y2="18" />
+          </svg>
+        </button>
+      </div>
+      <div class="solari-lightbox-content">
+        <img src="" alt="Enlarged Render" id="solari-lightbox-img" class="solari-lightbox-img">
+      </div>
+    </div>
+  </div>
+
+  <!-- ======================================================================
+       LAPTOP SCREEN GLASS TEXTURE OVERLAY (Physical Glass Monitor Effect)
+       ====================================================================== -->
+  <div class="laptop-screen-glass" id="laptop-screen-glass" aria-hidden="true">
+    <div class="screen-glass-texture"></div>
+    <div class="screen-glass-sheen"></div>
+    <div class="screen-glass-glare"></div>
+    <div class="screen-glass-bezel"></div>
+  </div>
+
+  <!-- Core Script Modules -->
+  <script src="js/audio.js"></script>
+  <script src="js/window-manager.js"></script>
+  <script src="js/apps.js?v=15"></script>
+  <script src="js/main.js?v=15"></script>
+  <script src="js/welcome.js?v=15"></script>
+  <script src="js/owl-companion.js?v=15"></script>
+</body>
+
+</html>

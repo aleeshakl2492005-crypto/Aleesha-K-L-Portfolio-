@@ -1,0 +1,314 @@
+/* ==========================================================================
+   ALEESHA OS - WINDOW MANAGEMENT SYSTEM
+   Full multi-window capabilities: drag, maximize, minimize, close,
+   z-index stack, and taskbar synchronization.
+   ========================================================================== */
+
+class WindowManager {
+  constructor() {
+    this.windows = new Map();
+    this.activeWindowId = null;
+    this.highestZ = 100;
+
+    this.init();
+  }
+
+  init() {
+    // Scan all windows in DOM
+    document.querySelectorAll('.os-window').forEach(winEl => {
+      const id = winEl.id.replace('window-', '');
+      this.registerWindow(id, winEl);
+    });
+
+    // Window global clicks for focus
+    document.addEventListener('mousedown', (e) => {
+      const winEl = e.target.closest('.os-window');
+      if (winEl) {
+        const id = winEl.id.replace('window-', '');
+        this.bringToFront(id);
+      }
+    });
+
+    // Show desktop button
+    const showDesktopBtn = document.getElementById('btn-show-desktop');
+    if (showDesktopBtn) {
+      showDesktopBtn.addEventListener('click', () => {
+        this.minimizeAll();
+      });
+    }
+  }
+
+  registerWindow(id, el) {
+    const defaultData = {
+      el,
+      isOpen: false,
+      isMinimized: false,
+      isMaximized: false,
+      lastX: 80 + (this.windows.size * 30),
+      lastY: 40 + (this.windows.size * 25),
+      lastW: el.offsetWidth || 760,
+      lastH: el.offsetHeight || 520
+    };
+
+    this.windows.set(id, defaultData);
+    this.setupWindowControls(id, el);
+    this.setupDragging(id, el);
+  }
+
+  setupWindowControls(id, el) {
+    const minBtn = el.querySelector('.win-btn.btn-min');
+    const maxBtn = el.querySelector('.win-btn.btn-max');
+    const closeBtn = el.querySelector('.win-btn.btn-close');
+    const titleBar = el.querySelector('.window-titlebar');
+
+    if (minBtn) {
+      minBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        this.minimize(id);
+      });
+    }
+
+    if (maxBtn) {
+      maxBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        this.toggleMaximize(id);
+      });
+    }
+
+    if (closeBtn) {
+      closeBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        this.close(id);
+      });
+    }
+
+    // Double click title bar to maximize/restore
+    if (titleBar) {
+      titleBar.addEventListener('dblclick', (e) => {
+        if (e.target.closest('.window-controls')) return;
+        this.toggleMaximize(id);
+      });
+    }
+  }
+
+  setupDragging(id, el) {
+    const titleBar = el.querySelector('.window-titlebar');
+    if (!titleBar) return;
+
+    let isDragging = false;
+    let startX = 0;
+    let startY = 0;
+    let initialLeft = 0;
+    let initialTop = 0;
+
+    const onPointerDown = (e) => {
+      if (e.target.closest('.window-controls')) return;
+      const data = this.windows.get(id);
+      if (data.isMaximized) return;
+
+      isDragging = true;
+      this.bringToFront(id);
+
+      const clientX = e.clientX || (e.touches && e.touches[0].clientX);
+      const clientY = e.clientY || (e.touches && e.touches[0].clientY);
+
+      startX = clientX;
+      startY = clientY;
+
+      initialLeft = el.offsetLeft;
+      initialTop = el.offsetTop;
+
+      document.addEventListener('mousemove', onPointerMove);
+      document.addEventListener('mouseup', onPointerUp);
+      document.addEventListener('touchmove', onPointerMove, { passive: false });
+      document.addEventListener('touchend', onPointerUp);
+    };
+
+    const onPointerMove = (e) => {
+      if (!isDragging) return;
+      if (e.touches) e.preventDefault();
+
+      const clientX = e.clientX || (e.touches && e.touches[0].clientX);
+      const clientY = e.clientY || (e.touches && e.touches[0].clientY);
+
+      const dx = clientX - startX;
+      const dy = clientY - startY;
+
+      let newLeft = initialLeft + dx;
+      let newTop = initialTop + dy;
+
+      // Keep within viewport boundaries
+      const maxLeft = window.innerWidth - 100;
+      const maxTop = window.innerHeight - 100;
+      newLeft = Math.max(-200, Math.min(maxLeft, newLeft));
+      newTop = Math.max(0, Math.min(maxTop, newTop));
+
+      el.style.left = `${newLeft}px`;
+      el.style.top = `${newTop}px`;
+    };
+
+    const onPointerUp = () => {
+      isDragging = false;
+      const data = this.windows.get(id);
+      if (data) {
+        data.lastX = el.offsetLeft;
+        data.lastY = el.offsetTop;
+      }
+      document.removeEventListener('mousemove', onPointerMove);
+      document.removeEventListener('mouseup', onPointerUp);
+      document.removeEventListener('touchmove', onPointerMove);
+      document.removeEventListener('touchend', onPointerUp);
+    };
+
+    titleBar.addEventListener('mousedown', onPointerDown);
+    titleBar.addEventListener('touchstart', onPointerDown, { passive: true });
+  }
+
+  open(id) {
+    const data = this.windows.get(id);
+    if (!data) return;
+
+    if (window.soundSystem) {
+      window.soundSystem.playWindowOpen();
+    }
+
+    data.isOpen = true;
+    data.isMinimized = false;
+
+    data.el.style.display = 'flex';
+    // Position if not already placed
+    if (!data.el.style.left || data.el.style.left === 'auto') {
+      const winW = data.el.offsetWidth || 760;
+      const winH = data.el.offsetHeight || 520;
+      const maxX = Math.max(10, window.innerWidth - winW - 20);
+      const maxY = Math.max(10, window.innerHeight - winH - 65);
+      const posX = Math.max(10, Math.min(maxX, data.lastX));
+      const posY = Math.max(10, Math.min(maxY, data.lastY));
+      data.el.style.left = `${posX}px`;
+      data.el.style.top = `${posY}px`;
+    }
+
+    void data.el.offsetWidth; // Reflow
+    data.el.classList.add('visible');
+    data.el.classList.remove('minimized');
+
+    this.bringToFront(id);
+    this.updateTaskbar(id);
+  }
+
+  bringToFront(id) {
+    const data = this.windows.get(id);
+    if (!data) return;
+
+    this.highestZ += 2;
+    data.el.style.zIndex = this.highestZ;
+
+    // Remove focused class from others
+    this.windows.forEach(w => w.el.classList.remove('focused'));
+    data.el.classList.add('focused');
+    this.activeWindowId = id;
+
+    this.updateTaskbar(id);
+  }
+
+  pauseVideosInside(el) {
+    if (!el) return;
+    el.querySelectorAll('video').forEach(vid => {
+      try { vid.pause(); } catch (_) {}
+    });
+  }
+
+  minimize(id) {
+    const data = this.windows.get(id);
+    if (!data) return;
+
+    this.pauseVideosInside(data.el);
+    data.isMinimized = true;
+    data.el.classList.add('minimized');
+    data.el.classList.remove('focused');
+
+    if (this.activeWindowId === id) {
+      this.activeWindowId = null;
+    }
+
+    this.updateTaskbar(id);
+  }
+
+  toggleMaximize(id) {
+    const data = this.windows.get(id);
+    if (!data) return;
+
+    data.isMaximized = !data.isMaximized;
+    if (data.isMaximized) {
+      data.el.classList.add('maximized');
+    } else {
+      data.el.classList.remove('maximized');
+    }
+  }
+
+  close(id) {
+    const data = this.windows.get(id);
+    if (!data) return;
+
+    this.pauseVideosInside(data.el);
+    data.isOpen = false;
+    data.isMinimized = false;
+    data.el.classList.remove('visible', 'focused');
+
+    setTimeout(() => {
+      data.el.style.display = 'none';
+    }, 200);
+
+    if (this.activeWindowId === id) {
+      this.activeWindowId = null;
+    }
+
+    this.updateTaskbar(id);
+  }
+
+  minimizeAll() {
+    this.windows.forEach((data, id) => {
+      if (data.isOpen && !data.isMinimized) {
+        this.minimize(id);
+      }
+    });
+  }
+
+  toggleWindow(id) {
+    const data = this.windows.get(id);
+    if (!data) return;
+
+    if (!data.isOpen) {
+      this.open(id);
+    } else if (data.isMinimized) {
+      data.isMinimized = false;
+      data.el.classList.remove('minimized');
+      this.bringToFront(id);
+    } else if (this.activeWindowId === id) {
+      this.minimize(id);
+    } else {
+      this.bringToFront(id);
+    }
+  }
+
+  updateTaskbar(targetId) {
+    // Taskbar app items
+    document.querySelectorAll('.taskbar-app-item').forEach(btn => {
+      const appId = btn.getAttribute('data-app');
+      const data = this.windows.get(appId);
+
+      if (data && data.isOpen) {
+        btn.classList.add('open');
+        if (this.activeWindowId === appId && !data.isMinimized) {
+          btn.classList.add('active');
+        } else {
+          btn.classList.remove('active');
+        }
+      } else {
+        btn.classList.remove('open', 'active');
+      }
+    });
+  }
+}
+
+window.windowManager = new WindowManager();
