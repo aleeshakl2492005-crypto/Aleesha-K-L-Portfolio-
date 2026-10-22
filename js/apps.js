@@ -416,7 +416,7 @@ const SOLARI_PROJECTS_DATA = [
     role: "Lead 3D Spatial & Stage Visualiser (Internship Project)",
     software: ["Autodesk Fusion 360", "SketchUp", "Adobe Photoshop"],
     tags: ["Awards Ceremony", "Cultural Motifs", "LED Scenography", "Sightline Engineering"],
-    heroThumb: "assets/ChatGPT Image Aug 13, 2026, 06_14_26 PM.png",
+    heroThumb: "assets/ChatGPT Image Aug 13, 2026, 11_32_08 AM.png",
     brief: "The brief was to create a grand, elegant, and visually engaging stage suitable for an award ceremony. The design had to complement the scale and ambience of the indoor venue while providing a strong focal point for presentations and award distribution. It needed to accommodate a large LED backdrop, multi-tier presenter podiums, and seamless backstage access for awardees while maintaining strict 600+ attendee sightline clearances across the 100 × 80 ft grand hall.",
     concept: "Inspired by the cultural richness of Thrissur. Elements such as elephants, vallam (snake boats), and Thrissur Pooram were combined with traditional motifs, geometric patterns, and a regal deep purple palette to create a contemporary yet culturally rooted awards-show experience. Multi-tier LED screens frame the stage, while high-gloss acrylic flooring reflects atmospheric cove lighting, establishing an elevated, prestigious aura.",
     execution: "Engineered parametric CAD frameworks to balance vertical clearance with ballroom chandeliers. Custom 3D decorative elephant silhouettes were modeled with backlighting to flank the central presentation screen. The award podium was ergonomically positioned to preserve unobstructed sightlines for both live attendees and broadcast camera angles.",
@@ -432,11 +432,11 @@ const SOLARI_PROJECTS_DATA = [
       { id: "renders", label: "🖼️ 3D Visualisation Renders (5 Views)", type: "gallery" }
     ],
     renders: [
-      { src: "assets/ChatGPT Image Aug 13, 2026, 06_14_26 PM.png", title: "EMAK Main Stage Perspective — Full Venue View" },
-      { src: "assets/ChatGPT Image Aug 13, 2026, 04_24_01 PM.png", title: "Stage Lighting & Backdrop Scenography" },
-      { src: "assets/ChatGPT Image Aug 13, 2026, 05_14_34 PM.png", title: "Podium & Presenter Sightline View" },
-      { src: "assets/ChatGPT Image Aug 13, 2026, 05_52_50 PM.png", title: "Atmospheric Purple Illumination & Floor Reflections" },
-      { src: "assets/ChatGPT Image Aug 13, 2026, 06_08_44 PM.png", title: "Wide Angle Audience Perspective" }
+      { src: "assets/ChatGPT Image Aug 13, 2026, 11_32_08 AM.png", title: "EMAK Main Stage Perspective — Full Venue View" },
+      { src: "assets/ChatGPT Image Aug 13, 2026, 11_34_15 AM.png", title: "Stage Lighting & 3/4 Perspective Scenography" },
+      { src: "assets/ChatGPT Image Aug 13, 2026, 11_39_51 AM.png", title: "Podium & Presenter Sightline View" },
+      { src: "assets/ChatGPT Image Aug 13, 2026, 11_42_01 AM.png", title: "Atmospheric Illumination & Chandelier Lighting" },
+      { src: "assets/ChatGPT Image Aug 13, 2026, 04_24_01 PM.png", title: "Wide Angle Audience Perspective" }
     ]
   },
   {
@@ -643,39 +643,29 @@ function initSolariProjects() {
   const switcherPills = document.querySelectorAll('.solari-nav-pill');
   const folderRows = document.querySelectorAll('.solari-folder-row');
   const allDeckCards = document.querySelectorAll('.solari-deck-card');
+  const projectDeckGroups = document.querySelectorAll('.solari-project-photos');
 
   let currentProjectId = null;
   let activeDeckProjectId = 'emak';
 
   function activateFolderRow(projId) {
-    if (!projId || projId === 'contact') return;
+    if (!projId) return;
     activeDeckProjectId = projId;
 
     folderRows.forEach(r => {
       const isMatch = r.getAttribute('data-project-id') === projId;
       r.classList.toggle('is-active', isMatch);
     });
+
+    projectDeckGroups.forEach(deck => {
+      const isMatch = deck.getAttribute('data-project-deck') === projId;
+      deck.classList.toggle('is-active', isMatch);
+    });
   }
 
   // 1. Hover & Click listeners on folder rows
   const folderRowsContainer = document.getElementById('solari-folder-rows');
   if (folderRowsContainer) {
-    folderRowsContainer.addEventListener('mousemove', (e) => {
-      folderRows.forEach(row => {
-        const rect = row.getBoundingClientRect();
-        const rowTop = row.classList.contains('solari-row-01') ? rect.top - 30 : rect.top;
-        if (e.clientY >= rowTop && e.clientY < rect.bottom) {
-          const projId = row.getAttribute('data-project-id');
-          if (projId === 'contact') {
-            folderRows.forEach(r => r.classList.remove('is-active'));
-            activeDeckProjectId = null;
-          } else if (projId && projId !== activeDeckProjectId) {
-            activateFolderRow(projId);
-          }
-        }
-      });
-    });
-
     folderRowsContainer.addEventListener('mouseleave', () => {
       if (!activeDeckProjectId || activeDeckProjectId === 'contact') {
         activateFolderRow('emak');
@@ -688,7 +678,9 @@ function initSolariProjects() {
     if (!projId) return;
 
     if (projId !== 'contact') {
-      row.addEventListener('mouseenter', () => activateFolderRow(projId));
+      row.addEventListener('mouseenter', () => {
+        activateFolderRow(projId);
+      });
 
       row.addEventListener('click', (e) => {
         openSolariProject(projId);
@@ -702,10 +694,13 @@ function initSolariProjects() {
         });
       }
     } else {
-      // Hovering Contact row: clear active project photo decks so contact buttons & email are fully visible
+      // Hovering Contact row: expand contact row, and hide project photo decks so contact buttons & email are fully visible
       row.addEventListener('mouseenter', () => {
-        folderRows.forEach(r => r.classList.remove('is-active'));
-        activeDeckProjectId = null;
+        folderRows.forEach(r => {
+          r.classList.toggle('is-active', r.getAttribute('data-project-id') === 'contact');
+        });
+        projectDeckGroups.forEach(deck => deck.classList.remove('is-active'));
+        activeDeckProjectId = 'contact';
       });
     }
   });

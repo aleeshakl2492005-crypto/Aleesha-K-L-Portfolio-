@@ -92,7 +92,7 @@
    ========================================================================== */
 .solari-folder-container {
   position: relative;
-  margin-top: 52px;
+  margin-top: 145px;
   background: transparent;
   padding-bottom: 24px;
 }
@@ -100,12 +100,12 @@
 /* Perched Mascot (Sitting directly on top of the folder horizontal border line) */
 .solari-perched-mascot {
   position: absolute;
-  top: -74px;
-  right: 85px;
+  top: -76px;
+  right: 70px;
   display: flex;
   align-items: flex-end;
   gap: 12px;
-  z-index: 35;
+  z-index: 25;
   pointer-events: auto;
   cursor: pointer;
   animation: mascotPerchFloat 3.2s ease-in-out infinite alternate;
@@ -126,16 +126,16 @@
 
 .solari-mascot-speech {
   background: #ffffff;
-  border: 2px solid #1c1917;
+  border: 2.5px solid #1c1917;
   color: #1c1917;
-  font-size: 0.78rem;
+  font-size: 0.8rem;
   font-weight: 850;
-  padding: 5px 14px;
+  padding: 6px 14px;
   border-radius: 14px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   white-space: nowrap;
   position: relative;
-  margin-bottom: 34px;
+  margin-bottom: 30px;
   font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
@@ -187,47 +187,56 @@
 }
 
 /* ==========================================================================
-   PER-ROW OVERLAPPING PHOTO DECK
-   (4 Large Fanned Photo Cards overlapping directly on top of each project row)
+   PHOTO DECK STAGE POPPING OVER THE FOLDER AT THE BACK
+   (Tucked behind the folder top flap at z-index: 2, fanning high into header)
    ========================================================================== */
-.solari-row-photo-deck {
+.solari-folder-photo-stage {
   position: absolute;
-  left: calc(200px + (100% - 200px) * 0.44);
-  top: 50%;
-  transform: translate(-50%, -50%) scale(0.92);
+  top: -140px;
+  left: calc(220px + (100% - 220px) * 0.44);
+  transform: translateX(-50%);
+  width: 820px;
+  height: 195px;
+  z-index: 2; /* Behind the folder rows (z-index: 10) */
+  pointer-events: auto;
+}
+
+.solari-project-photos {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%) translateY(45px) scale(0.92);
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 50;
-  pointer-events: none;
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.22s cubic-bezier(0.16, 1, 0.3, 1), 
-              transform 0.28s cubic-bezier(0.34, 1.56, 0.64, 1),
-              visibility 0.22s;
+  pointer-events: none;
+  transition: opacity 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.42s cubic-bezier(0.34, 1.56, 0.64, 1),
+              visibility 0.28s;
 }
 
-.solari-folder-row.is-active .solari-row-photo-deck,
-.solari-folder-row:hover .solari-row-photo-deck {
+.solari-project-photos.is-active {
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
-  transform: translate(-50%, -50%) scale(1);
+  transform: translateX(-50%) translateY(0) scale(1);
 }
 
 .solari-deck-card {
   position: relative;
-  width: 236px;
-  height: 172px;
-  margin-left: -58px;
+  width: 242px;
+  height: 176px;
+  margin-left: -54px;
   background: #ffffff;
   border: 5px solid #ffffff;
   border-radius: 14px;
-  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.28), 0 3px 8px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.22), 0 3px 8px rgba(0, 0, 0, 0.1);
   cursor: pointer;
   overflow: hidden;
   transform-origin: center bottom;
-  transition: transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.25s ease, z-index 0.1s;
+  transition: transform 0.42s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.25s ease;
   flex-shrink: 0;
 }
 
@@ -258,49 +267,45 @@
 
 /* Hover Lift on Individual Deck Cards */
 .solari-deck-card:hover {
-  transform: translateY(-22px) scale(1.12) rotate(0deg) !important;
+  transform: translateY(-24px) scale(1.12) rotate(0deg) !important;
   z-index: 45 !important;
   box-shadow: 0 28px 56px rgba(0, 0, 0, 0.38), 0 6px 14px rgba(0, 0, 0, 0.16);
 }
 
-/* Spring Fan Animation when project row is hovered or active */
-.solari-folder-row.is-active .solari-deck-card-1,
-.solari-folder-row:hover .solari-deck-card-1 {
-  animation: cardFan1 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
+/* Spring Fan Animation when project deck is active */
+.solari-project-photos.is-active .solari-deck-card-1 {
+  animation: cardFan1 0.44s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-.solari-folder-row.is-active .solari-deck-card-2,
-.solari-folder-row:hover .solari-deck-card-2 {
+.solari-project-photos.is-active .solari-deck-card-2 {
   animation: cardFan2 0.48s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-.solari-folder-row.is-active .solari-deck-card-3,
-.solari-folder-row:hover .solari-deck-card-3 {
-  animation: cardFan3 0.51s cubic-bezier(0.34, 1.56, 0.64, 1);
+.solari-project-photos.is-active .solari-deck-card-3 {
+  animation: cardFan3 0.52s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-.solari-folder-row.is-active .solari-deck-card-4,
-.solari-folder-row:hover .solari-deck-card-4 {
-  animation: cardFan4 0.54s cubic-bezier(0.34, 1.56, 0.64, 1);
+.solari-project-photos.is-active .solari-deck-card-4 {
+  animation: cardFan4 0.56s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 @keyframes cardFan1 {
-  0% { transform: scale(0.8) rotate(-16deg) translateY(30px); opacity: 0.7; }
+  0% { transform: scale(0.85) rotate(-16deg) translateY(38px); opacity: 0.6; }
   100% { transform: rotate(-8.5deg) translateY(6px); opacity: 1; }
 }
 
 @keyframes cardFan2 {
-  0% { transform: scale(0.8) rotate(-8deg) translateY(30px); opacity: 0.7; }
+  0% { transform: scale(0.85) rotate(-8deg) translateY(38px); opacity: 0.6; }
   100% { transform: rotate(-2.5deg) translateY(-8px); opacity: 1; }
 }
 
 @keyframes cardFan3 {
-  0% { transform: scale(0.8) rotate(8deg) translateY(30px); opacity: 0.7; }
+  0% { transform: scale(0.85) rotate(8deg) translateY(38px); opacity: 0.6; }
   100% { transform: rotate(3deg) translateY(-4px); opacity: 1; }
 }
 
 @keyframes cardFan4 {
-  0% { transform: scale(0.8) rotate(16deg) translateY(30px); opacity: 0.7; }
+  0% { transform: scale(0.85) rotate(16deg) translateY(38px); opacity: 0.6; }
   100% { transform: rotate(8.5deg) translateY(10px); opacity: 1; }
 }
 
@@ -348,15 +353,17 @@
   display: flex;
   flex-direction: column;
   position: relative;
+  z-index: 10; /* Cleanly in front of photo stage so photos peek from behind */
 }
 
 .solari-folder-row {
   display: flex;
   position: relative;
-  height: 58px;
+  height: 56px;
   margin-top: -2.5px;
   cursor: pointer;
-  transition: filter 0.2s ease, transform 0.2s ease;
+  transition: height 0.38s cubic-bezier(0.25, 1, 0.5, 1),
+              filter 0.2s ease;
   user-select: none;
 }
 
@@ -364,19 +371,25 @@
   margin-top: 0;
 }
 
-/* Row 01 with raised tab ear */
-.solari-row-01 {
-  height: 58px;
+/* Active Row Smooth Expansion (Matching Solari Framer Accordion) */
+.solari-folder-row.is-active {
+  height: 104px;
+  filter: brightness(1.03);
+}
+
+.solari-folder-row:hover {
+  filter: brightness(1.02);
 }
 
 /* Left Tab Ear */
 .solari-tab-ear {
-  width: 200px;
+  width: 220px;
+  height: 100%;
   flex-shrink: 0;
   display: flex;
   align-items: center;
-  gap: 12px;
-  padding: 0 16px 0 20px;
+  gap: 14px;
+  padding: 0 20px 0 24px;
   background: var(--row-color);
   color: var(--row-text);
   border: 2.5px solid #1c1917;
@@ -385,32 +398,33 @@
   z-index: 5;
   font-family: 'Fredoka', 'Plus Jakarta Sans', sans-serif;
   transition: background 0.2s, filter 0.2s;
+  box-sizing: border-box;
 }
 
 .solari-tab-num {
-  font-size: 1.35rem;
+  font-size: 1.55rem;
   font-weight: 900;
   letter-spacing: -0.02em;
   line-height: 1;
 }
 
 .solari-tab-name {
-  font-size: 0.96rem;
+  font-size: 1.05rem;
   font-weight: 850;
   letter-spacing: 0.02em;
   text-transform: uppercase;
   line-height: 1;
 }
 
-/* Raised Tab 01 Ear - Iconic Manila Folder Shape with Step-Down */
+/* Raised Tab 01 Ear - Manila Folder Shape */
 .solari-ear-raised {
   position: absolute;
   left: 0;
   bottom: 0;
-  width: 200px;
-  height: 82px;
+  width: 220px;
+  height: calc(100% + 28px);
   margin-top: 0;
-  border-radius: 16px 16px 0 0;
+  border-radius: 18px 18px 0 0;
   border: 2.5px solid #1c1917;
   border-bottom: 2.5px solid #1c1917;
   z-index: 8;
@@ -426,23 +440,25 @@
 /* Right Tab Strip */
 .solari-tab-strip {
   flex: 1;
+  height: 100%;
   display: flex;
   align-items: center;
-  gap: 12px;
-  padding: 0 20px 0 16px;
+  gap: 16px;
+  padding: 0 24px;
   background: var(--row-color);
   color: var(--row-text);
   border: 2.5px solid #1c1917;
   position: relative;
   overflow: hidden;
-  transition: filter 0.2s ease;
+  transition: filter 0.2s ease, padding 0.3s ease;
   font-family: 'Plus Jakarta Sans', sans-serif;
+  box-sizing: border-box;
 }
 
 /* Top Strip (Row 01) with curved top-right corner and step-down connection */
 .solari-strip-top {
-  margin-left: 197.5px;
-  height: 58px;
+  margin-left: 217.5px;
+  height: 100%;
   border-top-right-radius: 24px;
   border: 2.5px solid #1c1917;
   border-left: none;
@@ -454,15 +470,20 @@
 }
 
 .solari-strip-item {
-  font-size: 0.82rem;
+  font-size: 0.88rem;
   font-weight: 800;
   white-space: nowrap;
   opacity: 0.92;
+  transition: font-size 0.25s ease;
+}
+
+.solari-folder-row.is-active .solari-strip-item {
+  font-size: 0.94rem;
 }
 
 .solari-strip-item.highlight {
-  background: rgba(255, 255, 255, 0.8);
-  padding: 3px 12px;
+  background: rgba(255, 255, 255, 0.82);
+  padding: 4px 14px;
   border-radius: 999px;
   font-weight: 850;
   color: var(--row-text);
@@ -470,41 +491,40 @@
   opacity: 1;
 }
 
+.solari-folder-row.is-active .solari-strip-item.highlight {
+  padding: 6px 18px;
+}
+
 .solari-strip-action {
   margin-left: auto;
   background: #ffffff;
   color: var(--row-text);
   border: 2px solid #1c1917;
-  padding: 5px 14px;
+  padding: 6px 16px;
   border-radius: 999px;
-  font-size: 0.74rem;
+  font-size: 0.78rem;
   font-weight: 850;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.06);
-  transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
   white-space: nowrap;
   flex-shrink: 0;
   display: inline-flex;
   align-items: center;
-  gap: 4px;
+  gap: 5px;
   cursor: pointer;
+}
+
+.solari-folder-row.is-active .solari-strip-action {
+  padding: 8px 20px;
+  font-size: 0.84rem;
 }
 
 .solari-folder-row:hover .solari-strip-action,
 .solari-folder-row.is-active .solari-strip-action {
-  transform: scale(1.06);
+  transform: scale(1.05);
   background: var(--row-accent);
   color: #ffffff;
   border-color: var(--row-accent);
-}
-
-.solari-folder-row:hover {
-  filter: brightness(1.03);
-  z-index: 70 !important;
-}
-
-.solari-folder-row.is-active {
-  filter: brightness(1.03);
-  z-index: 60 !important;
 }
 
 /* Base Row 06 Contact Details & Buttons */
