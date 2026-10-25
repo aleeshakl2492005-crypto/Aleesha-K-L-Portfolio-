@@ -643,7 +643,6 @@ function initSolariProjects() {
   const switcherPills = document.querySelectorAll('.solari-nav-pill');
   const folderRows = document.querySelectorAll('.solari-folder-row');
   const allDeckCards = document.querySelectorAll('.solari-deck-card');
-  const projectDeckGroups = document.querySelectorAll('.solari-project-photos');
 
   let currentProjectId = null;
   let activeDeckProjectId = 'emak';
@@ -656,11 +655,6 @@ function initSolariProjects() {
       const isMatch = r.getAttribute('data-project-id') === projId;
       r.classList.toggle('is-active', isMatch);
     });
-
-    projectDeckGroups.forEach(deck => {
-      const isMatch = deck.getAttribute('data-project-deck') === projId;
-      deck.classList.toggle('is-active', isMatch);
-    });
   }
 
   // 1. Hover & Click listeners on folder rows
@@ -669,6 +663,27 @@ function initSolariProjects() {
     folderRowsContainer.addEventListener('mouseleave', () => {
       if (!activeDeckProjectId || activeDeckProjectId === 'contact') {
         activateFolderRow('emak');
+      }
+    });
+
+    // Seamless mouse navigation along the tab ears column
+    folderRowsContainer.addEventListener('mousemove', (e) => {
+      const containerRect = folderRowsContainer.getBoundingClientRect();
+      if (e.clientX >= containerRect.left && e.clientX <= containerRect.left + 280) {
+        folderRows.forEach(row => {
+          const rRect = row.getBoundingClientRect();
+          if (e.clientY >= rRect.top && e.clientY < rRect.bottom) {
+            const pId = row.getAttribute('data-project-id');
+            if (pId && pId !== activeDeckProjectId) {
+              if (pId === 'contact') {
+                folderRows.forEach(r => r.classList.toggle('is-active', r.getAttribute('data-project-id') === 'contact'));
+                activeDeckProjectId = 'contact';
+              } else {
+                activateFolderRow(pId);
+              }
+            }
+          }
+        });
       }
     });
   }
@@ -699,7 +714,6 @@ function initSolariProjects() {
         folderRows.forEach(r => {
           r.classList.toggle('is-active', r.getAttribute('data-project-id') === 'contact');
         });
-        projectDeckGroups.forEach(deck => deck.classList.remove('is-active'));
         activeDeckProjectId = 'contact';
       });
     }
