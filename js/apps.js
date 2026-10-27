@@ -1430,34 +1430,20 @@ function init3DStudio() {
   const wireframeBtn = document.getElementById('wireframe-toggle-btn');
 
   const tabViewport = document.getElementById('btn-tab-viewport');
-  const tabVideo = document.getElementById('btn-tab-video');
   const tabGallery = document.getElementById('btn-tab-gallery');
 
   const panelViewport = document.getElementById('studio-viewport-panel');
-  const panelVideo = document.getElementById('studio-video-panel');
   const panelGallery = document.getElementById('studio-gallery-panel');
-  const embeddedVideo = document.getElementById('studio-embedded-video');
 
   function switchTab(activeTab) {
     if (tabViewport) tabViewport.classList.toggle('active', activeTab === 'viewport');
-    if (tabVideo) tabVideo.classList.toggle('active', activeTab === 'video');
     if (tabGallery) tabGallery.classList.toggle('active', activeTab === 'gallery');
 
     if (panelViewport) panelViewport.style.display = activeTab === 'viewport' ? 'flex' : 'none';
-    if (panelVideo) panelVideo.classList.toggle('active', activeTab === 'video');
     if (panelGallery) panelGallery.classList.toggle('active', activeTab === 'gallery');
-
-    if (embeddedVideo) {
-      if (activeTab === 'video') {
-        embeddedVideo.play().catch(() => {});
-      } else {
-        embeddedVideo.pause();
-      }
-    }
   }
 
   if (tabViewport) tabViewport.addEventListener('click', () => switchTab('viewport'));
-  if (tabVideo) tabVideo.addEventListener('click', () => switchTab('video'));
   if (tabGallery) tabGallery.addEventListener('click', () => switchTab('gallery'));
 
   let isWireframe = false;
