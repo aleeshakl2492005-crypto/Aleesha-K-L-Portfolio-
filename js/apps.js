@@ -136,7 +136,7 @@ const PORTFOLIO_DATA = {
       subtitle: "Contemporary Folklore & Visual Storytelling",
       category: "Editorial & Visual",
       badge: "Visual Design",
-      img: "assets/ChatGPT Image Aug 14, 2026, 01_56_25 AM.png",
+      img: "assets/thumb_desktop_playground.png",
       tools: ["Adobe Illustrator", "Photoshop", "Print Typography", "Vector Art"],
       year: "2025",
       desc: "Designed an artistic custom illustrated playing card deck exploring symbolic visual storytelling, folklore motifs, and intricate border typography.",
@@ -303,7 +303,7 @@ const PORTFOLIO_DATA = {
       title: "Illustrated Playing Cards — Contemporary Folklore Deck",
       category: "graphic",
       categoryLabel: "Graphic Design",
-      img: "assets/ChatGPT Image Aug 14, 2026, 01_56_25 AM.png",
+      img: "assets/thumb_desktop_playground.png",
       tools: ["Illustrator", "Vector Art", "Print Typography"],
       desc: "Full 54-card custom illustrated poker deck blending Kerala folklore motifs with symmetric court card typography.",
       deliverables: "54 bespoke card faces, tuck-box packaging with foil stamping, linen cardstock mockups.",
@@ -360,7 +360,7 @@ const PORTFOLIO_DATA = {
       category: "calligraphy",
       categoryLabel: "Masterclass Lettering",
       badge: "Workshop Creation",
-      img: "assets/ChatGPT Image Aug 14, 2026, 01_56_25 AM.png",
+      img: "assets/thumb_desktop_beyond.png",
       tools: ["Calligraphy Inks", "Reed Pens", "Narayana Bhattathiri Masterclass"],
       desc: "Experimental calligraphic explorations created during intensive masterclass with legendary calligrapher Narayana Bhattathiri.",
       process: "Studied Malayalam traditional script anatomy, exploring the expressive tension between heavy downstrokes and hairline crossbars."
@@ -606,27 +606,26 @@ const SOLARI_PROJECTS_DATA = [
     role: "3D Themed Stage & Spatial Lighting Designer",
     software: ["Autodesk Fusion 360", "SketchUp", "Adobe Photoshop", "Adobe Illustrator"],
     tags: ["Anime Stage", "Naruto & Pokémon", "Neon Flex Scenography", "Interactive Photo Ops", "Lighting Design"],
-    heroThumb: "assets/ChatGPT Image Aug 14, 2026, 01_56_25 AM.png",
-    brief: "To create an energetic, highly imaginative birthday celebration stage based on a contemporary anime theme. Developed entirely in 3D, the project required translating beloved animation aesthetics into a tangible physical space with themed backdrops, interactive photo zones, custom lighting, and themed catering stations.",
-    concept: "Inspired by Naruto and Pokémon, incorporating vibrant energetic colors, dynamic comic-book action lines, layered multi-depth backdrops, and life-size character props. Personalized character visuals featuring the birthday child in custom Hokage anime attire added an unforgettable personal touch.",
-    execution: "Designed a multi-plane stage featuring CNC-cut silhouettes illuminated with edge-lit LED neon flex strips. An interactive Ichiraku-inspired Ramen snack counter was placed adjacent to the stage, complemented by Pokéball lounge seating and custom manga dialogue bubble photo ops.",
+    heroThumb: "assets/anime 4.jpeg",
+    brief: "To create an energetic, highly imaginative birthday celebration realm based on a contemporary anime theme for Vedanth ('Okayeri Vedanth'). Designed for Rainmaker Signature Experiences, translating beloved animation aesthetics into a tangible physical space with Torii gate arches, character entry tunnels, themed dining, and immersive stage scenography.",
+    concept: "Inspired by iconic anime universes including Naruto, One Piece, Pokémon, Demon Slayer, and Studio Ghibli. Vibrant Japanese torii structures, cherry blossom trees, Japanese typography, and life-size character cutouts (Luffy, Pikachu, Totoro, Zenitsu, Umbreon) brought the celebration to life.",
+    execution: "Engineered a monumental circular sunburst stage flanked by double-tier Torii gate pillars draped in pink cherry blossoms, accompanied by an outdoor Torii welcome portal, an arched anime character tunnel walkway, and bespoke manga-cube centerpieces on vibrant orange velvet dining setups.",
     materials: [
-      "High-Density CNC Precision Cut Foam & Acrylic Silhouettes",
-      "Addressable Silicon LED Neon Flex Strips",
-      "UV-Reactive Graphic Backdrops & Floor Vinyls",
-      "Custom Torii Gate Wooden Arch Structures",
-      "Matte Black Stage Platforms with Edge Glow",
-      "DMX-Controlled RGB Ambient Strobes"
+      "Custom Japanese Torii Wooden Gate Portals with Cobalt Curved Roofs",
+      "High-Definition Character Cutouts (Naruto, Luffy, Pikachu, Totoro)",
+      "Cherry Blossom Floral Scenography & Hanging Japanese Lanterns",
+      "Bespoke Manga Cube Dining Table Centerpieces",
+      "Sunburst Circular Stage Backdrop with Japanese 'Okayeri Vedanth' Typography",
+      "Staged Atmospheric Outdoor Spotlights & Wash Fixtures"
     ],
     mediaTabs: [
-      { id: "renders", label: "🖼️ Themed Stage Renders (5 Views)", type: "gallery" }
+      { id: "renders", label: "📸 Project Photographs & Scenography (4 Views)", type: "gallery" }
     ],
     renders: [
-      { src: "assets/ChatGPT Image Aug 14, 2026, 01_56_25 AM.png", title: "Anime Stage Hero Perspective — Naruto & Pokémon Set" },
-      { src: "assets/ChatGPT Image Aug 14, 2026, 02_06_30 AM.png", title: "Layered Backdrop Silhouettes & Neon Lighting" },
-      { src: "assets/ChatGPT Image Aug 14, 2026, 04_28_13 AM.png", title: "Ichiraku Ramen Bar & Interactive Activity Zone" },
-      { src: "assets/ChatGPT Image Aug 14, 2026, 04_50_55 AM.png", title: "Photo Booth Backdrop & Torii Arch Detailing" },
-      { src: "assets/ChatGPT Image Aug 13, 2026, 05_59_39 PM.png", title: "Banquet Hall Wide Angle Lighting Mood Simulation" }
+      { src: "assets/anime 4.jpeg", title: "Grand Anime Hero Stage — Torii Gate, Cherry Blossoms & Character Set" },
+      { src: "assets/anime 1.jpeg", title: "Torii Welcome Gate — Traditional Curved Japanese Roof & Lanterns" },
+      { src: "assets/anime 3.jpeg", title: "Walkway Character Archway Tunnel — Luffy, Umbreon, Zenitsu & Appa" },
+      { src: "assets/anime 2.jpeg", title: "Themed Dining Experience — Manga Art Cube Centerpiece & Stage Vista" }
     ]
   }
 ];
