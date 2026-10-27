@@ -645,11 +645,38 @@ function initSolariProjects() {
   const allDeckCards = document.querySelectorAll('.solari-deck-card');
 
   let currentProjectId = null;
-  let activeDeckProjectId = 'emak';
+  let activeDeckProjectId = null; // Images only pop up on hover, not initially!
   let activateRaf = null;
+  let deactivateTimer = null;
+  const LINGER_DURATION = 1500; // Stay for 1.5s after unhovering, then let it go!
+
+  function clearDeactivateTimer() {
+    if (deactivateTimer) {
+      clearTimeout(deactivateTimer);
+      deactivateTimer = null;
+    }
+  }
+
+  function scheduleDeactivate() {
+    clearDeactivateTimer();
+    deactivateTimer = setTimeout(() => {
+      deactivateAllRows();
+    }, LINGER_DURATION);
+  }
+
+  function deactivateAllRows() {
+    clearDeactivateTimer();
+    activeDeckProjectId = null;
+    if (activateRaf) cancelAnimationFrame(activateRaf);
+    activateRaf = requestAnimationFrame(() => {
+      folderRows.forEach(r => r.classList.remove('is-active'));
+    });
+  }
 
   function activateFolderRow(projId) {
-    if (!projId || projId === activeDeckProjectId) return;
+    if (!projId) return;
+    clearDeactivateTimer();
+    if (projId === activeDeckProjectId) return;
     activeDeckProjectId = projId;
 
     if (activateRaf) cancelAnimationFrame(activateRaf);
@@ -664,10 +691,13 @@ function initSolariProjects() {
   // 1. Hover & Click listeners on folder rows
   const folderRowsContainer = document.getElementById('solari-folder-rows');
   if (folderRowsContainer) {
-    folderRowsContainer.addEventListener('mouseleave', () => {
-      if (!activeDeckProjectId || activeDeckProjectId === 'contact') {
-        activateFolderRow('emak');
-      }
+    folderRowsContainer.addEventListener('pointerenter', () => {
+      clearDeactivateTimer();
+    });
+
+    folderRowsContainer.addEventListener('pointerleave', (e) => {
+      if (e.relatedTarget && folderRowsContainer.contains(e.relatedTarget)) return;
+      scheduleDeactivate();
     });
 
     // Seamless mouse navigation along the tab ears column (throttled with rAF)
@@ -695,15 +725,33 @@ function initSolariProjects() {
     });
   }
 
+  // Keep cards open while interacting with the photo deck
+  const allDecks = document.querySelectorAll('.solari-row-photo-deck');
+  allDecks.forEach(deck => {
+    deck.addEventListener('pointerenter', () => {
+      clearDeactivateTimer();
+    });
+    deck.addEventListener('pointerleave', (e) => {
+      if (e.relatedTarget && deck.contains(e.relatedTarget)) return;
+      scheduleDeactivate();
+    });
+  });
+
   folderRows.forEach(row => {
     const projId = row.getAttribute('data-project-id');
     if (!projId) return;
 
-    if (projId !== 'contact') {
-      row.addEventListener('mouseenter', () => {
-        activateFolderRow(projId);
-      });
+    row.addEventListener('pointerenter', () => {
+      clearDeactivateTimer();
+      activateFolderRow(projId);
+    });
 
+    row.addEventListener('pointerleave', (e) => {
+      if (e.relatedTarget && row.contains(e.relatedTarget)) return;
+      scheduleDeactivate();
+    });
+
+    if (projId !== 'contact') {
       row.addEventListener('click', (e) => {
         openSolariProject(projId);
       });
@@ -715,14 +763,6 @@ function initSolariProjects() {
           openSolariProject(projId);
         });
       }
-    } else {
-      // Hovering Contact row: expand contact row, and hide project photo decks so contact buttons & email are fully visible
-      row.addEventListener('mouseenter', () => {
-        folderRows.forEach(r => {
-          r.classList.toggle('is-active', r.getAttribute('data-project-id') === 'contact');
-        });
-        activeDeckProjectId = 'contact';
-      });
     }
   });
 
@@ -798,6 +838,7 @@ function initSolariProjects() {
     if (detailView) detailView.style.display = 'none';
     if (overviewView) overviewView.style.display = 'block';
     currentProjectId = null;
+    deactivateAllRows();
 
     // Scroll container to top
     const wrap = document.getElementById('solari-projects-wrap');
