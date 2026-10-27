@@ -646,14 +646,18 @@ function initSolariProjects() {
 
   let currentProjectId = null;
   let activeDeckProjectId = 'emak';
+  let activateRaf = null;
 
   function activateFolderRow(projId) {
-    if (!projId) return;
+    if (!projId || projId === activeDeckProjectId) return;
     activeDeckProjectId = projId;
 
-    folderRows.forEach(r => {
-      const isMatch = r.getAttribute('data-project-id') === projId;
-      r.classList.toggle('is-active', isMatch);
+    if (activateRaf) cancelAnimationFrame(activateRaf);
+    activateRaf = requestAnimationFrame(() => {
+      folderRows.forEach(r => {
+        const isMatch = r.getAttribute('data-project-id') === projId;
+        r.classList.toggle('is-active', isMatch);
+      });
     });
   }
 
@@ -666,25 +670,28 @@ function initSolariProjects() {
       }
     });
 
-    // Seamless mouse navigation along the tab ears column
+    // Seamless mouse navigation along the tab ears column (throttled with rAF)
+    let mouseMoveRaf = null;
     folderRowsContainer.addEventListener('mousemove', (e) => {
-      const containerRect = folderRowsContainer.getBoundingClientRect();
-      if (e.clientX >= containerRect.left && e.clientX <= containerRect.left + 280) {
-        folderRows.forEach(row => {
-          const rRect = row.getBoundingClientRect();
-          if (e.clientY >= rRect.top && e.clientY < rRect.bottom) {
-            const pId = row.getAttribute('data-project-id');
-            if (pId && pId !== activeDeckProjectId) {
-              if (pId === 'contact') {
-                folderRows.forEach(r => r.classList.toggle('is-active', r.getAttribute('data-project-id') === 'contact'));
-                activeDeckProjectId = 'contact';
-              } else {
+      if (mouseMoveRaf) return;
+      const clientX = e.clientX;
+      const clientY = e.clientY;
+
+      mouseMoveRaf = requestAnimationFrame(() => {
+        mouseMoveRaf = null;
+        const containerRect = folderRowsContainer.getBoundingClientRect();
+        if (clientX >= containerRect.left && clientX <= containerRect.left + 280) {
+          folderRows.forEach(row => {
+            const rRect = row.getBoundingClientRect();
+            if (clientY >= rRect.top && clientY < rRect.bottom) {
+              const pId = row.getAttribute('data-project-id');
+              if (pId && pId !== activeDeckProjectId) {
                 activateFolderRow(pId);
               }
             }
-          }
-        });
-      }
+          });
+        }
+      });
     });
   }
 

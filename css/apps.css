@@ -97,94 +97,7 @@
   padding-bottom: 24px;
 }
 
-/* Perched Mascot (Sitting directly on top of the folder horizontal border line) */
-.solari-perched-mascot {
-  position: absolute;
-  top: -76px;
-  right: 70px;
-  display: flex;
-  align-items: flex-end;
-  gap: 12px;
-  z-index: 25;
-  pointer-events: auto;
-  cursor: pointer;
-  animation: mascotPerchFloat 3.2s ease-in-out infinite alternate;
-}
 
-@keyframes mascotPerchFloat {
-  0% { transform: translateY(0); }
-  100% { transform: translateY(-6px); }
-}
-
-.solari-mascot-img {
-  width: 96px;
-  height: 96px;
-  object-fit: contain;
-  filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.22));
-  display: block;
-}
-
-.solari-mascot-speech {
-  background: #ffffff;
-  border: 2.5px solid #1c1917;
-  color: #1c1917;
-  font-size: 0.8rem;
-  font-weight: 850;
-  padding: 6px 14px;
-  border-radius: 14px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  white-space: nowrap;
-  position: relative;
-  margin-bottom: 30px;
-  font-family: 'Plus Jakarta Sans', sans-serif;
-}
-
-.solari-mascot-speech::after {
-  content: "";
-  position: absolute;
-  right: -7px;
-  top: 50%;
-  transform: translateY(-50%);
-  border-width: 6px 0 6px 7px;
-  border-style: solid;
-  border-color: transparent transparent transparent #ffffff;
-}
-
-.solari-mascot-speech::before {
-  content: "";
-  position: absolute;
-  right: -9px;
-  top: 50%;
-  transform: translateY(-50%);
-  border-width: 7px 0 7px 8px;
-  border-style: solid;
-  border-color: transparent transparent transparent #1c1917;
-}
-
-/* Side Peeking Mascot (Right Edge with Backpack, matching Solari reference) */
-.solari-side-mascot {
-  position: absolute;
-  right: -20px;
-  top: 135px;
-  width: 90px;
-  height: 90px;
-  z-index: 20;
-  pointer-events: none;
-  animation: mascotPeekSide 3.6s ease-in-out infinite alternate;
-}
-
-@keyframes mascotPeekSide {
-  0% { transform: translateY(0) rotate(2deg); }
-  100% { transform: translateY(-8px) rotate(-3deg); }
-}
-
-.solari-side-mascot img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.24));
-  display: block;
-}
 
 /* ==========================================================================
    PER-ROW OVERLAPPING PHOTO DECK
@@ -192,9 +105,9 @@
    ========================================================================== */
 .solari-row-photo-deck {
   position: absolute;
-  top: -105px;
+  top: -110px;
   left: calc(260px + (100% - 260px) * 0.44);
-  transform: translateX(-50%) translateY(32px) scale(0.9);
+  transform: translateX(-50%) translate3d(0, 36px, 0);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -202,16 +115,19 @@
   pointer-events: none;
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.28s cubic-bezier(0.16, 1, 0.3, 1),
-              transform 0.42s cubic-bezier(0.34, 1.56, 0.64, 1),
-              visibility 0.28s;
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transition: opacity 0.32s cubic-bezier(0.2, 0.8, 0.25, 1),
+              transform 0.46s cubic-bezier(0.25, 1, 0.35, 1.12),
+              visibility 0.32s;
 }
 
 .solari-folder-row.is-active .solari-row-photo-deck {
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
-  transform: translateX(-50%) translateY(0) scale(1);
+  transform: translateX(-50%) translate3d(0, 0, 0);
 }
 
 .solari-deck-card {
@@ -222,11 +138,17 @@
   background: #ffffff;
   border: 5px solid #ffffff;
   border-radius: 15px;
-  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.26), 0 3px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.2), 0 3px 8px rgba(0, 0, 0, 0.08);
   cursor: pointer;
   overflow: hidden;
-  transform-origin: center bottom;
-  transition: transform 0.42s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.25s ease;
+  transform-origin: center 120%;
+  will-change: transform, opacity, box-shadow;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform: translateZ(0);
+  transition: transform 0.48s cubic-bezier(0.22, 1, 0.36, 1.12),
+              box-shadow 0.3s cubic-bezier(0.2, 0.8, 0.25, 1),
+              opacity 0.32s ease;
   flex-shrink: 0;
 }
 
@@ -234,69 +156,64 @@
   margin-left: 0;
 }
 
-/* Base Fanned Tilts matching Solari Reference Image */
-.solari-deck-card-1 {
-  z-index: 10;
-  transform: rotate(-8.5deg) translateY(6px);
+/* Resting State (When row is collapsed / inactive) - cards tucked slightly down with natural fan angle */
+.solari-folder-row:not(.is-active) .solari-deck-card-1 {
+  transform: translate3d(0, 30px, 0) rotate(-14deg) scale(0.9);
+  opacity: 0;
+  transition-delay: 0s;
+}
+.solari-folder-row:not(.is-active) .solari-deck-card-2 {
+  transform: translate3d(0, 24px, 0) rotate(-6deg) scale(0.9);
+  opacity: 0;
+  transition-delay: 0s;
+}
+.solari-folder-row:not(.is-active) .solari-deck-card-3 {
+  transform: translate3d(0, 24px, 0) rotate(6deg) scale(0.9);
+  opacity: 0;
+  transition-delay: 0s;
+}
+.solari-folder-row:not(.is-active) .solari-deck-card-4 {
+  transform: translate3d(0, 30px, 0) rotate(14deg) scale(0.9);
+  opacity: 0;
+  transition-delay: 0s;
 }
 
-.solari-deck-card-2 {
-  z-index: 11;
-  transform: rotate(-2.5deg) translateY(-8px);
-}
-
-.solari-deck-card-3 {
-  z-index: 12;
-  transform: rotate(3deg) translateY(-4px);
-}
-
-.solari-deck-card-4 {
-  z-index: 13;
-  transform: rotate(8.5deg) translateY(10px);
-}
-
-/* Hover Lift on Individual Deck Cards */
-.solari-deck-card:hover {
-  transform: translateY(-26px) scale(1.12) rotate(0deg) !important;
-  z-index: 45 !important;
-  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4), 0 6px 14px rgba(0, 0, 0, 0.16);
-}
-
-/* Spring Fan Animation when project deck is active */
+/* Active State (When row is hovered) - smooth staggered spring fan emergence */
 .solari-folder-row.is-active .solari-deck-card-1 {
-  animation: cardFan1 0.44s cubic-bezier(0.34, 1.56, 0.64, 1);
+  z-index: 10;
+  transform: translate3d(0, 6px, 0) rotate(-8.5deg) scale(1);
+  opacity: 1;
+  transition-delay: 0.03s;
 }
 
 .solari-folder-row.is-active .solari-deck-card-2 {
-  animation: cardFan2 0.48s cubic-bezier(0.34, 1.56, 0.64, 1);
+  z-index: 11;
+  transform: translate3d(0, -8px, 0) rotate(-2.5deg) scale(1);
+  opacity: 1;
+  transition-delay: 0.07s;
 }
 
 .solari-folder-row.is-active .solari-deck-card-3 {
-  animation: cardFan3 0.52s cubic-bezier(0.34, 1.56, 0.64, 1);
+  z-index: 12;
+  transform: translate3d(0, -4px, 0) rotate(3deg) scale(1);
+  opacity: 1;
+  transition-delay: 0.11s;
 }
 
 .solari-folder-row.is-active .solari-deck-card-4 {
-  animation: cardFan4 0.56s cubic-bezier(0.34, 1.56, 0.64, 1);
+  z-index: 13;
+  transform: translate3d(0, 10px, 0) rotate(8.5deg) scale(1);
+  opacity: 1;
+  transition-delay: 0.15s;
 }
 
-@keyframes cardFan1 {
-  0% { transform: scale(0.85) rotate(-16deg) translateY(38px); opacity: 0.6; }
-  100% { transform: rotate(-8.5deg) translateY(6px); opacity: 1; }
-}
-
-@keyframes cardFan2 {
-  0% { transform: scale(0.85) rotate(-8deg) translateY(38px); opacity: 0.6; }
-  100% { transform: rotate(-2.5deg) translateY(-8px); opacity: 1; }
-}
-
-@keyframes cardFan3 {
-  0% { transform: scale(0.85) rotate(8deg) translateY(38px); opacity: 0.6; }
-  100% { transform: rotate(3deg) translateY(-4px); opacity: 1; }
-}
-
-@keyframes cardFan4 {
-  0% { transform: scale(0.85) rotate(16deg) translateY(38px); opacity: 0.6; }
-  100% { transform: rotate(8.5deg) translateY(10px); opacity: 1; }
+/* Hover Lift on Individual Deck Cards */
+.solari-folder-row.is-active .solari-deck-card:hover {
+  transform: translate3d(0, -28px, 0) rotate(0deg) scale(1.1) !important;
+  z-index: 45 !important;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.38), 0 6px 16px rgba(0, 0, 0, 0.14);
+  transition-duration: 0.28s !important;
+  transition-delay: 0s !important;
 }
 
 .solari-deck-img-wrap {
@@ -351,8 +268,9 @@
   height: 64px;
   margin-top: -2.5px;
   cursor: pointer;
-  transition: height 0.38s cubic-bezier(0.25, 1, 0.5, 1),
-              filter 0.2s ease;
+  transition: height 0.42s cubic-bezier(0.25, 1, 0.4, 1),
+              filter 0.25s ease;
+  will-change: height;
   user-select: none;
 }
 
