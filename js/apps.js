@@ -606,7 +606,7 @@ const SOLARI_PROJECTS_DATA = [
     role: "3D Themed Stage & Spatial Lighting Designer",
     software: ["Autodesk Fusion 360", "SketchUp", "Adobe Photoshop", "Adobe Illustrator"],
     tags: ["Anime Stage", "Naruto & Pokémon", "Neon Flex Scenography", "Interactive Photo Ops", "Lighting Design"],
-    heroThumb: "assets/anime 4.jpeg",
+    heroThumb: "assets/anime 3d 1.png",
     brief: "To create an energetic, highly imaginative birthday celebration realm based on a contemporary anime theme for Vedanth ('Okayeri Vedanth'). Designed for Rainmaker Signature Experiences, translating beloved animation aesthetics into a tangible physical space with Torii gate arches, character entry tunnels, themed dining, and immersive stage scenography.",
     concept: "Inspired by iconic anime universes including Naruto, One Piece, Pokémon, Demon Slayer, and Studio Ghibli. Vibrant Japanese torii structures, cherry blossom trees, Japanese typography, and life-size character cutouts (Luffy, Pikachu, Totoro, Zenitsu, Umbreon) brought the celebration to life.",
     execution: "Engineered a monumental circular sunburst stage flanked by double-tier Torii gate pillars draped in pink cherry blossoms, accompanied by an outdoor Torii welcome portal, an arched anime character tunnel walkway, and bespoke manga-cube centerpieces on vibrant orange velvet dining setups.",
@@ -619,11 +619,13 @@ const SOLARI_PROJECTS_DATA = [
       "Staged Atmospheric Outdoor Spotlights & Wash Fixtures"
     ],
     mediaTabs: [
-      { id: "renders", label: "📸 Project Photographs & Scenography (4 Views)", type: "gallery" }
+      { id: "renders", label: "🎨 3D Stage Visualisations & Execution Photos (6 Views)", type: "gallery" }
     ],
     renders: [
-      { src: "assets/anime 4.jpeg", title: "Grand Anime Hero Stage — Torii Gate, Cherry Blossoms & Character Set" },
-      { src: "assets/anime 1.jpeg", title: "Torii Welcome Gate — Traditional Curved Japanese Roof & Lanterns" },
+      { src: "assets/anime 3d 1.png", title: "3D Spatial Visualisation — Isometric Perspective & Stage Scenography" },
+      { src: "assets/anime 3d.png", title: "3D Spatial Visualisation — Frontal Elevation & Scenography Design" },
+      { src: "assets/anime 4.jpeg", title: "Event Execution Photography — Grand Stage Setup & Character Installations" },
+      { src: "assets/anime 1.jpeg", title: "Event Execution Photography — Torii Welcome Gate with Curved Roof & Lanterns" },
       { src: "assets/anime 3.jpeg", title: "Walkway Character Archway Tunnel — Luffy, Umbreon, Zenitsu & Appa" },
       { src: "assets/anime 2.jpeg", title: "Themed Dining Experience — Manga Art Cube Centerpiece & Stage Vista" }
     ]
