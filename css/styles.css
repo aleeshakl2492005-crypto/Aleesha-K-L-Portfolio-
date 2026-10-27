@@ -1580,7 +1580,7 @@ body, html {
   left: 0;
   width: 62px;
   height: 72px;
-  z-index: 5;
+  z-index: 10002;
   pointer-events: none;
   user-select: none;
   will-change: transform;

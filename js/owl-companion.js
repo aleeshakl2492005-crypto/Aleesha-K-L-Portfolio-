@@ -420,8 +420,15 @@ class OwlCompanion {
   }
 }
 
-// Auto-initialize when DOM is ready
-document.addEventListener('DOMContentLoaded', () => {
-  // Create owl companion once DOM is loaded
-  window.owlCompanion = new OwlCompanion();
-});
+function initOwlCompanion() {
+  if (!window.owlCompanion) {
+    window.owlCompanion = new OwlCompanion();
+  }
+}
+
+// Auto-initialize reliably across all environments (Vercel CDN, fast cache, etc.)
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initOwlCompanion);
+} else {
+  initOwlCompanion();
+}

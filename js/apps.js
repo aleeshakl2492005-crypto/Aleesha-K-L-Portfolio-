@@ -1135,6 +1135,12 @@ function initSolariProjects() {
   }
 
   // 7. Lightbox viewer handlers
+  const lightbox = document.getElementById('solari-lightbox');
+  const lightboxClose = document.getElementById('solari-lightbox-close');
+  const lightboxBackdrop = document.getElementById('solari-lightbox-backdrop');
+  const lightboxImg = document.getElementById('solari-lightbox-img');
+  const lightboxCaption = document.getElementById('solari-lightbox-caption');
+
   function openLightbox(src, caption) {
     if (!lightbox || !lightboxImg) return;
     lightboxImg.src = src;
