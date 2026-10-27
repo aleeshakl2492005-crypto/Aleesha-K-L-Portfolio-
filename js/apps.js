@@ -1024,6 +1024,11 @@ function initSolariProjects() {
       const videos = detailBody.querySelectorAll('video');
       videos.forEach(v => v.pause());
     }
+    const content = document.querySelector('.solari-window-content');
+    if (content) content.classList.remove('is-detail-active');
+    const winTitle = document.querySelector('#window-projects .window-title-text');
+    if (winTitle) winTitle.textContent = 'Projects & Works';
+
     if (detailView) detailView.style.display = 'none';
     if (overviewView) overviewView.style.display = 'block';
     currentProjectId = null;
@@ -1032,7 +1037,6 @@ function initSolariProjects() {
     // Scroll container to top
     const wrap = document.getElementById('solari-projects-wrap');
     if (wrap) wrap.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    const content = document.querySelector('.solari-window-content');
     if (content) content.scrollTop = 0;
   }
 
@@ -1055,7 +1059,17 @@ function initSolariProjects() {
 
     // Toggle views
     if (overviewView) overviewView.style.display = 'none';
-    if (detailView) detailView.style.display = 'block';
+    if (detailView) detailView.style.display = 'flex';
+
+    const content = document.querySelector('.solari-window-content');
+    if (content) {
+      content.classList.add('is-detail-active');
+      content.scrollTop = 0;
+    }
+    const winTitle = document.querySelector('#window-projects .window-title-text');
+    if (winTitle) {
+      winTitle.textContent = `${proj.num} ${proj.tabName} — Projects & Works`;
+    }
 
     // Update active nav pill
     switcherPills.forEach(pill => {
@@ -1064,10 +1078,6 @@ function initSolariProjects() {
 
     // Render Case Study in detail body
     renderCaseStudy(proj);
-
-    // Scroll to top
-    const content = document.querySelector('.solari-window-content');
-    if (content) content.scrollTop = 0;
   }
 
   // 5. Render detailed case study HTML
@@ -1079,52 +1089,19 @@ function initSolariProjects() {
     const prevProj = currentIndex > 0 ? SOLARI_PROJECTS_DATA[currentIndex - 1] : SOLARI_PROJECTS_DATA[SOLARI_PROJECTS_DATA.length - 1];
     const nextProj = currentIndex < SOLARI_PROJECTS_DATA.length - 1 ? SOLARI_PROJECTS_DATA[currentIndex + 1] : SOLARI_PROJECTS_DATA[0];
 
-    // If project is one of the bespoke uploaded case study pages, render the EXACT page they made!
+    // If project has an uploaded case study page, render directly matching the size of the projects folder!
     if (proj.caseStudyUrl) {
       const safeCaseStudyUrl = encodeURI(proj.caseStudyUrl);
+      
+      const fsLink = document.getElementById('solari-detail-fullscreen-link');
+      if (fsLink) {
+        fsLink.href = safeCaseStudyUrl;
+        fsLink.title = `Open ${proj.title} full screen in a new tab`;
+      }
+
       detailBody.innerHTML = `
-        <div class="solari-bespoke-case-card">
-          <div class="solari-bespoke-bar">
-            <div class="solari-bespoke-bar-left">
-              <span class="solari-bespoke-dot" style="background: ${proj.accent || '#7c3aed'};"></span>
-              <span class="solari-bespoke-bar-title">Project ${proj.num} • ${proj.title}</span>
-            </div>
-            <div class="solari-bespoke-bar-right">
-              <a href="${safeCaseStudyUrl}" target="_blank" rel="noopener noreferrer" class="solari-bespoke-open-btn" title="Open full screen in a new tab">
-                <span>Open Fullscreen</span>
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-              </a>
-            </div>
-          </div>
-
-          <div class="solari-bespoke-frame-wrap">
-            <iframe src="${safeCaseStudyUrl}" class="solari-bespoke-iframe" id="solari-bespoke-iframe-${proj.id}" title="${proj.title}" loading="eager"></iframe>
-          </div>
-
-          <div class="solari-bespoke-footer-nav">
-            <button class="solari-back-btn" id="solari-prev-proj-btn" data-project-id="${prevProj.id}">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
-              <span>Prev: ${prevProj.num} ${prevProj.tabName}</span>
-            </button>
-            <button class="solari-back-btn" id="solari-detail-index-btn">
-              <span>Back to Overview Folders</span>
-            </button>
-            <button class="solari-back-btn" id="solari-next-proj-btn" data-project-id="${nextProj.id}">
-              <span>Next: ${nextProj.num} ${nextProj.tabName}</span>
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-            </button>
-          </div>
-        </div>
+        <iframe src="${safeCaseStudyUrl}" class="solari-full-case-iframe" id="solari-full-iframe-${proj.id}" title="${proj.title}" loading="eager"></iframe>
       `;
-
-      // Bind next/previous buttons
-      const prevBtn = detailBody.querySelector('#solari-prev-proj-btn');
-      const nextBtn = detailBody.querySelector('#solari-next-proj-btn');
-      const indexBtn = detailBody.querySelector('#solari-detail-index-btn');
-
-      if (prevBtn) prevBtn.addEventListener('click', () => openSolariProject(prevBtn.getAttribute('data-project-id')));
-      if (nextBtn) nextBtn.addEventListener('click', () => openSolariProject(nextBtn.getAttribute('data-project-id')));
-      if (indexBtn) indexBtn.addEventListener('click', () => closeSolariDetail());
 
       return;
     }

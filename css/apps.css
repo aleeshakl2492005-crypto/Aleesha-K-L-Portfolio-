@@ -591,51 +591,73 @@
 }
 
 /* ==========================================================================
-   SOLARI DETAILED CASE STUDY VIEW
+   SOLARI DETAILED CASE STUDY VIEW (Full-Bleed Matching Projects Window Size)
    ========================================================================== */
-.solari-detail-view {
-  animation: solariSlideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+.solari-window-content.is-detail-active {
+  overflow: hidden !important;
+  display: flex !important;
+  flex-direction: column !important;
+  background: #0d0b18 !important;
 }
 
-@keyframes solariSlideUp {
-  0% { opacity: 0; transform: translateY(24px); }
-  100% { opacity: 1; transform: translateY(0); }
+.solari-window-content.is-detail-active .solari-projects-wrap {
+  padding: 0 !important;
+  margin: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  max-width: 100% !important;
+  display: flex !important;
+  flex-direction: column !important;
+  flex: 1 !important;
+  overflow: hidden !important;
+}
+
+.solari-window-content.is-detail-active .solari-detail-view {
+  display: flex !important;
+  flex-direction: column !important;
+  width: 100% !important;
+  height: 100% !important;
+  flex: 1 !important;
+  overflow: hidden !important;
+  animation: none !important;
 }
 
 .solari-detail-nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 16px;
-  margin-bottom: 24px;
-  padding-bottom: 16px;
-  border-bottom: 2px solid #e7e5e4;
-  position: sticky;
-  top: 0;
-  background: #fbf7ee;
-  z-index: 40;
+  gap: 12px;
+  padding: 8px 16px;
+  margin-bottom: 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  background: #181524;
+  color: #f1f5f9;
+  flex-shrink: 0;
+  z-index: 50;
+  box-sizing: border-box;
 }
 
 .solari-back-btn {
-  background: #ffffff;
-  border: 2px solid #d6d3d1;
-  color: #1c1917;
-  padding: 8px 18px;
-  border-radius: 24px;
-  font-size: 0.86rem;
-  font-weight: 800;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: #f8fafc;
+  padding: 6px 14px;
+  border-radius: 8px;
+  font-size: 0.82rem;
+  font-weight: 700;
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 7px;
   cursor: pointer;
-  transition: all 0.2s ease;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  transition: all 0.18s ease;
+  white-space: nowrap;
 }
 
 .solari-back-btn:hover {
-  background: #f5f5f4;
-  border-color: #a8a29e;
-  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.18);
+  border-color: rgba(255, 255, 255, 0.32);
+  color: #ffffff;
+  transform: translateY(-1px);
 }
 
 .solari-detail-pills {
@@ -646,27 +668,72 @@
 }
 
 .solari-nav-pill {
-  background: #ffffff;
-  border: 1.5px solid #d6d3d1;
-  color: #57534e;
-  padding: 6px 14px;
-  border-radius: 18px;
-  font-size: 0.78rem;
-  font-weight: 800;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #cbd5e1;
+  padding: 5px 12px;
+  border-radius: 6px;
+  font-size: 0.76rem;
+  font-weight: 700;
   cursor: pointer;
-  transition: all 0.18s ease;
+  transition: all 0.15s ease;
+  white-space: nowrap;
 }
 
 .solari-nav-pill:hover {
-  border-color: #78716c;
-  color: #1c1917;
+  background: rgba(255, 255, 255, 0.14);
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.25);
 }
 
 .solari-nav-pill.active {
-  background: #1c1917;
+  background: #7c3aed;
   color: #ffffff;
-  border-color: #1c1917;
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+  border-color: #9333ea;
+  box-shadow: 0 0 12px rgba(124, 58, 237, 0.4);
+}
+
+.solari-detail-fullscreen-btn {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #cbd5e1;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 8px;
+  transition: all 0.18s ease;
+  white-space: nowrap;
+}
+
+.solari-detail-fullscreen-btn:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.16);
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+.solari-detail-body {
+  flex: 1;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.solari-full-case-iframe {
+  width: 100%;
+  height: 100%;
+  flex: 1;
+  border: none;
+  display: block;
+  background: transparent;
 }
 
 /* Detailed Case Study Card */
@@ -2455,118 +2522,4 @@
   margin-bottom: 4px;
 }
 
-/* ==========================================================================
-   BESPOKE CASE STUDY CONTAINER (For Sarah Cohen, Lumina & Beast Games)
-   Embeds the exact uploaded interactive case studies seamlessly into the window
-   ========================================================================== */
-.solari-bespoke-case-card {
-  width: 100%;
-  margin-bottom: 30px;
-  display: flex;
-  flex-direction: column;
-}
 
-.solari-bespoke-bar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 12px 20px;
-  background: #ffffff;
-  border: 2.5px solid #1c1917;
-  border-bottom: none;
-  border-radius: 20px 20px 0 0;
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  gap: 12px;
-  flex-wrap: wrap;
-  box-sizing: border-box;
-}
-
-.solari-bespoke-bar-left {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.solari-bespoke-dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  display: inline-block;
-  box-shadow: 0 0 10px currentColor;
-}
-
-.solari-bespoke-bar-title {
-  font-size: 0.92rem;
-  font-weight: 850;
-  color: #1c1917;
-  letter-spacing: -0.01em;
-}
-
-.solari-bespoke-open-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 6px 16px;
-  background: #1c1917;
-  color: #ffffff !important;
-  text-decoration: none !important;
-  border-radius: 20px;
-  font-size: 0.8rem;
-  font-weight: 800;
-  transition: all 0.2s ease;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
-}
-
-.solari-bespoke-open-btn:hover {
-  background: #332e2b;
-  transform: translateY(-1.5px);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.22);
-}
-
-.solari-bespoke-frame-wrap {
-  width: 100%;
-  height: 86vh;
-  min-height: 820px;
-  background: #000000;
-  border: 2.5px solid #1c1917;
-  overflow: hidden;
-  position: relative;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.16);
-  box-sizing: border-box;
-}
-
-.solari-bespoke-iframe {
-  width: 100%;
-  height: 100%;
-  border: none;
-  display: block;
-  background: transparent;
-}
-
-.solari-bespoke-footer-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border: 2.5px solid #1c1917;
-  border-top: none;
-  border-radius: 0 0 20px 20px;
-  background: #ffffff;
-  padding: 16px 22px;
-  flex-wrap: wrap;
-  gap: 12px;
-  box-sizing: border-box;
-}
-
-@media (max-width: 768px) {
-  .solari-bespoke-frame-wrap {
-    height: 75vh;
-    min-height: 520px;
-  }
-  .solari-bespoke-bar {
-    padding: 10px 14px;
-  }
-  .solari-bespoke-footer-nav {
-    padding: 12px 14px;
-    justify-content: center;
-  }
-}
