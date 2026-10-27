@@ -629,6 +629,186 @@ const SOLARI_PROJECTS_DATA = [
       { src: "assets/anime 3.jpeg", title: "Walkway Character Archway Tunnel — Luffy, Umbreon, Zenitsu & Appa" },
       { src: "assets/anime 2.jpeg", title: "Themed Dining Experience — Manga Art Cube Centerpiece & Stage Vista" }
     ]
+  },
+  {
+    id: "sarah-cohen",
+    alias: ["sarah-cohen-store", "sarahcohen", "06"],
+    num: "06",
+    tabName: "SARAH COHEN'S STORE",
+    stripItems: ["Indo-Jewish Heritage", "Retail Interior", "Scale Model & Drawings", "728 sq.ft", "Store Redesign"],
+    title: "Sarah Cohen's Store — Indo-Jewish Embroidery Shop, Reimagined",
+    subtitle: "Heritage Retail Interior, Spatial Planning, Architectural Drawings, Handcrafted Scale Model & 3D Visualization",
+    category: "Retail Interior & Cultural Heritage Design",
+    color: "#0e4285",
+    bg: "#fef5e2",
+    accent: "#eaa21c",
+    timeline: "Retail Interior Studio Project",
+    venue: "Jew Town, Mattancherry, Kochi, Kerala",
+    dimensions: "Total: 728 sq.ft | Main Shop: 20ft × 30ft | Rear Workrooms: 16ft × 8ft",
+    client: "Heritage Preservation & Memorial Retail Project",
+    role: "Retail Interior Designer, Spatial Planner & Architectural Modeler",
+    software: ["Autodesk Fusion 360", "AutoCAD", "Physical Model Crafting", "Adobe Photoshop", "Adobe Illustrator"],
+    tags: ["Retail Interior", "Indo-Jewish Heritage", "Technical Drawings", "Physical Scale Model", "3D Visualization", "Kochi Mattancherry"],
+    heroThumb: "sarah-cohen-store/assets/render-front.jpg",
+    caseStudyUrl: "sarah-cohen-store/index.html",
+    brief: "Sarah Cohen was one of the last surviving members of the Paradesi Jewish community in Kochi, renowned for keeping historic traditions alive through delicate hand embroidery and warm hospitality. The brief was to reimagine her humble shop inside her Jew Town home: preserve the intimate historic warmth while expanding floor space, introducing dedicated workrooms for artisans, and establishing organized retail display zones.",
+    concept: "Drawing from the deep textile heritage of Indo-Jewish embroidery—blending Hebrew calligraphy, Stars of David, and menorahs with Kerala flora and vernacular architecture. The store pairs natural cream stone facades, arched central street portals, and warm mahogany cabinetry with Jew Town sky blue accents.",
+    execution: "Developed a complete 8-sheet architectural drawing set (scale 1:40, 1:30, 1:10) covering store layout, furniture, walls, floor finishes, ceiling, lighting and power. Handcrafted a precision physical scale model and rendered high-fidelity 3D exterior and interior visualisations.",
+    materials: [
+      "Textured Kerala Cream Lime-Plaster Stone Facade",
+      "Hand-Finished Mahogany Hardwood Display Cabinetry & Rails",
+      "Polished Terrazzo Flooring with Indigo Cross-Stitch Inlays",
+      "Woven Linen Wall Coverings & Embroidered Hoop Displays",
+      "Warm 2700K Recessed LED Spotlights & Architectural Track Lights",
+      "Custom Brass Signboard & Star of David Motifs"
+    ],
+    mediaTabs: [
+      { id: "renders", label: "🖼️ 3D Renders & Store Visualisations (6 Views)", type: "gallery" },
+      { id: "studio", label: "🎮 Interactive 3D Studio Experience", type: "iframe" },
+      { id: "model", label: "📐 Handcrafted Scale Model (5 Views)", type: "gallery" },
+      { id: "drawings", label: "📋 Architectural Drawing Sheets (8 Sheets)", type: "gallery" }
+    ],
+    renders: [
+      { src: "sarah-cohen-store/assets/render-front.jpg", title: "Reimagined Shopfront Facade — Textured Stone, Central Arch & Displays" },
+      { src: "sarah-cohen-store/assets/render-interior-1.jpg", title: "Main Retail Floor — Mahogany Shelving, Cloth Displays & Checking Counter" },
+      { src: "sarah-cohen-store/assets/render-interior-2.jpg", title: "Artisan Embroidery & Stitching Workroom Vista" },
+      { src: "sarah-cohen-store/assets/render-top.jpg", title: "Axonometric Top-Down Cutaway — Spatial Flow & Zones" },
+      { src: "sarah-cohen-store/assets/render-collage-front.jpg", title: "Design Moodboard & Facade Elevation Study" },
+      { src: "sarah-cohen-store/assets/render-collage-store.jpg", title: "Retail Interior Moodboard & Material Palette" }
+    ],
+    modelRenders: [
+      { src: "sarah-cohen-store/assets/model-final.jpg", title: "Physical Scale Model — Complete Handcrafted Miniature Store" },
+      { src: "sarah-cohen-store/assets/model-front.jpg", title: "Scale Model Front Elevation — Street Perspective & Windows" },
+      { src: "sarah-cohen-store/assets/model-top.jpg", title: "Scale Model Top-Down View — Internal Layout & Partitioning" },
+      { src: "sarah-cohen-store/assets/model-angle.jpg", title: "Scale Model Isometric Perspective" },
+      { src: "sarah-cohen-store/assets/model-detail.jpg", title: "Scale Model Micro-Detail — Furniture & Fixtures" }
+    ],
+    drawingsRenders: [
+      { src: "sarah-cohen-store/assets/sheet-1.png", title: "Sheet 1: Store Layout Plan (Scale 1:40)" },
+      { src: "sarah-cohen-store/assets/sheet-2.png", title: "Sheet 2: Furniture Layout Plan" },
+      { src: "sarah-cohen-store/assets/sheet-3.png", title: "Sheet 3: Wall Finishes & Construction Details" },
+      { src: "sarah-cohen-store/assets/sheet-4.png", title: "Sheet 4: Floor Finishes & Tile Patterning" },
+      { src: "sarah-cohen-store/assets/sheet-5.png", title: "Sheet 5: Reflected Ceiling Plan (RCP)" },
+      { src: "sarah-cohen-store/assets/sheet-6.png", title: "Sheet 6: Lighting Layout & Luminaire Schedule" },
+      { src: "sarah-cohen-store/assets/sheet-7.png", title: "Sheet 7: Electrical Power & Data Plan" },
+      { src: "sarah-cohen-store/assets/sheet-8.png", title: "Sheet 8: Detailed Sections & Elevations" }
+    ]
+  },
+  {
+    id: "lumina",
+    alias: ["lumina-convention-centre", "lumina-centre", "07"],
+    num: "07",
+    tabName: "LUMINA CENTRE",
+    stripItems: ["3D Architecture", "Phases of the Moon", "Riverfront Terrace", "Fusion 360", "Moonlit Scenography"],
+    title: "Lumina Convention Centre — Architectural Spatial Design",
+    subtitle: "Contemporary Waterfront Convention Centre & Amphitheatre Inspired by the Phases of the Moon",
+    category: "3D Architecture / Public Civic Architecture",
+    color: "#0f172a",
+    bg: "#0a0d17",
+    accent: "#d6a45c",
+    timeline: "Architectural Concept & Spatial Modeling",
+    venue: "Riverfront Waterfront Island Park",
+    dimensions: "Site: 12,000+ sqm | Main Auditorium: 1,200 seats | Waterfront Terrace & Garden",
+    client: "Public Civic / Architectural Studio Commission",
+    role: "Lead 3D Architectural Visualiser & Spatial Concept Designer",
+    software: ["Autodesk Fusion 360", "SketchUp", "V-Ray", "Adobe Photoshop"],
+    tags: ["Convention Centre", "Waterfront Architecture", "Fusion 360", "Moonlit Scenography", "Landscape Design"],
+    heroThumb: "Lumina Convention Centre/assets/hero-render.jpg",
+    caseStudyUrl: "Lumina Convention Centre/index.html",
+    brief: "To design an iconic riverfront convention centre capable of fluidly transforming for diverse civic events—from intimate diplomatic summits and corporate symposiums to large-scale exhibitions, concerts, and waterfront wedding celebrations. The architecture had to integrate seamlessly with riverfront walking gardens and terraces.",
+    concept: "Inspired by the moon and its phases. Just as the moon transitions from crescent to full, the architecture adapts its spatial volume. The iconic entrance features a massive perforated glowing sphere nestled between sweeping shell-like crescent walls, while fanned roof petals echo lunar cycles.",
+    execution: "Developed complex parametric surface geometries in Autodesk Fusion 360, modeling the faceted glass canopies, crescent shell walls, and the perforated moon sphere. Engineered the interior circulation around a central radial lobby connecting the dining drum, auditorium, riverside hall, and landscaped amphitheatre.",
+    materials: [
+      "Perforated Brushed Silver Architectural Sphere Shell",
+      "Curved Cast Travertine & Smooth Light-Grey Plinth Stone",
+      "Faceted Double-Glazed Structural Glass Roof Paneling",
+      "Curved American Walnut Veneer Lobby Wall Panels",
+      "Custom Brass Arc Streetlamps & Tiered Chandeliers",
+      "Concealed Moonlight-Hue 4000K & Warm 2700K Architectural Lighting"
+    ],
+    mediaTabs: [
+      { id: "renders", label: "🖼️ 3D Renders & Perspectives (7 Views)", type: "gallery" },
+      { id: "studio", label: "🎮 Interactive 3D Studio Experience", type: "iframe" },
+      { id: "cad", label: "📐 CAD Models & Solid Blockouts (6 Views)", type: "gallery" }
+    ],
+    renders: [
+      { src: "Lumina Convention Centre/assets/hero-render.jpg", title: "Main Entrance at Dusk — Lit Perforated Sphere & Curved Shell Plinth" },
+      { src: "Lumina Convention Centre/assets/aerial-island.jpg", title: "Waterfront Aerial Island Perspective — Terrace, Sunken Lounge & Jetty Pavilion" },
+      { src: "Lumina Convention Centre/assets/aerial-front.jpg", title: "Top-Down Roof View — Faceted Glass Wings & Spiraling Roof Petals" },
+      { src: "Lumina Convention Centre/assets/garden.jpg", title: "Outdoor Terrace & Stage — Arched Petal Canopy, Brass Arc Lamps & Sunken Lounge" },
+      { src: "Lumina Convention Centre/assets/lobby.jpg", title: "Central Arrival Lobby — Curved Walnut Wall, Travertine Desk & Bamboo Art" },
+      { src: "Lumina Convention Centre/assets/dining.jpg", title: "Circular Waterfront Dining Pavilion & Skyline Vista" },
+      { src: "Lumina Convention Centre/assets/auditorium-render.jpg", title: "Grand Auditorium — Acoustic Timber Ribs & Tiered Audience Seating" }
+    ],
+    cadRenders: [
+      { src: "Lumina Convention Centre/assets/hero-solid.jpg", title: "Solid Shaded Model — Main Entrance Sphere & Crescent Shell Geometry" },
+      { src: "Lumina Convention Centre/assets/layout-plan.png", title: "Architectural Layout Plan — Spiral Circulation & Zonal Distribution" },
+      { src: "Lumina Convention Centre/assets/model-blockout.jpg", title: "Fusion 360 Spatial Blockout — Shell Volumes & Plinth Elevation" },
+      { src: "Lumina Convention Centre/assets/model-terrace.jpg", title: "CAD Model — Terrace Arches & Sunken Amphitheatre Lounge" },
+      { src: "Lumina Convention Centre/assets/model-garden.jpg", title: "CAD Model — Riverfront Landscaped Pathways & Greenery" },
+      { src: "Lumina Convention Centre/assets/auditorium-solid.jpg", title: "CAD Model — Auditorium Shell & Sightline Clearance" }
+    ]
+  },
+  {
+    id: "beast-games",
+    alias: ["beast-games-3", "beastgames", "08"],
+    num: "08",
+    tabName: "BEAST GAMES 3",
+    stripItems: ["Reality Show Set", "Neon Arena & Tunnels", "195 Nations", "60′ × 72′ Set", "Fusion 360"],
+    title: "Beast Games 3: Last Flag Standing — Reality Show Set Design",
+    subtitle: "Monumental 3D Television Set, Neon Arenas, Flag Heist Dome & The Divide Competition Courses",
+    category: "3D Set Design / Entertainment Scenography",
+    color: "#701a75",
+    bg: "#07061a",
+    accent: "#ff4fc3",
+    timeline: "3D Set Modeling & Broadcast Lighting Concept",
+    venue: "Monumental Soundstage / Arena Studio",
+    dimensions: "Site: 60ft × 72ft Arena | 195 Contestants (1 Per Nation)",
+    client: "Beast Games Concept Studio",
+    role: "3D Set Designer, Spatial Planner & Lighting Visualiser",
+    software: ["Autodesk Fusion 360", "Blender", "Adobe Photoshop", "Adobe Illustrator"],
+    tags: ["Reality Show Set", "Fusion 360", "Neon Lighting", "Spatial Planning", "Storyboard", "Broadcast Scenography"],
+    heroThumb: "beast-games-3/assets/hero-render.jpg",
+    caseStudyUrl: "beast-games-3/index.html",
+    brief: "Last Flag Standing is a concept for the third season of Beast Games: one contestant from every nation (195 contestants) competing in an intense high-stakes survival arena. The challenge was to design the complete physical arena world in 3D: circulation, sightlines for broadcast cameras, safety barriers, and a dynamic neon lighting code that communicates status instantly (pink for energy, cyan for strategy, red for elimination).",
+    concept: "High-octane entertainment set architecture combining brutalist arena frameworks with high-intensity programmable neon tubes. Dominated by the towering Beast Prize Tower at center-stage flanked by dual glowing tunnel portals, the Flag Heist geodesic dome, and The Divide obstacle course.",
+    execution: "Engineered the entire arena complex in Autodesk Fusion 360 with parametric structural trusses, player staging rings, and overhead camera wire rigs. Established clay / solid blockouts to test sightlines before applying realistic metallic PBR shaders and volumetric neon atmospheric illumination.",
+    materials: [
+      "Powder-Coated Steel Truss Modular Frameworks",
+      "High-Impact Polycarbonate Neon Diffuser Tubes (RGB NeoPixel)",
+      "Non-Slip Industrial Black Checkerplate Flooring",
+      "Geodesic Polyhedral Dome Struts with Backlit Mesh",
+      "High-Gloss Acrylic Yellow 'Beast' Lightning Bolt Monolith",
+      "Automated Overhead Moving-Head Broadcast Spotlights"
+    ],
+    mediaTabs: [
+      { id: "renders", label: "🖼️ 3D Renders & Arena Shots (6 Views)", type: "gallery" },
+      { id: "studio", label: "🎮 Interactive 3D Studio Experience", type: "iframe" },
+      { id: "cad", label: "📐 Solid CAD Blockouts & Clay Models (6 Views)", type: "gallery" },
+      { id: "storyboard", label: "🎬 Production Storyboards (4 Frames)", type: "gallery" }
+    ],
+    renders: [
+      { src: "beast-games-3/assets/hero-render.jpg", title: "Main Arena Set — Glowing Prize Tower, Logo Gate & Dual Neon Portals" },
+      { src: "beast-games-3/assets/set-render.jpg", title: "Full Arena Stadium Perspective — Arena Ring & Camera Sightlines" },
+      { src: "beast-games-3/assets/heist-render.jpg", title: "Flag Heist Arena — Geodesic Neon Dome & Elimination Pit" },
+      { src: "beast-games-3/assets/heist-close.jpg", title: "Flag Heist Close Perspective — Central Podium & Neon Grid" },
+      { src: "beast-games-3/assets/divide-render.jpg", title: "The Divide Competition Course — Cyan & Magenta Obstacle Lanes" },
+      { src: "beast-games-3/assets/arena-render.jpg", title: "Grand Arena Wide Shot — Atmospheric Night Lighting" }
+    ],
+    cadRenders: [
+      { src: "beast-games-3/assets/hero-solid.jpg", title: "Fusion 360 Solid Model — Prize Tower, Main Gate & Ring" },
+      { src: "beast-games-3/assets/set-solid.jpg", title: "Solid-Shaded CAD Set — Scale, Circulation & Sightline Geometry" },
+      { src: "beast-games-3/assets/heist-solid.jpg", title: "Heist Dome Solid Model — Structural Geodesic Framing" },
+      { src: "beast-games-3/assets/divide-solid.jpg", title: "The Divide Solid CAD Model — Lane Clearances & Barriers" },
+      { src: "beast-games-3/assets/clay-city.jpg", title: "Clay Model View — Beast City Contestant Quarters" },
+      { src: "beast-games-3/assets/layout-plan.jpg", title: "Master Set Layout Plan — Zonal Districting (60′ × 72′)" }
+    ],
+    storyboardRenders: [
+      { src: "beast-games-3/assets/storyboard-1.jpg", title: "Storyboard Frame 1: Contestant Arrival & Grand Opening" },
+      { src: "beast-games-3/assets/storyboard-2.jpg", title: "Storyboard Frame 2: Flag Heist Dome Countdown" },
+      { src: "beast-games-3/assets/storyboard-3.jpg", title: "Storyboard Frame 3: The Divide Lane Obstacle Run" },
+      { src: "beast-games-3/assets/storyboard-4.jpg", title: "Storyboard Frame 4: Final Flag Duel & Elimination" }
+    ]
   }
 ];
 
@@ -804,7 +984,10 @@ function initSolariProjects() {
     "Check out EMAK Awards! ✦",
     "Radio Mango truck has wheels! ✦",
     "Look at the Mandap temple gables! ✦",
-    "Anime party has neon lights! ✦"
+    "Anime party has neon lights! ✦",
+    "Sarah Cohen store has handcrafted embroidery! ✦",
+    "Lumina Centre glows like the moon! ✦",
+    "Beast Games arena has 195 nations! ✦"
   ];
   let speechIdx = 0;
   if (speechBubble) {
@@ -907,6 +1090,14 @@ function initSolariProjects() {
             <span class="solari-meta-badge">🛠️ Tools: ${proj.software.join(', ')}</span>
             <span class="solari-meta-badge">🤝 Role: ${proj.role}</span>
           </div>
+          ${proj.caseStudyUrl ? `
+            <div style="margin-top: 16px; display: flex; gap: 10px; flex-wrap: wrap;">
+              <a href="${proj.caseStudyUrl}" target="_blank" rel="noopener noreferrer" class="solari-btn-pill primary" style="text-decoration:none; display:inline-flex; align-items:center; gap:8px; font-size:0.86rem; padding:8px 18px; box-shadow:0 4px 12px rgba(0,0,0,0.15); background:#1c1917; color:#fff;">
+                <span>Launch Dedicated 3D Studio Page</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              </a>
+            </div>
+          ` : ''}
         </div>
 
         <div class="solari-case-content">
@@ -1092,6 +1283,46 @@ function initSolariProjects() {
   function renderMediaPanelsHTML(proj, activeTabId) {
     let html = '';
 
+    // Helper to render any image gallery list
+    function renderGalleryGrid(list, panelId) {
+      if (!list || list.length === 0) return '';
+      const isVisible = activeTabId === panelId;
+      return `
+        <div class="solari-media-panel" data-panel-id="${panelId}" style="display: ${isVisible ? 'block' : 'none'};">
+          <div class="solari-gallery-grid">
+            ${list.map(r => `
+              <div class="solari-gallery-item" data-render-title="${r.title}">
+                <img src="${r.src}" alt="${r.title}" class="solari-gallery-img" loading="lazy">
+                <div class="solari-gallery-zoom-badge">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+                  <span>Zoom</span>
+                </div>
+                <div class="solari-gallery-overlay">
+                  <span>${r.title}</span>
+                </div>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+      `;
+    }
+
+    // Dedicated 3D Studio embedded experience
+    if (proj.caseStudyUrl) {
+      const isVisible = activeTabId === 'studio';
+      html += `
+        <div class="solari-media-panel" data-panel-id="studio" style="display: ${isVisible ? 'block' : 'none'};">
+          <div style="width:100%; height:760px; border-radius:14px; overflow:hidden; border:2px solid #1c1917; background:#000; box-shadow:0 8px 30px rgba(0,0,0,0.15); margin-bottom:12px; position:relative;">
+            <iframe src="${proj.caseStudyUrl}" style="width:100%; height:100%; border:none;" title="${proj.title} 3D Studio" loading="lazy"></iframe>
+          </div>
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:28px; padding:0 4px; flex-wrap:wrap; gap:8px;">
+            <span style="font-size:0.8rem; color:#64748b; font-weight:600;">✨ Interactive 3D Studio: You can interact with viewports, camera labels, shading toggles, and sheets inside this frame!</span>
+            <a href="${proj.caseStudyUrl}" target="_blank" rel="noopener noreferrer" style="font-size:0.82rem; font-weight:800; color:#1c1917; text-decoration:underline;">Open in standalone full screen tab ↗</a>
+          </div>
+        </div>
+      `;
+    }
+
     // If project has video
     if (proj.video) {
       const isVisible = activeTabId === 'video';
@@ -1113,71 +1344,37 @@ function initSolariProjects() {
 
     // Concept 1 gallery for Thira
     if (proj.concept1Renders) {
-      const isVisible = activeTabId === 'concept1';
-      html += `
-        <div class="solari-media-panel" data-panel-id="concept1" style="display: ${isVisible ? 'block' : 'none'};">
-          <div class="solari-gallery-grid">
-            ${proj.concept1Renders.map(r => `
-              <div class="solari-gallery-item" data-render-title="${r.title}">
-                <img src="${r.src}" alt="${r.title}" class="solari-gallery-img" loading="lazy">
-                <div class="solari-gallery-zoom-badge">
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
-                  <span>Zoom</span>
-                </div>
-                <div class="solari-gallery-overlay">
-                  <span>${r.title}</span>
-                </div>
-              </div>
-            `).join('')}
-          </div>
-        </div>
-      `;
+      html += renderGalleryGrid(proj.concept1Renders, 'concept1');
     }
 
     // Concept 2 gallery for Thira
     if (proj.concept2Renders) {
-      const isVisible = activeTabId === 'concept2';
-      html += `
-        <div class="solari-media-panel" data-panel-id="concept2" style="display: ${isVisible ? 'block' : 'none'};">
-          <div class="solari-gallery-grid">
-            ${proj.concept2Renders.map(r => `
-              <div class="solari-gallery-item" data-render-title="${r.title}">
-                <img src="${r.src}" alt="${r.title}" class="solari-gallery-img" loading="lazy">
-                <div class="solari-gallery-zoom-badge">
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
-                  <span>Zoom</span>
-                </div>
-                <div class="solari-gallery-overlay">
-                  <span>${r.title}</span>
-                </div>
-              </div>
-            `).join('')}
-          </div>
-        </div>
-      `;
+      html += renderGalleryGrid(proj.concept2Renders, 'concept2');
     }
 
-    // Default renders gallery (for EMAK, Neithi, Mandap, Anime)
+    // Default renders gallery
     if (proj.renders) {
-      const isVisible = activeTabId === 'renders';
-      html += `
-        <div class="solari-media-panel" data-panel-id="renders" style="display: ${isVisible ? 'block' : 'none'};">
-          <div class="solari-gallery-grid">
-            ${proj.renders.map(r => `
-              <div class="solari-gallery-item" data-render-title="${r.title}">
-                <img src="${r.src}" alt="${r.title}" class="solari-gallery-img" loading="lazy">
-                <div class="solari-gallery-zoom-badge">
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
-                  <span>Zoom</span>
-                </div>
-                <div class="solari-gallery-overlay">
-                  <span>${r.title}</span>
-                </div>
-              </div>
-            `).join('')}
-          </div>
-        </div>
-      `;
+      html += renderGalleryGrid(proj.renders, 'renders');
+    }
+
+    // Physical scale model gallery (Sarah Cohen)
+    if (proj.modelRenders) {
+      html += renderGalleryGrid(proj.modelRenders, 'model');
+    }
+
+    // Architectural drawings gallery (Sarah Cohen)
+    if (proj.drawingsRenders) {
+      html += renderGalleryGrid(proj.drawingsRenders, 'drawings');
+    }
+
+    // CAD solid blockouts gallery (Lumina, Beast Games)
+    if (proj.cadRenders) {
+      html += renderGalleryGrid(proj.cadRenders, 'cad');
+    }
+
+    // Storyboard frames gallery (Beast Games)
+    if (proj.storyboardRenders) {
+      html += renderGalleryGrid(proj.storyboardRenders, 'storyboard');
     }
 
     return html;

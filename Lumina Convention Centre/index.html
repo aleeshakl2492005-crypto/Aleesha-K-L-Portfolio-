@@ -1,0 +1,767 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Lumina Convention Centre</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Lumina Convention Centre. 3D architecture and interior case study by Aleesha K. L.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;0,6..96,700;1,6..96,400&family=Instrument+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+
+<style>
+/* Page background only. Delete this block if you paste the case study into a page that already sets one. */
+:root { color-scheme: dark; }
+body { background: #0a0d17; margin: 0; }
+</style>
+
+<style>
+/* ============================================================================
+   LUMINA CONVENTION CENTRE
+   3D architecture case study for Aleesha OS (aleeshakl.vercel.app)
+
+   Layout concept: same "3D Studio" window as the Beast Games page, re-lit for
+   a building about the moon. Midnight ground, warm moonlight type, silver for
+   structure, brass only where the renders use brass. Section labels carry a
+   moon phase that waxes from new to full as you scroll the case study.
+
+   Everything is scoped under .lum so it won't affect the rest of the site.
+   ========================================================================= */
+.lum {
+  --night:  #0a0d17;   /* sky over the water */
+  --panel:  #121726;   /* raised surfaces */
+  --chrome: #1a2032;   /* window title bar */
+  --line:   #283049;   /* rules, frames */
+  --ink:    #f1ede4;   /* main text, warm moonlight */
+  --muted:  #9ea6ba;   /* secondary text */
+  --moon:   #f2dfb4;   /* lit stone, highlights */
+  --brass:  #d6a45c;   /* arc lamps, chandeliers */
+  --silver: #c7cfdc;   /* perforated sphere, glass */
+
+  --f-display: "Bodoni Moda", "Didot", "Bodoni 72", Georgia, serif;
+  --f-ui:      "Segoe UI Variable Text", "Segoe UI", "Instrument Sans", "Helvetica Neue", Arial, sans-serif;
+  --f-body:    "Instrument Sans", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  --f-mono:    "IBM Plex Mono", "Cascadia Code", ui-monospace, Menlo, monospace;
+
+  --gl: max(16px, env(safe-area-inset-left, 0px));
+  --gr: max(16px, env(safe-area-inset-right, 0px));
+  --max: 1240px;
+
+  background: var(--night);
+  color: var(--ink);
+  font-family: var(--f-body);
+  font-size: 17px;
+  line-height: 1.6;
+  position: relative;
+  overflow-x: clip;
+  -webkit-font-smoothing: antialiased;
+}
+@media (min-width: 760px) {
+  .lum { --gl: max(32px, env(safe-area-inset-left, 0px)); --gr: max(32px, env(safe-area-inset-right, 0px)); }
+}
+.lum *, .lum *::before, .lum *::after { box-sizing: border-box; }
+.lum img { display: block; max-width: 100%; height: auto; }
+.lum h1, .lum h2, .lum h3, .lum p, .lum ul, .lum ol, .lum figure, .lum dl, .lum dd { margin: 0; }
+.lum ul, .lum ol { padding: 0; list-style: none; }
+.lum a { color: inherit; }
+.lum button { font: inherit; color: inherit; }
+.lum :focus-visible { outline: 2px solid var(--moon); outline-offset: 3px; }
+
+.lum .wrap { max-width: calc(var(--max) + 64px); margin-inline: auto; padding-left: var(--gl); padding-right: var(--gr); }
+.lum .sec { padding-block: clamp(80px, 10vw, 140px); }
+.lum .sec.tight { padding-top: 0; }
+
+/* ---------- type ---------- */
+.lum .label {
+  font-family: var(--f-mono); font-size: 12px; letter-spacing: .16em; text-transform: uppercase; color: var(--muted);
+  display: inline-flex; align-items: center; gap: 12px;
+}
+.lum .h2 {
+  font-family: var(--f-display); font-weight: 400; font-size: clamp(44px, 6.4vw, 92px); line-height: .98;
+  letter-spacing: -.01em; text-wrap: balance;
+}
+.lum .h2 em { font-style: italic; color: var(--moon); }
+.lum .h3 { font-family: var(--f-display); font-weight: 500; font-size: clamp(26px, 2.6vw, 32px); line-height: 1.05; }
+.lum .lede { font-size: clamp(18px, 1.55vw, 21px); line-height: 1.55; max-width: 60ch; }
+.lum .body { color: var(--muted); max-width: 62ch; }
+.lum .head { display: grid; gap: 20px; margin-bottom: clamp(36px, 5vw, 64px); }
+.lum .head-row { display: grid; gap: 24px; align-items: end; }
+@media (min-width: 900px) { .lum .head-row { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 64px; } }
+.lum .head-row > * { min-width: 0; }
+
+/* moon phase glyph: --p from 0 (new) to 1 (full) */
+.lum .phase {
+  --p: 0; width: 14px; height: 14px; border-radius: 50%; flex: none; position: relative; overflow: hidden;
+  background: #2b3147; box-shadow: inset 0 0 0 1px rgba(242,223,180,.35);
+}
+.lum .phase::after {
+  content: ""; position: absolute; inset: 0; border-radius: 50%; background: var(--moon);
+  transform: translateX(calc((1 - var(--p)) * 100%)); box-shadow: 0 0 10px rgba(242,223,180,.5);
+}
+
+/* ---------- scroll progress ---------- */
+.lum .progress {
+  position: fixed; top: env(safe-area-inset-top, 0px); left: 0; width: 100%; height: 2px; z-index: 60;
+  transform-origin: 0 50%; transform: scaleX(0); pointer-events: none;
+  background: linear-gradient(90deg, var(--silver), var(--moon)); box-shadow: 0 0 10px rgba(242,223,180,.6);
+}
+
+/* ---------- Aleesha OS window ---------- */
+.lum .intro { padding-top: clamp(20px, 4vw, 48px); }
+.lum .window {
+  border: 1px solid #323a55; border-radius: 10px; overflow: hidden; background: var(--panel);
+  box-shadow: 0 40px 120px rgba(0,0,0,.6), 0 0 0 1px rgba(255,255,255,.02), 0 0 90px rgba(242,223,180,.06);
+}
+.lum .is-ready .window { animation: lum-open .7s cubic-bezier(.2,.8,.2,1) both; }
+@keyframes lum-open { from { opacity: 0; transform: translateY(18px) scale(.975); } }
+.lum .titlebar {
+  display: flex; align-items: center; gap: 12px; height: 40px; padding-left: 14px; background: var(--chrome);
+  font-family: var(--f-ui); font-size: 13px; color: var(--muted); border-bottom: 1px solid #2a3146;
+}
+.lum .titlebar .app { width: 16px; height: 16px; border-radius: 50%; flex: none; background: radial-gradient(circle at 38% 36%, #fff, var(--moon) 40%, #8a7a58 100%); box-shadow: 0 0 8px rgba(242,223,180,.5); }
+.lum .titlebar .name { flex: 1; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.lum .titlebar .name b { color: var(--ink); font-weight: 600; }
+.lum .winctl { display: flex; height: 100%; flex: none; }
+.lum .winctl span { width: 46px; display: grid; place-items: center; font-size: 12px; color: var(--muted); }
+.lum .winctl span:last-child:hover { background: #c42b1c; color: #fff; }
+@media (max-width: 520px) { .lum .winctl span { width: 34px; } }
+
+/* ---------- viewport (hero + scene viewer) ---------- */
+.lum .vp { position: relative; overflow: hidden; background: #0d1120; isolation: isolate; }
+.lum .vp img { width: 100%; height: 100%; object-fit: cover; }
+.lum .vp .layer { position: absolute; inset: 0; }
+.lum .hud {
+  position: absolute; z-index: 4; font-family: var(--f-mono); font-size: 11px; letter-spacing: .1em; text-transform: uppercase;
+  color: #ecebf2; background: rgba(10,13,23,.6); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+  padding: 6px 9px; border-radius: 4px; pointer-events: none; white-space: nowrap;
+}
+.lum .hud.tl { top: 12px; left: 12px; }
+.lum .hud.bl { bottom: 12px; left: 12px; }
+.lum .hud i { display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: var(--moon); box-shadow: 0 0 8px var(--moon); margin-right: 7px; animation: lum-rec 1.6s infinite; }
+@keyframes lum-rec { 50% { opacity: .25 } }
+.lum .corners::before, .lum .corners::after {
+  content: ""; position: absolute; z-index: 3; width: 26px; height: 26px; pointer-events: none; border: 1px solid rgba(255,255,255,.5);
+}
+.lum .corners::before { top: 44px; right: 12px; border-left: 0; border-bottom: 0; }
+.lum .corners::after { bottom: 44px; left: 12px; border-right: 0; border-top: 0; }
+.lum .shading {
+  position: absolute; z-index: 5; top: 10px; right: 10px; display: flex; padding: 3px; gap: 2px;
+  background: rgba(10,13,23,.7); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); border: 1px solid rgba(255,255,255,.12); border-radius: 6px;
+}
+.lum .shading button {
+  border: 0; background: transparent; cursor: pointer; border-radius: 4px; padding: 6px 10px;
+  font-family: var(--f-mono); font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted);
+  display: inline-flex; align-items: center; gap: 7px;
+}
+.lum .shading button::before { content: ""; width: 10px; height: 10px; border-radius: 50%; background: radial-gradient(circle at 35% 35%, #fff, #8c93a6 70%); }
+.lum .shading button[data-mode="render"]::before { background: radial-gradient(circle at 35% 35%, #fff, var(--moon) 45%, #6b5530 85%); }
+.lum .shading button[aria-pressed="true"] { background: #333b57; color: #fff; }
+
+.lum .hero-vp { aspect-ratio: 1083 / 812; max-height: 78vh; width: 100%; }
+@media (max-width: 560px) { .lum .hero-vp .hud.tl { display: none; } }
+.lum .hero-vp .render { opacity: 0; transition: opacity 1.6s ease; }
+.lum .hero-vp.is-render .render { opacity: 1; }
+.lum .hero-vp .zoom { position: absolute; inset: 0; will-change: transform; }
+
+/* info panel */
+.lum .info { display: grid; gap: 28px; padding: clamp(22px, 3.4vw, 40px); }
+@media (min-width: 980px) { .lum .info { grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 56px; align-items: end; } }
+.lum .info > * { min-width: 0; }
+.lum .info h1 {
+  font-family: var(--f-display); font-weight: 400; line-height: .9; letter-spacing: -.015em;
+  font-size: clamp(54px, 9vw, 138px); margin-top: 14px;
+}
+.lum .info h1 span { display: block; }
+.lum .info h1 .sub { font-style: italic; font-size: .42em; letter-spacing: .01em; color: var(--moon); margin-top: .25em; }
+.lum .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 22px; }
+.lum .tag { font-family: var(--f-ui); font-size: 13px; padding: 5px 12px; border-radius: 999px; border: 1px solid var(--line); background: rgba(255,255,255,.03); }
+.lum .spec { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1px; background: #2a3148; border: 1px solid #2a3148; border-radius: 8px; overflow: hidden; }
+.lum .spec div { background: var(--panel); padding: 14px 16px; min-width: 0; }
+.lum .spec dt { font-family: var(--f-mono); font-size: 10.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.lum .spec dd { font-size: 15px; margin-top: 4px; }
+
+/* ---------- phases strip (the idea) ---------- */
+.lum .phases { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; margin-top: clamp(40px, 6vw, 72px); }
+@media (max-width: 680px) { .lum .phases { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.lum .ph { border-top: 1px solid var(--line); padding-top: 18px; display: grid; gap: 8px; }
+.lum .ph .phase { width: 44px; height: 44px; margin-bottom: 6px; }
+.lum .ph b { font-family: var(--f-display); font-weight: 500; font-size: 22px; }
+.lum .ph span { font-size: 14.5px; color: var(--muted); }
+
+/* ---------- image tiles ---------- */
+.lum .shot { position: relative; overflow: hidden; background: var(--panel); cursor: zoom-in; }
+.lum .shot img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.4s cubic-bezier(.2,.7,.2,1); }
+.lum .shot:hover img { transform: scale(1.03); }
+.lum .shot .cam {
+  position: absolute; left: 12px; bottom: 12px; z-index: 2; font-family: var(--f-mono); font-size: 11px; letter-spacing: .12em; text-transform: uppercase;
+  background: rgba(10,13,23,.62); padding: 6px 9px; border-radius: 4px; opacity: 0; transform: translateY(6px); transition: opacity .35s, transform .35s;
+}
+.lum .shot:hover .cam, .lum .shot:focus-visible .cam { opacity: 1; transform: none; }
+@media (hover: none) { .lum .shot .cam { opacity: 1; transform: none; } }
+.lum .bleed { width: 100%; }
+.lum .bleed img[data-parallax] { transform: scale(1.08); will-change: transform; }
+.lum .g2 { display: grid; gap: 14px; grid-template-columns: minmax(0, 1fr); }
+@media (min-width: 760px) {
+  .lum .g2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .lum .g2.wide-l { grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); }
+}
+.lum .gallery { display: grid; gap: 14px; }
+.lum .cap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 6px 16px; font-family: var(--f-mono); font-size: 12px; color: var(--muted); letter-spacing: .06em; padding-top: 8px; }
+.lum .cap b { color: var(--ink); font-weight: 500; }
+.lum figcaption.cap { padding-inline: 2px; }
+
+/* idea images */
+.lum .idea-media { display: grid; gap: 14px; margin-top: clamp(40px, 6vw, 64px); }
+@media (min-width: 760px) { .lum .idea-media { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); } }
+.lum .idea-media .shot { aspect-ratio: 16 / 9.4; }
+
+/* ---------- scene viewer ---------- */
+.lum .viewer { border: 1px solid #323a55; border-radius: 10px; overflow: hidden; background: var(--panel); }
+.lum .tabs { display: flex; gap: 2px; padding: 6px; background: var(--chrome); overflow-x: auto; border-bottom: 1px solid #2a3146; }
+.lum .tabs button {
+  border: 0; background: transparent; cursor: pointer; white-space: nowrap; border-radius: 6px; padding: 9px 14px;
+  font-family: var(--f-ui); font-size: 13.5px; color: var(--muted); display: inline-flex; gap: 8px; align-items: center;
+}
+.lum .tabs button span { font-family: var(--f-mono); font-size: 11px; opacity: .7; }
+.lum .tabs button:hover { background: #262d44; color: var(--ink); }
+.lum .tabs button[aria-selected="true"] { background: #30385a; color: #fff; box-shadow: inset 0 -2px 0 var(--moon); }
+.lum .scene-vp { aspect-ratio: 1083 / 812; max-width: 100%; cursor: ew-resize; touch-action: pan-y; }
+.lum .scene-vp .render { clip-path: inset(0 0 0 var(--cut, 50%)); }
+.lum .scene-vp .seam {
+  position: absolute; z-index: 4; top: 0; bottom: 0; left: var(--cut, 50%); width: 2px; transform: translateX(-1px);
+  background: #fff; box-shadow: 0 0 16px var(--moon), 0 0 2px #fff; pointer-events: none;
+}
+.lum .scene-vp .grip {
+  position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 42px; height: 42px; border-radius: 50%;
+  background: #fff; color: #141a2a; display: grid; place-items: center; font-size: 13px; letter-spacing: -1px;
+  box-shadow: 0 0 0 6px rgba(255,255,255,.16), 0 0 24px var(--moon);
+}
+.lum .scene-vp .side { position: absolute; z-index: 4; top: 12px; font-family: var(--f-mono); font-size: 11px; letter-spacing: .14em; text-transform: uppercase; padding: 6px 9px; border-radius: 4px; background: rgba(10,13,23,.62); pointer-events: none; }
+.lum .scene-vp .side.l { left: 12px; }
+.lum .scene-vp .side.r { right: 12px; color: var(--moon); }
+.lum .scene-vp .layer { transition: opacity .45s; }
+.lum .scene-vp.swap .layer { opacity: 0; }
+.lum .scene-range { position: absolute; inset: 0; z-index: 6; width: 100%; height: 100%; opacity: 0; margin: 0; cursor: ew-resize; }
+.lum .scene-vp:has(.scene-range:focus-visible) { outline: 2px solid var(--moon); outline-offset: -2px; }
+.lum .scene-note { display: grid; gap: 14px; padding: clamp(18px, 3vw, 30px); }
+@media (min-width: 860px) { .lum .scene-note { grid-template-columns: 220px minmax(0, 1fr); gap: 40px; } }
+.lum .scene-note p { color: var(--muted); max-width: 70ch; }
+
+/* ---------- layout plan ---------- */
+.lum .planwrap { display: grid; gap: 40px; align-items: start; }
+@media (min-width: 940px) { .lum .planwrap { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 72px; } }
+.lum .planwrap > * { min-width: 0; }
+.lum .plan {
+  position: relative; border: 1px solid #2c3656; border-radius: 8px; padding: clamp(14px, 3vw, 30px); background-color: #0d1326;
+  background-image: linear-gradient(rgba(199,207,220,.06) 1px, transparent 1px), linear-gradient(90deg, rgba(199,207,220,.06) 1px, transparent 1px);
+  background-size: 22px 22px; cursor: zoom-in;
+}
+.lum .plan img { width: 100%; filter: invert(1) sepia(.55) saturate(1.6) hue-rotate(-8deg) brightness(1.02); mix-blend-mode: screen; }
+.lum .plan .stamp { position: absolute; right: 12px; bottom: 10px; font-family: var(--f-mono); font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--moon); border: 1px solid var(--moon); padding: 4px 8px; background: #0d1326; }
+.lum .zones { margin-top: 26px; }
+.lum .zones li { display: grid; grid-template-columns: 32px minmax(0, 1fr); gap: 10px; padding: 12px 0; border-top: 1px solid var(--line); }
+.lum .zones li > span { font-family: var(--f-mono); font-size: 12px; color: var(--moon); padding-top: 3px; }
+.lum .zones li b { font-weight: 600; }
+.lum .zones li p { font-size: 14.5px; color: var(--muted); }
+.lum .services { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
+
+/* ---------- interiors ---------- */
+.lum .room { display: grid; gap: 22px; align-items: center; }
+@media (min-width: 900px) { .lum .room { grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr); gap: 56px; } .lum .room.flip { grid-template-columns: minmax(0, 1fr) minmax(0, 1.55fr); } .lum .room.flip .shot { order: 2; } }
+.lum .room > * { min-width: 0; }
+.lum .room .txt { display: grid; gap: 12px; }
+.lum .room .txt p { color: var(--muted); }
+.lum .room .mat-line { font-family: var(--f-mono); font-size: 12px; letter-spacing: .06em; color: var(--silver); }
+.lum .rooms { display: grid; gap: clamp(56px, 8vw, 100px); }
+
+/* ---------- materials ---------- */
+.lum .mats { display: grid; gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 10px; overflow: hidden; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+@media (min-width: 760px) { .lum .mats { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+.lum .mat { background: var(--panel); padding: 18px; display: grid; gap: 6px; align-content: start; }
+.lum .mat .sw { aspect-ratio: 1; border-radius: 6px; margin-bottom: 10px; box-shadow: inset 0 0 0 1px rgba(255,255,255,.08), 0 10px 30px rgba(0,0,0,.35); }
+.lum .mat b { font-weight: 600; font-size: 15.5px; }
+.lum .mat span { font-size: 13.5px; color: var(--muted); line-height: 1.45; }
+.lum .mat em { font-style: normal; font-family: var(--f-mono); font-size: 10.5px; letter-spacing: .12em; text-transform: uppercase; color: var(--moon); }
+/* swatches, painted to match the renders */
+.lum .s-perf { background: radial-gradient(circle, #0d1120 22%, transparent 26%) 0 0 / 11px 11px, linear-gradient(135deg, #e6e9ee, #9aa2ae 55%, #d5d9df); }
+.lum .s-glass { background: linear-gradient(90deg, rgba(255,255,255,.28) 1px, transparent 1px) 0 0 / 18px 18px, linear-gradient(rgba(255,255,255,.28) 1px, transparent 1px) 0 0 / 18px 18px, linear-gradient(160deg, #f6e7c6, #c8b896 45%, #8d8a86); }
+.lum .s-sky { background: conic-gradient(from 45deg at 50% 50%, #dfe6ee, #b5c0cc, #eef2f6, #a9b4c1, #dfe6ee); }
+.lum .s-shell { background: radial-gradient(120% 90% at 30% 20%, #f4ede0, #ddd2bd 60%, #c3b69e); }
+.lum .s-trav { background: repeating-linear-gradient(8deg, rgba(150,120,80,.18) 0 2px, transparent 2px 9px), repeating-linear-gradient(-4deg, rgba(255,255,255,.18) 0 1px, transparent 1px 14px), linear-gradient(160deg, #e8d6b5, #cdb48c 60%, #b89d74); }
+.lum .s-walnut { background: repeating-linear-gradient(90deg, rgba(0,0,0,.18) 0 1px, transparent 1px 22px), repeating-linear-gradient(92deg, rgba(255,210,160,.08) 0 2px, transparent 2px 7px), linear-gradient(180deg, #6c4126, #4a2a18); }
+.lum .s-deck { background: repeating-linear-gradient(0deg, rgba(0,0,0,.2) 0 2px, transparent 2px 24px), repeating-linear-gradient(1deg, rgba(255,240,210,.12) 0 1px, transparent 1px 6px), linear-gradient(180deg, #c89f6c, #a37a4b); }
+.lum .s-brass { background: radial-gradient(circle at 34% 30%, #fff3d3, #e7b866 30%, #a06e2a 70%, #5c3e15); }
+
+/* ---------- lighting ---------- */
+.lum .lights { display: grid; gap: 14px; grid-template-columns: repeat(2, minmax(0, 1fr)); margin-top: 32px; }
+@media (min-width: 900px) { .lum .lights { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.lum .light { border: 1px solid var(--line); border-radius: 8px; padding: 18px; display: grid; gap: 6px; background: linear-gradient(180deg, rgba(242,223,180,.05), transparent 60%); }
+.lum .light .glow { height: 6px; border-radius: 3px; margin-bottom: 10px; background: var(--c, var(--moon)); box-shadow: 0 0 16px var(--c, var(--moon)), 0 0 40px var(--c, var(--moon)); opacity: .9; }
+.lum .light b { font-weight: 600; }
+.lum .light span { font-size: 14px; color: var(--muted); }
+
+/* ---------- process ---------- */
+.lum .steps { display: grid; gap: clamp(40px, 6vw, 72px); counter-reset: step; }
+.lum .step { display: grid; gap: 18px; }
+@media (min-width: 900px) { .lum .step { grid-template-columns: 240px minmax(0, 1fr); gap: 48px; align-items: start; } }
+.lum .step > * { min-width: 0; }
+.lum .step .txt { display: grid; gap: 10px; }
+@media (min-width: 900px) { .lum .step .txt { position: sticky; top: 24px; } }
+.lum .step .no { font-family: var(--f-mono); font-size: 12px; letter-spacing: .14em; color: var(--moon); }
+.lum .step p { color: var(--muted); font-size: 15.5px; }
+.lum .step .imgs { display: grid; gap: 14px; }
+.lum .step .imgs.two { grid-template-columns: minmax(0, 1fr); }
+@media (min-width: 760px) { .lum .step .imgs.two { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.lum .step .shot img { filter: saturate(.85); }
+
+/* ---------- outro ---------- */
+.lum .outro { padding-block: clamp(70px, 9vw, 120px) clamp(80px, 10vw, 130px); text-align: left; }
+.lum .outro-row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 34px; }
+.lum .btn { display: inline-flex; align-items: center; gap: 8px; border: 1px solid var(--line); background: rgba(255,255,255,.03); border-radius: 999px; padding: 10px 18px; text-decoration: none; font-family: var(--f-ui); font-size: 14px; cursor: pointer; }
+.lum .btn:hover { border-color: var(--moon); color: var(--moon); }
+
+/* ---------- reveal ---------- */
+.lum [data-reveal].pre { opacity: 0; transform: translateY(26px); }
+.lum [data-reveal].in { opacity: 1; transform: none; transition: opacity .9s ease, transform .9s cubic-bezier(.2,.8,.2,1); }
+
+/* ---------- lightbox ---------- */
+.lum-lb { position: fixed; inset: 0; z-index: 100; background: rgba(6,8,15,.94); display: grid; place-items: center;
+  padding: max(56px, env(safe-area-inset-top, 0px)) max(16px, env(safe-area-inset-right, 0px)) max(70px, env(safe-area-inset-bottom, 0px)) max(16px, env(safe-area-inset-left, 0px)); }
+.lum-lb img { max-width: 100%; max-height: 100%; object-fit: contain; box-shadow: 0 30px 90px rgba(0,0,0,.6); }
+.lum-lb button { position: absolute; border: 1px solid #39415e; background: #151b2c; color: #f1ede4; border-radius: 999px; padding: 9px 16px; font: 14px "Instrument Sans", "Segoe UI", sans-serif; cursor: pointer; }
+.lum-lb button:hover { border-color: #f2dfb4; }
+.lum-lb .x { top: calc(14px + env(safe-area-inset-top, 0px)); right: calc(14px + env(safe-area-inset-right, 0px)); }
+.lum-lb .prev { left: calc(14px + env(safe-area-inset-left, 0px)); bottom: calc(14px + env(safe-area-inset-bottom, 0px)); }
+.lum-lb .next { right: calc(14px + env(safe-area-inset-right, 0px)); bottom: calc(14px + env(safe-area-inset-bottom, 0px)); }
+.lum-lb p { position: absolute; left: 50%; transform: translateX(-50%); bottom: calc(22px + env(safe-area-inset-bottom, 0px)); margin: 0; color: #9ea6ba; font: 12px "IBM Plex Mono", monospace; letter-spacing: .08em; text-transform: uppercase; white-space: nowrap; max-width: 52vw; overflow: hidden; text-overflow: ellipsis; }
+
+@media (prefers-reduced-motion: reduce) {
+  .lum *, .lum *::before, .lum *::after { animation: none !important; transition: none !important; }
+}
+</style>
+
+<div class="lum" id="lum">
+  <div class="progress" aria-hidden="true"></div>
+
+  <!-- ================= 3D STUDIO WINDOW ================= -->
+  <header class="intro wrap">
+    <div class="window">
+      <div class="titlebar">
+        <span class="app" aria-hidden="true"></span>
+        <span class="name"><b>Lumina_ConventionCentre</b> · 3D Studio</span>
+        <span class="winctl" aria-hidden="true"><span>—</span><span>☐</span><span>✕</span></span>
+      </div>
+
+      <div class="vp hero-vp corners" id="lum-hero">
+        <div class="zoom">
+          <img class="layer solid" src="assets/hero-solid.jpg" alt="Untextured 3D model of the convention centre front: perforated sphere, curved shell walls and glass wing on a raised plinth" width="1083" height="812">
+          <img class="layer render" src="assets/hero-render.jpg" alt="Final dusk render of the convention centre front with the lit perforated sphere, glass block wing and drop-off below" width="1083" height="812">
+        </div>
+        <span class="hud tl"><i></i>CAM_01 · Front · Persp</span>
+        <div class="shading" role="group" aria-label="Viewport shading">
+          <button type="button" data-mode="solid" aria-pressed="true">Model</button>
+          <button type="button" data-mode="render" aria-pressed="false">Rendered</button>
+        </div>
+        <span class="hud bl">Scene · Main entrance</span>
+      </div>
+
+      <div class="info">
+        <div>
+          <span class="label"><span class="phase" style="--p:0"></span>3D Architecture · Interior &amp; Landscape</span>
+          <h1><span>Lumina</span><span class="sub">Convention Centre</span></h1>
+          <div class="tags">
+            <span class="tag">Convention Centre</span>
+            <span class="tag">Fusion 360</span>
+            <span class="tag">3D Modelling</span>
+            <span class="tag">Layout Planning</span>
+            <span class="tag">Rendering</span>
+          </div>
+        </div>
+        <dl class="spec">
+          <div><dt>Concept</dt><dd>Phases of the moon</dd></div>
+          <div><dt>Site</dt><dd>Riverfront, with gardens and terrace</dd></div>
+          <div><dt>Events</dt><dd>Conferences, meetings, weddings, social gatherings</dd></div>
+          <div><dt>Deliverables</dt><dd>Layout, 3D model, exterior &amp; interior renders</dd></div>
+        </dl>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= THE IDEA ================= -->
+  <section class="sec">
+    <div class="wrap">
+      <div class="head-row" data-reveal>
+        <div class="head" style="margin-bottom:0">
+          <span class="label"><span class="phase" style="--p:.12"></span>01 · About the idea</span>
+          <h2 class="h2">A building that <em>waxes</em> and <em>wanes</em></h2>
+        </div>
+        <div style="display:grid;gap:16px">
+          <p class="lede">The convention centre is inspired by the moon and its phases, with fluid curves, lighting and ambience reflecting its ever-changing nature.</p>
+          <p class="body">Designed to transform like crescents and full moons, the space adapts to different event scales and moods. The layout is inclusive and versatile, accommodating conferences, meetings, weddings and social gatherings. An outdoor hall, indoor hall, dedicated dining and exhibition areas are all connected by a central lobby, and each zone can change in form and atmosphere to suit the event.</p>
+        </div>
+      </div>
+
+      <div class="phases" data-reveal>
+        <div class="ph"><span class="phase" style="--p:.18"></span><b>Crescent</b><span>Intimate meetings in a single zone</span></div>
+        <div class="ph"><span class="phase" style="--p:.5"></span><b>Half moon</b><span>Conferences across the hall and stage</span></div>
+        <div class="ph"><span class="phase" style="--p:.78"></span><b>Gibbous</b><span>Exhibitions spilling into dining and lobby</span></div>
+        <div class="ph"><span class="phase" style="--p:1"></span><b>Full moon</b><span>Weddings using every indoor and outdoor space</span></div>
+      </div>
+
+      <div class="idea-media" data-reveal>
+        <figure>
+          <div class="shot" data-lb tabindex="0" aria-label="Open image full screen"><img src="assets/concept-sketch.jpg" alt="Hand-rendered concept sketch of the facade with the sphere set between curved walls" width="533" height="328"><span class="cam">Concept sketch</span></div>
+          <figcaption class="cap"><b>Concept sketch</b><span>Sphere as the full moon</span></figcaption>
+        </figure>
+        <figure>
+          <div class="shot" data-lb tabindex="0" aria-label="Open image full screen"><img src="assets/form-reference.jpg" alt="Aerial reference of a white building with a fanned, spiralling roof" width="657" height="366"><span class="cam">Form reference</span></div>
+          <figcaption class="cap"><b>Form reference</b><span>Fanned spiral roof</span></figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= LAYOUT ================= -->
+  <section class="sec tight">
+    <div class="wrap planwrap">
+      <div data-reveal>
+        <div class="head" style="margin-bottom:0">
+          <span class="label"><span class="phase" style="--p:.25"></span>02 · Layout</span>
+          <h2 class="h2">One lobby, <em>every</em> event</h2>
+          <p class="body">The plan fans out in a spiral from the entrance. Guests arrive into the lobby and dining drum, then move round the curve to the stages and main hall, with the outdoor terrace and gardens running down to the river.</p>
+        </div>
+        <ul class="zones">
+          <li><span>01</span><div><b>Entrance &amp; lobby</b><p>Arrival, information and help desk; the hinge that links every zone</p></div></li>
+          <li><span>02</span><div><b>Dining</b><p>Circular café and restaurant beside the lobby</p></div></li>
+          <li><span>03</span><div><b>Indoor stage</b><p>Performances under the fanned roof segments</p></div></li>
+          <li><span>04</span><div><b>Outdoor stage</b><p>Arched stage opening onto the main hall</p></div></li>
+          <li><span>05</span><div><b>Main hall</b><p>Event and exhibition space on the riverfront</p></div></li>
+          <li><span>06</span><div><b>Outdoor terrace &amp; garden</b><p>Seating area and landscaped walking paths with greenery</p></div></li>
+        </ul>
+        <div class="services">
+          <span class="tag">Restrooms</span><span class="tag">Accessible restroom</span><span class="tag">First aid</span><span class="tag">Coat check</span><span class="tag">Riverfront</span>
+        </div>
+      </div>
+      <figure class="plan" data-reveal data-lb tabindex="0" aria-label="Open layout plan full screen">
+        <img src="assets/layout-plan.png" alt="Floor plan showing entrance, dining, lobby, indoor stage, outdoor stage, main hall, restrooms, outdoor terrace, gardens and the river" width="761" height="942">
+        <span class="stamp">Plan · Ground floor</span>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ================= SCENE VIEWER ================= -->
+  <section class="sec">
+    <div class="wrap">
+      <div class="head-row" data-reveal>
+        <div class="head" style="margin-bottom:0">
+          <span class="label"><span class="phase" style="--p:.38"></span>03 · Viewport</span>
+          <h2 class="h2">Model to <em>moonlit</em></h2>
+        </div>
+        <p class="body">Drag across the frame to compare the Fusion 360 model with the final render from the same camera.</p>
+      </div>
+      <div class="viewer" data-reveal style="margin-top:clamp(32px,4vw,48px)">
+        <div class="tabs" role="tablist" aria-label="Scenes">
+          <button type="button" role="tab" aria-selected="true">Main entrance <span>CAM_01</span></button>
+          <button type="button" role="tab" aria-selected="false" tabindex="-1">Auditorium <span>CAM_09</span></button>
+        </div>
+        <div class="vp scene-vp" id="lum-scene">
+          <img class="layer solid" src="assets/hero-solid.jpg" alt="3D model view" width="1083" height="812">
+          <img class="layer render" src="assets/hero-render.jpg" alt="Final render from the same camera" width="1083" height="812">
+          <span class="side l">Model</span><span class="side r">Rendered</span>
+          <span class="seam"><span class="grip">◂▸</span></span>
+          <input class="scene-range" id="lum-scene-range" type="range" min="0" max="100" value="50" aria-label="Compare model and render">
+        </div>
+        <div class="scene-note">
+          <h3 class="h3" id="lum-scene-title">Main entrance</h3>
+          <p id="lum-scene-text">The perforated sphere sits between two curved shell walls like a full moon caught in a crescent. A raised, softly lit plinth carries the building over the drop-off, so cars and coaches pull in beneath the curve.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= EXTERIOR ================= -->
+  <section class="sec tight">
+    <div class="wrap">
+      <div class="head" data-reveal>
+        <span class="label"><span class="phase" style="--p:.5"></span>04 · 3D rendering · Exterior</span>
+        <h2 class="h2">Dusk on the <em>water</em></h2>
+      </div>
+    </div>
+    <figure class="shot bleed" data-reveal data-lb tabindex="0" aria-label="Open render full screen">
+      <img src="assets/aerial-island.jpg" alt="Aerial dusk render of the convention centre on the waterfront, with the terrace, arch stage, sunken lounge and a domed pavilion on a jetty" width="1370" height="950" data-parallax style="aspect-ratio:16/8;object-fit:cover">
+      <span class="cam">CAM_04 · Aerial · Waterfront</span>
+    </figure>
+    <div class="wrap" style="margin-top:14px">
+      <div class="gallery">
+        <div class="g2 wide-l" data-reveal>
+          <figure class="shot" data-lb tabindex="0" aria-label="Open render full screen"><img src="assets/aerial-front.jpg" alt="Top-down dusk render of the faceted glass roof, sphere and curved drop-off" width="1308" height="907" style="aspect-ratio:1308/907"><span class="cam">CAM_03 · Aerial · Roof</span></figure>
+          <figure class="shot" data-lb tabindex="0" aria-label="Open render full screen"><img src="assets/hero-render.jpg" alt="Front render of the sphere, glass block wing and drop-off" width="1083" height="812" style="aspect-ratio:1308/907"><span class="cam">CAM_01 · Front</span></figure>
+        </div>
+        <figure data-reveal>
+          <div class="shot" data-lb tabindex="0" aria-label="Open render full screen"><img src="assets/garden.jpg" alt="Outdoor terrace at dusk: white arches over a flower-shaped stage, brass arc lamps with chandeliers, dining tables and a sunken lounge" width="1301" height="916"><span class="cam">CAM_05 · Outdoor terrace</span></div>
+          <figcaption class="cap"><b>Outdoor terrace &amp; stage</b><span>Arched petal stage, brass arc lamps, sunken lounge</span></figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= INTERIOR ================= -->
+  <section class="sec">
+    <div class="wrap">
+      <div class="head" data-reveal>
+        <span class="label"><span class="phase" style="--p:.62"></span>05 · 3D rendering · Interior</span>
+        <h2 class="h2">Warm light <em>inside</em></h2>
+      </div>
+      <div class="rooms">
+        <div class="room" data-reveal>
+          <figure class="shot" data-lb tabindex="0" aria-label="Open render full screen"><img src="assets/lobby.jpg" alt="Lobby with a curved walnut wall, backlit Lumina Centre sign, bamboo wall sculpture and a reception desk of travertine under a white arc" width="1245" height="837"><span class="cam">CAM_06 · Lobby</span></figure>
+          <div class="txt">
+            <span class="label">Lobby &amp; reception</span>
+            <h3 class="h3">The hinge of the plan</h3>
+            <p>A curved walnut wall wraps the arrival space. The reception desk repeats the crescent: a travertine half-disc under a thin white arc. A backlit sign and a woven bamboo sculpture catch the low sun.</p>
+            <span class="mat-line">Walnut veneer · Travertine · Backlit acrylic · Bamboo</span>
+          </div>
+        </div>
+        <div class="room flip" data-reveal>
+          <figure class="shot" data-lb tabindex="0" aria-label="Open render full screen"><img src="assets/dining.jpg" alt="Dining area with a curved bar of high stools, timber tables with upholstered chairs and sculpted white planters with circular cut-outs" width="1295" height="571"><span class="cam">CAM_07 · Dining</span></figure>
+          <div class="txt">
+            <span class="label">Dining</span>
+            <h3 class="h3">A crescent bar</h3>
+            <p>The bar follows the curve of the dining drum, with a cove-lit counter and timber stools. Sculpted planters with round cut-outs echo the moon at the edges of the room.</p>
+            <span class="mat-line">Oak · Upholstered fabric · Stone floor · Cove LED</span>
+          </div>
+        </div>
+        <div class="room" data-reveal>
+          <figure class="shot" data-lb tabindex="0" aria-label="Open render full screen"><img src="assets/auditorium-render.jpg" alt="Auditorium with curved tiers of cream seats around a walnut half-moon stage and a balcony reached by two lit staircases" width="1315" height="534"><span class="cam">CAM_09 · Auditorium</span></figure>
+          <div class="txt">
+            <span class="label">Indoor stage</span>
+            <h3 class="h3">Seats in an arc</h3>
+            <p>Curved tiers of seating face a half-moon walnut stage. A balcony row spans above, reached by two staircases with glass balustrades and lit treads.</p>
+            <span class="mat-line">Walnut · Travertine · Upholstery · Glass · Step lights</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= MATERIALS + LIGHTING ================= -->
+  <section class="sec" style="background:linear-gradient(180deg, var(--night), var(--panel) 16%, var(--panel) 84%, var(--night))">
+    <div class="wrap">
+      <div class="head-row" data-reveal style="margin-bottom:clamp(36px,5vw,56px)">
+        <div class="head" style="margin-bottom:0">
+          <span class="label"><span class="phase" style="--p:.75"></span>06 · Look development</span>
+          <h2 class="h2">Materials</h2>
+        </div>
+        <p class="body">A pale, moonlit palette outside and warm natural materials inside. Silver and glass catch light at night; stone and timber hold warmth at ground level.</p>
+      </div>
+      <div class="mats" data-reveal>
+        <div class="mat"><div class="sw s-perf"></div><em>Exterior</em><b>Perforated aluminium</b><span>Sphere cladding in a panelled lattice that glows when lit from within</span></div>
+        <div class="mat"><div class="sw s-glass"></div><em>Exterior</em><b>Glass block façade</b><span>Translucent wing that reads as a lantern at dusk</span></div>
+        <div class="mat"><div class="sw s-sky"></div><em>Roof</em><b>Glazed skylights</b><span>Faceted glass roof over the stage segments</span></div>
+        <div class="mat"><div class="sw s-shell"></div><em>Structure</em><b>White plaster finish</b><span>Curved shell walls, arches and sculpted planters</span></div>
+        <div class="mat"><div class="sw s-trav"></div><em>Floors &amp; base</em><b>Travertine</b><span>Plinth, reception desk, auditorium base and floors</span></div>
+        <div class="mat"><div class="sw s-walnut"></div><em>Interior</em><b>Walnut veneer</b><span>Lobby feature wall and the auditorium stage</span></div>
+        <div class="mat"><div class="sw s-deck"></div><em>Landscape</em><b>Timber decking</b><span>Waterfront edge, boardwalk and jetty</span></div>
+        <div class="mat"><div class="sw s-brass"></div><em>Details</em><b>Brass</b><span>Arc lamps and chandelier frames on the terrace</span></div>
+      </div>
+
+      <div class="head" data-reveal style="margin-top:clamp(70px,9vw,120px);margin-bottom:0">
+        <span class="label">Lighting</span>
+        <h2 class="h2">Lit like <em>moonrise</em></h2>
+        <p class="body">Warm white throughout, kept low and indirect so the building glows rather than shines. Light comes from edges, inside the sphere and from the terrace lamps.</p>
+      </div>
+      <div class="lights" data-reveal>
+        <div class="light"><div class="glow" style="--c:#f6d99a"></div><b>Cove LED</b><span>Under the plinth, bar and landscape edges</span></div>
+        <div class="light"><div class="glow" style="--c:#fff1d2"></div><b>Sphere glow</b><span>Light behind the perforations at night</span></div>
+        <div class="light"><div class="glow" style="--c:#e8b866"></div><b>Arc lamps &amp; chandeliers</b><span>Brass lamps over the terrace tables</span></div>
+        <div class="light"><div class="glow" style="--c:#f3c77e"></div><b>Uplights</b><span>Palms and planting beds</span></div>
+        <div class="light"><div class="glow" style="--c:#fbe5b8"></div><b>Step &amp; tread lights</b><span>Auditorium tiers and balcony stairs</span></div>
+        <div class="light"><div class="glow" style="--c:#fff8ea"></div><b>Backlit signage</b><span>Lumina Centre sign in the lobby</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PROCESS ================= -->
+  <section class="sec">
+    <div class="wrap">
+      <div class="head" data-reveal>
+        <span class="label"><span class="phase" style="--p:.88"></span>07 · Process</span>
+        <h2 class="h2">From block-out <em>to render</em></h2>
+      </div>
+      <div class="steps">
+        <div class="step" data-reveal>
+          <div class="txt"><span class="no">Step 01</span><h3 class="h3">Massing</h3><p>Sphere, shell walls and glass wing blocked out on the plinth, with the drop-off ramp below.</p></div>
+          <div class="imgs"><figure class="shot" data-lb tabindex="0" aria-label="Open model view full screen"><img src="assets/model-blockout.jpg" alt="Early block-out model of the sphere, curved walls and plinth" width="700" height="460"><span class="cam">Block-out</span></figure></div>
+        </div>
+        <div class="step" data-reveal>
+          <div class="txt"><span class="no">Step 02</span><h3 class="h3">Façade &amp; landscape</h3><p>Panelled sphere, glass block wing, palms and the curved drop-off modelled and lit in the first render pass.</p></div>
+          <div class="imgs"><figure class="shot" data-lb tabindex="0" aria-label="Open model view full screen"><img src="assets/hero-solid.jpg" alt="Model render of the front with the sphere and glass wing" width="1083" height="812"><span class="cam">Model render · Front</span></figure></div>
+        </div>
+        <div class="step" data-reveal>
+          <div class="txt"><span class="no">Step 03</span><h3 class="h3">Terrace</h3><p>The outdoor stage, arches, sunken lounge, arc lamps and table layout set out on the riverfront lawn.</p></div>
+          <div class="imgs two">
+            <figure class="shot" data-lb tabindex="0" aria-label="Open model view full screen"><img src="assets/model-garden.jpg" alt="Model render of the terrace with arches, petal stage and table layout" width="1278" height="604" style="aspect-ratio:16/10"><span class="cam">Model render · Terrace</span></figure>
+            <figure class="shot" data-lb tabindex="0" aria-label="Open model view full screen"><img src="assets/model-terrace.jpg" alt="Model render of the terrace from the promenade with brass arc lamps" width="1278" height="719" style="aspect-ratio:16/10"><span class="cam">Model render · Promenade</span></figure>
+          </div>
+        </div>
+        <div class="step" data-reveal>
+          <div class="txt"><span class="no">Step 04</span><h3 class="h3">Auditorium</h3><p>Tiered seating, balcony, staircases and the walnut stage modelled before materials and lighting were finalised.</p></div>
+          <div class="imgs">
+            <figure class="shot" data-lb tabindex="0" aria-label="Open model view full screen"><img src="assets/auditorium-solid.jpg" alt="Model render of the auditorium seating and balcony" width="1315" height="534"><span class="cam">Model render · Auditorium</span></figure>
+            <figure class="shot" data-lb tabindex="0" aria-label="Open model view full screen"><img src="assets/model-auditorium.jpg" alt="Wider model render of the auditorium" width="1350" height="444"><span class="cam">Model render · Wide</span></figure>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= OUTRO ================= -->
+  <figure class="shot bleed" data-reveal data-lb tabindex="0" aria-label="Open render full screen">
+    <img src="assets/aerial-front.jpg" alt="Aerial dusk render of the convention centre" width="1308" height="907" data-parallax style="aspect-ratio:21/9;object-fit:cover">
+  </figure>
+  <section class="outro">
+    <div class="wrap">
+      <span class="label"><span class="phase" style="--p:1"></span>Full moon</span>
+      <h2 class="h2" style="margin-top:16px">Every phase,<br><em>one space</em></h2>
+      <div class="outro-row">
+        <a class="btn" href="https://aleeshakl.vercel.app/">← All Projects Index</a>
+        <a class="btn" href="#lum">Back to top ↑</a>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div class="lum-lb" id="lum-lb" hidden role="dialog" aria-modal="true" aria-label="Full size image">
+  <img alt="">
+  <button type="button" class="x">Close ✕</button>
+  <button type="button" class="prev">← Prev</button>
+  <button type="button" class="next">Next →</button>
+  <p></p>
+</div>
+
+<script>
+(function () {
+  var root = document.getElementById('lum');
+  if (!root) return;
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var $ = function (s, el) { return (el || root).querySelector(s); };
+  var $$ = function (s, el) { return [].slice.call((el || root).querySelectorAll(s)); };
+  root.classList.add('is-ready');
+
+  /* ---------- hero: Model / Rendered ---------- */
+  var hero = document.getElementById('lum-hero');
+  var heroBtns = $$('.shading button', hero);
+  var touched = false;
+  function setShade(mode) {
+    hero.classList.toggle('is-render', mode === 'render');
+    heroBtns.forEach(function (b) { b.setAttribute('aria-pressed', String(b.dataset.mode === mode)); });
+  }
+  heroBtns.forEach(function (b) { b.addEventListener('click', function () { touched = true; setShade(b.dataset.mode); }); });
+  var heroRender = $('.render', hero);
+  function moonrise() { setTimeout(function () { if (!touched) setShade('render'); }, reduce ? 0 : 900); }
+  if (heroRender.complete) moonrise(); else { heroRender.addEventListener('load', moonrise); heroRender.addEventListener('error', moonrise); }
+
+  /* ---------- scene viewer ---------- */
+  var scenes = [
+    { solid: 'assets/hero-solid.jpg', render: 'assets/hero-render.jpg', w: 1083, h: 812, title: 'Main entrance',
+      text: 'The perforated sphere sits between two curved shell walls like a full moon caught in a crescent. A raised, softly lit plinth carries the building over the drop-off, so cars and coaches pull in beneath the curve.' },
+    { solid: 'assets/auditorium-solid.jpg', render: 'assets/auditorium-render.jpg', w: 1315, h: 534, title: 'Auditorium',
+      text: 'Untextured seating tiers become cream upholstery, the stage takes on walnut and the base turns to travertine. Step lights and a warm wash pick out every row.' }
+  ];
+  var vp = document.getElementById('lum-scene');
+  var range = document.getElementById('lum-scene-range');
+  var sSolid = $('.solid', vp), sRender = $('.render', vp);
+  function setCut(v) { vp.style.setProperty('--cut', v + '%'); }
+  range.addEventListener('input', function () { setCut(range.value); });
+  var dragging = false;
+  function fromEvent(e) { var r = vp.getBoundingClientRect(); var v = Math.max(0, Math.min(100, (e.clientX - r.left) / r.width * 100)); range.value = v; setCut(v); }
+  vp.addEventListener('pointerdown', function (e) { dragging = true; fromEvent(e); });
+  window.addEventListener('pointermove', function (e) { if (dragging) fromEvent(e); });
+  window.addEventListener('pointerup', function () { dragging = false; });
+  var tabs = $$('[role="tab"]');
+  function showScene(i) {
+    var s = scenes[i];
+    tabs.forEach(function (t, k) { t.setAttribute('aria-selected', String(k === i)); t.tabIndex = k === i ? 0 : -1; });
+    vp.classList.add('swap');
+    setTimeout(function () {
+      sSolid.src = s.solid; sRender.src = s.render;
+      vp.style.aspectRatio = s.w + ' / ' + s.h;
+      $('#lum-scene-title').textContent = s.title;
+      $('#lum-scene-text').textContent = s.text;
+      var done = function () { vp.classList.remove('swap'); };
+      if (sRender.complete) done(); else sRender.onload = done;
+      setTimeout(done, 900);
+    }, reduce ? 0 : 280);
+  }
+  tabs.forEach(function (t, i) {
+    t.addEventListener('click', function () { showScene(i); });
+    t.addEventListener('keydown', function (e) {
+      var d = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0;
+      if (!d) return; e.preventDefault(); var n = (i + d + tabs.length) % tabs.length; tabs[n].focus(); showScene(n);
+    });
+  });
+  scenes.slice(1).forEach(function (s) { [s.solid, s.render].forEach(function (u) { var im = new Image(); im.src = u; }); });
+  if (!reduce && 'IntersectionObserver' in window) {
+    var swept = false;
+    var sio = new IntersectionObserver(function (es) {
+      if (!es[0].isIntersecting || swept) return; swept = true; sio.disconnect();
+      var t0 = null;
+      function step(t) { if (dragging) return; if (!t0) t0 = t; var p = Math.min((t - t0) / 1800, 1);
+        var v = 50 + Math.sin(p * Math.PI * 2) * 28 * (1 - p); range.value = v; setCut(v); if (p < 1) requestAnimationFrame(step); }
+      requestAnimationFrame(step);
+    }, { threshold: 0.6 });
+    sio.observe(vp);
+  }
+
+  /* ---------- reveal (below the fold only) ---------- */
+  if (!reduce && 'IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); e.target.classList.remove('pre'); io.unobserve(e.target); } });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.06 });
+    $$('[data-reveal]').forEach(function (el) { if (el.getBoundingClientRect().top > window.innerHeight) { el.classList.add('pre'); io.observe(el); } });
+  }
+
+  /* ---------- progress + parallax ---------- */
+  var bar = $('.progress'), heroZoom = $('.zoom', hero), px = $$('img[data-parallax]'), ticking = false;
+  function onScroll() {
+    var r = root.getBoundingClientRect(), total = r.height - window.innerHeight;
+    bar.style.transform = 'scaleX(' + (total > 0 ? Math.min(Math.max(-r.top / total, 0), 1) : 0) + ')';
+    if (!reduce) {
+      var hr = hero.getBoundingClientRect();
+      if (hr.bottom > 0) heroZoom.style.transform = 'scale(' + (1 + Math.min(Math.max(-hr.top, 0) / hr.height, 1) * 0.08) + ')';
+      px.forEach(function (img) {
+        var b = img.parentNode.getBoundingClientRect();
+        if (b.bottom < 0 || b.top > window.innerHeight) return;
+        var c = (b.top + b.height / 2 - window.innerHeight / 2) / window.innerHeight;
+        img.style.transform = 'scale(1.08) translateY(' + (c * -5) + '%)';
+      });
+    }
+    ticking = false;
+  }
+  window.addEventListener('scroll', function () { if (!ticking) { ticking = true; requestAnimationFrame(onScroll); } }, { passive: true });
+  onScroll();
+
+  /* ---------- lightbox ---------- */
+  var lb = document.getElementById('lum-lb'), lbImg = lb.querySelector('img'), lbCap = lb.querySelector('p');
+  var items = $$('[data-lb]'), cur = 0, lastFocus = null;
+  function imgOf(el) { return el.tagName === 'IMG' ? el : el.querySelector('img'); }
+  function show(i) {
+    cur = (i + items.length) % items.length;
+    var im = imgOf(items[cur]); lbImg.src = im.currentSrc || im.src; lbImg.alt = im.alt;
+    var cam = items[cur].querySelector('.cam'); lbCap.textContent = (cam ? cam.textContent : im.alt) + '  ·  ' + (cur + 1) + ' / ' + items.length;
+  }
+  function open(i) { lastFocus = document.activeElement; show(i); lb.hidden = false; document.documentElement.style.overflow = 'hidden'; lb.querySelector('.x').focus(); }
+  function close() { lb.hidden = true; document.documentElement.style.overflow = ''; if (lastFocus) lastFocus.focus(); }
+  items.forEach(function (el, i) {
+    el.addEventListener('click', function () { open(i); });
+    el.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(i); } });
+  });
+  lb.querySelector('.x').addEventListener('click', close);
+  lb.querySelector('.prev').addEventListener('click', function () { show(cur - 1); });
+  lb.querySelector('.next').addEventListener('click', function () { show(cur + 1); });
+  lb.addEventListener('click', function (e) { if (e.target === lb) close(); });
+  document.addEventListener('keydown', function (e) {
+    if (lb.hidden) return;
+    if (e.key === 'Escape') close(); else if (e.key === 'ArrowRight') show(cur + 1); else if (e.key === 'ArrowLeft') show(cur - 1);
+  });
+})();
+</script>
+
+</body></html>
