@@ -1581,8 +1581,8 @@ body, html {
   position: fixed;
   top: 0;
   left: 0;
-  width: 62px;
-  height: 72px;
+  width: 50px;
+  height: 58px;
   z-index: 10002;
   pointer-events: none;
   user-select: none;
@@ -1615,9 +1615,12 @@ body, html {
   animation: owlSpinJump 0.65s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
 }
 
+.desktop-owl-companion .owl-sprite-img,
 .owl-sprite-img {
   width: 100%;
   height: 100%;
+  max-width: 50px;
+  max-height: 58px;
   object-fit: contain;
   image-rendering: pixelated;
   image-rendering: -moz-crisp-edges;
