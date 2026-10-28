@@ -164,6 +164,9 @@ document.addEventListener('DOMContentLoaded', () => {
       if (appId === 'contact') target = 'mail';
       if (appId === 'spatial') target = 'studio3d';
       window.windowManager.open(target);
+      if (target === 'playground' && window.owlGame) {
+        setTimeout(() => window.owlGame.handleResize(), 60);
+      }
     }
   }
 

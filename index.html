@@ -18,15 +18,16 @@
   <link rel="shortcut icon" href="assets/owl.png" type="image/png">
   <link rel="apple-touch-icon" href="assets/owl.png">
 
-  <!-- Google Fonts: Fredoka for Solari Bubbly Typography & Plus Jakarta Sans -->
+  <!-- Google Fonts: Fredoka, Plus Jakarta Sans, Silkscreen & Press Start 2P -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700;800;900&family=Plus+Jakarta+Sans:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700;800;900&family=Plus+Jakarta+Sans:wght@500;600;700;800;900&family=Press+Start+2P&family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
 
   <!-- Core Stylesheets -->
-  <link rel="stylesheet" href="css/styles.css?v=32">
-  <link rel="stylesheet" href="css/boot-welcome.css?v=32">
-  <link rel="stylesheet" href="css/apps.css?v=32">
+  <link rel="stylesheet" href="css/styles.css?v=33">
+  <link rel="stylesheet" href="css/boot-welcome.css?v=33">
+  <link rel="stylesheet" href="css/apps.css?v=33">
+  <link rel="stylesheet" href="css/owl-game.css?v=1">
 </head>
 
 <body>
@@ -249,13 +250,14 @@
         <div class="mockup-icon-label">Photography</div>
       </div>
 
-      <!-- 7. Visual Playground (Right-Mid) -->
+      <!-- 7. Owl.exe (Previously Visual Playground) -->
       <div class="mockup-icon" data-pos="playground" data-app="playground"
-        title="Visual Playground — UI/UX, Website Design, Graphic Design, Branding & Packaging">
-        <div class="mockup-thumb-card">
-          <img src="assets/thumb_desktop_playground.png" alt="Visual Playground" class="mockup-thumb-img">
+        title="Owl.exe — An Interactive Personal Portfolio Game">
+        <div class="mockup-thumb-card owl-exe-card">
+          <img src="assets/owl_sit.png" alt="Owl.exe" class="mockup-thumb-img owl-exe-thumb">
+          <span class="owl-exe-badge">GAME</span>
         </div>
-        <div class="mockup-icon-label">Visual Playground</div>
+        <div class="mockup-icon-label">Owl.exe</div>
       </div>
 
       <!-- 8. Beyond the Brief (Bottom-Right) -->
@@ -1483,19 +1485,14 @@
       </div>
     </div>
 
-    <!-- 10. WINDOW: VISUAL PLAYGROUND -->
-    <div class="os-window" id="window-playground" style="width: 860px; height: 560px;">
+    <!-- 10. WINDOW: OWL.EXE (INTERACTIVE GAME) -->
+    <div class="os-window" id="window-playground" style="width: 1040px; height: 700px; max-width: 96vw; max-height: 92vh;">
       <div class="window-titlebar">
         <div class="window-title-left">
           <div class="window-title-icon">
-            <svg viewBox="0 0 24 24" fill="#f43f5e">
-              <rect x="3" y="3" width="7" height="7" />
-              <rect x="14" y="3" width="7" height="7" />
-              <rect x="14" y="14" width="7" height="7" />
-              <rect x="3" y="14" width="7" height="7" />
-            </svg>
+            <img src="assets/owl.png" alt="Owl.exe" style="width: 18px; height: 18px; object-fit: contain;">
           </div>
-          <div class="window-title-text">Visual Playground — UI/UX, Website Design, Graphic Design & Packaging</div>
+          <div class="window-title-text">Owl.exe — A little world about me.</div>
         </div>
         <div class="window-controls">
           <button class="win-btn btn-min" title="Minimize"><svg viewBox="0 0 10 1">
@@ -1505,28 +1502,137 @@
               <rect x="0.5" y="0.5" width="9" height="9" fill="none" stroke="currentColor" stroke-width="1.2" />
             </svg></button>
           <button class="win-btn btn-close" title="Close"><svg viewBox="0 0 10 10">
-              <line x1="0" y1="0" x2="10" y2="10" stroke="currentColor" stroke-width="1.4" />
+              <line x1="0" y1="0.5" x2="10" y2="10" stroke="currentColor" stroke-width="1.4" />
               <line x1="10" y1="0" x2="0" y2="10" stroke="currentColor" stroke-width="1.4" />
             </svg></button>
         </div>
       </div>
 
-      <div class="window-content">
-        <div class="playground-wrap">
-          <div class="playground-toolbar">
-            <div class="photo-tabs">
-              <button class="photo-tab-btn active" data-pg-filter="all">All Playground (6)</button>
-              <button class="photo-tab-btn" data-pg-filter="uiux">UI/UX & Web</button>
-              <button class="photo-tab-btn" data-pg-filter="packaging">Branding & Packaging</button>
-              <button class="photo-tab-btn" data-pg-filter="graphic">Graphic Design</button>
-              <button class="photo-tab-btn" data-pg-filter="editorial">Publication & Print</button>
+      <div class="window-content" style="padding: 0; overflow: hidden; background: #FFF9EC; flex: 1; display: flex; flex-direction: column;">
+        <div class="owl-game-container" id="owl-game-container">
+          
+          <!-- SCREEN 1: GAME LAUNCH SCREEN -->
+          <div class="owl-launch-screen" id="owl-launch-screen">
+            <div class="owl-crt-overlay"></div>
+            
+            <div class="owl-boot-ticker">
+              ✦ BOOTING OWL_OS v1.0.4 • READY TO EXPLORE ✦
             </div>
-            <div class="photo-counter">6 Explorations</div>
+
+            <div class="owl-launch-mascot-wrap">
+              <div class="owl-launch-halo"></div>
+              <img src="assets/owl_sit.png" alt="Aleesha's Owl" class="owl-launch-mascot" id="owl-launch-mascot-img">
+            </div>
+
+            <div class="owl-launch-speech">
+              <span>🦉 “Oh, you found me! Welcome to my world! ✦”</span>
+            </div>
+
+            <div class="owl-launch-title-wrap">
+              <h1 class="owl-launch-title">OWL.EXE</h1>
+              <div class="owl-launch-subtitle">A little world about me.</div>
+            </div>
+
+            <div class="owl-launch-actions">
+              <button class="owl-btn-start" id="owl-btn-start" type="button">
+                <span>▶ START GAME</span>
+              </button>
+              <button class="owl-btn-sound-toggle" id="owl-btn-sound-launch" type="button">
+                <span>🔇 Sound: OFF</span>
+              </button>
+            </div>
+
+            <div class="owl-launch-instructions">
+              <span>Move: <span class="owl-key-badge">Arrow Keys</span> or <span class="owl-key-badge">WASD</span></span>
+              <span>•</span>
+              <span>Interact: <span class="owl-key-badge">Enter</span> or <span class="owl-key-badge">E</span></span>
+              <span>•</span>
+              <span>Touch / Click to walk & inspect</span>
+            </div>
           </div>
 
-          <div class="playground-grid-container">
-            <div class="playground-grid" id="playground-cards-container">
-              <!-- Rendered dynamically by apps.js -->
+          <!-- SCREEN 2: PLAYABLE 2D WORLD -->
+          <div class="owl-play-screen" id="owl-play-screen">
+            
+            <!-- In-Game Top HUD Bar -->
+            <div class="owl-game-hud">
+              <div class="owl-hud-left">
+                <div class="owl-hud-logo">
+                  <img src="assets/owl.png" alt="Owl">
+                  <span>OWL.EXE</span>
+                </div>
+                <div class="owl-hud-stars" id="owl-star-counter">
+                  <span class="owl-star-icon">★</span>
+                  <span>0/5 Discovered</span>
+                </div>
+              </div>
+
+              <!-- Quick Travel Navigation Buttons -->
+              <div class="owl-hud-travel">
+                <button class="owl-travel-btn" data-target="origins" title="Jump to Origins & Schooling">Origins</button>
+                <button class="owl-travel-btn" data-target="education" title="Jump to Education & NIFT">Education</button>
+                <button class="owl-travel-btn" data-target="internships" title="Jump to Internships">Internships</button>
+                <button class="owl-travel-btn" data-target="toolkit" title="Jump to Creative Toolkit">Toolkit</button>
+                <button class="owl-travel-btn" data-target="interests" title="Jump to Interests & Journey">Interests</button>
+              </div>
+
+              <!-- HUD Controls Right -->
+              <div class="owl-hud-right">
+                <button class="owl-hud-icon-btn" id="owl-btn-sound-hud" title="Toggle Sound">🔇</button>
+                <button class="owl-hud-icon-btn" id="owl-btn-fullscreen" title="Toggle Fullscreen">⛶</button>
+                <button class="owl-hud-icon-btn owl-hud-exit-btn" id="owl-btn-exit" title="Back to Desktop">✕ Desktop</button>
+              </div>
+            </div>
+
+            <!-- Canvas Viewport -->
+            <div class="owl-canvas-viewport">
+              <canvas id="owl-game-canvas"></canvas>
+
+              <!-- Floating Proximity Prompt -->
+              <div class="owl-proximity-prompt" id="owl-proximity-prompt">
+                <span>[E] Inspect Station ✨</span>
+              </div>
+
+              <!-- Dynamic Owl Speech Float -->
+              <div class="owl-speech-float" id="owl-speech-float"></div>
+
+              <!-- Mobile Virtual D-Pad & Action Button -->
+              <div class="owl-mobile-controls">
+                <div class="owl-dpad">
+                  <button class="owl-dpad-btn owl-dpad-up" id="owl-dpad-up" aria-label="Up">▲</button>
+                  <button class="owl-dpad-btn owl-dpad-left" id="owl-dpad-left" aria-label="Left">◀</button>
+                  <button class="owl-dpad-btn owl-dpad-right" id="owl-dpad-right" aria-label="Right">▶</button>
+                  <button class="owl-dpad-btn owl-dpad-down" id="owl-dpad-down" aria-label="Down">▼</button>
+                </div>
+                <div class="owl-action-btn-wrap">
+                  <button class="owl-action-btn" id="owl-action-btn" aria-label="Interact">
+                    <span>[E]</span>
+                    <span style="font-size: 8px;">ACT</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- INTERACTIVE DISCOVERY MODAL OVERLAY -->
+          <div class="owl-modal-overlay" id="owl-modal-overlay">
+            <div class="owl-modal-card">
+              <div class="owl-modal-header">
+                <div class="owl-modal-title-left" id="owl-modal-title">
+                  <span>✨</span> <span>Station Details</span>
+                </div>
+                <button class="owl-modal-close-btn" id="owl-modal-close-btn" type="button" title="Close Modal (Esc)">✕ Close</button>
+              </div>
+              <div class="owl-modal-body" id="owl-modal-body">
+                <!-- Dynamically injected station content -->
+              </div>
+              <div class="owl-modal-footer">
+                <span>✦ Press [Esc] or click Close to resume exploration</span>
+                <button class="owl-modal-btn-action" onclick="document.getElementById('owl-modal-overlay').classList.remove('is-open')">
+                  Resume Walk ➔
+                </button>
+              </div>
             </div>
           </div>
 
@@ -1830,6 +1936,10 @@
           </svg>
           <span class="start-app-name">Terminal</span>
         </div>
+        <div class="start-app-tile" data-app="playground" title="Owl.exe — Interactive Portfolio Game">
+          <img src="assets/owl_sit.png" alt="Owl.exe" style="width: 26px; height: 26px; object-fit: contain; image-rendering: pixelated;">
+          <span class="start-app-name" style="color: #FFBF00; font-weight: 700;">Owl.exe</span>
+        </div>
       </div>
 
       <!-- Recommended Files / Case Studies -->
@@ -1875,6 +1985,14 @@
           <div class="start-rec-text">
             <span class="start-rec-title">Aleesha_Resume_2026.pdf</span>
             <span class="start-rec-sub">CGPA 8.6 • NIFT Kannur</span>
+          </div>
+        </div>
+
+        <div class="start-rec-item" data-app="playground">
+          <img src="assets/owl_sit.png" alt="Owl.exe" style="width: 28px; height: 28px; object-fit: contain; margin-right: 2px;">
+          <div class="start-rec-text">
+            <span class="start-rec-title" style="color: #FFBF00; font-weight: 700;">Owl.exe (Retro Portfolio Game)</span>
+            <span class="start-rec-sub">Interactive 2D World • Education, Internships & Toolkit</span>
           </div>
         </div>
       </div>
@@ -2013,11 +2131,12 @@
 
   <!-- Core Script Modules -->
   <script src="js/audio.js"></script>
-  <script src="js/window-manager.js?v=32"></script>
-  <script src="js/apps.js?v=32"></script>
-  <script src="js/main.js?v=32"></script>
-  <script src="js/welcome.js?v=32"></script>
-  <script src="js/owl-companion.js?v=32"></script>
+  <script src="js/window-manager.js?v=33"></script>
+  <script src="js/apps.js?v=33"></script>
+  <script src="js/main.js?v=33"></script>
+  <script src="js/welcome.js?v=33"></script>
+  <script src="js/owl-companion.js?v=33"></script>
+  <script src="js/owl-game.js?v=1"></script>
 </body>
 
 </html>

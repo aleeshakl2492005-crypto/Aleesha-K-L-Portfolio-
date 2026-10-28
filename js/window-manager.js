@@ -225,6 +225,10 @@ class WindowManager {
 
     this.bringToFront(id);
     this.updateTaskbar(id);
+
+    if (id === 'playground' && window.owlGame) {
+      setTimeout(() => window.owlGame.handleResize(), 60);
+    }
   }
 
   bringToFront(id) {
@@ -275,6 +279,10 @@ class WindowManager {
     } else {
       data.el.classList.remove('maximized');
     }
+
+    if (id === 'playground' && window.owlGame) {
+      setTimeout(() => window.owlGame.handleResize(), 120);
+    }
   }
 
   close(id) {
@@ -283,6 +291,10 @@ class WindowManager {
 
     if (id === 'projects' && typeof window.closeSolariDetail === 'function') {
       window.closeSolariDetail();
+    }
+
+    if (id === 'playground' && window.owlGame) {
+      window.owlGame.closeModal();
     }
 
     this.pauseVideosInside(data.el);

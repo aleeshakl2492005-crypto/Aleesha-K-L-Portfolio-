@@ -1,0 +1,1027 @@
+/* ==========================================================================
+   OWL.EXE — INTERACTIVE PERSONAL PORTFOLIO GAME STYLES
+   Visual Direction: Retro PC Indie Game x Nostalgic Operating System
+   Palette: Amber (#FFBF00), Black (#171717), Warm Cream (#FFF9EC), White (#FFF)
+   ========================================================================== */
+
+:root {
+  --owl-amber: #FFBF00;
+  --owl-amber-hover: #e6ac00;
+  --owl-amber-light: #FFF2C2;
+  --owl-amber-soft: rgba(255, 191, 0, 0.18);
+  --owl-black: #171717;
+  --owl-cream: #FFF9EC;
+  --owl-cream-dark: #F5EEDC;
+  --owl-cream-tint: #ECE3CF;
+  --owl-white: #FFFFFF;
+  --owl-grey: #64748b;
+  --owl-grey-light: #cbd5e1;
+  --owl-font-pixel: 'Silkscreen', 'Press Start 2P', monospace;
+  --owl-font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --owl-border: 2px solid #171717;
+  --owl-border-thick: 3px solid #171717;
+  --owl-shadow: 4px 4px 0px #171717;
+  --owl-shadow-sm: 2px 2px 0px #171717;
+  --owl-shadow-amber: 4px 4px 0px #FFBF00;
+}
+
+/* --------------------------------------------------------------------------
+   Desktop Icon for Owl.exe
+   -------------------------------------------------------------------------- */
+.owl-exe-card {
+  background: linear-gradient(135deg, #fff9ec 0%, #fff0b3 100%) !important;
+  border-color: #171717 !important;
+  box-shadow: 3px 3px 0px #171717, 0 10px 20px rgba(255, 191, 0, 0.25) !important;
+  position: relative;
+  overflow: visible !important;
+}
+
+.owl-exe-thumb {
+  object-fit: contain !important;
+  padding: 4px !important;
+  image-rendering: pixelated;
+  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.mockup-icon:hover .owl-exe-thumb {
+  transform: translateY(-4px) scale(1.12);
+}
+
+.owl-exe-badge {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  background: #FFBF00;
+  color: #171717;
+  border: 1.5px solid #171717;
+  font-family: var(--owl-font-pixel);
+  font-size: 8px;
+  font-weight: 700;
+  padding: 1px 4px;
+  border-radius: 4px;
+  box-shadow: 1px 1px 0px #171717;
+  letter-spacing: 0.05em;
+  z-index: 2;
+  animation: owlBadgePulse 2s infinite ease-in-out;
+}
+
+@keyframes owlBadgePulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.08) rotate(-2deg); }
+}
+
+/* --------------------------------------------------------------------------
+   Owl.exe Window Container & Shell
+   -------------------------------------------------------------------------- */
+#window-playground {
+  background: var(--owl-cream) !important;
+  border: var(--owl-border-thick) !important;
+  border-radius: 14px !important;
+  box-shadow: var(--owl-shadow), 0 20px 45px rgba(23, 23, 23, 0.22) !important;
+  font-family: var(--owl-font-body);
+}
+
+#window-playground .window-titlebar {
+  background: #FFE8A3 !important;
+  border-bottom: var(--owl-border) !important;
+  color: var(--owl-black) !important;
+  font-family: var(--owl-font-pixel);
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  height: 38px;
+}
+
+#window-playground .win-btn {
+  border-radius: 4px;
+  color: #171717;
+}
+
+#window-playground .win-btn:hover {
+  background: rgba(23, 23, 23, 0.12);
+}
+
+#window-playground .win-btn.btn-close:hover {
+  background: #ef4444;
+  color: #ffffff;
+}
+
+/* Main Owl Game Shell */
+.owl-game-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  background: var(--owl-cream);
+  user-select: none;
+}
+
+/* --------------------------------------------------------------------------
+   SCREEN 1: GAME LAUNCH SCREEN (Boot Sequence & Intro)
+   -------------------------------------------------------------------------- */
+.owl-launch-screen {
+  position: absolute;
+  inset: 0;
+  z-index: 30;
+  background: radial-gradient(circle at center, #FFF9EC 0%, #F5EEDC 70%, #E8DFC7 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  text-align: center;
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+.owl-launch-screen.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(0.96);
+}
+
+/* Retro CRT lines overlay (subtle) */
+.owl-crt-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    rgba(18, 16, 16, 0) 50%, 
+    rgba(0, 0, 0, 0.03) 50%
+  );
+  background-size: 100% 4px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Boot sequence terminal header */
+.owl-boot-ticker {
+  font-family: var(--owl-font-pixel);
+  font-size: 10px;
+  color: #475569;
+  letter-spacing: 0.08em;
+  margin-bottom: 20px;
+  background: rgba(23, 23, 23, 0.05);
+  padding: 4px 14px;
+  border-radius: 20px;
+  border: 1px dashed rgba(23, 23, 23, 0.2);
+}
+
+/* Mascot Centerpiece */
+.owl-launch-mascot-wrap {
+  position: relative;
+  width: 130px;
+  height: 130px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+
+.owl-launch-halo {
+  position: absolute;
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #FFBF00 0%, rgba(255, 191, 0, 0) 70%);
+  opacity: 0.45;
+  animation: owlHaloPulse 3s infinite ease-in-out;
+}
+
+@keyframes owlHaloPulse {
+  0%, 100% { transform: scale(0.95); opacity: 0.35; }
+  50% { transform: scale(1.15); opacity: 0.65; }
+}
+
+.owl-launch-mascot {
+  width: 105px;
+  height: 105px;
+  object-fit: contain;
+  image-rendering: pixelated;
+  position: relative;
+  z-index: 2;
+  filter: drop-shadow(0 8px 16px rgba(23, 23, 23, 0.15));
+  animation: owlFloat 3s infinite ease-in-out;
+}
+
+@keyframes owlFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-7px); }
+}
+
+/* Launch Speech Bubble */
+.owl-launch-speech {
+  position: relative;
+  background: var(--owl-white);
+  border: var(--owl-border);
+  box-shadow: var(--owl-shadow-sm);
+  padding: 8px 18px;
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--owl-black);
+  margin-bottom: 16px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.owl-launch-speech::after {
+  content: '';
+  position: absolute;
+  bottom: -7px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 10px;
+  height: 10px;
+  background: var(--owl-white);
+  border-right: var(--owl-border);
+  border-bottom: var(--owl-border);
+  transform: translateX(-50%) rotate(45deg);
+}
+
+/* Titles */
+.owl-launch-title-wrap {
+  margin-bottom: 22px;
+}
+
+.owl-launch-title {
+  font-family: var(--owl-font-pixel);
+  font-size: 38px;
+  color: var(--owl-black);
+  letter-spacing: -0.01em;
+  margin: 0;
+  line-height: 1.1;
+  text-shadow: 3px 3px 0px var(--owl-amber);
+}
+
+.owl-launch-subtitle {
+  font-family: var(--owl-font-pixel);
+  font-size: 12px;
+  color: #64748b;
+  margin-top: 6px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* Action Buttons & Audio Toggle */
+.owl-launch-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 20px;
+  z-index: 2;
+}
+
+.owl-btn-start {
+  background: var(--owl-amber);
+  color: var(--owl-black);
+  border: var(--owl-border-thick);
+  box-shadow: var(--owl-shadow);
+  font-family: var(--owl-font-pixel);
+  font-size: 15px;
+  font-weight: 700;
+  padding: 14px 38px;
+  border-radius: 8px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  transition: all 0.15s ease;
+  letter-spacing: 0.04em;
+}
+
+.owl-btn-start:hover {
+  background: #ffcc29;
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0px var(--owl-black);
+}
+
+.owl-btn-start:active {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0px var(--owl-black);
+}
+
+.owl-btn-sound-toggle {
+  background: var(--owl-white);
+  border: var(--owl-border);
+  box-shadow: var(--owl-shadow-sm);
+  color: var(--owl-black);
+  font-family: var(--owl-font-pixel);
+  font-size: 10px;
+  padding: 6px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.12s ease;
+}
+
+.owl-btn-sound-toggle:hover {
+  background: #fff0b3;
+}
+
+/* Controls Hint Box */
+.owl-launch-instructions {
+  background: rgba(23, 23, 23, 0.04);
+  border: 1px dashed rgba(23, 23, 23, 0.25);
+  border-radius: 10px;
+  padding: 10px 18px;
+  font-size: 11px;
+  font-weight: 600;
+  color: #475569;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.owl-key-badge {
+  display: inline-block;
+  background: var(--owl-white);
+  border: 1px solid #171717;
+  border-radius: 4px;
+  padding: 2px 6px;
+  font-family: var(--owl-font-pixel);
+  font-size: 9px;
+  box-shadow: 1px 1px 0px #171717;
+  color: #171717;
+  margin: 0 2px;
+}
+
+/* --------------------------------------------------------------------------
+   SCREEN 2: PLAYABLE 2D WORLD
+   -------------------------------------------------------------------------- */
+.owl-play-screen {
+  flex: 1;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: var(--owl-cream);
+}
+
+/* In-Game Top HUD */
+.owl-game-hud {
+  height: 48px;
+  background: #FFF0B3;
+  border-bottom: var(--owl-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 14px;
+  z-index: 20;
+  flex-shrink: 0;
+  box-shadow: 0 2px 6px rgba(23, 23, 23, 0.05);
+}
+
+.owl-hud-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.owl-hud-logo {
+  font-family: var(--owl-font-pixel);
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--owl-black);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.owl-hud-logo img {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+  image-rendering: pixelated;
+}
+
+/* Discovery Star Counter */
+.owl-hud-stars {
+  background: var(--owl-white);
+  border: 1.5px solid var(--owl-black);
+  border-radius: 6px;
+  padding: 3px 10px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--owl-font-pixel);
+  font-size: 10px;
+  color: var(--owl-black);
+  box-shadow: var(--owl-shadow-sm);
+}
+
+.owl-star-icon {
+  color: #FFBF00;
+  font-size: 13px;
+  line-height: 1;
+}
+
+/* Fast Travel / Jump Bar */
+.owl-hud-travel {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.owl-travel-btn {
+  background: var(--owl-white);
+  border: 1.5px solid var(--owl-black);
+  color: var(--owl-black);
+  font-family: var(--owl-font-pixel);
+  font-size: 9px;
+  padding: 4px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.12s ease;
+  white-space: nowrap;
+}
+
+.owl-travel-btn:hover {
+  background: var(--owl-amber);
+  transform: translateY(-1px);
+}
+
+.owl-travel-btn.discovered {
+  border-color: #059669;
+  background: #ecfdf5;
+}
+
+/* HUD Controls Right */
+.owl-hud-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.owl-hud-icon-btn {
+  background: var(--owl-white);
+  border: 1.5px solid var(--owl-black);
+  color: var(--owl-black);
+  font-family: var(--owl-font-pixel);
+  font-size: 10px;
+  padding: 4px 8px;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  transition: all 0.12s ease;
+}
+
+.owl-hud-icon-btn:hover {
+  background: #fff2c2;
+  transform: translateY(-1px);
+}
+
+.owl-hud-exit-btn {
+  background: #fee2e2;
+  border-color: #ef4444;
+  color: #991b1b;
+}
+
+.owl-hud-exit-btn:hover {
+  background: #ef4444;
+  color: #ffffff;
+}
+
+/* --------------------------------------------------------------------------
+   Canvas Viewport
+   -------------------------------------------------------------------------- */
+.owl-canvas-viewport {
+  flex: 1;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #F3EBD8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#owl-game-canvas {
+  display: block;
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+  cursor: crosshair;
+}
+
+/* Floating Proximity Prompt (Walk near object) */
+.owl-proximity-prompt {
+  position: absolute;
+  pointer-events: none;
+  background: var(--owl-amber);
+  border: var(--owl-border);
+  box-shadow: var(--owl-shadow-sm);
+  color: var(--owl-black);
+  font-family: var(--owl-font-pixel);
+  font-size: 10px;
+  font-weight: 700;
+  padding: 5px 12px;
+  border-radius: 6px;
+  transform: translate(-50%, -100%);
+  transition: opacity 0.18s ease, transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1);
+  opacity: 0;
+  z-index: 15;
+  white-space: nowrap;
+  animation: owlBob 1.2s infinite ease-in-out;
+}
+
+.owl-proximity-prompt.is-visible {
+  opacity: 1;
+}
+
+@keyframes owlBob {
+  0%, 100% { transform: translate(-50%, -100%); }
+  50% { transform: translate(-50%, -112%); }
+}
+
+/* In-Game Dynamic Owl Speech Bubble */
+.owl-speech-float {
+  position: absolute;
+  pointer-events: none;
+  background: var(--owl-white);
+  border: 2px solid var(--owl-black);
+  box-shadow: 2px 2px 0px var(--owl-black);
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--owl-black);
+  max-width: 200px;
+  text-align: center;
+  line-height: 1.3;
+  transform: translate(-50%, -120%);
+  opacity: 0;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  z-index: 18;
+}
+
+.owl-speech-float.is-visible {
+  opacity: 1;
+  transform: translate(-50%, -130%);
+}
+
+.owl-speech-float::after {
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  transform: translateX(-50%) rotate(45deg);
+  width: 8px;
+  height: 8px;
+  background: var(--owl-white);
+  border-right: 2px solid var(--owl-black);
+  border-bottom: 2px solid var(--owl-black);
+}
+
+/* Mobile Virtual D-Pad & Action Button */
+.owl-mobile-controls {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  display: none;
+  z-index: 25;
+}
+
+@media (pointer: coarse), (max-width: 768px) {
+  .owl-mobile-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding: 16px 20px;
+  }
+}
+
+.owl-dpad {
+  pointer-events: auto;
+  width: 120px;
+  height: 120px;
+  position: relative;
+}
+
+.owl-dpad-btn {
+  position: absolute;
+  width: 38px;
+  height: 38px;
+  background: var(--owl-white);
+  border: 2px solid var(--owl-black);
+  box-shadow: 2px 2px 0px var(--owl-black);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--owl-font-pixel);
+  font-size: 14px;
+  color: var(--owl-black);
+  user-select: none;
+  touch-action: none;
+}
+
+.owl-dpad-btn:active {
+  background: var(--owl-amber);
+  transform: translate(1px, 1px);
+  box-shadow: none;
+}
+
+.owl-dpad-up    { top: 0; left: 41px; }
+.owl-dpad-down  { bottom: 0; left: 41px; }
+.owl-dpad-left  { top: 41px; left: 0; }
+.owl-dpad-right { top: 41px; right: 0; }
+
+.owl-action-btn-wrap {
+  pointer-events: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.owl-action-btn {
+  width: 68px;
+  height: 68px;
+  background: var(--owl-amber);
+  border: 3px solid var(--owl-black);
+  box-shadow: 3px 3px 0px var(--owl-black);
+  border-radius: 50%;
+  font-family: var(--owl-font-pixel);
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--owl-black);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  touch-action: none;
+}
+
+.owl-action-btn:active {
+  background: #ffcc29;
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0px var(--owl-black);
+}
+
+/* --------------------------------------------------------------------------
+   INTERACTIVE DISCOVERY MODAL CARDS
+   (Origins, Education, Internships, Toolkit, Interests)
+   -------------------------------------------------------------------------- */
+.owl-modal-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 40;
+  background: rgba(23, 23, 23, 0.65);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 18px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.22s ease;
+}
+
+.owl-modal-overlay.is-open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.owl-modal-card {
+  background: var(--owl-cream);
+  border: var(--owl-border-thick);
+  box-shadow: 6px 6px 0px var(--owl-black);
+  border-radius: 12px;
+  width: 100%;
+  max-width: 660px;
+  max-height: 86vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transform: translateY(12px) scale(0.96);
+  transition: transform 0.24s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.owl-modal-overlay.is-open .owl-modal-card {
+  transform: translateY(0) scale(1);
+}
+
+/* Modal Titlebar */
+.owl-modal-header {
+  background: var(--owl-amber);
+  border-bottom: var(--owl-border);
+  padding: 10px 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+}
+
+.owl-modal-title-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--owl-font-pixel);
+  font-size: 13px;
+  color: var(--owl-black);
+  letter-spacing: 0.03em;
+}
+
+.owl-modal-close-btn {
+  background: var(--owl-white);
+  border: 1.5px solid var(--owl-black);
+  box-shadow: 1.5px 1.5px 0px var(--owl-black);
+  font-family: var(--owl-font-pixel);
+  font-size: 10px;
+  padding: 3px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.12s ease;
+}
+
+.owl-modal-close-btn:hover {
+  background: #ef4444;
+  color: #ffffff;
+}
+
+/* Modal Body Content */
+.owl-modal-body {
+  padding: 20px 22px;
+  overflow-y: auto;
+  flex: 1;
+  color: var(--owl-black);
+  line-height: 1.55;
+  font-size: 14px;
+}
+
+/* Achievement Badges in Origins */
+.owl-achievements-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 12px;
+  margin: 16px 0;
+}
+
+.owl-badge-card {
+  background: var(--owl-white);
+  border: 2px solid var(--owl-black);
+  box-shadow: var(--owl-shadow-sm);
+  border-radius: 8px;
+  padding: 12px 14px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.owl-badge-icon {
+  font-size: 24px;
+  margin-bottom: 2px;
+}
+
+.owl-badge-score {
+  font-family: var(--owl-font-pixel);
+  font-size: 18px;
+  color: #b45309;
+  font-weight: 700;
+}
+
+.owl-badge-label {
+  font-size: 11px;
+  font-weight: 800;
+  color: #475569;
+  text-transform: uppercase;
+}
+
+.owl-badge-sub {
+  font-size: 11px;
+  color: #64748b;
+}
+
+/* Education Focus Pills */
+.owl-pill-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 10px;
+}
+
+.owl-info-pill {
+  background: var(--owl-amber-soft);
+  border: 1px solid rgba(255, 191, 0, 0.6);
+  color: #78350f;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 6px;
+}
+
+/* Internship Cards */
+.owl-internship-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 12px;
+}
+
+.owl-intern-card {
+  background: var(--owl-white);
+  border: 2px solid var(--owl-black);
+  box-shadow: var(--owl-shadow-sm);
+  border-radius: 10px;
+  padding: 14px 16px;
+}
+
+.owl-intern-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.owl-intern-role {
+  font-size: 14px;
+  font-weight: 800;
+  color: #1e1b4b;
+}
+
+.owl-intern-company {
+  font-size: 12px;
+  font-weight: 700;
+  color: #b45309;
+}
+
+.owl-intern-tag {
+  background: #f1f5f9;
+  border: 1px solid #cbd5e1;
+  border-radius: 4px;
+  font-family: var(--owl-font-pixel);
+  font-size: 9px;
+  padding: 2px 6px;
+  color: #475569;
+  white-space: nowrap;
+}
+
+.owl-intern-thumbs {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+}
+
+.owl-intern-thumb-img {
+  width: 90px;
+  height: 60px;
+  object-fit: cover;
+  border: 1.5px solid var(--owl-black);
+  border-radius: 5px;
+  box-shadow: 1.5px 1.5px 0px var(--owl-black);
+  cursor: pointer;
+  transition: transform 0.15s ease;
+}
+
+.owl-intern-thumb-img:hover {
+  transform: scale(1.05);
+}
+
+/* Creative Toolkit Categorized Tabs */
+.owl-toolkit-tabs {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 14px;
+  border-bottom: 1.5px solid #e2e8f0;
+  padding-bottom: 8px;
+  overflow-x: auto;
+}
+
+.owl-toolkit-tab-btn {
+  background: var(--owl-white);
+  border: 1.5px solid var(--owl-black);
+  box-shadow: 1.5px 1.5px 0px var(--owl-black);
+  color: var(--owl-black);
+  font-family: var(--owl-font-pixel);
+  font-size: 9px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.12s ease;
+}
+
+.owl-toolkit-tab-btn.active {
+  background: var(--owl-amber);
+  border-color: var(--owl-black);
+}
+
+.owl-tools-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 10px;
+}
+
+.owl-tool-item {
+  background: var(--owl-white);
+  border: 1.5px solid var(--owl-black);
+  border-radius: 7px;
+  padding: 10px 12px;
+  box-shadow: 1.5px 1.5px 0px var(--owl-black);
+  transition: transform 0.12s ease;
+}
+
+.owl-tool-item:hover {
+  transform: translateY(-2px);
+  border-color: #b45309;
+}
+
+.owl-tool-name {
+  font-family: var(--owl-font-pixel);
+  font-size: 11px;
+  color: var(--owl-black);
+  margin-bottom: 4px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.owl-tool-usage {
+  font-size: 12px;
+  color: #475569;
+  line-height: 1.35;
+}
+
+/* Interests Grid */
+.owl-interests-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.owl-interest-card {
+  background: var(--owl-white);
+  border: 2px solid var(--owl-black);
+  box-shadow: var(--owl-shadow-sm);
+  border-radius: 8px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.owl-interest-icon {
+  font-size: 22px;
+  margin-bottom: 4px;
+}
+
+.owl-interest-title {
+  font-family: var(--owl-font-pixel);
+  font-size: 10px;
+  color: var(--owl-black);
+}
+
+.owl-interest-desc {
+  font-size: 11.5px;
+  color: #64748b;
+  line-height: 1.3;
+}
+
+/* Modal Footer */
+.owl-modal-footer {
+  padding: 10px 18px;
+  background: var(--owl-cream-dark);
+  border-top: 1.5px solid rgba(23, 23, 23, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 12px;
+  color: #64748b;
+  font-weight: 600;
+}
+
+.owl-modal-btn-action {
+  background: var(--owl-amber);
+  border: 1.5px solid var(--owl-black);
+  box-shadow: var(--owl-shadow-sm);
+  color: var(--owl-black);
+  font-family: var(--owl-font-pixel);
+  font-size: 10px;
+  padding: 6px 14px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.12s ease;
+}
+
+.owl-modal-btn-action:hover {
+  background: #ffcc29;
+}
