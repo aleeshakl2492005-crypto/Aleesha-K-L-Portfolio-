@@ -244,6 +244,10 @@ class WindowManager {
         setTimeout(() => window.owlGame.handleResize(), 60);
       }
     }
+
+    if (id === 'studio3d' && window.resizeStudio3D) {
+      setTimeout(() => window.resizeStudio3D(), 60);
+    }
   }
 
   bringToFront(id) {
@@ -264,6 +268,10 @@ class WindowManager {
     }
 
     this.updateTaskbar(id);
+
+    if (id === 'studio3d' && window.resizeStudio3D) {
+      setTimeout(() => window.resizeStudio3D(), 60);
+    }
   }
 
   pauseVideosInside(el) {
@@ -307,6 +315,10 @@ class WindowManager {
 
     if (id === 'playground' && window.owlGame) {
       setTimeout(() => window.owlGame.handleResize(), 120);
+    }
+
+    if (id === 'studio3d' && window.resizeStudio3D) {
+      setTimeout(() => window.resizeStudio3D(), 120);
     }
   }
 

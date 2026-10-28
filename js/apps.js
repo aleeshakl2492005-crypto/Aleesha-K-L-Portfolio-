@@ -1,4 +1,4 @@
-﻿/* ==========================================================================
+/* ==========================================================================
    ALEESHA OS - APPS & PORTFOLIO DATA CONTROLLER
    Contains resume data, project case studies, terminal CLI commands,
    3D studio viewport logic, Groove music synthesizer, and mail client.
@@ -1212,95 +1212,6 @@ const SOLARI_PROJECTS_DATA = [
       { src: "beast-games-3/assets/storyboard-4.jpg", title: "Storyboard Frame 4: Final Flag Duel & Elimination" }
     ]
   }
-,
-  {
-    id: "3d-space",
-    alias: ["3dspace", "spatial", "spatial-studio", "3d-models"],
-    num: "09",
-    tabName: "3D SPACE",
-    stripItems: ["3 GLB Model Files", "Stages & Pavilions", "Interactive Viewport", "Blender & Fusion", "203MB - 507MB"],
-    title: "3D Spatial Architecture & Interactive GLB Studio",
-    subtitle: "Complete 3D GLB Models, Stage Sets, Exhibition Pavilions & Vehicular Spatial Engineering",
-    category: "3D Spatial Architecture / Interactive 3D Models",
-    color: "#ffedd5",
-    bg: "#fff7ed",
-    accent: "#ea580c",
-    timeline: "Interactive 3D Engine & Real-World Deployments",
-    venue: "Kerala Roadshows, Exhibition Pavilions & Virtual Viewport",
-    dimensions: "Multi-Scale (Stage Trucks, Pavilions, Arenas)",
-    client: "Radio Mango 91.9 FM, Neithi Skincare, EMAK Awards",
-    role: "Lead 3D Spatial Designer, Set Architect & 3D Modeler",
-    software: ["Blender", "Autodesk Fusion 360", "SketchUp", "GLTF / GLB", "Eevee / Cycles"],
-    tags: ["3D GLB Models", "Bharath Benz Stage Truck", "Neithi Pavilion Stall", "Radio Mango Spadikam Arena", "Interactive 3D Viewport"],
-    heroThumb: "assets/thira 1.1.png",
-    brief: "A dedicated 3D spatial engineering portfolio showcasing complete 3D GLB models developed in Blender and CAD for high-profile brand events, experiential marketing activations, and multi-district roadshows. Includes the Bharath Benz Spadikam Stage Truck (203 MB), Neithi Skincare Exhibition Pavilion (210 MB), and Radio Mango Arena Autosave (507 MB).",
-    concept: "Every 3D space is engineered with centimeter-precise architectural tolerances, sightline analysis, and PBR material setups. Featuring full interactive GLB 3D model downloads and real-time viewport inspection.",
-    execution: "Designed structural trusses, hydraulic stage extensions, and interactive pavilions with optimized topology ready for both real-time WebGL engines and fabrication execution.",
-    materials: [
-      "Binary glTF (.glb) 3D Scene Geometry",
-      "PBR Metallic / Roughness Texture Maps",
-      "Cycles GPU Volumetric Lighting Simulation",
-      "Tubular Steel Stage Truss Framework",
-      "P4 Outdoor Modular LED Panels"
-    ],
-    mediaTabs: [
-      { id: "models", label: "ðŸ“¦ 3D GLB Model Downloads (3 Files)", type: "custom" },
-      { id: "renders", label: "ðŸ–¼ï¸ Spatial Showcase Renders (6 Views)", type: "gallery" }
-    ],
-    renders: [
-      { src: "assets/thira 1.1.png", title: "Radio Mango Bharath Benz Stage Truck â€” 3D Space (203 MB GLB)" },
-      { src: "rainmaker-case-studies/neithi/assets/hero.jpg", title: "Neithi Exhibition Stall Pavilion â€” 3D Space (210 MB GLB)" },
-      { src: "assets/thira 1.3.png", title: "Spadikam Arena Stage Deployed â€” 3D Space (507 MB GLB)" },
-      { src: "assets/thira 1.5.png", title: "DJ Performance Platform & Audio Rig Architecture" },
-      { src: "rainmaker-case-studies/neithi/assets/r-angle.jpg", title: "Curved Interactive Shelving & Mirror Wall" },
-      { src: "assets/avatar_3d.png", title: "Aleesha 3D Figurine & Character Rig" }
-    ]
-  },
-  {
-    id: "photography",
-    alias: ["photos", "photo-gallery", "editorial-shoots", "photo-essay"],
-    num: "10",
-    tabName: "PHOTOGRAPHY",
-    stripItems: ["Editorial & Fashion", "Publication Covers", "Sony & Nikon Raw", "36 Works", "Visual Storytelling"],
-    title: "Photography & Editorial Visual Storytelling",
-    subtitle: "High-Fashion Editorial Spreads, Magazine Covers, Commercial Campaigns & Cultural Archiving",
-    category: "Editorial Photography & Visual Direction",
-    color: "#fce7f3",
-    bg: "#fdf2f8",
-    accent: "#c026d3",
-    timeline: "36 Published Works & Personal Archives",
-    venue: "Studio Shoots, Outdoor Locations & Kerala Roadshows",
-    dimensions: "High-Resolution DSLR Raw (Up to 7700 Ã— 6800 px)",
-    client: "Editorial Publications, Fashion Campaigns & Cultural Documentation",
-    role: "Photographer, Creative Director & Post-Production Colorist",
-    software: ["Adobe Lightroom", "Photoshop", "Capture One", "Sony Alpha", "Nikon DSLR"],
-    tags: ["Editorial Shoots", "Bblunt Campaign", "Fashion Photography", "Teen Magazine", "Cultural Essays"],
-    heroThumb: "photography/thumbs/EDITORIAL.jpg",
-    brief: "An expansive body of 36 photographic works spanning fashion editorial spreads, youth culture publications, commercial hair & beauty campaigns, and natural light environmental portraiture.",
-    concept: "Explores the interplay of high-contrast studio illumination, natural cinematic shadow, and authentic cultural documentation. Every composition balances tactile styling, garment drape, and evocative subject expression.",
-    execution: "Shot using professional full-frame camera systems with prime focal lengths. Color graded with bespoke tone curves to deliver rich, print-ready publication files.",
-    materials: [
-      "Sony Alpha A7 IV & Nikon Full-Frame DSLRs",
-      "85mm f/1.4 GM & 50mm f/1.2 Prime Lenses",
-      "Broncolor & Godox Studio Strobe Lighting",
-      "Adobe Lightroom CC Bespoke Color Profiles",
-      "High-Definition 300 DPI Publication Exports"
-    ],
-    mediaTabs: [
-      { id: "renders", label: "ðŸ“¸ Curated Editorial Highlights (8 Works)", type: "gallery" }
-    ],
-    renders: [
-      { src: "photography/thumbs/EDITORIAL.jpg", title: "Vogue Concept Editorial Spread â€” Art Direction & Styling" },
-      { src: "photography/thumbs/fashionshoot_.jpg", title: "High-Contrast Contemporary Fashion Shoot" },
-      { src: "photography/thumbs/Bblunt.finalpng.jpg", title: "Bblunt Commercial Hair Campaign Publication Spread" },
-      { src: "photography/thumbs/Photo Background Teen Magazine Cover (1).jpg", title: "Teen Magazine Cover Art Direction & Typography" },
-      { src: "photography/thumbs/Picnic.jpg", title: "Golden Hour Pastoral Picnic Story" },
-      { src: "photography/thumbs/mirandaFINAL.jpg", title: "Miranda Brand Visual Identity Shoot" },
-      { src: "photography/thumbs/final.jpg", title: "Monochrome Editorial Portrait" },
-      { src: "photography/thumbs/_DSC2825.jpg", title: "Creative High-Fashion Lookbook Editorial" }
-    ]
-  }
-
 ];
 
 function initFileExplorer() {
@@ -1850,63 +1761,7 @@ function initSolariProjects() {
       `;
     }
 
-    // 3D GLB Models panel for 3d-space
-    if (proj.id === '3d-space') {
-      const isVisible = activeTabId === 'models';
-      html += `
-        <div class="solari-media-panel" data-panel-id="models" style="display: ${isVisible ? 'block' : 'none'};">
-          <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(290px, 1fr)); gap:20px; padding:16px 0 28px 0;">
-            <div style="background:#1e293b; border:1px solid #334155; border-radius:14px; padding:22px; color:#fff; display:flex; flex-direction:column; justify-content:space-between;">
-              <div>
-                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
-                  <span style="font-size:1.8rem;">🚚</span>
-                  <span style="font-size:0.75rem; background:#0284c7; color:#fff; padding:4px 10px; border-radius:999px; font-weight:700;">203 MB • .GLB</span>
-                </div>
-                <h4 style="margin:0 0 6px 0; font-size:1.1rem; color:#fff;">Radio Mango Spadikam Truck</h4>
-                <div style="font-size:0.75rem; color:#38bdf8; font-weight:600; margin-bottom:10px;">thira truck .glb</div>
-                <p style="font-size:0.82rem; color:#cbd5e1; line-height:1.5; margin:0 0 16px 0;">Complete 3D model of the Bharath Benz heavy vehicle roadshow truck with hydraulic fold-out stage, rooftop acoustic rig, and Pulikali graphics.</p>
-              </div>
-              <div style="display:flex; gap:10px; flex-wrap:wrap;">
-                <a href="3d%20space/thira%20truck%20.glb" download="thira truck .glb" class="solari-btn-pill primary" style="text-decoration:none; padding:8px 14px; font-size:0.82rem;">⬇ Download Model (203 MB)</a>
-                <button type="button" class="solari-btn-pill" onclick="if(window.windowManager){window.windowManager.open('spatial');}" style="padding:8px 14px; font-size:0.82rem;">Open in 3D Studio ✦</button>
-              </div>
-            </div>
 
-            <div style="background:#1e293b; border:1px solid #334155; border-radius:14px; padding:22px; color:#fff; display:flex; flex-direction:column; justify-content:space-between;">
-              <div>
-                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
-                  <span style="font-size:1.8rem;">🌿</span>
-                  <span style="font-size:0.75rem; background:#059669; color:#fff; padding:4px 10px; border-radius:999px; font-weight:700;">210 MB • .GLB</span>
-                </div>
-                <h4 style="margin:0 0 6px 0; font-size:1.1rem; color:#fff;">Neithi Exhibition Stall Pavilion</h4>
-                <div style="font-size:0.75rem; color:#34d399; font-weight:600; margin-bottom:10px;">neithi stall1.glb</div>
-                <p style="font-size:0.82rem; color:#cbd5e1; line-height:1.5; margin:0 0 16px 0;">Full architectural trade exhibition stall pavilion featuring curved skincare shelving, mirror wall, and interactive stations.</p>
-              </div>
-              <div style="display:flex; gap:10px; flex-wrap:wrap;">
-                <a href="3d%20space/neithi%20stall1.glb" download="neithi stall1.glb" class="solari-btn-pill primary" style="text-decoration:none; padding:8px 14px; font-size:0.82rem;">⬇ Download Model (210 MB)</a>
-                <button type="button" class="solari-btn-pill" onclick="if(window.windowManager){window.windowManager.open('spatial');}" style="padding:8px 14px; font-size:0.82rem;">Open in 3D Studio ✦</button>
-              </div>
-            </div>
-
-            <div style="background:#1e293b; border:1px solid #334155; border-radius:14px; padding:22px; color:#fff; display:flex; flex-direction:column; justify-content:space-between;">
-              <div>
-                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
-                  <span style="font-size:1.8rem;">🎪</span>
-                  <span style="font-size:0.75rem; background:#7c3aed; color:#fff; padding:4px 10px; border-radius:999px; font-weight:700;">507 MB • .GLB</span>
-                </div>
-                <h4 style="margin:0 0 6px 0; font-size:1.1rem; color:#fff;">Radio Mango Spadikam Arena</h4>
-                <div style="font-size:0.75rem; color:#c084fc; font-weight:600; margin-bottom:10px;">thira radio mango_17004_autosave.glb</div>
-                <p style="font-size:0.82rem; color:#cbd5e1; line-height:1.5; margin:0 0 16px 0;">Large-scale festival concert arena stage, audience sightlines, full truss rig and festival ground planning.</p>
-              </div>
-              <div style="display:flex; gap:10px; flex-wrap:wrap;">
-                <a href="3d%20space/thira%20radio%20mango_17004_autosave.glb" download="thira radio mango_17004_autosave.glb" class="solari-btn-pill primary" style="text-decoration:none; padding:8px 14px; font-size:0.82rem;">⬇ Download Model (507 MB)</a>
-                <button type="button" class="solari-btn-pill" onclick="if(window.windowManager){window.windowManager.open('spatial');}" style="padding:8px 14px; font-size:0.82rem;">Open in 3D Studio ✦</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      `;
-    }
 
     // Dedicated 3D Studio embedded experience
     if (proj.caseStudyUrl) {
@@ -2022,13 +1877,16 @@ function initSolariProjects() {
 }
 
 // ==========================================================================
-// 2. 3D & SPATIAL STUDIO CONTROLLER
+// ==========================================================================
+// 2. 3D & SPATIAL STUDIO CONTROLLER (Three.js WebGL + OrbitControls)
 // ==========================================================================
 function init3DStudio() {
-  const sceneBtns = document.querySelectorAll('.scene-btn');
-  const stageModel = document.getElementById('viewport-stage-model');
+  const sceneBtns = document.querySelectorAll('.studio-scene-switcher .scene-btn[data-scene]');
   const sceneNameEl = document.getElementById('viewport-scene-name');
   const wireframeBtn = document.getElementById('wireframe-toggle-btn');
+  const autoRotateBtn = document.getElementById('btn-autorotate');
+  const resetCamBtn = document.getElementById('btn-reset-cam');
+  const downloadGlbBtn = document.getElementById('btn-download-glb');
 
   const tabViewport = document.getElementById('btn-tab-viewport');
   const tabGallery = document.getElementById('btn-tab-gallery');
@@ -2036,95 +1894,432 @@ function init3DStudio() {
   const panelViewport = document.getElementById('studio-viewport-panel');
   const panelGallery = document.getElementById('studio-gallery-panel');
 
+  const canvasContainer = document.getElementById('three-viewport-canvas');
+  const loadingOverlay = document.getElementById('three-loading-overlay');
+  const loadingText = document.getElementById('three-loading-text');
+  const loadingBar = document.getElementById('three-loading-bar');
+  const loadingSub = document.getElementById('three-loading-sub');
+
+  const fallbackCard = document.getElementById('three-file-fallback');
+  const fallbackModelName = document.getElementById('fallback-model-name');
+  const fileInput = document.getElementById('three-file-input');
+
+  const modelLabelEl = document.getElementById('three-model-label');
+
   function switchTab(activeTab) {
     if (tabViewport) tabViewport.classList.toggle('active', activeTab === 'viewport');
     if (tabGallery) tabGallery.classList.toggle('active', activeTab === 'gallery');
 
     if (panelViewport) panelViewport.style.display = activeTab === 'viewport' ? 'flex' : 'none';
     if (panelGallery) panelGallery.classList.toggle('active', activeTab === 'gallery');
+
+    if (activeTab === 'viewport' && window.resizeStudio3D) {
+      setTimeout(() => window.resizeStudio3D(), 50);
+    }
   }
 
   if (tabViewport) tabViewport.addEventListener('click', () => switchTab('viewport'));
   if (tabGallery) tabGallery.addEventListener('click', () => switchTab('gallery'));
 
-  let isWireframe = false;
-
-  const sceneData = {
+  const SPATIAL_MODELS = {
     truck: {
-      name: "Radio Mango × Bharath Benz Stage (Blender)",
-      poly: "148,220 Tris",
-      lights: "12 Spotlights + 4 LED Panels",
-      engine: "Blender Cycles GPU"
-    },
-    awards: {
-      name: "EMAK Silent Hero Awards 60x30ft Stage",
-      poly: "320,450 Tris",
-      lights: "24 Moving Heads + 3 LED Backdrops",
-      engine: "Blender Cycles GPU"
+      id: "truck",
+      name: "Radio Mango × Bharath Benz Stage Truck",
+      file: "3d space/thira truck .glb",
+      fileName: "thira truck .glb",
+      size: "203 MB",
+      badge: "Radio Mango Truck (203 MB)"
     },
     stall: {
+      id: "stall",
       name: "Neithi Exhibition Stall Pavilion",
-      poly: "98,600 Tris",
-      lights: "8 Warm Directional Fixtures",
-      engine: "Blender Eevee Next"
+      file: "3d space/neithi stall1.glb",
+      fileName: "neithi stall1.glb",
+      size: "210 MB",
+      badge: "Neithi Stall (210 MB)"
     },
-    avatar: {
-      name: "Aleesha 3D Figurine & Motion Rig",
-      poly: "84,300 Tris",
-      lights: "Studio 3-Point Key & Fill Lighting",
-      engine: "3D Viewport Character Preview",
-      isAvatar: true
+    radiomango: {
+      id: "radiomango",
+      name: "Radio Mango Spadikam Arena Stage",
+      file: "3d space/thira radio mango_17004_autosave.glb",
+      fileName: "thira radio mango_17004_autosave.glb",
+      size: "507 MB",
+      badge: "Spadikam Arena (507 MB)"
     }
   };
 
+  let activeModelKey = 'truck';
+  let isWireframe = false;
+  let isAutoRotate = true;
+
+  // Three.js Core Variables
+  let scene, camera, renderer, controls, gltfLoader;
+  let currentModel = null;
+  let defaultCamPos = null;
+  let animationFrameId = null;
+  let gridHelper = null;
+
+  function initThreeScene() {
+    if (!canvasContainer || typeof THREE === 'undefined') return false;
+
+    // Clean any prior canvas
+    canvasContainer.innerHTML = '';
+
+    const width = canvasContainer.clientWidth || 840;
+    const height = canvasContainer.clientHeight || 460;
+
+    // 1. Scene
+    scene = new THREE.Scene();
+    scene.background = new THREE.Color(0x090d16);
+
+    // 2. Camera
+    camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 5000);
+    camera.position.set(25, 18, 30);
+    defaultCamPos = camera.position.clone();
+
+    // 3. Renderer
+    renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, powerPreference: 'high-performance' });
+    renderer.setSize(width, height);
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+    if (THREE.sRGBEncoding) renderer.outputEncoding = THREE.sRGBEncoding;
+    if (THREE.ACESFilmicToneMapping) renderer.toneMapping = THREE.ACESFilmicToneMapping;
+    renderer.toneMappingExposure = 1.2;
+    canvasContainer.appendChild(renderer.domElement);
+
+    // 4. OrbitControls (Turnable 3D view)
+    if (THREE.OrbitControls) {
+      controls = new THREE.OrbitControls(camera, renderer.domElement);
+      controls.enableDamping = true;
+      controls.dampingFactor = 0.05;
+      controls.screenSpacePanning = true;
+      controls.autoRotate = isAutoRotate;
+      controls.autoRotateSpeed = 1.0;
+      controls.minDistance = 0.5;
+      controls.maxDistance = 2500;
+      controls.target.set(0, 0, 0);
+      controls.update();
+    }
+
+    // 5. Lighting Setup for rich PBR reflections
+    const ambientLight = new THREE.AmbientLight(0xffffff, 1.4);
+    scene.add(ambientLight);
+
+    const hemiLight = new THREE.HemisphereLight(0xffffff, 0x1e293b, 1.0);
+    scene.add(hemiLight);
+
+    const dirLight1 = new THREE.DirectionalLight(0xffffff, 2.2);
+    dirLight1.position.set(30, 45, 30);
+    scene.add(dirLight1);
+
+    const dirLight2 = new THREE.DirectionalLight(0x38bdf8, 1.2);
+    dirLight2.position.set(-30, 20, -25);
+    scene.add(dirLight2);
+
+    const dirLight3 = new THREE.DirectionalLight(0xf59e0b, 0.8);
+    dirLight3.position.set(0, -20, 25);
+    scene.add(dirLight3);
+
+    // 6. Subtle Floor Grid
+    gridHelper = new THREE.GridHelper(120, 60, 0x38bdf8, 0x1e293b);
+    gridHelper.position.y = -0.05;
+    scene.add(gridHelper);
+
+    // 7. GLTF Loader
+    if (THREE.GLTFLoader) {
+      gltfLoader = new THREE.GLTFLoader();
+    }
+
+    // 8. Animation loop
+    function animate() {
+      animationFrameId = requestAnimationFrame(animate);
+      if (controls) controls.update();
+      if (renderer && scene && camera) {
+        renderer.render(scene, camera);
+      }
+    }
+    animate();
+
+    return true;
+  }
+
+  function resizeViewport() {
+    if (!canvasContainer || !renderer || !camera) return;
+    const width = canvasContainer.clientWidth;
+    const height = canvasContainer.clientHeight;
+    if (width > 0 && height > 0) {
+      camera.aspect = width / height;
+      camera.updateProjectionMatrix();
+      renderer.setSize(width, height);
+    }
+  }
+  window.resizeStudio3D = resizeViewport;
+  window.addEventListener('resize', resizeViewport);
+
+  function disposeCurrentModel() {
+    if (!currentModel || !scene) return;
+    currentModel.traverse(child => {
+      if (child.isMesh) {
+        if (child.geometry) child.geometry.dispose();
+        if (child.material) {
+          if (Array.isArray(child.material)) {
+            child.material.forEach(m => m.dispose && m.dispose());
+          } else if (child.material.dispose) {
+            child.material.dispose();
+          }
+        }
+      }
+    });
+    scene.remove(currentModel);
+    currentModel = null;
+  }
+
+  function frameModel(modelObject) {
+    const box = new THREE.Box3().setFromObject(modelObject);
+    const size = box.getSize(new THREE.Vector3());
+    const center = box.getCenter(new THREE.Vector3());
+
+    // Center model at origin
+    modelObject.position.x -= center.x;
+    modelObject.position.y -= center.y;
+    modelObject.position.z -= center.z;
+
+    if (gridHelper) {
+      gridHelper.position.y = -size.y / 2 - 0.05;
+    }
+
+    const maxDim = Math.max(size.x, size.y, size.z);
+    const fov = camera.fov * (Math.PI / 180);
+    let camDist = Math.abs(maxDim / 2 / Math.tan(fov / 2)) * 1.55;
+    camDist = Math.max(camDist, 8);
+
+    camera.position.set(camDist * 0.72, camDist * 0.42, camDist * 0.88);
+    camera.near = Math.max(0.1, maxDim / 100);
+    camera.far = Math.max(2500, maxDim * 30);
+    camera.updateProjectionMatrix();
+
+    if (defaultCamPos) defaultCamPos.copy(camera.position);
+
+    if (controls) {
+      controls.target.set(0, 0, 0);
+      controls.minDistance = Math.max(0.2, maxDim / 20);
+      controls.maxDistance = Math.max(3000, maxDim * 10);
+      controls.update();
+    }
+  }
+
+  function onModelLoaded(gltf, modelData) {
+    disposeCurrentModel();
+    currentModel = gltf.scene;
+
+    if (isWireframe) {
+      applyWireframe(true);
+    }
+
+    scene.add(currentModel);
+    frameModel(currentModel);
+
+    if (loadingOverlay) loadingOverlay.style.display = 'none';
+    if (fallbackCard) fallbackCard.style.display = 'none';
+
+    if (sceneNameEl) sceneNameEl.textContent = modelData.name;
+    if (modelLabelEl) modelLabelEl.textContent = modelData.badge;
+    if (downloadGlbBtn) {
+      downloadGlbBtn.href = modelData.file;
+      downloadGlbBtn.download = modelData.fileName;
+    }
+  }
+
+  function loadModel(modelKey) {
+    activeModelKey = modelKey;
+    const model = SPATIAL_MODELS[modelKey] || SPATIAL_MODELS.truck;
+
+    if (sceneNameEl) sceneNameEl.textContent = model.name;
+    if (modelLabelEl) modelLabelEl.textContent = `${model.badge} (Loading...)`;
+    if (downloadGlbBtn) {
+      downloadGlbBtn.href = model.file;
+      downloadGlbBtn.download = model.fileName;
+    }
+
+    if (!gltfLoader) {
+      initThreeScene();
+    }
+    if (!gltfLoader) return;
+
+    if (loadingOverlay) {
+      loadingOverlay.style.display = 'flex';
+      if (loadingText) loadingText.textContent = `Loading ${model.name}...`;
+      if (loadingBar) loadingBar.style.width = '0%';
+      if (loadingSub) loadingSub.textContent = `Connecting to ${model.fileName} (${model.size})...`;
+    }
+    if (fallbackCard) fallbackCard.style.display = 'none';
+
+    // Direct HTTP/HTTPS load with progress tracking
+    gltfLoader.load(
+      model.file,
+      (gltf) => {
+        onModelLoaded(gltf, model);
+      },
+      (xhr) => {
+        if (xhr.lengthComputable && xhr.total > 0) {
+          const pct = Math.min(100, Math.round((xhr.loaded / xhr.total) * 100));
+          const loadedMb = (xhr.loaded / (1024 * 1024)).toFixed(1);
+          const totalMb = (xhr.total / (1024 * 1024)).toFixed(1);
+          if (loadingBar) loadingBar.style.width = pct + '%';
+          if (loadingSub) loadingSub.textContent = `Stream loading: ${loadedMb} MB / ${totalMb} MB (${pct}%)`;
+        } else {
+          const loadedMb = (xhr.loaded / (1024 * 1024)).toFixed(1);
+          if (loadingBar) loadingBar.style.width = '60%';
+          if (loadingSub) loadingSub.textContent = `Stream loading: ${loadedMb} MB received...`;
+        }
+      },
+      (err) => {
+        console.warn('Direct fetch notice (Chromium restricts file:// protocol CORS):', err);
+        // Fallback for file:// or offline CORS: show 1-click local file picker
+        if (loadingOverlay) loadingOverlay.style.display = 'none';
+        if (fallbackCard) {
+          fallbackCard.style.display = 'block';
+          if (fallbackModelName) fallbackModelName.textContent = model.fileName;
+        }
+      }
+    );
+  }
+
+  function loadLocalFile(file) {
+    if (!gltfLoader) initThreeScene();
+    if (!gltfLoader) return;
+
+    if (loadingOverlay) {
+      loadingOverlay.style.display = 'flex';
+      if (loadingText) loadingText.textContent = `Opening ${file.name}...`;
+      if (loadingBar) loadingBar.style.width = '10%';
+      if (loadingSub) loadingSub.textContent = `Reading local file into WebGL memory...`;
+    }
+    if (fallbackCard) fallbackCard.style.display = 'none';
+
+    const reader = new FileReader();
+    reader.onprogress = (e) => {
+      if (e.lengthComputable) {
+        const pct = Math.round((e.loaded / e.total) * 100);
+        if (loadingBar) loadingBar.style.width = pct + '%';
+        const mb = (e.loaded / (1024 * 1024)).toFixed(1);
+        const totalMb = (e.total / (1024 * 1024)).toFixed(1);
+        if (loadingSub) loadingSub.textContent = `Reading: ${mb} MB / ${totalMb} MB (${pct}%)`;
+      }
+    };
+    reader.onload = (e) => {
+      if (loadingText) loadingText.textContent = `Parsing glTF Geometry & Textures...`;
+      if (loadingSub) loadingSub.textContent = `Building PBR Materials & Shaders`;
+      if (loadingBar) loadingBar.style.width = '92%';
+
+      setTimeout(() => {
+        gltfLoader.parse(
+          e.target.result,
+          '',
+          (gltf) => {
+            const modelData = {
+              name: file.name.replace('.glb', '').replace('.gltf', ''),
+              badge: `${file.name} (${(file.size / (1024*1024)).toFixed(0)} MB)`,
+              file: '#',
+              fileName: file.name
+            };
+            onModelLoaded(gltf, modelData);
+          },
+          (parseErr) => {
+            if (loadingOverlay) loadingOverlay.style.display = 'none';
+            alert('Failed to parse 3D GLB file: ' + (parseErr.message || parseErr));
+          }
+        );
+      }, 50);
+    };
+    reader.onerror = () => {
+      if (loadingOverlay) loadingOverlay.style.display = 'none';
+      alert('Error reading local file.');
+    };
+    reader.readAsArrayBuffer(file);
+  }
+
+  if (fileInput) {
+    fileInput.addEventListener('change', (e) => {
+      if (e.target.files && e.target.files[0]) {
+        loadLocalFile(e.target.files[0]);
+      }
+    });
+  }
+
+  // Drag and drop onto canvas container
+  if (canvasContainer) {
+    canvasContainer.addEventListener('dragover', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+    });
+    canvasContainer.addEventListener('drop', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      if (e.dataTransfer && e.dataTransfer.files && e.dataTransfer.files[0]) {
+        loadLocalFile(e.dataTransfer.files[0]);
+      }
+    });
+  }
+
+  function applyWireframe(wireState) {
+    if (!currentModel) return;
+    currentModel.traverse(child => {
+      if (child.isMesh && child.material) {
+        if (Array.isArray(child.material)) {
+          child.material.forEach(m => m.wireframe = wireState);
+        } else {
+          child.material.wireframe = wireState;
+        }
+      }
+    });
+  }
+
+  // Model switchers
   sceneBtns.forEach(btn => {
     btn.addEventListener('click', () => {
       sceneBtns.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
-      const scene = btn.getAttribute('data-scene');
-      const data = sceneData[scene] || sceneData.truck;
-
-      if (sceneNameEl) sceneNameEl.textContent = data.name;
-      const polyEl = document.getElementById('viewport-poly-count');
-      if (polyEl) polyEl.textContent = data.poly;
-
-      // Small visual pulse to simulate model reload
-      if (stageModel) {
-        if (data.isAvatar) {
-          stageModel.innerHTML = `
-            <div class="model-cube" style="border:none; background:transparent; box-shadow:none;">
-              <img src="assets/avatar_3d.png" alt="Aleesha 3D" style="height:210px; object-fit:contain; filter:drop-shadow(0 15px 25px rgba(0,0,0,0.6));">
-              <div style="font-size:0.75rem; color:#fff; font-weight:600; margin-top:6px; background:rgba(0,0,0,0.6); padding:2px 8px; border-radius:10px;">Aleesha 3D Vinyl Model</div>
-            </div>
-          `;
-        } else {
-          stageModel.innerHTML = `
-            <div class="model-cube">
-              <div style="font-size: 2.8rem; margin-bottom: 8px;">🎪</div>
-              <h3 style="font-size: 1.1rem; color: #fff;">${data.name}</h3>
-              <p style="font-size: 0.75rem; color: #cbd5e1; margin-top: 4px;">Dynamic Lighting • Scale Calibration • Sightline Rays</p>
-            </div>
-          `;
-        }
-        stageModel.style.transform = 'scale(0.85)';
-        setTimeout(() => {
-          stageModel.style.transform = '';
-        }, 150);
-      }
+      const sceneKey = btn.getAttribute('data-scene');
+      loadModel(sceneKey);
     });
   });
 
+  // Wireframe toggle
   if (wireframeBtn) {
     wireframeBtn.addEventListener('click', () => {
       isWireframe = !isWireframe;
-      const cubes = document.querySelectorAll('.model-cube');
-      cubes.forEach(c => {
-        c.style.background = isWireframe ? 'transparent' : 'rgba(244, 63, 94, 0.06)';
-        c.style.borderStyle = isWireframe ? 'dashed' : 'solid';
-      });
-      wireframeBtn.textContent = isWireframe ? 'Shaded Mode' : 'Wireframe Mode';
+      applyWireframe(isWireframe);
+      wireframeBtn.textContent = isWireframe ? 'Shaded' : 'Wireframe';
+      wireframeBtn.classList.toggle('active', isWireframe);
     });
   }
+
+  // Auto-Rotate toggle (Turnable 3D view)
+  if (autoRotateBtn) {
+    autoRotateBtn.addEventListener('click', () => {
+      isAutoRotate = !isAutoRotate;
+      if (controls) controls.autoRotate = isAutoRotate;
+      autoRotateBtn.textContent = isAutoRotate ? '🔄 Turn: ON' : '⏸ Turn: OFF';
+      autoRotateBtn.classList.toggle('active', isAutoRotate);
+    });
+  }
+
+  // Reset Camera View
+  if (resetCamBtn) {
+    resetCamBtn.addEventListener('click', () => {
+      if (camera && defaultCamPos) {
+        camera.position.copy(defaultCamPos);
+      }
+      if (controls) {
+        controls.target.set(0, 0, 0);
+        controls.update();
+      }
+    });
+  }
+
+  // Initialize scene and load first model
+  initThreeScene();
+  loadModel('truck');
 }
 
 // ==========================================================================
@@ -2507,36 +2702,20 @@ function initRecycleBin() {
 // ==========================================================================
 function initPhotography() {
   const container = document.getElementById('photo-cards-container');
-  const tabs = document.querySelectorAll('[data-photo-filter]');
   const lightbox = document.getElementById('photo-lightbox');
   const lightboxClose = document.getElementById('lightbox-close-btn');
   const lightboxImg = document.getElementById('lightbox-img');
-  const lightboxTitle = document.getElementById('lightbox-title');
-  const lightboxDetails = document.getElementById('lightbox-details');
-
-  let currentFilter = 'all';
 
   function renderPhotos() {
     if (!container || !PORTFOLIO_DATA.photography) return;
     container.innerHTML = '';
 
-    const filtered = PORTFOLIO_DATA.photography.filter(p => {
-      return currentFilter === 'all' || p.category === currentFilter;
-    });
-
-    filtered.forEach(photo => {
+    PORTFOLIO_DATA.photography.forEach(photo => {
       const card = document.createElement('div');
-      card.className = 'photo-card';
+      card.className = 'photo-card-clean';
+      card.title = 'Click to enlarge photo';
       card.innerHTML = `
-        <div class="photo-card-img-wrap">
-          <img src="${photo.thumb || photo.img}" alt="${photo.title}" class="photo-card-img" loading="lazy">
-          <span class="photo-card-badge">${photo.categoryLabel}</span>
-        </div>
-        <div class="photo-card-info">
-          <div class="photo-card-title">${photo.title}</div>
-          <div class="photo-card-sub">${photo.desc}</div>
-          <div class="photo-card-meta">📷 ${photo.camera}</div>
-        </div>
+        <img src="${photo.thumb || photo.img}" alt="Photography" loading="lazy">
       `;
 
       card.addEventListener('click', () => openLightbox(photo));
@@ -2547,26 +2726,6 @@ function initPhotography() {
   function openLightbox(photo) {
     if (!lightbox) return;
     if (lightboxImg) lightboxImg.src = photo.img;
-    if (lightboxTitle) lightboxTitle.textContent = photo.title;
-    if (lightboxDetails) {
-      lightboxDetails.innerHTML = `
-        <span class="photo-card-badge" style="position:static; display:inline-block; margin-bottom:4px;">${photo.categoryLabel}</span>
-        <h3 style="color:#fff; font-size:1.15rem; margin:0;">${photo.title}</h3>
-        <p style="color:#cbd5e1; font-size:0.85rem; line-height:1.5;">${photo.desc}</p>
-        
-        <div style="background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.1); border-radius:8px; padding:12px; margin-top:8px;">
-          <div style="font-size:0.75rem; color:#94a3b8; font-weight:600; text-transform:uppercase; margin-bottom:6px;">Camera & Craft Specifications</div>
-          <div style="font-size:0.8rem; color:#fff; margin-bottom:4px;"><strong>Gear:</strong> ${photo.camera}</div>
-          <div style="font-size:0.8rem; color:#fff; margin-bottom:4px;"><strong>Settings:</strong> ${photo.settings}</div>
-          <div style="font-size:0.8rem; color:#fff;"><strong>Location:</strong> ${photo.location}</div>
-        </div>
-
-        <div style="margin-top:10px;">
-          <div style="font-size:0.75rem; color:#94a3b8; font-weight:600; text-transform:uppercase; margin-bottom:4px;">Creative Narrative & Visual Direction</div>
-          <p style="font-size:0.8rem; color:#cbd5e1; line-height:1.5;">${photo.process}</p>
-        </div>
-      `;
-    }
     lightbox.classList.add('open');
   }
 
@@ -2583,7 +2742,7 @@ function initPhotography() {
 
   if (lightbox) {
     lightbox.addEventListener('click', (e) => {
-      if (e.target === lightbox) closePhotoLightbox();
+      if (e.target === lightbox || e.target.id === 'lightbox-body') closePhotoLightbox();
     });
   }
 
@@ -2591,15 +2750,6 @@ function initPhotography() {
     if (e.key === 'Escape' && lightbox && lightbox.classList.contains('open')) {
       closePhotoLightbox();
     }
-  });
-
-  tabs.forEach(tab => {
-    tab.addEventListener('click', () => {
-      tabs.forEach(t => t.classList.remove('active'));
-      tab.classList.add('active');
-      currentFilter = tab.getAttribute('data-photo-filter') || 'all';
-      renderPhotos();
-    });
   });
 
   renderPhotos();
