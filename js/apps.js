@@ -1,4 +1,4 @@
-/* ==========================================================================
+﻿/* ==========================================================================
    ALEESHA OS - APPS & PORTFOLIO DATA CONTROLLER
    Contains resume data, project case studies, terminal CLI commands,
    3D studio viewport logic, Groove music synthesizer, and mail client.
@@ -191,78 +191,475 @@ const PORTFOLIO_DATA = {
 
   photography: [
     {
-      id: "photo-1",
-      title: "NIFT Prospectus 2026 Editorial Spread",
+      id: "photo-01",
+      title: "Vogue Concept Editorial Spread",
       category: "editorial",
       categoryLabel: "Editorial Shoots",
-      img: "assets/thumb_desktop_photography.png",
-      camera: "Sony Alpha A7 IV • 85mm f/1.4 GM",
-      settings: "1/200s • f/2.0 • ISO 100 • Studio Strobe",
-      location: "NIFT Studio, Kannur",
-      desc: "Art direction, high-contrast studio illumination, and publication layout photography for NIFT Kannur Official 2026 Prospectus.",
+      thumb: "photography/thumbs/EDITORIAL.jpg",
+      img: "photography/EDITORIAL.png",
+      camera: "Sony Alpha A7 IV  •  85mm f/1.4 GM",
+      settings: "1/200s  •  f/2.0  •  ISO 100  •  Studio Strobe",
+      location: "Studio Production, Kannur",
+      desc: "Art direction, high-contrast studio illumination, and publication layout photography for official editorial magazine feature.",
       process: "Curated styling, balanced softbox key light with rim lighting to create strong visual separation for editorial magazine spreads."
     },
     {
-      id: "photo-2",
-      title: "Chendamangalam Artisans Handloom Photo Essay",
-      category: "cultural",
-      categoryLabel: "Cultural Storytelling",
-      img: "assets/thumb_desktop_projects.png",
-      camera: "Leica Q2 • 28mm f/1.7 Summilux",
-      settings: "1/125s • f/2.2 • ISO 400 • Ambient Daylight",
-      location: "Chendamangalam Weavers Co-op, Kerala",
-      desc: "Intimate cultural documentation capturing traditional handloom weavers preserving centuries-old craft in Chendamangalam.",
-      process: "Documented the rhythmic motion of fly-shuttle looms and the concentrated expressions of master artisans, preserving heritage storytelling."
-    },
-    {
-      id: "photo-3",
-      title: "Architectural Sightlines & Festival Staging",
-      category: "spatial",
-      categoryLabel: "Spatial & Architecture",
-      img: "assets/thira 1.1.png",
-      camera: "Canon EOS R5 • 24-70mm f/2.8L",
-      settings: "1/160s • f/2.8 • ISO 800 • Stage Truss Lighting",
-      location: "Radio Mango Spadikam Arena, Kochi",
-      desc: "Night-time dynamic spatial photography capturing scale, crowd perspective, and spatial sightline illumination on the Bharath Benz stage.",
-      process: "Calibrated camera exposure to capture both high-intensity LED panel brightness and rich crowd ambient shadows without clipping."
-    },
-    {
-      id: "photo-4",
-      title: "EMAK Silent Hero Awards Grand Venue",
-      category: "spatial",
-      categoryLabel: "Spatial & Architecture",
-      img: "assets/ChatGPT Image Aug 13, 2026, 06_14_26 PM.png",
-      camera: "Sony Alpha A7 IV • 16-35mm f/2.8 GM",
-      settings: "1/80s • f/4.0 • ISO 1200 • Architectural Cove",
-      location: "Hyatt Regency Grand Ballroom, Thrissur",
-      desc: "Atmospheric perspective photography documenting the 60 × 30 ft stage installation inside Hyatt Regency, Thrissur.",
-      process: "Symmetric wide-angle composition emphasizing 30-foot vertical clearance, layered backdrop textures, and VIP seating cones."
-    },
-    {
-      id: "photo-5",
-      title: "Tactile Craft Textures & Macro Documentation",
-      category: "composition",
-      categoryLabel: "Creative Compositions",
-      img: "assets/ChatGPT Image Aug 14, 2026, 01_08_56 AM.png",
-      camera: "Leica 90mm Macro-Elmar • Studio Softbox",
-      settings: "1/160s • f/5.6 • ISO 100 • Diffused Overhead Key",
-      location: "Materials Archive, NIFT Kannur",
-      desc: "Macro composition capturing the tension, warp, and weft of artisanal Kerala cotton and handloom threads.",
-      process: "Macro focal stacking highlighting tactile fiber relief and subtle natural pigment variations in hand-dyed yarns."
-    },
-    {
-      id: "photo-6",
-      title: "Contemporary Editorial Portraiture Series",
+      id: "photo-02",
+      title: "Contemporary Fashion Editorial Shoot",
       category: "editorial",
       categoryLabel: "Editorial Shoots",
-      img: "assets/profile.jpg",
-      camera: "Hasselblad X2D 100C • 55mm f/2.5",
-      settings: "1/250s • f/2.8 • ISO 64 • Directional Octabox",
+      thumb: "photography/thumbs/fashionshoot_.jpg",
+      img: "photography/fashionshoot_.png",
+      camera: "Sony Alpha A7 IV  •  50mm f/1.4",
+      settings: "1/250s  •  f/2.8  •  ISO 100  •  Key Softbox",
       location: "Natural Light Studio, Kochi",
-      desc: "Modern high-fashion editorial portrait series exploring natural geometry, subtle skin tones, and cinematic shadows.",
-      process: "Subtle color grading in Adobe Lightroom, balancing skin highlights against neutral textured backdrops."
+      desc: "Modern high-fashion editorial exploring natural geometry, subtle skin tones, and cinematic shadows.",
+      process: "Balanced studio strobes with ambient fill, emphasizing garment drape and sculptural silhouette."
+    },
+    {
+      id: "photo-03",
+      title: "Bblunt Commercial Hair Campaign",
+      category: "editorial",
+      categoryLabel: "Editorial Shoots",
+      thumb: "photography/thumbs/Bblunt.finalpng.jpg",
+      img: "photography/Bblunt.finalpng.png",
+      camera: "Sony Alpha A7 IV  •  85mm f/1.4 GM",
+      settings: "1/160s  •  f/4.0  •  ISO 100  •  Beauty Dish",
+      location: "Commercial Studio, Kerala",
+      desc: "Art directed commercial beauty campaign for Bblunt hair products with crisp specular highlights and vibrant hair textures.",
+      process: "Dual rim lights paired with a 27-inch beauty dish to capture hair sheen, texture definition, and vibrant tonality."
+    },
+    {
+      id: "photo-04",
+      title: "Teen Magazine Cover Art Direction",
+      category: "editorial",
+      categoryLabel: "Editorial Shoots",
+      thumb: "photography/thumbs/Photo Background Teen Magazine Cover (1).jpg",
+      img: "photography/Photo Background Teen Magazine Cover (1).png",
+      camera: "Sony Alpha A7 IV  •  35mm f/1.8",
+      settings: "1/200s  •  f/3.2  •  ISO 125  •  Studio Fill",
+      location: "Editorial Studio, Kannur",
+      desc: "Vibrant publication cover design and photography incorporating bold typography hierarchies and youth culture aesthetics.",
+      process: "Composed with generous negative space to accommodate masthead, cover lines, and graphic iconography."
+    },
+    {
+      id: "photo-05",
+      title: "Pastoral Picnic Golden Hour Story",
+      category: "composition",
+      categoryLabel: "Creative Compositions",
+      thumb: "photography/thumbs/Picnic.jpg",
+      img: "photography/Picnic.png",
+      camera: "Nikon Full-Frame  •  50mm f/1.8",
+      settings: "1/400s  •  f/2.2  •  ISO 200  •  Golden Hour Sun",
+      location: "Outdoor Parkland, Kerala",
+      desc: "Warm lifestyle composition capturing pastoral textures, sunlight dappling, and organic styling props.",
+      process: "Shot in late afternoon natural backlighting with reflector bounce fill for radiant, sun-kissed skin tones."
+    },
+    {
+      id: "photo-06",
+      title: "Miranda Visual Identity Campaign",
+      category: "editorial",
+      categoryLabel: "Editorial Shoots",
+      thumb: "photography/thumbs/mirandaFINAL.jpg",
+      img: "photography/mirandaFINAL.png",
+      camera: "Sony Alpha A7 IV  •  85mm f/1.4",
+      settings: "1/250s  •  f/2.5  •  ISO 100  •  Octabox",
+      location: "Brand Studio, Kochi",
+      desc: "Brand campaign lookbook highlighting clean minimalism, vibrant styling accents, and modern typography integration.",
+      process: "Controlled directional softbox lighting emphasizing crisp cheekbone contours and fabric micro-textures."
+    },
+    {
+      id: "photo-07",
+      title: "Monochrome Form & Tone Study",
+      category: "editorial",
+      categoryLabel: "Editorial Shoots",
+      thumb: "photography/thumbs/final.jpg",
+      img: "photography/final.png",
+      camera: "Sony Alpha A7 IV  •  50mm f/1.4",
+      settings: "1/200s  •  f/2.8  •  ISO 160  •  Directional Key",
+      location: "Studio, Kannur",
+      desc: "Fine-art portraiture exploring stark chiaroscuro shadow transitions and classical monochrome tonal gradients.",
+      process: "Custom black-and-white curve grading with selective dodging and burning to accentuate facial topography."
+    },
+    {
+      id: "photo-08",
+      title: "Streetwear Lookbook & Styling",
+      category: "editorial",
+      categoryLabel: "Editorial Shoots",
+      thumb: "photography/thumbs/nothing.finalpng.jpg",
+      img: "photography/nothing.finalpng.png",
+      camera: "Nikon DSLR  •  35mm f/1.8",
+      settings: "1/320s  •  f/2.8  •  ISO 100  •  Ambient Daylight",
+      location: "Urban Concrete Studio, Kerala",
+      desc: "Minimalist urban fashion editorial exploring contemporary youth culture, oversized silhouettes, and brutalist backdrops.",
+      process: "Subtle desaturation of background tones while preserving crisp garment stitching and graphic print contrasts."
+    },
+    {
+      id: "photo-09",
+      title: "Baba Nana Brand Craft Story",
+      category: "cultural",
+      categoryLabel: "Cultural Storytelling",
+      thumb: "photography/thumbs/BABA NANA.jpg",
+      img: "photography/BABA NANA.jpg",
+      camera: "Nikon DSLR  •  50mm f/1.8",
+      settings: "1/160s  •  f/2.8  •  ISO 200  •  Natural Light",
+      location: "Artisan Workshop, Kerala",
+      desc: "Cultural lifestyle documentation celebrating authentic culinary craft, heritage typography, and packaging identity.",
+      process: "Warm ambient documentation highlighting natural wood grains, warm flour dust, and artisanal packaging."
+    },
+    {
+      id: "photo-10",
+      title: "Baba Nana Brand Graphics & Identity",
+      category: "cultural",
+      categoryLabel: "Cultural Storytelling",
+      thumb: "photography/thumbs/babanana.jpg",
+      img: "photography/babanana.png",
+      camera: "Macro Studio Rig  •  90mm f/2.8",
+      settings: "1/200s  •  f/5.6  •  ISO 100  •  Overhead Grid",
+      location: "Design Archive, Kannur",
+      desc: "Branding collateral and packaging photography demonstrating visual coherence across retail touchpoints.",
+      process: "Even flat-lay lighting with polarized filters to eliminate glare and reproduce true brand ink pantones."
+    },
+    {
+      id: "photo-11",
+      title: "Studio Lighting Silhouette Study",
+      category: "composition",
+      categoryLabel: "Creative Compositions",
+      thumb: "photography/thumbs/DSC_9076.jpg",
+      img: "photography/DSC_9076.png",
+      camera: "Nikon Full-Frame  •  85mm f/1.4",
+      settings: "1/250s  •  f/2.0  •  ISO 100  •  Rim Light",
+      location: "Darkroom Studio, Kannur",
+      desc: "Experimental lighting study isolating human contour against deep ambient darkness with warm rim illumination.",
+      process: "Single strip softbox positioned 135 degrees behind the subject to carve out silhouette edges."
+    },
+    {
+      id: "photo-12",
+      title: "Candid Expression & Studio Natural Light",
+      category: "editorial",
+      categoryLabel: "Editorial Shoots",
+      thumb: "photography/thumbs/_DSC0013.jpg",
+      img: "photography/_DSC0013.JPG",
+      camera: "Nikon DSLR  •  50mm f/1.8",
+      settings: "1/200s  •  f/2.2  •  ISO 200  •  North-Facing Window",
+      location: "Studio Lounge, Kannur",
+      desc: "Intimate candid portrait capturing unposed spontaneity and natural window light falloff.",
+      process: "Unmodified diffused daylight passing through sheer drapery for soft eye catchlights."
+    },
+    {
+      id: "photo-13",
+      title: "Artisanal Handloom Loom Detail",
+      category: "cultural",
+      categoryLabel: "Cultural Storytelling",
+      thumb: "photography/thumbs/_DSC0284.jpg",
+      img: "photography/_DSC0284.JPG",
+      camera: "Nikon DSLR  •  35mm f/1.8",
+      settings: "1/125s  •  f/2.8  •  ISO 400  •  Shed Light",
+      location: "Chendamangalam Weavers Co-op",
+      desc: "Documenting traditional fly-shuttle wooden loom mechanics preserving Kerala handloom heritage.",
+      process: "Close perspective capturing the weathered wooden frame and taut cotton threads."
+    },
+    {
+      id: "photo-14",
+      title: "Master Weaver at the Heritage Loom",
+      category: "cultural",
+      categoryLabel: "Cultural Storytelling",
+      thumb: "photography/thumbs/_DSC0285.jpg",
+      img: "photography/_DSC0285.JPG",
+      camera: "Nikon DSLR  •  50mm f/1.8",
+      settings: "1/160s  •  f/2.5  •  ISO 400  •  Ambient Daylight",
+      location: "Chendamangalam Weavers Co-op",
+      desc: "Environmental portrait honoring master craftswoman immersed in the rhythmic weaving of Kasavu textiles.",
+      process: "Framed within the loom structure to emphasize connection between artisan and lifelong heritage tool."
+    },
+    {
+      id: "photo-15",
+      title: "Architectural Facade & Spatial Geometry",
+      category: "spatial",
+      categoryLabel: "Spatial & Architecture",
+      thumb: "photography/thumbs/_DSC0834.jpg",
+      img: "photography/_DSC0834.JPG",
+      camera: "Nikon DSLR  •  24mm f/2.8",
+      settings: "1/500s  •  f/8.0  •  ISO 100  •  Midday Sun",
+      location: "Architectural Pavilion, Kerala",
+      desc: "Clean geometric perspective documenting cantilevered structural planes and sharp shadow delineation.",
+      process: "Orthogonal framing aligning horizon lines to highlight structural symmetry and clean material seams."
+    },
+    {
+      id: "photo-16",
+      title: "Geometric Shadow Play & Modern Forms",
+      category: "spatial",
+      categoryLabel: "Spatial & Architecture",
+      thumb: "photography/thumbs/_DSC0847.jpg",
+      img: "photography/_DSC0847.JPG",
+      camera: "Nikon DSLR  •  50mm f/1.8",
+      settings: "1/320s  •  f/5.6  •  ISO 100  •  Direct Sunlight",
+      location: "Design Campus, Kannur",
+      desc: "Abstract spatial composition studying diagonal shadow geometry cast across architectural surfaces.",
+      process: "High-contrast monochrome framing transforming concrete architecture into bold graphic forms."
+    },
+    {
+      id: "photo-17",
+      title: "Urban Elevation & Structural Perspectives",
+      category: "spatial",
+      categoryLabel: "Spatial & Architecture",
+      thumb: "photography/thumbs/_DSC0858.jpg",
+      img: "photography/_DSC0858.JPG",
+      camera: "Nikon DSLR  •  35mm f/1.8",
+      settings: "1/400s  •  f/6.3  •  ISO 100  •  Clear Sky",
+      location: "Kochi Urban Core",
+      desc: "Vertical architectural study capturing modern urban layering and volumetric glass reflections.",
+      process: "Shift perspective correction in post-processing to maintain vertical parallel lines."
+    },
+    {
+      id: "photo-18",
+      title: "Spatial Sightlines & Pavilion Clearances",
+      category: "spatial",
+      categoryLabel: "Spatial & Architecture",
+      thumb: "photography/thumbs/_DSC0867.jpg",
+      img: "photography/_DSC0867.JPG",
+      camera: "Nikon DSLR  •  24mm f/2.8",
+      settings: "1/250s  •  f/5.0  •  ISO 160  •  Diffused Sky",
+      location: "Exhibition Ground, Kerala",
+      desc: "Photographic survey of event pavilion scale, entry portals, and visitor sightline clearances.",
+      process: "Wide-angle documentation capturing both ground-plane circulation and overhead structural canopy."
+    },
+    {
+      id: "photo-19",
+      title: "Outdoor Stage & Ambient Atmosphere",
+      category: "spatial",
+      categoryLabel: "Spatial & Architecture",
+      thumb: "photography/thumbs/_DSC0880.jpg",
+      img: "photography/_DSC0880.JPG",
+      camera: "Nikon DSLR  •  35mm f/1.8",
+      settings: "1/200s  •  f/3.5  •  ISO 200  •  Evening Dusk",
+      location: "Event Ground, Thrissur",
+      desc: "Documenting open-air stage infrastructure and acoustic truss installation prior to performance.",
+      process: "Longer exposure balancing stage illumination with twilight sky blue hour tones."
+    },
+    {
+      id: "photo-20",
+      title: "Kerala Waterfront & Event Setting",
+      category: "cultural",
+      categoryLabel: "Cultural Storytelling",
+      thumb: "photography/thumbs/_DSC0903.jpg",
+      img: "photography/_DSC0903.JPG",
+      camera: "Nikon DSLR  •  50mm f/1.8",
+      settings: "1/320s  •  f/4.5  •  ISO 100  •  Afternoon Sun",
+      location: "Kochi Backwaters",
+      desc: "Atmospheric landscape study capturing traditional backwater shoreline setting for waterfront event venues.",
+      process: "Polarized filter cutting water surface glare while enriching lush coconut palm greens."
+    },
+    {
+      id: "photo-21",
+      title: "Festival Staging & Roadshow Crowd Dynamics",
+      category: "spatial",
+      categoryLabel: "Spatial & Architecture",
+      thumb: "photography/thumbs/_DSC1103.jpg",
+      img: "photography/_DSC1103.JPG",
+      camera: "Nikon DSLR  •  24mm f/2.8",
+      settings: "1/160s  •  f/2.8  •  ISO 800  •  Stage Truss Lights",
+      location: "Radio Mango Spadikam Arena",
+      desc: "Dynamic live event photography documenting crowd scale and high-intensity stage illumination.",
+      process: "High ISO calibration preserving deep ambient crowd shadows without blowing LED panel highlights."
+    },
+    {
+      id: "photo-22",
+      title: "Night Roadshow Lighting & Truss Illumination",
+      category: "spatial",
+      categoryLabel: "Spatial & Architecture",
+      thumb: "photography/thumbs/_DSC1104.jpg",
+      img: "photography/_DSC1104.JPG",
+      camera: "Nikon DSLR  •  35mm f/1.8",
+      settings: "1/200s  •  f/2.2  •  ISO 1200  •  Moving Heads",
+      location: "Radio Mango Roadshow Tour",
+      desc: "Night performance documentation capturing volumetric fog rays and moving head light beams.",
+      process: "Timed shutter release capturing synchronized lighting cues across the mobile stage truck."
+    },
+    {
+      id: "photo-23",
+      title: "Live Performance Audio Rig & Stage",
+      category: "spatial",
+      categoryLabel: "Spatial & Architecture",
+      thumb: "photography/thumbs/_DSC1106.jpg",
+      img: "photography/_DSC1106.JPG",
+      camera: "Nikon DSLR  •  50mm f/1.8",
+      settings: "1/160s  •  f/2.8  •  ISO 1000  •  Stage Strobes",
+      location: "Radio Mango Stage Arena",
+      desc: "Detailed photographic study of audio line arrays, monitor wedges, and fold-out stage panels.",
+      process: "Mid-telephoto framing isolating mechanical stage hardware against illuminated performance backdrop."
+    },
+    {
+      id: "photo-24",
+      title: "Spadikam Roadshow Stage Elevation",
+      category: "spatial",
+      categoryLabel: "Spatial & Architecture",
+      thumb: "photography/thumbs/_DSC1110.jpg",
+      img: "photography/_DSC1110.JPG",
+      camera: "Nikon DSLR  •  24mm f/2.8",
+      settings: "1/125s  •  f/3.2  •  ISO 800  •  LED Screen Ambient",
+      location: "Kerala Statewide Tour",
+      desc: "Full vehicular stage elevation showing deployed hydraulic wings and branding marquee.",
+      process: "Wide shot documenting the complete 22ft stage width in operational performance configuration."
+    },
+    {
+      id: "photo-25",
+      title: "Traditional Cultural Ritual Documentation",
+      category: "cultural",
+      categoryLabel: "Cultural Storytelling",
+      thumb: "photography/thumbs/_DSC1144.jpg",
+      img: "photography/_DSC1144.JPG",
+      camera: "Nikon DSLR  •  50mm f/1.8",
+      settings: "1/160s  •  f/2.0  •  ISO 640  •  Brass Lamp Glow",
+      location: "Traditional Tharavadu, Kerala",
+      desc: "Documentary study of ceremonial brass lamps, floral rangoli patterns, and ancestral ritual spaces.",
+      process: "Low-light exposure capturing the warm 2200K ember glow of coconut oil lamps."
+    },
+    {
+      id: "photo-26",
+      title: "Artisan Portrait â€” Expressions in Craft",
+      category: "cultural",
+      categoryLabel: "Cultural Storytelling",
+      thumb: "photography/thumbs/_DSC1265.jpg",
+      img: "photography/_DSC1265.JPG",
+      camera: "Nikon DSLR  •  85mm f/1.4",
+      settings: "1/200s  •  f/2.0  •  ISO 320  •  Workshop Light",
+      location: "Artisanal Cluster, Kerala",
+      desc: "Intimate close-up portrait highlighting the dignity, skill, and focused gaze of seasoned craft artisans.",
+      process: "Shallow depth of field melting the workshop background into soft, organic bokeh."
+    },
+    {
+      id: "photo-27",
+      title: "Tactile Yarn Textures & Fiber Detail",
+      category: "composition",
+      categoryLabel: "Creative Compositions",
+      thumb: "photography/thumbs/_DSC1343.jpg",
+      img: "photography/_DSC1343.JPG",
+      camera: "Nikon DSLR  •  60mm Macro f/2.8",
+      settings: "1/160s  •  f/5.6  •  ISO 200  •  Soft Diffuser",
+      location: "Handloom Spinning Shed",
+      desc: "Macro composition studying the textural relief, tensile strength, and warp threads of natural cotton.",
+      process: "Macro focal plane calibrated to reveal individual spun fibers and microscopic yarn twists."
+    },
+    {
+      id: "photo-28",
+      title: "Heritage Architecture & Traditional Woodwork",
+      category: "cultural",
+      categoryLabel: "Cultural Storytelling",
+      thumb: "photography/thumbs/_DSC1518.jpg",
+      img: "photography/_DSC1518.JPG",
+      camera: "Nikon DSLR  •  24mm f/2.8",
+      settings: "1/100s  •  f/4.0  •  ISO 400  •  Courtyard Ambient",
+      location: "Nalukettu Ancestral Mansion",
+      desc: "Architectural documentation of wooden colonnades, carved rafters, and open sky courtyards (Nadumuttam).",
+      process: "Balanced natural exposure linking the shaded veranda with the sunlit central open courtyard."
+    },
+    {
+      id: "photo-29",
+      title: "Temple Rafters & Classical Roof Geometry",
+      category: "cultural",
+      categoryLabel: "Cultural Storytelling",
+      thumb: "photography/thumbs/_DSC1551.jpg",
+      img: "photography/_DSC1551.JPG",
+      camera: "Nikon DSLR  •  35mm f/1.8",
+      settings: "1/125s  •  f/3.2  •  ISO 500  •  Low Ceiling Ambient",
+      location: "Koothambalam Temple Hall",
+      desc: "Looking up at interlocking wooden roof trusses that inspired Aleesha's 3D Hindu Wedding Mandap architecture.",
+      process: "Symmetric upward perspective emphasizing the intricate timber joinery without metal fasteners."
+    },
+    {
+      id: "photo-30",
+      title: "Sacred Diyas & Ambient Deeparadhana Glow",
+      category: "composition",
+      categoryLabel: "Creative Compositions",
+      thumb: "photography/thumbs/_DSC1584.jpg",
+      img: "photography/_DSC1584.JPG",
+      camera: "Nikon DSLR  •  50mm f/1.8",
+      settings: "1/125s  •  f/2.0  •  ISO 800  •  Flame Only",
+      location: "Evening Ceremonial Mandap",
+      desc: "Warm tonal composition of flickering terracotta lamps creating atmospheric sacred lighting.",
+      process: "Manual white balance calibrated to 2400K to preserve the golden fire warmth of hand-lit wicks."
+    },
+    {
+      id: "photo-31",
+      title: "Street Documentary â€” Kerala Life & Movement",
+      category: "cultural",
+      categoryLabel: "Cultural Storytelling",
+      thumb: "photography/thumbs/_DSC2710.jpg",
+      img: "photography/_DSC2710.JPG",
+      camera: "Nikon DSLR  •  35mm f/1.8",
+      settings: "1/500s  •  f/4.0  •  ISO 200  •  Morning Sun",
+      location: "Fort Kochi Streetscape",
+      desc: "Candid street documentary capturing morning bustle, colonial facades, and vibrant regional palettes.",
+      process: "Zone focusing allowing instant capture of decisive moments and unscripted pedestrian flow."
+    },
+    {
+      id: "photo-32",
+      title: "Creative High-Fashion Lookbook Editorial",
+      category: "editorial",
+      categoryLabel: "Editorial Shoots",
+      thumb: "photography/thumbs/_DSC2825.jpg",
+      img: "photography/_DSC2825.png",
+      camera: "Sony Alpha A7 IV  •  85mm f/1.4",
+      settings: "1/250s  •  f/2.0  •  ISO 100  •  Directional Octabox",
+      location: "Studio Production, Kannur",
+      desc: "Fashion editorial exploring avant-garde garment structure, editorial gaze, and clean minimalist color space.",
+      process: "High-key background illumination paired with directional wrap-around key light for graphic silhouette pop."
+    },
+    {
+      id: "photo-33",
+      title: "Studio Monochrome Form & Mood",
+      category: "composition",
+      categoryLabel: "Creative Compositions",
+      thumb: "photography/thumbs/_DSC3475.jpg",
+      img: "photography/_DSC3475.JPG",
+      camera: "Nikon DSLR  •  50mm f/1.8",
+      settings: "1/200s  •  f/2.8  •  ISO 160  •  Honeycomb Grid",
+      location: "Darkroom Studio, Kannur",
+      desc: "Intense black and white portrait study focusing on dramatic facial light falloff and rich shadow depth.",
+      process: "Honeycomb gridded key light preventing light spill, isolating facial features with surgical precision."
+    },
+    {
+      id: "photo-34",
+      title: "Vibrant Color Blocking & Youth Culture Shoot",
+      category: "editorial",
+      categoryLabel: "Editorial Shoots",
+      thumb: "photography/thumbs/_DSC3717.jpg",
+      img: "photography/_DSC3717.png",
+      camera: "Sony Alpha A7 IV  •  50mm f/1.4",
+      settings: "1/200s  •  f/3.2  •  ISO 100  •  Dual Softboxes",
+      location: "Color Studio, Kannur",
+      desc: "Experimental youth fashion shoot pairing bold primary color blocking with confident contemporary posing.",
+      process: "Even daylight-balanced strobes maintaining saturated vermilion and cobalt fabric color accuracy."
+    },
+    {
+      id: "photo-35",
+      title: "Dynamic Posing & Studio Strobe Direction",
+      category: "editorial",
+      categoryLabel: "Editorial Shoots",
+      thumb: "photography/thumbs/_DSC3770.jpg",
+      img: "photography/_DSC3770.png",
+      camera: "Sony Alpha A7 IV  •  85mm f/1.4",
+      settings: "1/250s  •  f/2.8  •  ISO 100  •  Beauty Dish",
+      location: "Fashion Studio, Kannur",
+      desc: "High-fashion lookbook showcasing fluid garment movement, sharp focus falloff, and editorial polish.",
+      process: "Fast flash duration (1/8000s freeze) capturing dynamic fabric drape in crisp mid-motion."
+    },
+    {
+      id: "photo-36",
+      title: "Styling Details, Accessories & Textures",
+      category: "composition",
+      categoryLabel: "Creative Compositions",
+      thumb: "photography/thumbs/_DSC3875_2.jpg",
+      img: "photography/_DSC3875_2.png",
+      camera: "Sony Alpha A7 IV  •  85mm f/1.4",
+      settings: "1/200s  •  f/2.5  •  ISO 100  •  Softbox Key",
+      location: "Fashion Studio, Kannur",
+      desc: "Detailed close-up capturing jewelry accents, intricate textile weave, and editorial makeup artistry.",
+      process: "Razor-thin depth of field highlighting metallic jewelry reflections against soft fabric textures."
     }
   ],
+
 
   playground: [
     {
@@ -815,6 +1212,95 @@ const SOLARI_PROJECTS_DATA = [
       { src: "beast-games-3/assets/storyboard-4.jpg", title: "Storyboard Frame 4: Final Flag Duel & Elimination" }
     ]
   }
+,
+  {
+    id: "3d-space",
+    alias: ["3dspace", "spatial", "spatial-studio", "3d-models"],
+    num: "09",
+    tabName: "3D SPACE",
+    stripItems: ["3 GLB Model Files", "Stages & Pavilions", "Interactive Viewport", "Blender & Fusion", "203MB - 507MB"],
+    title: "3D Spatial Architecture & Interactive GLB Studio",
+    subtitle: "Complete 3D GLB Models, Stage Sets, Exhibition Pavilions & Vehicular Spatial Engineering",
+    category: "3D Spatial Architecture / Interactive 3D Models",
+    color: "#ffedd5",
+    bg: "#fff7ed",
+    accent: "#ea580c",
+    timeline: "Interactive 3D Engine & Real-World Deployments",
+    venue: "Kerala Roadshows, Exhibition Pavilions & Virtual Viewport",
+    dimensions: "Multi-Scale (Stage Trucks, Pavilions, Arenas)",
+    client: "Radio Mango 91.9 FM, Neithi Skincare, EMAK Awards",
+    role: "Lead 3D Spatial Designer, Set Architect & 3D Modeler",
+    software: ["Blender", "Autodesk Fusion 360", "SketchUp", "GLTF / GLB", "Eevee / Cycles"],
+    tags: ["3D GLB Models", "Bharath Benz Stage Truck", "Neithi Pavilion Stall", "Radio Mango Spadikam Arena", "Interactive 3D Viewport"],
+    heroThumb: "assets/thira 1.1.png",
+    brief: "A dedicated 3D spatial engineering portfolio showcasing complete 3D GLB models developed in Blender and CAD for high-profile brand events, experiential marketing activations, and multi-district roadshows. Includes the Bharath Benz Spadikam Stage Truck (203 MB), Neithi Skincare Exhibition Pavilion (210 MB), and Radio Mango Arena Autosave (507 MB).",
+    concept: "Every 3D space is engineered with centimeter-precise architectural tolerances, sightline analysis, and PBR material setups. Featuring full interactive GLB 3D model downloads and real-time viewport inspection.",
+    execution: "Designed structural trusses, hydraulic stage extensions, and interactive pavilions with optimized topology ready for both real-time WebGL engines and fabrication execution.",
+    materials: [
+      "Binary glTF (.glb) 3D Scene Geometry",
+      "PBR Metallic / Roughness Texture Maps",
+      "Cycles GPU Volumetric Lighting Simulation",
+      "Tubular Steel Stage Truss Framework",
+      "P4 Outdoor Modular LED Panels"
+    ],
+    mediaTabs: [
+      { id: "models", label: "ðŸ“¦ 3D GLB Model Downloads (3 Files)", type: "custom" },
+      { id: "renders", label: "ðŸ–¼ï¸ Spatial Showcase Renders (6 Views)", type: "gallery" }
+    ],
+    renders: [
+      { src: "assets/thira 1.1.png", title: "Radio Mango Bharath Benz Stage Truck â€” 3D Space (203 MB GLB)" },
+      { src: "rainmaker-case-studies/neithi/assets/hero.jpg", title: "Neithi Exhibition Stall Pavilion â€” 3D Space (210 MB GLB)" },
+      { src: "assets/thira 1.3.png", title: "Spadikam Arena Stage Deployed â€” 3D Space (507 MB GLB)" },
+      { src: "assets/thira 1.5.png", title: "DJ Performance Platform & Audio Rig Architecture" },
+      { src: "rainmaker-case-studies/neithi/assets/r-angle.jpg", title: "Curved Interactive Shelving & Mirror Wall" },
+      { src: "assets/avatar_3d.png", title: "Aleesha 3D Figurine & Character Rig" }
+    ]
+  },
+  {
+    id: "photography",
+    alias: ["photos", "photo-gallery", "editorial-shoots", "photo-essay"],
+    num: "10",
+    tabName: "PHOTOGRAPHY",
+    stripItems: ["Editorial & Fashion", "Publication Covers", "Sony & Nikon Raw", "36 Works", "Visual Storytelling"],
+    title: "Photography & Editorial Visual Storytelling",
+    subtitle: "High-Fashion Editorial Spreads, Magazine Covers, Commercial Campaigns & Cultural Archiving",
+    category: "Editorial Photography & Visual Direction",
+    color: "#fce7f3",
+    bg: "#fdf2f8",
+    accent: "#c026d3",
+    timeline: "36 Published Works & Personal Archives",
+    venue: "Studio Shoots, Outdoor Locations & Kerala Roadshows",
+    dimensions: "High-Resolution DSLR Raw (Up to 7700 Ã— 6800 px)",
+    client: "Editorial Publications, Fashion Campaigns & Cultural Documentation",
+    role: "Photographer, Creative Director & Post-Production Colorist",
+    software: ["Adobe Lightroom", "Photoshop", "Capture One", "Sony Alpha", "Nikon DSLR"],
+    tags: ["Editorial Shoots", "Bblunt Campaign", "Fashion Photography", "Teen Magazine", "Cultural Essays"],
+    heroThumb: "photography/thumbs/EDITORIAL.jpg",
+    brief: "An expansive body of 36 photographic works spanning fashion editorial spreads, youth culture publications, commercial hair & beauty campaigns, and natural light environmental portraiture.",
+    concept: "Explores the interplay of high-contrast studio illumination, natural cinematic shadow, and authentic cultural documentation. Every composition balances tactile styling, garment drape, and evocative subject expression.",
+    execution: "Shot using professional full-frame camera systems with prime focal lengths. Color graded with bespoke tone curves to deliver rich, print-ready publication files.",
+    materials: [
+      "Sony Alpha A7 IV & Nikon Full-Frame DSLRs",
+      "85mm f/1.4 GM & 50mm f/1.2 Prime Lenses",
+      "Broncolor & Godox Studio Strobe Lighting",
+      "Adobe Lightroom CC Bespoke Color Profiles",
+      "High-Definition 300 DPI Publication Exports"
+    ],
+    mediaTabs: [
+      { id: "renders", label: "ðŸ“¸ Curated Editorial Highlights (8 Works)", type: "gallery" }
+    ],
+    renders: [
+      { src: "photography/thumbs/EDITORIAL.jpg", title: "Vogue Concept Editorial Spread â€” Art Direction & Styling" },
+      { src: "photography/thumbs/fashionshoot_.jpg", title: "High-Contrast Contemporary Fashion Shoot" },
+      { src: "photography/thumbs/Bblunt.finalpng.jpg", title: "Bblunt Commercial Hair Campaign Publication Spread" },
+      { src: "photography/thumbs/Photo Background Teen Magazine Cover (1).jpg", title: "Teen Magazine Cover Art Direction & Typography" },
+      { src: "photography/thumbs/Picnic.jpg", title: "Golden Hour Pastoral Picnic Story" },
+      { src: "photography/thumbs/mirandaFINAL.jpg", title: "Miranda Brand Visual Identity Shoot" },
+      { src: "photography/thumbs/final.jpg", title: "Monochrome Editorial Portrait" },
+      { src: "photography/thumbs/_DSC2825.jpg", title: "Creative High-Fashion Lookbook Editorial" }
+    ]
+  }
+
 ];
 
 function initFileExplorer() {
@@ -1359,6 +1845,64 @@ function initSolariProjects() {
                 </div>
               </div>
             `).join('')}
+          </div>
+        </div>
+      `;
+    }
+
+    // 3D GLB Models panel for 3d-space
+    if (proj.id === '3d-space') {
+      const isVisible = activeTabId === 'models';
+      html += `
+        <div class="solari-media-panel" data-panel-id="models" style="display: ${isVisible ? 'block' : 'none'};">
+          <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(290px, 1fr)); gap:20px; padding:16px 0 28px 0;">
+            <div style="background:#1e293b; border:1px solid #334155; border-radius:14px; padding:22px; color:#fff; display:flex; flex-direction:column; justify-content:space-between;">
+              <div>
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+                  <span style="font-size:1.8rem;">🚚</span>
+                  <span style="font-size:0.75rem; background:#0284c7; color:#fff; padding:4px 10px; border-radius:999px; font-weight:700;">203 MB • .GLB</span>
+                </div>
+                <h4 style="margin:0 0 6px 0; font-size:1.1rem; color:#fff;">Radio Mango Spadikam Truck</h4>
+                <div style="font-size:0.75rem; color:#38bdf8; font-weight:600; margin-bottom:10px;">thira truck .glb</div>
+                <p style="font-size:0.82rem; color:#cbd5e1; line-height:1.5; margin:0 0 16px 0;">Complete 3D model of the Bharath Benz heavy vehicle roadshow truck with hydraulic fold-out stage, rooftop acoustic rig, and Pulikali graphics.</p>
+              </div>
+              <div style="display:flex; gap:10px; flex-wrap:wrap;">
+                <a href="3d%20space/thira%20truck%20.glb" download="thira truck .glb" class="solari-btn-pill primary" style="text-decoration:none; padding:8px 14px; font-size:0.82rem;">⬇ Download Model (203 MB)</a>
+                <button type="button" class="solari-btn-pill" onclick="if(window.windowManager){window.windowManager.open('spatial');}" style="padding:8px 14px; font-size:0.82rem;">Open in 3D Studio ✦</button>
+              </div>
+            </div>
+
+            <div style="background:#1e293b; border:1px solid #334155; border-radius:14px; padding:22px; color:#fff; display:flex; flex-direction:column; justify-content:space-between;">
+              <div>
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+                  <span style="font-size:1.8rem;">🌿</span>
+                  <span style="font-size:0.75rem; background:#059669; color:#fff; padding:4px 10px; border-radius:999px; font-weight:700;">210 MB • .GLB</span>
+                </div>
+                <h4 style="margin:0 0 6px 0; font-size:1.1rem; color:#fff;">Neithi Exhibition Stall Pavilion</h4>
+                <div style="font-size:0.75rem; color:#34d399; font-weight:600; margin-bottom:10px;">neithi stall1.glb</div>
+                <p style="font-size:0.82rem; color:#cbd5e1; line-height:1.5; margin:0 0 16px 0;">Full architectural trade exhibition stall pavilion featuring curved skincare shelving, mirror wall, and interactive stations.</p>
+              </div>
+              <div style="display:flex; gap:10px; flex-wrap:wrap;">
+                <a href="3d%20space/neithi%20stall1.glb" download="neithi stall1.glb" class="solari-btn-pill primary" style="text-decoration:none; padding:8px 14px; font-size:0.82rem;">⬇ Download Model (210 MB)</a>
+                <button type="button" class="solari-btn-pill" onclick="if(window.windowManager){window.windowManager.open('spatial');}" style="padding:8px 14px; font-size:0.82rem;">Open in 3D Studio ✦</button>
+              </div>
+            </div>
+
+            <div style="background:#1e293b; border:1px solid #334155; border-radius:14px; padding:22px; color:#fff; display:flex; flex-direction:column; justify-content:space-between;">
+              <div>
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+                  <span style="font-size:1.8rem;">🎪</span>
+                  <span style="font-size:0.75rem; background:#7c3aed; color:#fff; padding:4px 10px; border-radius:999px; font-weight:700;">507 MB • .GLB</span>
+                </div>
+                <h4 style="margin:0 0 6px 0; font-size:1.1rem; color:#fff;">Radio Mango Spadikam Arena</h4>
+                <div style="font-size:0.75rem; color:#c084fc; font-weight:600; margin-bottom:10px;">thira radio mango_17004_autosave.glb</div>
+                <p style="font-size:0.82rem; color:#cbd5e1; line-height:1.5; margin:0 0 16px 0;">Large-scale festival concert arena stage, audience sightlines, full truss rig and festival ground planning.</p>
+              </div>
+              <div style="display:flex; gap:10px; flex-wrap:wrap;">
+                <a href="3d%20space/thira%20radio%20mango_17004_autosave.glb" download="thira radio mango_17004_autosave.glb" class="solari-btn-pill primary" style="text-decoration:none; padding:8px 14px; font-size:0.82rem;">⬇ Download Model (507 MB)</a>
+                <button type="button" class="solari-btn-pill" onclick="if(window.windowManager){window.windowManager.open('spatial');}" style="padding:8px 14px; font-size:0.82rem;">Open in 3D Studio ✦</button>
+              </div>
+            </div>
           </div>
         </div>
       `;
@@ -1985,7 +2529,7 @@ function initPhotography() {
       card.className = 'photo-card';
       card.innerHTML = `
         <div class="photo-card-img-wrap">
-          <img src="${photo.img}" alt="${photo.title}" class="photo-card-img">
+          <img src="${photo.thumb || photo.img}" alt="${photo.title}" class="photo-card-img" loading="lazy">
           <span class="photo-card-badge">${photo.categoryLabel}</span>
         </div>
         <div class="photo-card-info">
