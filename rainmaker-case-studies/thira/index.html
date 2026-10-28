@@ -3,6 +3,7 @@
 <meta name="description" content="Radio Mango Thira 2026 — Onam roadshow truck designed in Blender in two concepts by Aleesha K. L.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap&family=Rozha+One">
+<script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
 <style>:root{color-scheme:dark;background:#180d08;} body{margin:0;background:#180d08;}</style>
 <style>
 .cs, .cs *, .cs *::before, .cs *::after { box-sizing: border-box; }
@@ -71,8 +72,46 @@
 .cs .shading button { border: 0; background: transparent; cursor: pointer; border-radius: 4px; padding: 6px 10px; font-family: var(--f-mono); font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: #b9b5bf; display: inline-flex; align-items: center; gap: 7px; }
 .cs .shading button::before { content: ""; width: 10px; height: 10px; border-radius: 50%; background: radial-gradient(circle at 35% 35%, #fff, #8c93a6 70%); }
 .cs .shading button[data-mode="render"]::before { background: radial-gradient(circle at 35% 35%, #fff, var(--accent) 50%, #3a2a10 90%); }
+.cs .shading button[data-mode="3d"]::before { background: radial-gradient(circle at 35% 35%, #fff, #38bdf8 50%, #0369a1 90%); box-shadow: 0 0 6px rgba(56, 189, 248, 0.8); }
 .cs .shading button[aria-pressed="true"] { background: rgba(255,255,255,.16); color: #fff; }
-.cs .hero-vp { aspect-ratio: 16 / 9; max-height: 78vh; width: 100%; }
+.cs .shading button[data-mode="3d"][aria-pressed="true"] { background: rgba(56, 189, 248, 0.24); color: #fff; border: 1px solid rgba(56, 189, 248, 0.45); }
+.cs .hero-vp { aspect-ratio: 16 / 9; max-height: 78vh; width: 100%; position: relative; }
+@media (max-width: 560px) { .cs .hero-vp .hud.tl { display: none; } .cs .hero-vp { aspect-ratio: 4 / 3; } }
+.cs .hero-vp .render { opacity: 0; transition: opacity 1.4s ease; }
+.cs .hero-vp.is-render .render { opacity: 1; }
+.cs .hero-vp.is-3d .zoom { visibility: hidden; }
+.cs .hero-vp .zoom { position: absolute; inset: 0; will-change: transform; }
+
+/* 3D Model Viewer Layer & HUD */
+.model-3d-wrap { position: absolute; inset: 0; z-index: 3; background: #0c0a0e; overflow: hidden; }
+model-viewer { width: 100%; height: 100%; outline: none; --poster-color: transparent; }
+.mv-progress-bar { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: min(320px, 80%); padding: 16px 20px; background: rgba(14, 12, 18, 0.88); border: 1px solid rgba(255, 255, 255, 0.18); border-radius: 12px; box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); z-index: 10; display: flex; flex-direction: column; gap: 10px; text-align: center; transition: opacity 0.4s ease; }
+.mv-progress-bar.is-hidden { opacity: 0; pointer-events: none; }
+.mv-progress-track { width: 100%; height: 6px; background: rgba(255, 255, 255, 0.12); border-radius: 999px; overflow: hidden; }
+.mv-progress-fill { width: 0%; height: 100%; background: linear-gradient(90deg, #38bdf8, #818cf8, #c084fc); border-radius: 999px; transition: width 0.2s ease; }
+.mv-progress-label { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; color: #e2e8f0; text-transform: uppercase; }
+
+.hud-3d-toolbar { position: absolute; bottom: 12px; left: 12px; right: 12px; z-index: 6; display: flex; flex-wrap: wrap; align-items: center; gap: 8px; pointer-events: none; }
+.hud-3d-toolbar > * { pointer-events: auto; }
+.hud-btn { border: 1px solid rgba(255, 255, 255, 0.18); background: rgba(14, 12, 18, 0.78); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); color: #e2e8f0; font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; padding: 6px 10px; border-radius: 6px; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; transition: all 0.2s ease; }
+.hud-btn:hover { background: rgba(255, 255, 255, 0.22); color: #fff; border-color: rgba(255, 255, 255, 0.4); transform: translateY(-1px); }
+.hud-btn.is-active { background: rgba(56, 189, 248, 0.28); border-color: rgba(56, 189, 248, 0.6); color: #38bdf8; }
+.hud-select { border: 1px solid rgba(255, 255, 255, 0.2); background: rgba(18, 14, 22, 0.88); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); color: #38bdf8; font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.04em; padding: 6px 10px; border-radius: 6px; cursor: pointer; outline: none; }
+.hud-hint { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.06em; color: rgba(255, 255, 255, 0.75); background: rgba(14, 12, 18, 0.65); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); padding: 6px 10px; border-radius: 6px; margin-left: auto; pointer-events: none; }
+@media (max-width: 640px) { .hud-hint { display: none; } }
+
+.mv-error-overlay { position: absolute; inset: 0; z-index: 9; display: flex; align-items: center; justify-content: center; background: rgba(10, 8, 14, 0.86); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); padding: 20px; }
+.mv-error-box { max-width: 440px; text-align: center; background: rgba(20, 17, 26, 0.96); border: 1px solid rgba(255, 255, 255, 0.16); border-radius: 12px; padding: 24px; box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7); }
+.mv-error-icon { font-size: 36px; margin-bottom: 8px; }
+.mv-error-title { margin: 0 0 8px 0; font-family: var(--f-display); font-size: 20px; color: #f8fafc; }
+.mv-error-desc { font-size: 13px; color: #94a3b8; line-height: 1.5; margin: 0 0 18px 0; }
+.mv-error-desc code { font-family: var(--f-mono); font-size: 11px; color: #38bdf8; background: rgba(56, 189, 248, 0.12); padding: 2px 5px; border-radius: 4px; }
+.mv-error-actions { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+.mv-action-btn { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; padding: 9px 14px; border-radius: 6px; cursor: pointer; border: 0; transition: all 0.2s ease; text-decoration: none; }
+.mv-action-btn.primary { background: #38bdf8; color: #0f172a; font-weight: 600; }
+.mv-action-btn.primary:hover { background: #7dd3fc; box-shadow: 0 0 14px rgba(56, 189, 248, 0.5); }
+.mv-action-btn.secondary { background: rgba(255, 255, 255, 0.12); color: #e2e8f0; }
+.mv-action-btn.secondary:hover { background: rgba(255, 255, 255, 0.2); }
 @media (max-width: 560px) { .cs .hero-vp .hud.tl { display: none; } .cs .hero-vp { aspect-ratio: 4 / 3; } }
 .cs .hero-vp .render { opacity: 0; transition: opacity 1.4s ease; }
 .cs .hero-vp.is-render .render { opacity: 1; }
@@ -259,9 +298,86 @@
 <img class="layer solid" src="assets/c1-workspace.jpg" alt="Blender workspace with the textured truck" width="1344" height="714" style="object-position:center">
 <img class="layer render" src="assets/c1-persp2.jpg" alt="Render of the Thira roadshow truck with tiger-striped cabin, Kathakali crown, terracotta-tiled roof and Thira branding" width="1728" height="972" style="object-position:center">
 </div>
-<span class="hud tl"><i></i>CAM_01 · Persp</span>
-<div class="shading" role="group" aria-label="Viewport shading"><button type="button" data-mode="solid" aria-pressed="true">Workspace</button><button type="button" data-mode="render" aria-pressed="false">Rendered</button></div>
-<span class="hud bl">Scene · Roadshow truck</span></div>
+
+<!-- Interactive 3D Orbit Layer -->
+<div class="layer model-3d-wrap" id="cs-model-3d-wrap" style="display:none;">
+  <model-viewer
+    id="cs-model-viewer"
+    data-src="../../3d%20space/thira%20truck%20.glb"
+    poster="assets/c1-persp2.jpg"
+    alt="Thira Roadshow Truck 3D Model"
+    camera-controls
+    auto-rotate
+    auto-rotate-delay="2500"
+    rotation-per-second="20deg"
+    shadow-intensity="1.2"
+    shadow-softness="0.8"
+    exposure="1.05"
+    camera-orbit="40deg 75deg 105%"
+    min-camera-orbit="auto auto 20%"
+    max-camera-orbit="auto auto 300%"
+    field-of-view="32deg"
+    interaction-prompt="auto"
+    loading="lazy"
+    style="background: radial-gradient(circle at 50% 40%, #2e1a14 0%, #150d0a 85%, #0a0604 100%);"
+  >
+    <div slot="progress-bar" class="mv-progress-bar" id="mv-progress-bar">
+      <div class="mv-progress-track">
+        <div class="mv-progress-fill" id="mv-progress-fill"></div>
+      </div>
+      <div class="mv-progress-label" id="mv-progress-label">Streaming 3D Mesh &amp; Textures... 0%</div>
+    </div>
+  </model-viewer>
+
+  <div class="hud-3d-toolbar" id="hud-3d-toolbar">
+    <select id="select-thira-model" class="hud-select" title="Switch 3D Model">
+      <option value="../../3d%20space/thira%20truck%20.glb">🚚 Model: Roadshow Truck (203MB)</option>
+      <option value="../../3d%20space/thira%20radio%20mango_17004_autosave.glb">🎪 Model: Radio Mango Stage (507MB)</option>
+    </select>
+    <button type="button" class="hud-btn is-active" id="btn-toggle-rotate" title="Toggle Auto Rotation">
+      <span>🔄</span> <span>Auto-Rotate</span>
+    </button>
+    <button type="button" class="hud-btn" id="btn-reset-cam" title="Reset Camera View">
+      <span>⟲</span> <span>Reset View</span>
+    </button>
+    <button type="button" class="hud-btn" id="btn-fs-3d" title="Toggle Fullscreen">
+      <span>⛶</span> <span>Fullscreen</span>
+    </button>
+    <label class="hud-btn" title="Load local .glb file" style="cursor:pointer;">
+      <span>📂</span> <span>Load .GLB</span>
+      <input type="file" id="input-custom-glb" accept=".glb,.gltf" style="display:none;">
+    </label>
+    <span class="hud-hint">🖱️ Drag: Orbit • Scroll: Zoom • Right-click: Pan</span>
+  </div>
+
+  <div class="mv-error-overlay" id="mv-error-overlay" style="display:none;">
+    <div class="mv-error-box">
+      <div class="mv-error-icon">🚚</div>
+      <h4 class="mv-error-title">Thira 3D Models (.glb)</h4>
+      <p class="mv-error-desc">
+        The high-resolution 3D models are located in <code>portfolio/3d space/</code> (Roadshow Truck &amp; Radio Mango Stage).<br>
+        Direct browser reading may be restricted by origin policy, or select a file below to view instantly.
+      </p>
+      <div class="mv-error-actions">
+        <label class="mv-action-btn primary" style="cursor:pointer;">
+          <span>Choose <code>thira truck .glb</code> to View</span>
+          <input type="file" id="input-fallback-glb" accept=".glb,.gltf" style="display:none;">
+        </label>
+        <button type="button" class="mv-action-btn secondary" id="btn-fallback-render">
+          View Rendered Stills
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<span class="hud tl" id="cs-hud-tl"><i></i>CAM_01 · Persp</span>
+<div class="shading" role="group" aria-label="Viewport shading">
+  <button type="button" data-mode="solid" aria-pressed="true">Workspace</button>
+  <button type="button" data-mode="render" aria-pressed="false">Rendered</button>
+  <button type="button" data-mode="3d" aria-pressed="false" title="Inspect 3D Orbit Mesh">✨ 3D Orbit</button>
+</div>
+<span class="hud bl" id="cs-hud-bl">Scene · Roadshow truck</span></div>
 <div class="info"><div>
 <span class="label"><span class="mk" aria-hidden="true"></span>Vehicle Design · Onam Roadshow</span>
 <h1><span>Thira</span><span class="sub">Radio Mango · Roadshow 2026</span></h1>
@@ -326,13 +442,131 @@
   var $$ = function (s, el) { return [].slice.call((el || root).querySelectorAll(s)); };
   root.classList.add('is-ready');
 
-  /* hero: Workspace / Rendered */
+  /* hero: Workspace / Rendered / 3D Orbit */
   var hero = document.getElementById('cs-hero');
   var heroBtns = $$('.shading button', hero), touched = false;
+  var wrap3D = document.getElementById('cs-model-3d-wrap');
+  var mv = document.getElementById('cs-model-viewer');
+  var hudTL = document.getElementById('cs-hud-tl');
+  var hudBL = document.getElementById('cs-hud-bl');
+  var mvProgress = document.getElementById('mv-progress-bar');
+  var mvFill = document.getElementById('mv-progress-fill');
+  var mvLabel = document.getElementById('mv-progress-label');
+  var mvError = document.getElementById('mv-error-overlay');
+  var btnRotate = document.getElementById('btn-toggle-rotate');
+  var btnResetCam = document.getElementById('btn-reset-cam');
+  var btnFs3d = document.getElementById('btn-fs-3d');
+  var inputGlb = document.getElementById('input-custom-glb');
+  var inputFallback = document.getElementById('input-fallback-glb');
+  var btnFallback = document.getElementById('btn-fallback-render');
+  var selectModel = document.getElementById('select-thira-model');
+
+  function init3DModel() {
+    if (!mv) return;
+    if (!mv.src && mv.dataset.src) {
+      mv.src = mv.dataset.src;
+    }
+  }
+
+  if (selectModel) {
+    selectModel.addEventListener('change', function () {
+      if (!mv) return;
+      mv.src = selectModel.value;
+      if (mvProgress) {
+        mvProgress.classList.remove('is-hidden');
+        if (mvFill) mvFill.style.width = '10%';
+        if (mvLabel) mvLabel.textContent = 'Switching 3D Model...';
+      }
+      if (mvError) mvError.style.display = 'none';
+      if (hudBL) hudBL.textContent = selectModel.options[selectModel.selectedIndex].text;
+    });
+  }
+
+  if (mv) {
+    mv.addEventListener('progress', function (e) {
+      var p = Math.round((e.detail.totalProgress || 0) * 100);
+      if (mvFill) mvFill.style.width = p + '%';
+      if (mvLabel) mvLabel.textContent = 'Streaming 3D Mesh & Textures... ' + p + '%';
+    });
+    mv.addEventListener('load', function () {
+      if (mvProgress) mvProgress.classList.add('is-hidden');
+      if (mvError) mvError.style.display = 'none';
+      if (hudBL) hudBL.textContent = 'Interactive 3D Mesh · Thira Roadshow (Orbit Active)';
+    });
+    mv.addEventListener('error', function () {
+      if (mvProgress) mvProgress.classList.add('is-hidden');
+      if (mvError) mvError.style.display = 'flex';
+    });
+  }
+
+  function handleFileSelect(file) {
+    if (!file || !mv) return;
+    var url = URL.createObjectURL(file);
+    mv.src = url;
+    if (mvProgress) {
+      mvProgress.classList.remove('is-hidden');
+      if (mvFill) mvFill.style.width = '20%';
+      if (mvLabel) mvLabel.textContent = 'Parsing ' + file.name + '...';
+    }
+    if (mvError) mvError.style.display = 'none';
+  }
+
+  if (inputGlb) inputGlb.addEventListener('change', function (e) { if (e.target.files && e.target.files[0]) handleFileSelect(e.target.files[0]); });
+  if (inputFallback) inputFallback.addEventListener('change', function (e) { if (e.target.files && e.target.files[0]) handleFileSelect(e.target.files[0]); });
+  if (btnFallback) btnFallback.addEventListener('click', function () { setShade('render'); });
+
+  if (btnRotate) {
+    btnRotate.addEventListener('click', function () {
+      if (!mv) return;
+      mv.autoRotate = !mv.autoRotate;
+      btnRotate.classList.toggle('is-active', mv.autoRotate);
+    });
+  }
+
+  if (btnResetCam) {
+    btnResetCam.addEventListener('click', function () {
+      if (!mv) return;
+      mv.cameraOrbit = '40deg 75deg 105%';
+      mv.fieldOfView = '32deg';
+    });
+  }
+
+  if (btnFs3d) {
+    btnFs3d.addEventListener('click', function () {
+      if (!hero) return;
+      if (document.fullscreenElement) {
+        document.exitFullscreen();
+      } else if (hero.requestFullscreen) {
+        hero.requestFullscreen();
+      }
+    });
+  }
+
   function setShade(mode) {
     hero.classList.toggle('is-render', mode === 'render');
+    hero.classList.toggle('is-3d', mode === '3d');
     heroBtns.forEach(function (b) { b.setAttribute('aria-pressed', String(b.dataset.mode === mode)); });
+
+    if (mode === '3d') {
+      if (wrap3D) wrap3D.style.display = 'block';
+      if (hudTL) hudTL.innerHTML = '<i style="background:#38bdf8;box-shadow:0 0 8px #38bdf8;"></i>CAM_FREE · Orbit 360° · Interactive 3D';
+      if (hudBL) hudBL.textContent = 'Interactive 3D Mesh · Thira Roadshow';
+      init3DModel();
+      if (mv) mv.autoRotate = true;
+      if (btnRotate) btnRotate.classList.add('is-active');
+    } else {
+      if (wrap3D) wrap3D.style.display = 'none';
+      if (mv) mv.autoRotate = false;
+      if (mode === 'render') {
+        if (hudTL) hudTL.innerHTML = '<i></i>CAM_01 · Persp';
+        if (hudBL) hudBL.textContent = 'Scene · Roadshow truck (Final Render)';
+      } else {
+        if (hudTL) hudTL.innerHTML = '<i></i>CAM_01 · Workspace';
+        if (hudBL) hudBL.textContent = 'Scene · Roadshow truck (Solid Workspace)';
+      }
+    }
   }
+
   heroBtns.forEach(function (b) { b.addEventListener('click', function () { touched = true; setShade(b.dataset.mode); }); });
   var heroRender = $('.render', hero);
   function reveal() { setTimeout(function () { if (!touched) setShade('render'); }, reduce ? 0 : 1100); }
