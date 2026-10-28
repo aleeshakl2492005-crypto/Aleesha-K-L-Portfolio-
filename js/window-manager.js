@@ -209,14 +209,25 @@ class WindowManager {
     data.el.style.display = 'flex';
     // Position if not already placed
     if (!data.el.style.left || data.el.style.left === 'auto') {
-      const winW = data.el.offsetWidth || 760;
-      const winH = data.el.offsetHeight || 520;
-      const maxX = Math.max(10, window.innerWidth - winW - 20);
-      const maxY = Math.max(10, window.innerHeight - winH - 65);
-      const posX = Math.max(10, Math.min(maxX, data.lastX));
-      const posY = Math.max(10, Math.min(maxY, data.lastY));
-      data.el.style.left = `${posX}px`;
-      data.el.style.top = `${posY}px`;
+      if (id === 'playground') {
+        const winW = Math.min(window.innerWidth - 30, 960);
+        const winH = Math.min(window.innerHeight - 70, 640);
+        const posX = Math.max(10, Math.round((window.innerWidth - winW) / 2));
+        const posY = Math.max(10, Math.round((window.innerHeight - 56 - winH) / 2));
+        data.el.style.width = `${winW}px`;
+        data.el.style.height = `${winH}px`;
+        data.el.style.left = `${posX}px`;
+        data.el.style.top = `${posY}px`;
+      } else {
+        const winW = data.el.offsetWidth || 760;
+        const winH = data.el.offsetHeight || 520;
+        const maxX = Math.max(10, window.innerWidth - winW - 20);
+        const maxY = Math.max(10, window.innerHeight - winH - 65);
+        const posX = Math.max(10, Math.min(maxX, data.lastX));
+        const posY = Math.max(10, Math.min(maxY, data.lastY));
+        data.el.style.left = `${posX}px`;
+        data.el.style.top = `${posY}px`;
+      }
     }
 
     void data.el.offsetWidth; // Reflow
