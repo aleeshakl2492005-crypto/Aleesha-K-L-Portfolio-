@@ -237,8 +237,12 @@ class WindowManager {
     this.bringToFront(id);
     this.updateTaskbar(id);
 
-    if (id === 'playground' && window.owlGame) {
-      setTimeout(() => window.owlGame.handleResize(), 60);
+    if (id === 'playground') {
+      const companion = document.getElementById('desktop-owl-companion');
+      if (companion) companion.style.display = 'none';
+      if (window.owlGame) {
+        setTimeout(() => window.owlGame.handleResize(), 60);
+      }
     }
   }
 
@@ -253,6 +257,11 @@ class WindowManager {
     this.windows.forEach(w => w.el.classList.remove('focused'));
     data.el.classList.add('focused');
     this.activeWindowId = id;
+
+    if (id === 'playground') {
+      const companion = document.getElementById('desktop-owl-companion');
+      if (companion) companion.style.display = 'none';
+    }
 
     this.updateTaskbar(id);
   }
@@ -275,6 +284,11 @@ class WindowManager {
 
     if (this.activeWindowId === id) {
       this.activeWindowId = null;
+    }
+
+    if (id === 'playground') {
+      const companion = document.getElementById('desktop-owl-companion');
+      if (companion) companion.style.display = '';
     }
 
     this.updateTaskbar(id);
@@ -304,8 +318,12 @@ class WindowManager {
       window.closeSolariDetail();
     }
 
-    if (id === 'playground' && window.owlGame) {
-      window.owlGame.closeModal();
+    if (id === 'playground') {
+      const companion = document.getElementById('desktop-owl-companion');
+      if (companion) companion.style.display = '';
+      if (window.owlGame) {
+        window.owlGame.closeModal();
+      }
     }
 
     this.pauseVideosInside(data.el);
@@ -338,6 +356,8 @@ class WindowManager {
         this.minimize(id);
       }
     });
+    const companion = document.getElementById('desktop-owl-companion');
+    if (companion) companion.style.display = '';
   }
 
   toggleWindow(id) {
@@ -350,6 +370,10 @@ class WindowManager {
       data.isMinimized = false;
       data.el.classList.remove('minimized');
       this.bringToFront(id);
+      if (id === 'playground') {
+        const companion = document.getElementById('desktop-owl-companion');
+        if (companion) companion.style.display = 'none';
+      }
     } else if (this.activeWindowId === id) {
       this.minimize(id);
     } else {

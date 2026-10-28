@@ -55,6 +55,21 @@
   overflow: hidden !important;
 }
 
+/* Hand cursor everywhere inside the game window */
+#window-playground,
+#window-playground *,
+#window-playground .owl-wakeup-app,
+#window-playground .owl-stage-inner,
+#window-playground .owl-browser-frame,
+#window-playground .owl-character-rig,
+#window-playground .owl-tool-btn,
+#window-playground .owl-tap-prompt,
+#window-playground .owl-dnd-sign-wrap,
+#window-playground .owl-mock-tab,
+#window-playground button {
+  cursor: pointer !important;
+}
+
 #owl-game-container {
   width: 100%;
   height: 100%;
@@ -391,10 +406,10 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   background: #FFF9EC;
   overflow: hidden;
-  cursor: default;
+  padding: 12px 18px 8px 18px;
 }
 
 /* Sunbeam wash effect when Sun tool is used */
@@ -415,8 +430,8 @@
 /* Snoring "z Z Z" Floating Stream */
 .owl-snore-stream {
   position: absolute;
-  top: 25%;
-  left: 45%;
+  bottom: 120px;
+  left: calc(50% + 55px);
   pointer-events: none;
   z-index: 15;
 }
@@ -463,13 +478,15 @@
 /* Central Character Rig */
 .owl-character-rig {
   position: relative;
-  width: 240px;
-  height: 240px;
+  width: 260px;
+  height: 230px;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   z-index: 20;
+  margin-top: auto;
+  margin-bottom: 2px;
   transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
@@ -484,8 +501,8 @@
 /* Sleeping Cushion */
 .owl-bed-cushion {
   position: absolute;
-  bottom: 12px;
-  width: 220px;
+  bottom: 6px;
+  width: 240px;
   height: 48px;
   background: #f1dfbe;
   border-radius: 50%;
@@ -494,11 +511,13 @@
   z-index: 1;
 }
 
-/* The Owl Image Sprite (inside the game stage) */
+/* The Owl Image Sprite (inside the game stage) — BIG */
 .owl-character-rig .owl-sprite-img,
 #owl-game-character-sprite {
-  width: 190px;
-  height: 190px;
+  width: 205px !important;
+  height: 205px !important;
+  max-width: none !important;
+  max-height: none !important;
   object-fit: contain;
   position: relative;
   z-index: 5;
@@ -554,25 +573,25 @@
    DYNAMIC SPEECH CLOUD (THE OWL TALKING ABOUT ALEESHA)
    ========================================================================== */
 .owl-speech-bubble-wrap {
-  position: absolute;
-  top: 14px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 90%;
-  max-width: 560px;
+  position: relative;
+  width: 100%;
+  max-width: 580px;
   z-index: 28;
+  margin-top: 4px;
+  margin-bottom: 6px;
   pointer-events: none;
+  flex-shrink: 0;
 }
 
 .owl-speech-card {
   background: #ffffff;
   border: 2px solid #171717;
   border-radius: 12px;
-  padding: 12px 18px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12), 4px 4px 0 #FFBF00;
+  padding: 8px 15px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1), 3px 3px 0 #FFBF00;
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 4px;
   pointer-events: auto;
   position: relative;
   animation: owlBubbleIn 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
@@ -581,7 +600,7 @@
 @keyframes owlBubbleIn {
   from {
     opacity: 0;
-    transform: translateY(-10px) scale(0.96);
+    transform: translateY(-8px) scale(0.97);
   }
   to {
     opacity: 1;
@@ -593,14 +612,14 @@
 .owl-speech-card::after {
   content: '';
   position: absolute;
-  bottom: -10px;
+  bottom: -8px;
   left: 50%;
   transform: translateX(-50%);
   width: 0;
   height: 0;
-  border-left: 10px solid transparent;
-  border-right: 10px solid transparent;
-  border-top: 10px solid #171717;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 8px solid #171717;
 }
 
 .owl-speech-header {
