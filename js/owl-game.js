@@ -171,9 +171,9 @@
           title: 'Blinking & Stretching',
           owlPose: 'sit',
           status: 'Fashion Communication deadlines! 🎨',
-          dialogue: '“Aaargh! Alright, who opened the curtains?! I have major jury submissions! Aleesha is in her 3rd Year at NIFT Kannur doing B.Des Fashion Communication! She specializes in 3D spatial design, fashion styling, photography, and brand identity! Stop poking, my feathers are couture! ✨”',
+          dialogue: '“Aaargh! Alright, who opened the curtains?! I have major jury submissions! Aleesha is in her 4th Year at NIFT Kannur doing B.Des Fashion Communication! She specializes in 3D spatial design, fashion styling, photography, and brand identity! Stop poking, my feathers are couture! ✨”',
           preview: {
-            title: 'NIFT Kannur (3rd Year)',
+            title: 'NIFT Kannur (4th Year)',
             sub: 'B.Des Fashion Communication • 3D Spatial & Styling'
           }
         },
@@ -397,7 +397,7 @@
                     <div class="owl-victory-box-content">
                       • <strong>Institute:</strong> NIFT Kannur<br>
                       • <strong>Course:</strong> B.Des Fashion Communication<br>
-                      • <strong>Stage:</strong> 3rd Year<br>
+                      • <strong>Stage:</strong> 4th Year (Graduating 2027)<br>
                       • <strong>Focus:</strong> 3D Spatial Design, Styling, Visual Merchandising & Experience Design
                     </div>
                   </div>
