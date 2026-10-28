@@ -1003,16 +1003,52 @@ function initSolariProjects() {
   }
 
   // 2. Navigation switcher pills in detailed view
+  const closeTabBtn = document.getElementById('solari-detail-close-btn');
+  if (closeTabBtn) {
+    closeTabBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      closeSolariDetail();
+    });
+  }
+
+  // Intercept window titlebar close button when detail view is active
+  const winProjectsClose = document.querySelector('#window-projects .win-btn.btn-close');
+  if (winProjectsClose) {
+    winProjectsClose.addEventListener('click', (e) => {
+      if (detailView && detailView.style.display !== 'none') {
+        e.stopPropagation();
+        closeSolariDetail();
+      }
+    }, true);
+  }
+
+  // Click on empty nav bar space to close tab
+  const detailNav = document.querySelector('.solari-detail-nav');
+  if (detailNav) {
+    detailNav.addEventListener('click', (e) => {
+      if (!e.target.closest('button') && !e.target.closest('a') && !e.target.closest('.solari-detail-pills')) {
+        closeSolariDetail();
+      }
+    });
+  }
+
   switcherPills.forEach(pill => {
-    pill.addEventListener('click', () => {
+    pill.addEventListener('click', (e) => {
+      e.stopPropagation();
       const projId = pill.getAttribute('data-project-id');
+      // If user clicks the close cross or clicks the already-active tab pill, close it!
+      if (e.target.closest('.solari-pill-close') || (currentProjectId === projId)) {
+        closeSolariDetail();
+        return;
+      }
       if (projId) openSolariProject(projId);
     });
   });
 
   // 3. Back to All Projects Index button
   if (backBtn) {
-    backBtn.addEventListener('click', () => {
+    backBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
       closeSolariDetail();
     });
   }
@@ -1029,6 +1065,15 @@ function initSolariProjects() {
     const winTitle = document.querySelector('#window-projects .window-title-text');
     if (winTitle) winTitle.textContent = 'Projects & Works';
 
+    // Remove close cross from all pills
+    switcherPills.forEach(pill => {
+      pill.classList.remove('active');
+      const pId = pill.getAttribute('data-project-id');
+      const pData = SOLARI_PROJECTS_DATA.find(p => p.id === pId);
+      const label = pData ? `${pData.num} ${pData.tabName}` : pill.textContent.replace('✕', '').trim();
+      pill.innerHTML = `<span>${label}</span>`;
+    });
+
     if (detailView) detailView.style.display = 'none';
     if (overviewView) overviewView.style.display = 'block';
     currentProjectId = null;
@@ -1039,6 +1084,9 @@ function initSolariProjects() {
     if (wrap) wrap.scrollIntoView({ behavior: 'smooth', block: 'start' });
     if (content) content.scrollTop = 0;
   }
+
+  // Expose globally so WindowManager can reset detail view when closing window
+  window.closeSolariDetail = closeSolariDetail;
 
   // 4. Open specific project
   function openSolariProject(projId) {
@@ -1071,9 +1119,18 @@ function initSolariProjects() {
       winTitle.textContent = `${proj.num} ${proj.tabName} — Projects & Works`;
     }
 
-    // Update active nav pill
+    // Update active nav pill with close cross icon
     switcherPills.forEach(pill => {
-      pill.classList.toggle('active', pill.getAttribute('data-project-id') === proj.id);
+      const isActive = pill.getAttribute('data-project-id') === proj.id;
+      pill.classList.toggle('active', isActive);
+      const pId = pill.getAttribute('data-project-id');
+      const pData = SOLARI_PROJECTS_DATA.find(p => p.id === pId);
+      const label = pData ? `${pData.num} ${pData.tabName}` : pill.textContent.replace('✕', '').trim();
+      if (isActive) {
+        pill.innerHTML = `<span>${label}</span><span class="solari-pill-close" title="Close this tab">✕</span>`;
+      } else {
+        pill.innerHTML = `<span>${label}</span>`;
+      }
     });
 
     // Render Case Study in detail body

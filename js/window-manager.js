@@ -20,12 +20,43 @@ class WindowManager {
       this.registerWindow(id, winEl);
     });
 
-    // Window global clicks for focus
+    // Window global clicks: focus when clicking inside, close when clicking outside ("out of the tab")
     document.addEventListener('mousedown', (e) => {
       const winEl = e.target.closest('.os-window');
       if (winEl) {
         const id = winEl.id.replace('window-', '');
         this.bringToFront(id);
+        return;
+      }
+
+      // Ignore clicks on taskbar, start menu, desktop launchers, system flyouts, owl companion
+      if (
+        e.target.closest('#taskbar') ||
+        e.target.closest('#start-menu') ||
+        e.target.closest('.mockup-icon') ||
+        e.target.closest('.dock-btn') ||
+        e.target.closest('.desktop-icon') ||
+        e.target.closest('.system-flyout') ||
+        e.target.closest('#owl-companion-container')
+      ) {
+        return;
+      }
+
+      // Click was outside any open window / tab: close all open windows!
+      this.closeAllOpen();
+    });
+
+    // Escape key closes active project tab or active window
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        const detailView = document.getElementById('solari-detail-view');
+        if (detailView && detailView.style.display !== 'none' && typeof window.closeSolariDetail === 'function') {
+          window.closeSolariDetail();
+          return;
+        }
+        if (this.activeWindowId) {
+          this.close(this.activeWindowId);
+        }
       }
     });
 
@@ -250,6 +281,10 @@ class WindowManager {
     const data = this.windows.get(id);
     if (!data) return;
 
+    if (id === 'projects' && typeof window.closeSolariDetail === 'function') {
+      window.closeSolariDetail();
+    }
+
     this.pauseVideosInside(data.el);
     data.isOpen = false;
     data.isMinimized = false;
@@ -264,6 +299,14 @@ class WindowManager {
     }
 
     this.updateTaskbar(id);
+  }
+
+  closeAllOpen() {
+    this.windows.forEach((data, id) => {
+      if (data.isOpen && !data.isMinimized) {
+        this.close(id);
+      }
+    });
   }
 
   minimizeAll() {

@@ -24,9 +24,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700;800;900&family=Plus+Jakarta+Sans:wght@500;600;700;800;900&display=swap" rel="stylesheet">
 
   <!-- Core Stylesheets -->
-  <link rel="stylesheet" href="css/styles.css?v=31">
-  <link rel="stylesheet" href="css/boot-welcome.css?v=31">
-  <link rel="stylesheet" href="css/apps.css?v=31">
+  <link rel="stylesheet" href="css/styles.css?v=32">
+  <link rel="stylesheet" href="css/boot-welcome.css?v=32">
+  <link rel="stylesheet" href="css/apps.css?v=32">
 </head>
 
 <body>
@@ -625,27 +625,36 @@
           <div class="solari-detail-view" id="solari-detail-view" style="display: none;">
             <!-- Navigation Bar in Detailed View -->
             <div class="solari-detail-nav">
-              <button class="solari-back-btn" id="solari-back-btn">
+              <button class="solari-back-btn" id="solari-back-btn" title="Close project tab and return to overview (Esc)">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
                   <line x1="19" y1="12" x2="5" y2="12" />
                   <polyline points="12 19 5 12 12 5" />
                 </svg>
-                <span>All Projects Index</span>
+                <span>← Back to Folders</span>
               </button>
               <div class="solari-detail-pills" id="solari-project-switcher-pills">
-                <button class="solari-nav-pill active" data-project-id="emak">01 EMAK</button>
-                <button class="solari-nav-pill" data-project-id="neithi">02 NEITHI</button>
-                <button class="solari-nav-pill" data-project-id="radiomango">03 THIRA</button>
-                <button class="solari-nav-pill" data-project-id="mandap">04 MANDAP</button>
-                <button class="solari-nav-pill" data-project-id="anime">05 ANIME</button>
-                <button class="solari-nav-pill" data-project-id="sarah-cohen">06 SARAH COHEN</button>
-                <button class="solari-nav-pill" data-project-id="lumina">07 LUMINA</button>
-                <button class="solari-nav-pill" data-project-id="beast-games">08 BEAST GAMES</button>
+                <button class="solari-nav-pill active" data-project-id="emak"><span>01 EMAK</span><span class="solari-pill-close" title="Close Tab">✕</span></button>
+                <button class="solari-nav-pill" data-project-id="neithi"><span>02 NEITHI</span></button>
+                <button class="solari-nav-pill" data-project-id="radiomango"><span>03 THIRA</span></button>
+                <button class="solari-nav-pill" data-project-id="mandap"><span>04 MANDAP</span></button>
+                <button class="solari-nav-pill" data-project-id="anime"><span>05 ANIME</span></button>
+                <button class="solari-nav-pill" data-project-id="sarah-cohen"><span>06 SARAH COHEN</span></button>
+                <button class="solari-nav-pill" data-project-id="lumina"><span>07 LUMINA</span></button>
+                <button class="solari-nav-pill" data-project-id="beast-games"><span>08 BEAST GAMES</span></button>
               </div>
-              <a href="#" target="_blank" rel="noopener noreferrer" class="solari-detail-fullscreen-btn" id="solari-detail-fullscreen-link" title="Open full screen in a new tab">
-                <span>Open Fullscreen</span>
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-              </a>
+              <div class="solari-detail-nav-actions">
+                <a href="#" target="_blank" rel="noopener noreferrer" class="solari-detail-fullscreen-btn" id="solari-detail-fullscreen-link" title="Open full screen in a new tab">
+                  <span>Open Fullscreen</span>
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                </a>
+                <button class="solari-detail-close-btn" id="solari-detail-close-btn" title="Close Project Tab (Esc)">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                  </svg>
+                  <span>Close Tab ✕</span>
+                </button>
+              </div>
             </div>
 
             <!-- Injected Detailed Case Study Content -->
@@ -2011,11 +2020,11 @@
 
   <!-- Core Script Modules -->
   <script src="js/audio.js"></script>
-  <script src="js/window-manager.js"></script>
-  <script src="js/apps.js?v=31"></script>
-  <script src="js/main.js?v=31"></script>
-  <script src="js/welcome.js?v=31"></script>
-  <script src="js/owl-companion.js?v=31"></script>
+  <script src="js/window-manager.js?v=32"></script>
+  <script src="js/apps.js?v=32"></script>
+  <script src="js/main.js?v=32"></script>
+  <script src="js/welcome.js?v=32"></script>
+  <script src="js/owl-companion.js?v=32"></script>
 </body>
 
 </html>
