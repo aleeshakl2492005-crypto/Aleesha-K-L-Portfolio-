@@ -1,7 +1,12 @@
 # Ignore files over GitHub's 100MB limit
 assets/Internship Doc.pdf
-3d space/
-*.glb
-*.gltf
+3d space/originals/
+beyond the brief/Apple health app jury.pdf
+beyond the brief/Elle Magazine  (1).pdf
+
+# Ignore 3D source/blend files
 *.blend
 *.blend1
+
+# Temporary scripts
+scratch_*.py

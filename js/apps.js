@@ -1927,24 +1927,24 @@ function init3DStudio() {
       name: "Radio Mango × Bharath Benz Stage Truck",
       file: "3d space/thira truck .glb",
       fileName: "thira truck .glb",
-      size: "203 MB",
-      badge: "Radio Mango Truck (203 MB)"
+      size: "31 MB",
+      badge: "Radio Mango Truck (31 MB)"
     },
     stall: {
       id: "stall",
       name: "Neithi Exhibition Stall Pavilion",
       file: "3d space/neithi stall1.glb",
       fileName: "neithi stall1.glb",
-      size: "210 MB",
-      badge: "Neithi Stall (210 MB)"
+      size: "87 MB",
+      badge: "Neithi Stall (87 MB)"
     },
     radiomango: {
       id: "radiomango",
       name: "Radio Mango Spadikam Arena Stage",
       file: "3d space/thira radio mango_17004_autosave.glb",
       fileName: "thira radio mango_17004_autosave.glb",
-      size: "507 MB",
-      badge: "Spadikam Arena (507 MB)"
+      size: "67 MB",
+      badge: "Spadikam Arena (67 MB)"
     }
   };
 
