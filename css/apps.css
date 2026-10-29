@@ -2,7 +2,9 @@
    ALEESHA OS - APPS STYLING
    File Explorer, Resume PDF Viewer, 3D Studio, UI/UX Lab, Notepad,
    PowerShell Terminal, Mail Client, Groove Player, Recycle Bin
-   ========================================================================== */
+:root {
+  --font-display: 'Plus Jakarta Sans', 'Outfit', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
 
 /* --------------------------------------------------------------------------
    1. FILE EXPLORER (PROJECTS)
@@ -593,966 +595,865 @@
 }
 
 /* ==========================================================================
-   SOLARI DETAILED CASE STUDY VIEW (Full-Bleed Matching Projects Window Size)
+   3. ABOUT ALEESHA — Natural Corkboard Scrapbook & Pinboard (James Chugh Style)
    ========================================================================== */
-.solari-window-content.is-detail-active {
-  overflow: hidden !important;
-  display: flex !important;
-  flex-direction: column !important;
-  background: #0d0b18 !important;
-  flex: 1 1 0% !important;
-  min-height: 0 !important;
-  height: auto !important;
+
+.about-window-body {
+  position: relative;
+  padding: 0;
+  background: #2b1d12;
+  overflow-y: auto;
+  overflow-x: hidden;
+  height: 100%;
 }
 
-.solari-window-content.is-detail-active .solari-projects-wrap {
-  padding: 0 !important;
-  margin: 0 !important;
-  width: 100% !important;
+/* Toast Notification for Copied Email */
+.about-toast {
+  position: fixed;
+  top: 60px;
+  right: 24px;
+  background: #0f172a;
+  color: #38bdf8;
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 9px 18px;
+  border-radius: 999px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(56, 189, 248, 0.35);
+  z-index: 999999;
+  opacity: 0;
+  transform: translateY(-10px) scale(0.96);
+  pointer-events: none;
+  transition: all 0.28s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.about-toast.show {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+/* ==========================================================================
+   ABOUT ME (DRAGGABLE NOTICEBOARD & CORKBOARD PINBOARD)
+   Inspired by James Chugh / tactile pinboard design.
+   Supports freeform dragging, non-scrollable spacious canvas, and ambient lamp.
+   ========================================================================== */
+
+/* Non-scrollable About Window Body */
+.about-window-body {
+  overflow: hidden !important;
   height: 100% !important;
-  max-width: 100% !important;
   display: flex !important;
   flex-direction: column !important;
-  flex: 1 !important;
-  overflow: hidden !important;
+  position: relative !important;
+  background: #2b1d0c;
 }
 
-.solari-window-content.is-detail-active .solari-detail-view {
-  display: flex !important;
-  flex-direction: column !important;
-  width: 100% !important;
-  height: 100% !important;
-  flex: 1 !important;
-  overflow: hidden !important;
-  animation: none !important;
+/* Corkboard Wrapper */
+.corkboard-wrapper {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  background-color: #be8e5f;
+  background-image: url('../assets/about/corkboard.jpg');
+  background-repeat: repeat;
+  background-size: 380px 380px;
+  padding: 12px 18px 12px;
+  box-shadow: inset 0 0 90px rgba(0, 0, 0, 0.55);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-sizing: border-box;
+  transition: filter 0.4s ease, box-shadow 0.4s ease;
 }
 
-.solari-detail-nav {
+/* Day / Night Ambient Lamp Modes */
+.corkboard-wrapper.night-mode {
+  box-shadow: inset 0 0 160px rgba(0, 0, 0, 0.85), inset 0 0 70px rgba(245, 158, 11, 0.22);
+  filter: brightness(0.92) contrast(1.05);
+}
+
+/* Top Action Bar Pinned to Board */
+.cork-top-bar {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 12px;
-  padding: 8px 16px;
-  margin-bottom: 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
-  background: #181524;
-  color: #f1f5f9;
-  flex-shrink: 0;
-  z-index: 50;
-  box-sizing: border-box;
-}
-
-.solari-back-btn {
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  color: #f8fafc;
-  padding: 6px 14px;
-  border-radius: 8px;
-  font-size: 0.82rem;
-  font-weight: 700;
-  display: flex;
-  align-items: center;
-  gap: 7px;
-  cursor: pointer;
-  transition: all 0.18s ease;
-  white-space: nowrap;
-}
-
-.solari-back-btn:hover {
-  background: rgba(255, 255, 255, 0.18);
-  border-color: rgba(255, 255, 255, 0.32);
-  color: #ffffff;
-  transform: translateY(-1px);
-}
-
-.solari-detail-pills {
-  display: flex;
-  align-items: center;
-  gap: 6px;
+  margin-bottom: 12px;
   flex-wrap: wrap;
-}
-
-.solari-nav-pill {
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  color: #cbd5e1;
-  padding: 5px 12px;
-  border-radius: 6px;
-  font-size: 0.76rem;
-  font-weight: 700;
-  cursor: pointer;
-  transition: all 0.15s ease;
-  white-space: nowrap;
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-}
-
-.solari-nav-pill:hover {
-  background: rgba(255, 255, 255, 0.14);
-  color: #ffffff;
-  border-color: rgba(255, 255, 255, 0.25);
-}
-
-.solari-nav-pill.active {
-  background: #7c3aed;
-  color: #ffffff;
-  border-color: #9333ea;
-  box-shadow: 0 0 12px rgba(124, 58, 237, 0.4);
-}
-
-.solari-detail-nav-actions {
-  display: flex;
-  align-items: center;
-  gap: 8px;
+  z-index: 50;
+  position: relative;
   flex-shrink: 0;
 }
 
-.solari-detail-fullscreen-btn {
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  color: #cbd5e1;
-  font-size: 0.78rem;
-  font-weight: 700;
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
+.cork-badge-pill {
+  background: rgba(28, 25, 23, 0.92);
+  backdrop-filter: blur(8px);
+  color: #f5f5f4;
+  border-radius: 999px;
   padding: 6px 14px;
-  border-radius: 8px;
-  transition: all 0.18s ease;
-  white-space: nowrap;
-}
-
-.solari-detail-fullscreen-btn:hover {
-  color: #ffffff;
-  background: rgba(255, 255, 255, 0.16);
-  border-color: rgba(255, 255, 255, 0.25);
-}
-
-.solari-detail-body {
-  flex: 1;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  position: relative;
-  display: flex;
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-.solari-full-case-iframe {
-  width: 100%;
-  height: 100%;
-  flex: 1;
-  border: none;
-  display: block;
-  background: transparent;
-}
-
-/* Detailed Case Study Card */
-.solari-case-card {
-  background: #ffffff;
-  border: 2px solid #1c1917;
-  border-radius: 24px;
-  overflow: hidden;
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08);
-  margin-bottom: 40px;
-}
-
-.solari-case-hero {
-  background: var(--case-color, #c4b5fd);
-  color: #1e1b4b;
-  padding: 36px 40px;
-  position: relative;
-  border-bottom: 2px solid #1c1917;
-}
-
-.solari-case-index {
-  font-size: 0.82rem;
+  font-size: 0.70rem;
   font-weight: 800;
   letter-spacing: 0.08em;
-  text-transform: uppercase;
-  background: rgba(255, 255, 255, 0.65);
-  color: #1c1917;
-  border: 1px solid rgba(0, 0, 0, 0.12);
-  display: inline-block;
-  padding: 4px 12px;
-  border-radius: 14px;
-  margin-bottom: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
 }
 
-.solari-case-title {
-  font-size: 2.2rem;
-  font-weight: 900;
-  line-height: 1.2;
-  margin-bottom: 8px;
-  letter-spacing: -0.01em;
-  color: #0f172a;
+.cork-badge-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #22c55e;
+  box-shadow: 0 0 8px #22c55e;
 }
 
-.solari-case-subtitle {
-  font-size: 1.05rem;
-  font-weight: 600;
-  color: #334155;
-  max-width: 800px;
-  margin-bottom: 20px;
-}
-
-.solari-case-meta-row {
+.cork-controls-group {
   display: flex;
+  align-items: center;
+  gap: 8px;
   flex-wrap: wrap;
-  gap: 10px;
 }
 
-.solari-meta-badge {
-  background: rgba(255, 255, 255, 0.65);
-  border: 1px solid rgba(0, 0, 0, 0.12);
-  color: #0f172a;
-  padding: 5px 14px;
-  border-radius: 20px;
-  font-size: 0.8rem;
-  font-weight: 800;
-}
-
-.solari-case-content {
-  padding: 36px 40px;
-}
-
-/* Segmented Media Switcher */
-.solari-media-tabs {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 24px;
-  border-bottom: 2px solid #f5f5f4;
-  padding-bottom: 12px;
-  overflow-x: auto;
-}
-
-.solari-media-tab-btn {
-  background: #f5f5f4;
-  border: 1.5px solid transparent;
-  color: #57534e;
-  padding: 8px 18px;
-  border-radius: 12px;
-  font-size: 0.84rem;
-  font-weight: 800;
+.cork-ctrl-btn {
+  background: rgba(28, 25, 23, 0.9);
+  backdrop-filter: blur(8px);
+  color: #f5f5f4;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 999px;
+  padding: 6px 14px;
+  font-size: 0.74rem;
+  font-weight: 700;
   cursor: pointer;
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 8px;
-  transition: all 0.2s ease;
-  white-space: nowrap;
+  gap: 7px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.28);
+  transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+  user-select: none;
 }
 
-.solari-media-tab-btn:hover {
-  background: #e7e5e4;
-  color: #1c1917;
-}
-
-.solari-media-tab-btn.active {
-  background: #1c1917;
+.cork-ctrl-btn:hover {
+  transform: translateY(-2px);
+  background: #0c0a09;
   color: #ffffff;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border-color: rgba(255, 255, 255, 0.35);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
 }
 
-/* Render Gallery Grid */
-.solari-gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 16px;
-  margin-bottom: 32px;
+.cork-ctrl-btn:active {
+  transform: translateY(0);
 }
 
-.solari-gallery-item {
-  border-radius: 14px;
-  overflow: hidden;
-  position: relative;
-  background: #1c1917;
-  cursor: pointer;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
-  aspect-ratio: 16 / 10;
+/* Music Button Specifics (James Chugh Style) */
+.cork-ctrl-btn.music-btn .rec-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #ef4444;
+  box-shadow: 0 0 6px rgba(239, 68, 68, 0.8);
 }
 
-.solari-gallery-img {
+.cork-ctrl-btn.music-btn.playing .rec-dot {
+  animation: recPulse 1.2s ease-in-out infinite;
+}
+
+@keyframes recPulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.35); opacity: 0.6; }
+}
+
+.cork-ctrl-btn.music-btn .music-arrow {
+  color: #c084fc;
+  font-size: 0.7rem;
+}
+
+/* 3D Realistic Push Pins (Noticeboard Thumbtacks) */
+.cork-pin {
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  z-index: 25;
+  pointer-events: none;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.48), 0 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+.cork-pin::before {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 3px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.85);
+  filter: blur(0.5px);
+}
+
+.cork-pin.pin-red {
+  background: radial-gradient(circle at 35% 35%, #ff7675 0%, #d63031 60%, #751515 100%);
+}
+.cork-pin.pin-blue {
+  background: radial-gradient(circle at 35% 35%, #74b9ff 0%, #0984e3 60%, #0c3866 100%);
+}
+.cork-pin.pin-green {
+  background: radial-gradient(circle at 35% 35%, #55efc4 0%, #00b894 60%, #004d3d 100%);
+}
+.cork-pin.pin-yellow {
+  background: radial-gradient(circle at 35% 35%, #ffeaa7 0%, #fdcb6e 60%, #b7791f 100%);
+}
+.cork-pin.pin-purple {
+  background: radial-gradient(circle at 35% 35%, #f472b6 0%, #db2777 60%, #831843 100%);
+}
+
+/* Main Corkboard Surface (Spacious Freeform Canvas - Non-scrollable) */
+.corkboard-surface {
+  flex: 1;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  position: relative;
+  overflow: hidden;
   display: block;
-  transition: transform 0.35s ease;
 }
 
-.solari-gallery-item:hover .solari-gallery-img {
-  transform: scale(1.06);
-}
-
-.solari-gallery-overlay {
+/* Draggable Items Base Styling */
+.cork-item {
   position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, transparent 40%, rgba(0, 0, 0, 0.75) 100%);
-  display: flex;
-  align-items: flex-end;
-  padding: 14px 16px;
-  color: #ffffff;
-  font-size: 0.8rem;
+  cursor: grab;
+  user-select: none;
+  touch-action: none;
+  transition: transform 0.22s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.22s ease;
+}
+
+.cork-item:hover {
+  z-index: 80 !important;
+}
+
+.cork-item.is-dragging {
+  cursor: grabbing !important;
+  transform: scale(1.05) rotate(0deg) !important;
+  box-shadow: 0 28px 56px rgba(0, 0, 0, 0.48), 0 4px 12px rgba(0, 0, 0, 0.3) !important;
+  z-index: 9999 !important;
+  transition: none !important;
+}
+
+.cork-item.is-resetting {
+  transition: left 0.45s cubic-bezier(0.34, 1.56, 0.64, 1), top 0.45s cubic-bezier(0.34, 1.56, 0.64, 1), transform 0.45s ease !important;
+}
+
+/* ==========================================================
+   SCATTERED PLAYFUL STATIONERY & NOTES
+   ========================================================== */
+
+/* 1. Intro Note Card ("Hi, I'm Aleesha") */
+.note-intro-card {
+  position: absolute;
+  width: 235px;
+  background: #fffdf9;
+  border-radius: 4px;
+  padding: 12px 14px 10px 14px;
+  color: #1e293b;
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.22);
+  border-left: 4px solid #ef4444;
+  transform: rotate(1.2deg);
+  z-index: 12;
+  box-sizing: border-box;
+}
+
+.note-intro-card:hover {
+  transform: rotate(0deg) translateY(-3px) scale(1.02);
+}
+
+.note-intro-card .note-tag {
+  font-size: 0.58rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: #ef4444;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 2px;
+}
+
+.note-intro-card .note-title {
+  font-size: 1.08rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0 0 4px;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.note-intro-card .note-sub {
+  font-size: 0.74rem;
   font-weight: 700;
-  opacity: 0;
-  transition: opacity 0.25s ease;
+  color: #475569;
+  margin: 0 0 6px;
 }
 
-.solari-gallery-item:hover .solari-gallery-overlay {
-  opacity: 1;
+.note-intro-card .note-p {
+  font-size: 0.71rem;
+  color: #334155;
+  line-height: 1.35;
+  margin: 0;
 }
 
-.solari-gallery-zoom-badge {
+/* 2. Blue Blueprint / Graph Paper Note (Obsessions & Late-Night Rituals) */
+.note-grid-obsessions {
   position: absolute;
-  top: 10px;
-  right: 10px;
-  background: rgba(0, 0, 0, 0.65);
-  backdrop-filter: blur(6px);
-  color: #ffffff;
-  padding: 4px 8px;
-  border-radius: 6px;
-  font-size: 0.72rem;
+  width: 220px;
+  background-color: #f0f9ff;
+  background-image: 
+    linear-gradient(#e0f2fe 1px, transparent 1px),
+    linear-gradient(90deg, #e0f2fe 1px, transparent 1px);
+  background-size: 13px 13px;
+  border-radius: 3px;
+  padding: 12px 12px 10px;
+  color: #0f172a;
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.22);
+  border: 1px solid #bae6fd;
+  transform: rotate(-1.5deg);
+  z-index: 12;
+  box-sizing: border-box;
+}
+
+.note-grid-obsessions:hover {
+  transform: rotate(0deg) translateY(-3px) scale(1.02);
+}
+
+.note-grid-obsessions .grid-header {
   display: flex;
   align-items: center;
+  gap: 5px;
+  font-size: 0.73rem;
+  font-weight: 800;
+  color: #0369a1;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 6px;
+  padding-bottom: 3px;
+  border-bottom: 1px dashed #7dd3fc;
+}
+
+.note-grid-obsessions .grid-bullets {
+  margin: 0;
+  padding-left: 14px;
+  display: flex;
+  flex-direction: column;
   gap: 4px;
 }
 
-/* Video Player Container */
-.solari-video-container {
-  margin-bottom: 32px;
-  border-radius: 16px;
-  overflow: hidden;
-  background: #0c0a09;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
-  position: relative;
+.note-grid-obsessions .grid-bullets li {
+  font-size: 0.69rem;
+  color: #1e293b;
+  line-height: 1.28;
 }
 
-.solari-video-player {
-  width: 100%;
-  max-height: 460px;
-  display: block;
-  outline: none;
-}
-
-.solari-video-caption {
-  padding: 12px 18px;
-  background: #1c1917;
-  color: #d6d3d1;
-  font-size: 0.82rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-/* Case Narrative Sections */
-.solari-sections-grid {
-  display: grid;
-  grid-template-columns: 3fr 2fr;
-  gap: 32px;
-  margin-bottom: 32px;
-}
-
-@media (max-width: 860px) {
-  .solari-sections-grid {
-    grid-template-columns: 1fr;
-  }
-  .solari-folder-preview-row {
-    flex-direction: column;
-    align-items: stretch;
-  }
-  .solari-folder-thumb-col {
-    width: 100%;
-  }
-}
-
-.solari-section-block {
-  background: #fafaf9;
-  border: 1.5px solid #e7e5e4;
-  border-radius: 16px;
-  padding: 24px;
-  margin-bottom: 20px;
-}
-
-.solari-section-block h3 {
-  font-size: 1.15rem;
-  font-weight: 800;
-  color: #1c1917;
-  margin-bottom: 12px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.solari-section-block p {
-  font-size: 0.92rem;
-  color: #44403c;
-  line-height: 1.65;
-  margin-bottom: 12px;
-}
-
-.solari-section-block p:last-child {
-  margin-bottom: 0;
-}
-
-.solari-specs-list {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.solari-spec-row {
-  display: flex;
-  justify-content: space-between;
-  padding-bottom: 8px;
-  border-bottom: 1px solid #e7e5e4;
-  font-size: 0.86rem;
-}
-
-.solari-spec-label {
-  font-weight: 700;
-  color: #78716c;
-}
-
-.solari-spec-value {
-  font-weight: 800;
-  color: #1c1917;
-  text-align: right;
-}
-
-.solari-materials-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-top: 10px;
-}
-
-.solari-mat-pill {
-  background: #ffffff;
-  border: 1px solid #d6d3d1;
-  color: #292524;
-  padding: 5px 12px;
-  border-radius: 8px;
-  font-size: 0.8rem;
-  font-weight: 700;
-}
-
-/* Lightbox Modal */
-.solari-lightbox {
-  position: fixed;
-  inset: 0;
-  z-index: 100010;
-  display: none;
-  align-items: center;
-  justify-content: center;
-  padding: 24px;
-}
-
-.solari-lightbox.open {
-  display: flex;
-}
-
-.solari-lightbox-backdrop {
+/* 3. Kraft Paper Note (Offline Mode & Adventures) */
+.note-kraft-offline {
   position: absolute;
-  inset: 0;
-  background: rgba(12, 10, 9, 0.88);
-  backdrop-filter: blur(14px);
+  width: 220px;
+  background-color: #fefce8;
+  background-image: repeating-linear-gradient(transparent, transparent 17px, #fef08a 17px, #fef08a 18px);
+  border-radius: 3px;
+  padding: 12px 12px 10px;
+  color: #422006;
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.22);
+  border-left: 3px solid #eab308;
+  transform: rotate(1.8deg);
+  z-index: 12;
+  box-sizing: border-box;
 }
 
-.solari-lightbox-dialog {
-  position: relative;
-  z-index: 2;
-  max-width: 92vw;
-  max-height: 90vh;
-  display: flex;
-  flex-direction: column;
-  background: #1c1917;
-  border: 1.5px solid rgba(255, 255, 255, 0.2);
-  border-radius: 18px;
-  overflow: hidden;
-  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5);
-  animation: lightboxZoom 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+.note-kraft-offline:hover {
+  transform: rotate(0deg) translateY(-3px) scale(1.02);
 }
 
-@keyframes lightboxZoom {
-  0% { transform: scale(0.92); opacity: 0; }
-  100% { transform: scale(1); opacity: 1; }
-}
-
-.solari-lightbox-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 14px 20px;
-  background: #292524;
-  color: #ffffff;
-}
-
-.solari-lightbox-caption {
-  font-size: 0.92rem;
+.note-kraft-offline .kraft-header {
+  font-size: 0.73rem;
   font-weight: 800;
+  color: #854d0e;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 5px;
 }
 
-.solari-lightbox-close {
-  background: transparent;
-  border: none;
-  color: #ffffff;
-  cursor: pointer;
-  padding: 4px;
-  border-radius: 6px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.solari-lightbox-close:hover {
-  background: rgba(255, 255, 255, 0.15);
-}
-
-.solari-lightbox-content {
-  overflow: auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 12px;
-  background: #0c0a09;
-}
-
-.solari-lightbox-img {
-  max-width: 100%;
-  max-height: 78vh;
-  object-fit: contain;
-  border-radius: 8px;
-}
-
-
-/* --------------------------------------------------------------------------
-   2. RESUME PDF VIEWER (Pure White Theme)
-   -------------------------------------------------------------------------- */
-.resume-viewer-wrap {
+.note-kraft-offline .kraft-bullets {
+  margin: 0;
+  padding-left: 14px;
   display: flex;
   flex-direction: column;
-  height: 100%;
-  background: #ffffff;
+  gap: 4px;
 }
 
-.resume-toolbar {
-  height: 44px;
+.note-kraft-offline .kraft-bullets li {
+  font-size: 0.69rem;
+  color: #713f12;
+  line-height: 1.28;
+}
+
+/* 4. Cute Pastel Pink Scrap (Secret Superpower) */
+.note-scrap-superpower {
+  position: absolute;
+  width: 195px;
+  background: #fdf2f8;
+  border-radius: 5px;
+  padding: 10px 12px 8px;
+  color: #831843;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  border-bottom: 3px solid #f472b6;
+  transform: rotate(-2.5deg);
+  z-index: 12;
+  box-sizing: border-box;
+}
+
+.note-scrap-superpower:hover {
+  transform: rotate(0deg) translateY(-3px) scale(1.02);
+}
+
+.note-scrap-superpower .scrap-tag {
+  font-size: 0.64rem;
+  font-weight: 800;
+  color: #db2777;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 2px;
+}
+
+.note-scrap-superpower .scrap-text {
+  font-size: 0.71rem;
+  color: #9d174d;
+  line-height: 1.32;
+  font-weight: 600;
+  margin: 0 0 3px;
+}
+
+.note-scrap-superpower .scrap-doodle {
+  font-size: 0.62rem;
+  color: #ec4899;
+  font-style: italic;
+  text-align: right;
+  display: block;
+}
+
+/* 5. Field Note / Creative Philosophy Index Card */
+.pinned-ethos-card {
+  position: absolute;
+  width: 235px;
+  background: #fffdf5;
+  border-radius: 4px;
+  padding: 10px 13px 10px;
+  color: #1e293b;
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.22);
+  border-top: 3px solid #f43f5e;
+  transform: rotate(-1.5deg);
+  z-index: 12;
+  box-sizing: border-box;
+  background-image: repeating-linear-gradient(transparent, transparent 18px, #f1f5f9 18px, #f1f5f9 19px);
+}
+
+.pinned-ethos-card:hover {
+  transform: rotate(0deg) translateY(-3px) scale(1.02);
+}
+
+.ethos-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 3px;
+}
+
+.ethos-stamp {
+  font-size: 0.58rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: #f43f5e;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.ethos-date {
+  font-size: 0.56rem;
+  font-weight: 700;
+  color: #64748b;
+  letter-spacing: 0.05em;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.ethos-title {
+  font-size: 0.78rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 2px 0 3px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.ethos-text {
+  font-size: 0.70rem;
+  color: #334155;
+  line-height: 1.35;
+  margin: 0;
+  font-style: italic;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+/* Polaroid Photo Cards */
+.polaroid-card {
+  position: absolute;
+  width: 128px;
   background: #ffffff;
-  border-bottom: 1px solid #f1f5f9;
+  padding: 8px 8px 12px;
+  border-radius: 3px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.22), 0 2px 5px rgba(0, 0, 0, 0.15);
+  cursor: grab;
+  user-select: none;
+  z-index: 10;
+}
+
+.polaroid-card:hover {
+  transform: translateY(-4px) scale(1.04) rotate(0deg) !important;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.38);
+}
+
+.polaroid-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.polaroid-frame {
+  width: 100%;
+  aspect-ratio: 1;
+  overflow: hidden;
+  background: #f1f5f9;
+  border-radius: 2px;
+}
+
+.polaroid-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  pointer-events: none;
+}
+
+/* Handwritten Marker Caption (Patrick Hand / Caveat) */
+.polaroid-handwriting {
+  font-family: 'Patrick Hand', 'Caveat', cursive;
+  font-size: 0.84rem;
+  color: #1e293b;
+  text-align: center;
+  margin-top: 6px;
+  line-height: 1.15;
+  letter-spacing: 0.01em;
+  pointer-events: none;
+}
+
+/* Natural Scattered Tilts */
+.card-tilt-left {
+  transform: rotate(-3deg);
+}
+.card-tilt-right {
+  transform: rotate(2.8deg);
+}
+.card-tilt-slight-left {
+  transform: rotate(-1.5deg);
+}
+.card-tilt-right-lg {
+  transform: rotate(3.8deg);
+}
+.card-tilt-left-sm {
+  transform: rotate(-2deg);
+}
+.card-tilt-right-sm {
+  transform: rotate(1.8deg);
+}
+
+/* Pinned Music Player Card (James Chugh Style with Spinning Vinyl) */
+.pinned-music-card {
+  position: absolute;
+  background: linear-gradient(135deg, #ec4899 0%, #8b5cf6 50%, #3b82f6 100%);
+  border-radius: 12px;
+  padding: 10px 14px;
+  color: #ffffff;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.28);
+  transform: rotate(-2deg);
+  z-index: 12;
+}
+
+.pinned-music-card:hover {
+  transform: rotate(0deg) translateY(-3px) scale(1.02);
+  box-shadow: 0 16px 34px rgba(0, 0, 0, 0.38);
+}
+
+.music-card-body {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 0 20px;
+  gap: 12px;
+  position: relative;
+}
+
+.music-cover-wrap {
+  position: relative;
+  width: 44px;
+  height: 44px;
   flex-shrink: 0;
 }
 
-.resume-tool-left {
+.music-cover {
+  width: 44px;
+  height: 44px;
+  background: rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(4px);
+  border-radius: 8px;
   display: flex;
   align-items: center;
-  gap: 12px;
-  font-size: 0.82rem;
-  color: #0f172a;
-  font-weight: 500;
-}
-
-.resume-tool-actions {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.resume-email-btn {
-  background: #f0fdf4;
-  border: 1px solid #86efac;
-  color: #15803d;
-  padding: 6px 14px;
-  border-radius: 6px;
-  font-size: 0.8rem;
-  font-weight: 600;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  cursor: pointer;
-  text-decoration: none;
-  transition: all 0.15s ease;
-}
-
-.resume-email-btn:hover {
-  background: #16a34a;
-  border-color: #16a34a;
-  color: #ffffff;
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(22, 163, 74, 0.25);
-}
-
-.resume-download-btn {
-  background: #0078d4;
-  border: 1px solid #106ebe;
-  color: #fff;
-  padding: 6px 16px;
-  border-radius: 6px;
-  font-size: 0.8rem;
-  font-weight: 600;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  cursor: pointer;
-  text-decoration: none;
-  transition: all 0.15s;
-}
-
-.resume-download-btn:hover {
-  background: #106ebe;
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(0, 120, 212, 0.25);
-}
-
-.resume-paper-container {
-  flex: 1;
-  overflow-y: auto;
-  padding: 16px 24px 48px;
-  display: flex;
   justify-content: center;
-  background: #ffffff;
+  font-size: 1.15rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  position: relative;
+  z-index: 2;
 }
 
-.resume-paper {
-  width: 100%;
-  max-width: 820px;
-  background: #ffffff;
-  color: #1e293b;
-  border-radius: 0;
-  box-shadow: none;
-  padding: 16px 20px 48px;
-  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+.vinyl-disc {
+  position: absolute;
+  right: -18px;
+  top: 3px;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #2d3748 18%, #1a202c 40%, #0f172a 100%);
+  box-shadow: -2px 0 8px rgba(0, 0, 0, 0.5);
+  z-index: 1;
+  animation: spinVinyl 3.5s linear infinite;
+  animation-play-state: paused;
 }
 
-.res-header {
-  border-bottom: 2px solid #0f172a;
-  padding-bottom: 16px;
-  margin-bottom: 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
+.vinyl-disc.playing {
+  animation-play-state: running;
 }
 
-.res-name-col h1 {
-  font-size: 2.1rem;
-  font-weight: 800;
-  color: #0f172a;
-  letter-spacing: -0.01em;
-  margin-bottom: 4px;
+.vinyl-groove {
+  position: absolute;
+  inset: 5px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.12);
 }
 
-.res-roles {
-  font-size: 0.95rem;
-  font-weight: 600;
-  color: #0284c7;
-  line-height: 1.4;
-  max-width: 520px;
+.vinyl-label {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: #f43f5e;
 }
 
-.res-contact-col {
-  text-align: right;
-  font-size: 0.82rem;
-  color: #475569;
-  line-height: 1.5;
+@keyframes spinVinyl {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
-.res-contact-col a {
-  color: #0284c7;
-  text-decoration: none;
-}
-
-.res-section {
-  margin-bottom: 20px;
-}
-
-.res-sec-title {
-  font-size: 1rem;
-  font-weight: 700;
-  color: #0f172a;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  border-bottom: 1.5px solid #cbd5e1;
-  padding-bottom: 4px;
-  margin-bottom: 10px;
-}
-
-.res-summary-text {
-  font-size: 0.85rem;
-  color: #334155;
-  line-height: 1.55;
-  text-align: justify;
-}
-
-.res-job-item {
-  margin-bottom: 14px;
-}
-
-.res-job-header {
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.88rem;
-  margin-bottom: 4px;
-}
-
-.res-job-role {
-  font-weight: 700;
-  color: #0f172a;
-}
-
-.res-job-company {
-  color: #475569;
-  font-weight: 500;
-}
-
-.res-job-meta {
-  color: #64748b;
-  font-size: 0.8rem;
-}
-
-.res-job-bullets {
-  padding-left: 18px;
-  font-size: 0.82rem;
-  color: #334155;
-  line-height: 1.5;
-}
-
-.res-skills-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 8px;
-  font-size: 0.82rem;
-  color: #334155;
-}
-
-.res-skill-row {
-  line-height: 1.45;
-}
-
-.res-skill-label {
-  font-weight: 700;
-  color: #0f172a;
-}
-
-.res-direct-email-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  background: #f0fdf4;
-  color: #16a34a;
-  border: 1px solid #bbf7d0;
-  padding: 3px 10px;
-  border-radius: 14px;
-  font-size: 0.78rem;
-  font-weight: 600;
-  text-decoration: none;
-  margin-top: 4px;
-  transition: all 0.15s ease;
-}
-
-.res-direct-email-badge:hover {
-  background: #16a34a;
-  color: #ffffff;
-  border-color: #16a34a;
-  transform: translateY(-1px);
-}
-
-.resume-footer-cta {
-  margin-top: 28px;
-  padding: 16px 20px;
-  background: #f8fafc;
-  border: 1px solid #e2e8f0;
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  flex-wrap: wrap;
-}
-
-.resume-cta-text {
+.music-details {
   display: flex;
   flex-direction: column;
   gap: 2px;
-  font-size: 0.84rem;
-  color: #334155;
+  min-width: 0;
 }
 
-.resume-cta-text strong {
-  color: #0f172a;
-}
-
-.resume-cta-btn {
-  background: #0078d4;
+.music-title {
+  font-size: 0.74rem;
+  font-weight: 800;
   color: #ffffff;
-  padding: 8px 18px;
-  border-radius: 6px;
-  font-size: 0.82rem;
-  font-weight: 600;
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  transition: all 0.15s ease;
-}
-
-.resume-cta-btn:hover {
-  background: #106ebe;
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(0, 120, 212, 0.25);
-}
-
-
-/* --------------------------------------------------------------------------
-   3. ABOUT ALEESHA (NOTEPAD / BIO)
-   -------------------------------------------------------------------------- */
-.notepad-wrap {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-}
-
-.notepad-menubar {
-  height: 28px;
-  background: #f8fafc;
-  border-bottom: 1px solid #e2e8f0;
-  display: flex;
-  align-items: center;
-  padding: 0 10px;
-  gap: 14px;
-  font-size: 0.75rem;
-  color: #64748b;
-}
-
-.notepad-menu-btn {
-  cursor: pointer;
-}
-
-.notepad-menu-btn:hover {
-  color: #0f172a;
-}
-
-.notepad-body {
-  flex: 1;
-  display: flex;
+  white-space: nowrap;
   overflow: hidden;
-  background: #ffffff;
+  text-overflow: ellipsis;
+  font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
-.notepad-profile-sidebar {
-  width: 250px;
-  background: #f8fafc;
-  border-right: 1px solid #e2e8f0;
-  padding: 24px 18px;
+.music-artist {
+  font-size: 0.62rem;
+  color: rgba(255, 255, 255, 0.85);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.music-mini-bars {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  overflow-y: auto;
+  align-items: flex-end;
+  gap: 3px;
+  height: 10px;
+  margin-top: 3px;
 }
 
-.notepad-avatar {
-  width: 130px;
-  height: 130px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 3px solid #0078d4;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-  margin-bottom: 14px;
+.music-mini-bars .bar {
+  width: 3px;
+  background: #ffffff;
+  border-radius: 2px;
+  animation: lofiBounce 1.2s ease-in-out infinite;
 }
 
-.notepad-name {
-  font-size: 1.25rem;
+.music-mini-bars.paused .bar {
+  animation-play-state: paused;
+  opacity: 0.4;
+  transform: scaleY(0.3);
+}
+
+.music-mini-bars .bar-1 { height: 3px; animation-delay: 0.1s; }
+.music-mini-bars .bar-2 { height: 10px; animation-delay: 0.3s; }
+.music-mini-bars .bar-3 { height: 6px; animation-delay: 0.5s; }
+.music-mini-bars .bar-4 { height: 8px; animation-delay: 0.2s; }
+.music-mini-bars .bar-5 { height: 5px; animation-delay: 0.4s; }
+
+/* Pinned Yellow Post-it Note */
+.pinned-postit-note {
+  position: absolute;
+  background: #fef08a;
+  border-radius: 2px 2px 14px 2px;
+  padding: 14px 14px 16px;
+  color: #713f12;
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.22), inset 0 0 12px rgba(234, 179, 8, 0.2);
+  transform: rotate(2.4deg);
+  z-index: 16;
+}
+
+.pinned-postit-note:hover {
+  transform: rotate(0deg) translateY(-3px) scale(1.02);
+  box-shadow: 0 18px 34px rgba(0, 0, 0, 0.28);
+}
+
+.postit-title {
+  font-family: 'Patrick Hand', 'Caveat', cursive;
+  font-size: 1.15rem;
   font-weight: 700;
-  color: #0f172a;
-  margin-bottom: 4px;
+  margin: 0 0 6px;
+  color: #854d0e;
+  border-bottom: 1.5px dashed rgba(180, 83, 9, 0.35);
+  padding-bottom: 4px;
 }
 
-.notepad-sub {
-  font-size: 0.78rem;
-  color: #0284c7;
-  font-weight: 600;
-  margin-bottom: 14px;
-}
-
-.notepad-status-tag {
-  background: #ecfdf5;
-  border: 1px solid #a7f3d0;
-  color: #059669;
-  font-size: 0.72rem;
-  padding: 4px 12px;
-  border-radius: 20px;
-  margin-bottom: 18px;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font-weight: 500;
-}
-
-.notepad-social-links {
+.postit-links {
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  width: 100%;
+  gap: 5px;
 }
 
-.notepad-link-btn {
-  background: #ffffff;
-  border: 1px solid #cbd5e1;
-  color: #334155;
-  padding: 8px 12px;
+.postit-btn {
+  background: rgba(254, 240, 138, 0.7);
+  border: 1px solid rgba(180, 83, 9, 0.25);
   border-radius: 6px;
-  font-size: 0.78rem;
-  text-decoration: none;
+  padding: 4px 8px;
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: #78350f;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.15s ease;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.postit-btn:hover {
+  background: #fef9c3;
+  border-color: #b45309;
+  transform: translateX(2px);
+  color: #451a03;
+}
+
+/* Click-to-Zoom Polaroid Lightbox Modal */
+.cork-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 999999;
   display: flex;
   align-items: center;
-  gap: 8px;
   justify-content: center;
-  transition: all 0.15s;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
 }
 
-.notepad-link-btn:hover {
-  background: #f1f5f9;
-  color: #0f172a;
-  border-color: #94a3b8;
+.cork-lightbox.open {
+  opacity: 1;
+  pointer-events: auto;
 }
 
-.notepad-text-editor {
-  flex: 1;
-  padding: 24px 30px;
-  overflow-y: auto;
-  font-size: 0.9rem;
-  line-height: 1.65;
-  color: #1e293b;
+.cork-lightbox-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.8);
+  backdrop-filter: blur(8px);
+}
+
+.cork-lightbox-card {
+  position: relative;
   background: #ffffff;
+  padding: 16px 16px 24px;
+  border-radius: 4px;
+  max-width: 440px;
+  width: 90%;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5);
+  transform: scale(0.92) rotate(-1deg);
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  z-index: 2;
 }
 
-.notepad-text-editor h2 {
-  font-size: 1.4rem;
-  color: #0f172a;
-  margin-bottom: 12px;
+.cork-lightbox.open .cork-lightbox-card {
+  transform: scale(1) rotate(0deg);
 }
 
-.notepad-text-editor h3 {
-  font-size: 1.1rem;
-  color: #0284c7;
-  margin: 20px 0 8px 0;
+.cork-lightbox-btn-close {
+  position: absolute;
+  top: -12px;
+  right: -12px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #0f172a;
+  color: #ffffff;
+  border: 2px solid #ffffff;
+  font-size: 0.85rem;
+  font-weight: 800;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transition: transform 0.15s ease;
 }
 
-.notepad-quote-box {
-  border-left: 3px solid #0078d4;
-  padding: 10px 18px;
-  background: #f0f9ff;
-  border-radius: 0 8px 8px 0;
-  margin: 16px 0;
-  font-style: italic;
-  color: #0369a1;
+.cork-lightbox-btn-close:hover {
+  transform: scale(1.1);
+  background: #ef4444;
+}
+
+.cork-lightbox-frame {
+  width: 100%;
+  aspect-ratio: 1;
+  overflow: hidden;
+  background: #f1f5f9;
+  border-radius: 2px;
+}
+
+.cork-lightbox-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.cork-lightbox-caption {
+  font-family: 'Patrick Hand', 'Caveat', cursive;
+  font-size: 1.45rem;
+  color: #1e293b;
+  text-align: center;
+  margin-top: 14px;
+  line-height: 1.3;
 }
 
 
@@ -2684,19 +2585,71 @@
 }
 
 /* ==========================================================================
-   SHABNAM-STYLE CARD DECK & 3D FLIP SYSTEM (FOLDER 09)
+   SHABNAM-STYLE CARD DECK & 3D FLIP SYSTEM (FOLDER 09 & BEYOND THE BRIEF)
+   Directly inspired by https://www.wallofportfolios.in/portfolios/shabnam/
    ========================================================================== */
+
+.solari-beyond-stage {
+  width: 100%;
+  height: 100%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  overflow-x: hidden;
+  box-sizing: border-box;
+  padding: 8px 14px 12px;
+  background: #faf6f9;
+}
+
+.solari-beyond-subnav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 8px;
+  padding: 5px 12px;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(226, 212, 234, 0.9);
+  box-shadow: 0 2px 8px rgba(160, 130, 170, 0.06);
+  border-radius: 10px;
+  flex-shrink: 0;
+}
+
+.solari-beyond-subnav-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.solari-beyond-subnav-title {
+  font-size: 0.8rem;
+  color: #64748b;
+  font-weight: 600;
+}
+
+.solari-beyond-subnav-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+/* The Hoarding Ground (Pastel editorial board) */
 .shabnam-deck-container {
   position: relative;
   width: 100%;
-  background: radial-gradient(circle at 85% 15%, #341a14 0%, #171417 100%);
-  border-radius: 20px;
-  padding: 32px 28px;
-  color: #fff;
+  background: radial-gradient(ellipse at 85% 15%, #ffe6eb 0%, #fdf2f8 32%, #f3e8ff 68%, #e0f2fe 100%);
+  border-radius: 16px;
+  padding: 16px 22px 14px;
+  color: #2e123a;
   overflow: hidden;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 16px 45px rgba(180, 140, 175, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(230, 210, 235, 0.9);
   box-sizing: border-box;
+  flex-shrink: 0;
 }
 
 .shabnam-deck-container::before {
@@ -2704,9 +2657,9 @@
   position: absolute;
   inset: 0;
   background-image: 
-    linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
-  background-size: 32px 32px;
+    linear-gradient(rgba(180, 140, 190, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(180, 140, 190, 0.08) 1px, transparent 1px);
+  background-size: 22px 22px;
   pointer-events: none;
 }
 
@@ -2715,58 +2668,72 @@
   z-index: 2;
   display: grid;
   grid-template-columns: 1.05fr 1fr;
-  gap: 36px;
+  gap: 22px;
   align-items: center;
 }
 
 @media (max-width: 960px) {
   .shabnam-deck-layout {
     grid-template-columns: 1fr;
-    gap: 32px;
+    gap: 20px;
   }
 }
 
 .shabnam-deck-tag {
-  display: inline-block;
-  background: #db2777;
-  color: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(216, 180, 254, 0.7);
+  color: #9333ea;
+  box-shadow: 0 2px 6px rgba(147, 51, 234, 0.08);
   font-size: 0.68rem;
   font-weight: 800;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  padding: 4px 12px;
-  border-radius: 4px;
-  margin-bottom: 12px;
+  padding: 3px 10px;
+  border-radius: 6px;
+  margin-bottom: 8px;
 }
 
 .shabnam-deck-heading {
-  font-size: clamp(1.8rem, 3.2vw, 2.6rem);
-  font-weight: 900;
-  letter-spacing: -0.02em;
-  color: #ffffff;
-  line-height: 1.1;
-  margin: 0 0 12px;
-  text-transform: uppercase;
+  font-family: var(--font-display, 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif);
+  font-size: clamp(1.6rem, 2.3vw, 2.1rem);
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  color: #261133;
+  line-height: 1.15;
+  margin: 0 0 6px;
+  text-transform: none;
+  text-shadow: 0 1px 6px rgba(147, 51, 234, 0.06);
 }
 
 .shabnam-deck-lede {
-  font-size: 0.95rem;
-  line-height: 1.6;
-  color: #cbd5e1;
-  margin: 0 0 24px;
-  max-width: 480px;
+  font-size: 0.88rem;
+  line-height: 1.45;
+  color: #4a3856;
+  margin: 0 0 10px;
+  max-width: 460px;
+  opacity: 0.95;
 }
 
-.shabnam-deck-lede strong {
-  color: #fce7f3;
+.shabnam-highlighter {
+  background: #fef08a;
+  color: #1e1026;
+  padding: 1px 6px;
+  border-radius: 3px;
+  font-weight: 700;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
 }
 
-/* Pinned sticky notes (Shabnam aesthetic) */
+/* Pinned sticky notes (Pastel aesthetic with frosted tape) */
 .shabnam-stickies {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 16px;
+  gap: 10px;
   margin-top: 10px;
+  max-width: 380px;
 }
 
 @media (max-width: 520px) {
@@ -2776,52 +2743,73 @@
 }
 
 .shabnam-sticky {
-  background: #fdfbf7;
-  color: #0f172a;
-  padding: 16px 18px 14px;
-  border-radius: 6px;
+  padding: 8px 10px 7px;
+  border-radius: 4px;
   position: relative;
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25), 0 2px 6px rgba(0,0,0,0.1);
+  box-shadow: 0 6px 16px rgba(140, 110, 150, 0.15);
   transition: transform 0.22s ease, box-shadow 0.22s ease;
   user-select: none;
 }
 
-.shabnam-sticky:nth-child(1) { transform: rotate(-2deg); }
-.shabnam-sticky:nth-child(2) { transform: rotate(2.5deg); }
-.shabnam-sticky:nth-child(3) { transform: rotate(1.5deg); }
-.shabnam-sticky:nth-child(4) { transform: rotate(-1.5deg); }
+.shabnam-sticky.note-yellow {
+  background: #fef9c3;
+  color: #713f12;
+  border: 1px solid #fef08a;
+  transform: rotate(-2.4deg);
+}
+
+.shabnam-sticky.note-red {
+  background: #ffe4e6;
+  color: #9f1239;
+  border: 1px solid #fecdd3;
+  transform: rotate(2.2deg);
+}
+
+.shabnam-sticky.note-cream {
+  background: #dcfce7;
+  color: #14532d;
+  border: 1px solid #bbf7d0;
+  transform: rotate(-1.5deg);
+}
+
+.shabnam-sticky.note-beige {
+  background: #ede9fe;
+  color: #5b21b6;
+  border: 1px solid #ddd6fe;
+  transform: rotate(1.8deg);
+}
 
 .shabnam-sticky:hover {
-  transform: translateY(-5px) rotate(0deg) scale(1.03);
-  box-shadow: 0 18px 36px rgba(0, 0, 0, 0.35);
+  transform: translateY(-3px) rotate(0deg) scale(1.025);
+  box-shadow: 0 10px 22px rgba(140, 110, 150, 0.25);
   z-index: 5;
 }
 
 .shabnam-tape {
   position: absolute;
-  top: -8px;
+  top: -7px;
   left: 50%;
-  transform: translateX(-50%);
-  width: 54px;
-  height: 18px;
-  background: rgba(255, 255, 255, 0.8);
+  transform: translateX(-50%) rotate(-1deg);
+  width: 50px;
+  height: 14px;
+  background: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(2px);
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
   border-radius: 1px;
 }
 
 .shabnam-sticky-val {
-  font-size: 1.8rem;
-  font-weight: 900;
-  color: #0f172a;
+  font-family: var(--font-display, 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif);
+  font-size: 1.45rem;
+  font-weight: 700;
   line-height: 1;
+  letter-spacing: -0.02em;
 }
 
 .shabnam-sticky-lbl {
-  font-size: 0.72rem;
-  color: #475569;
-  line-height: 1.35;
-  margin-top: 6px;
+  font-size: 0.68rem;
+  line-height: 1.25;
+  margin-top: 2px;
   font-weight: 600;
 }
 
@@ -2836,16 +2824,16 @@
 
 .shabnam-deck-stage {
   position: relative;
-  width: 330px;
-  height: 460px;
+  width: 290px;
+  height: 380px;
   perspective: 1200px;
   margin: 0 auto;
 }
 
 @media (max-width: 480px) {
   .shabnam-deck-stage {
-    width: 290px;
-    height: 430px;
+    width: 265px;
+    height: 360px;
   }
 }
 
@@ -2854,46 +2842,61 @@
   inset: 0;
   width: 100%;
   height: 100%;
-  border-radius: 20px;
-  box-shadow: 0 24px 50px rgba(0, 0, 0, 0.4), 0 4px 14px rgba(0, 0, 0, 0.2);
-  transition: transform 0.55s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.4s ease, filter 0.4s ease;
+  border-radius: 14px;
+  box-shadow: 0 14px 34px rgba(140, 110, 150, 0.18), 0 3px 8px rgba(140, 110, 150, 0.1);
+  transition: transform 0.48s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.35s ease, filter 0.35s ease;
   transform-style: preserve-3d;
   user-select: none;
+  touch-action: pan-y;
 }
 
-/* Background cards */
+/* Dragging state */
+.shabnam-deck-card.is-dragging {
+  transition: none !important;
+  cursor: grabbing !important;
+  box-shadow: 0 24px 50px rgba(140, 100, 160, 0.28), 0 6px 16px rgba(140, 100, 160, 0.18) !important;
+  z-index: 60 !important;
+}
+
+/* Background cards (peeking from underneath the active card) */
 .shabnam-deck-card.card-bg-2 {
-  transform: rotate(5.5deg) translate(16px, 14px) scale(0.93);
+  transform: translate(18px, 12px) rotate(4deg) scale(0.93);
   z-index: 1;
-  opacity: 0.65;
-  filter: brightness(0.85);
+  opacity: 0.68;
+  filter: brightness(0.92);
   pointer-events: none;
 }
 
 .shabnam-deck-card.card-bg-1 {
-  transform: rotate(-4.5deg) translate(-12px, 8px) scale(0.965);
+  transform: translate(-12px, 7px) rotate(-3deg) scale(0.965);
   z-index: 2;
-  opacity: 0.86;
-  filter: brightness(0.93);
+  opacity: 0.88;
+  filter: brightness(0.96);
   pointer-events: none;
+}
+
+.shabnam-deck-card.card-bg-1 .deck-card-info,
+.shabnam-deck-card.card-bg-2 .deck-card-info {
+  opacity: 0;
+  visibility: hidden;
 }
 
 /* Front active card */
 .shabnam-deck-card.card-active {
-  transform: rotate(0deg) translate(0, 0) scale(1);
+  transform: translate(0, 0) rotate(0deg) scale(1);
   z-index: 10;
-  cursor: pointer;
+  cursor: grab;
 }
 
-.shabnam-deck-card.card-active:hover:not(.is-flipping) {
-  transform: rotate(0deg) translateY(-8px) scale(1.02);
-  box-shadow: 0 32px 64px rgba(0, 0, 0, 0.5), 0 8px 24px rgba(0, 0, 0, 0.25);
+.shabnam-deck-card.card-active:hover:not(.is-flipping):not(.is-dragging) {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 20px 45px rgba(140, 100, 160, 0.24), 0 6px 14px rgba(140, 100, 160, 0.12);
 }
 
 .shabnam-deck-card.is-flipping {
-  transform: rotateY(180deg) scale(1.06) !important;
-  box-shadow: 0 36px 75px rgba(0, 0, 0, 0.65) !important;
-  transition: transform 0.65s cubic-bezier(0.2, 0.8, 0.2, 1) !important;
+  transform: rotateY(180deg) scale(1.05) !important;
+  box-shadow: 0 28px 60px rgba(140, 100, 160, 0.35) !important;
+  transition: transform 0.58s cubic-bezier(0.22, 1, 0.36, 1) !important;
 }
 
 /* Card faces */
@@ -2902,10 +2905,10 @@
   inset: 0;
   width: 100%;
   height: 100%;
-  border-radius: 20px;
+  border-radius: 14px;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
-  padding: 16px 18px 18px;
+  padding: 12px 14px 12px;
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
@@ -2913,34 +2916,53 @@
 }
 
 .deck-card-front {
-  background: #fdfbf7;
-  color: #1e293b;
+  background-color: #ffffff;
+  background-image: radial-gradient(rgba(216, 180, 254, 0.35) 0.8px, transparent 0.8px);
+  background-size: 14px 14px;
+  color: #1e1026;
   transform: rotateY(0deg);
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(225, 210, 235, 0.85);
+}
+
+.deck-card-tape {
+  position: absolute;
+  top: -7px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-1deg);
+  width: 58px;
+  height: 15px;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(2px);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  border-radius: 1px;
+  z-index: 20;
+  pointer-events: none;
 }
 
 .deck-card-back {
-  background: linear-gradient(135deg, #1e1322 0%, #0f172a 100%);
-  color: #f8fafc;
+  background: linear-gradient(135deg, #fdf2f8 0%, #f5d0fe 50%, #ede9fe 100%);
+  color: #3b0764;
   transform: rotateY(180deg);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 24px;
-  border: 2px solid rgba(219, 39, 119, 0.45);
+  padding: 20px;
+  border: 2px solid #f0abfc;
+  box-shadow: inset 0 0 30px rgba(240, 171, 252, 0.3);
 }
 
 .deck-card-img-wrap {
   position: relative;
   width: 100%;
-  height: 200px;
-  border-radius: 12px;
+  height: 152px;
+  border-radius: 9px;
   overflow: hidden;
-  background: #000;
-  margin-top: 6px;
+  background: #f1f5f9;
+  margin-top: 2px;
   flex-shrink: 0;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
 }
 
 .deck-card-img {
@@ -2949,6 +2971,7 @@
   object-fit: cover;
   display: block;
   transition: transform 0.4s ease;
+  pointer-events: none;
 }
 
 .shabnam-deck-card.card-active:hover .deck-card-img {
@@ -2958,61 +2981,66 @@
 .deck-card-img-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(0,0,0,0.55) 0%, transparent 50%);
+  background: linear-gradient(to top, rgba(30, 16, 38, 0.55) 0%, transparent 55%);
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
-  padding: 10px 12px;
+  padding: 6px 8px;
+  pointer-events: none;
 }
 
 .deck-card-img-badge {
-  font-size: 0.65rem;
+  font-size: 0.62rem;
   font-weight: 700;
-  background: rgba(255, 255, 255, 0.9);
-  color: #0f172a;
-  padding: 2px 8px;
-  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.95);
+  color: #1e1026;
+  padding: 2px 7px;
+  border-radius: 3px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
 }
 
 .deck-card-info {
   display: flex;
   flex-direction: column;
   flex: 1;
-  padding-top: 14px;
+  padding-top: 8px;
+  pointer-events: none;
 }
 
 .deck-card-meta {
   display: flex;
   align-items: center;
-  gap: 10px;
-  margin-bottom: 6px;
+  gap: 6px;
+  margin-bottom: 3px;
 }
 
 .deck-card-num {
-  font-family: var(--mono, monospace);
-  font-size: 1rem;
-  font-weight: 800;
-  color: #0f172a;
+  font-family: var(--font-display, 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #9333ea;
+  letter-spacing: 0.02em;
 }
 
-.deck-card-pill {
-  font-size: 0.65rem;
+.deck-card-tag {
+  font-size: 0.62rem;
   font-weight: 700;
-  background: #f1f5f9;
-  color: #475569;
-  padding: 2px 8px;
+  background: #f3e8ff;
+  color: #7e22ce;
+  padding: 2px 7px;
   border-radius: 999px;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.03em;
   text-transform: uppercase;
 }
 
 .deck-card-title {
-  font-size: 1.05rem;
-  font-weight: 800;
-  color: #0f172a;
-  line-height: 1.25;
-  margin-bottom: 6px;
-  text-transform: uppercase;
+  font-family: var(--font-display, 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif);
+  font-size: 0.98rem;
+  font-weight: 600;
+  color: #1e1026;
+  line-height: 1.34;
+  margin: 2px 0 4px;
+  text-transform: none;
   letter-spacing: -0.01em;
   display: -webkit-box;
   -webkit-line-clamp: 2;
@@ -3020,14 +3048,15 @@
   overflow: hidden;
 }
 
-.deck-card-tools {
-  font-size: 0.72rem;
-  color: #64748b;
-  line-height: 1.35;
-  margin-bottom: 12px;
-  white-space: nowrap;
+.deck-card-sub {
+  font-size: 0.7rem;
+  color: #64576d;
+  line-height: 1.3;
+  margin-bottom: 4px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
   overflow: hidden;
-  text-overflow: ellipsis;
 }
 
 .deck-card-cta {
@@ -3035,85 +3064,86 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-top: 10px;
-  border-top: 1px dashed #cbd5e1;
-  font-size: 0.75rem;
+  padding-top: 6px;
+  border-top: 1px dashed rgba(217, 70, 239, 0.25);
+  font-size: 0.72rem;
   font-weight: 800;
-  letter-spacing: 0.06em;
-  color: #db2777;
+  letter-spacing: 0.08em;
+  color: #c026d3;
   text-transform: uppercase;
 }
 
 .deck-card-cta span.arrow {
   transition: transform 0.2s ease;
-  font-size: 1rem;
+  font-size: 0.9rem;
 }
 
 .shabnam-deck-card.card-active:hover .deck-card-cta span.arrow {
   transform: translateX(4px);
 }
 
-/* Card Back Design */
+/* Card Back Design (Revealed on 3D Flip) */
 .deck-back-spark {
-  width: 48px;
-  height: 48px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
-  background: rgba(219, 39, 119, 0.2);
-  border: 1px solid rgba(219, 39, 119, 0.5);
-  color: #f472b6;
-  font-size: 1.4rem;
+  background: rgba(236, 72, 153, 0.15);
+  border: 1px solid rgba(236, 72, 153, 0.4);
+  color: #db2777;
+  font-size: 1.3rem;
   display: grid;
   place-items: center;
-  margin-bottom: 14px;
+  margin-bottom: 10px;
   animation: deckPulse 1.4s ease-in-out infinite;
 }
 
 @keyframes deckPulse {
-  0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(219, 39, 119, 0.4); }
-  50% { transform: scale(1.08); box-shadow: 0 0 0 10px rgba(219, 39, 119, 0); }
+  0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(236, 72, 153, 0.4); }
+  50% { transform: scale(1.08); box-shadow: 0 0 0 10px rgba(236, 72, 153, 0); }
 }
 
 .deck-back-eyebrow {
-  font-size: 0.68rem;
+  font-size: 0.65rem;
   font-weight: 800;
   letter-spacing: 0.14em;
-  color: #f472b6;
+  color: #c026d3;
   text-transform: uppercase;
-  margin-bottom: 6px;
+  margin-bottom: 5px;
 }
 
 .deck-back-title {
-  font-size: 1.15rem;
-  font-weight: 800;
-  color: #ffffff;
+  font-family: var(--font-display, 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #3b0764;
   line-height: 1.3;
-  margin-bottom: 8px;
+  margin-bottom: 5px;
 }
 
 .deck-back-format {
-  font-size: 0.75rem;
-  color: #94a3b8;
-  margin-bottom: 20px;
+  font-size: 0.72rem;
+  color: #701a75;
+  margin-bottom: 12px;
 }
 
 .deck-back-status {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  font-size: 0.72rem;
+  gap: 7px;
+  font-size: 0.7rem;
   font-weight: 600;
-  color: #cbd5e1;
-  background: rgba(255, 255, 255, 0.1);
-  padding: 6px 14px;
+  color: #4a044e;
+  background: rgba(255, 255, 255, 0.85);
+  padding: 5px 12px;
   border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(240, 171, 252, 0.8);
 }
 
 .deck-pulse-dot {
-  width: 8px;
-  height: 8px;
+  width: 7px;
+  height: 7px;
   border-radius: 50%;
-  background: #db2777;
+  background: #ec4899;
   animation: deckBlink 0.9s infinite alternate;
 }
 
@@ -3124,17 +3154,22 @@
 
 /* Controls below deck */
 .shabnam-deck-controls {
-  margin-top: 22px;
+  margin-top: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 12px;
+  gap: 6px;
 }
 
 .shabnam-deck-hint {
-  font-size: 0.75rem;
-  color: #94a3b8;
-  letter-spacing: 0.02em;
+  font-size: 0.72rem;
+  color: #645570;
+  opacity: 0.95;
+  letter-spacing: 0.03em;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-weight: 600;
 }
 
 .shabnam-deck-pills-row {
@@ -3144,22 +3179,22 @@
 }
 
 .deck-ctrl-btn {
-  width: 38px;
-  height: 38px;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
-  background: #fdfbf7;
-  color: #0f172a;
+  background: linear-gradient(135deg, #f472b6, #c084fc);
+  color: #ffffff;
   border: none;
   cursor: pointer;
   display: grid;
   place-items: center;
-  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
-  transition: transform 0.15s ease, background 0.15s ease;
+  box-shadow: 0 4px 12px rgba(192, 132, 252, 0.35);
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
 }
 
 .deck-ctrl-btn:hover {
   transform: scale(1.1);
-  background: #ffffff;
+  box-shadow: 0 6px 16px rgba(192, 132, 252, 0.5);
 }
 
 .deck-ctrl-btn:active {
@@ -3167,25 +3202,25 @@
 }
 
 .deck-counter-badge {
-  font-family: var(--mono, monospace);
+  font-family: var(--font-display, 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif);
   font-size: 0.95rem;
-  font-weight: 800;
-  color: #fdfbf7;
-  letter-spacing: 0.08em;
+  font-weight: 600;
+  color: #2e1038;
+  letter-spacing: 0.04em;
   padding: 0 4px;
 }
 
 .deck-dots-row {
   display: flex;
-  gap: 8px;
+  gap: 7px;
   align-items: center;
 }
 
 .deck-dot {
-  width: 8px;
-  height: 8px;
+  width: 7px;
+  height: 7px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.25);
+  background: rgba(168, 85, 247, 0.22);
   border: none;
   cursor: pointer;
   padding: 0;
@@ -3193,16 +3228,16 @@
 }
 
 .deck-dot.active {
-  background: #db2777;
+  background: #c084fc;
   transform: scale(1.35);
-  box-shadow: 0 0 8px #db2777;
+  box-shadow: 0 0 6px rgba(192, 132, 252, 0.8);
 }
 
 /* View Switcher */
 .deck-view-switcher {
   display: flex;
-  background: #f1f5f9;
-  border: 1px solid #cbd5e1;
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(220, 205, 230, 0.8);
   border-radius: 20px;
   padding: 2px;
 }
@@ -3210,19 +3245,19 @@
 .deck-switch-btn {
   border: none;
   background: transparent;
-  padding: 5px 14px;
+  padding: 4px 10px;
   border-radius: 18px;
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   font-weight: 700;
-  color: #475569;
+  color: #64748b;
   cursor: pointer;
   transition: all 0.2s ease;
 }
 
 .deck-switch-btn.active {
-  background: #0f172a;
+  background: linear-gradient(135deg, #f472b6, #c084fc);
   color: #ffffff;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 2px 8px rgba(192, 132, 252, 0.35);
 }
 
 /* In-place interactive case study viewer (Folder 09) */
@@ -3230,29 +3265,35 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  border-radius: 16px;
+  height: 100%;
+  flex: 1;
+  min-height: 480px;
+  border-radius: 12px;
   overflow: hidden;
-  border: 2px solid #1c1917;
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.15);
-  background: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.35);
+  background: #0f172a;
   animation: beyondFadeIn 0.3s ease-out;
 }
 
 .solari-beyond-case-bar {
-  background: #0f172a;
+  background: #110e1a;
   color: #f8fafc;
-  padding: 10px 16px;
+  padding: 7px 12px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 8px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  flex-shrink: 0;
 }
 
 .solari-beyond-case-iframe {
   width: 100%;
-  height: 680px;
+  height: 100%;
+  flex: 1;
+  min-height: 440px;
   border: none;
   background: #ffffff;
   display: block;

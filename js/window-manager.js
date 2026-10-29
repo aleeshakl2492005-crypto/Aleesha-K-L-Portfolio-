@@ -209,9 +209,11 @@ class WindowManager {
     data.el.style.display = 'flex';
     // Position if not already placed
     if (!data.el.style.left || data.el.style.left === 'auto') {
-      if (id === 'playground') {
-        const winW = Math.min(window.innerWidth - 30, 960);
-        const winH = Math.min(window.innerHeight - 70, 640);
+      if (id === 'playground' || id === 'about') {
+        const defaultW = id === 'about' ? 1260 : 960;
+        const defaultH = id === 'about' ? 760 : 640;
+        const winW = Math.min(window.innerWidth - 30, defaultW);
+        const winH = Math.min(window.innerHeight - 70, defaultH);
         const posX = Math.max(10, Math.round((window.innerWidth - winW) / 2));
         const posY = Math.max(10, Math.round((window.innerHeight - 56 - winH) / 2));
         data.el.style.width = `${winW}px`;
@@ -240,9 +242,6 @@ class WindowManager {
     if (id === 'playground') {
       const companion = document.getElementById('desktop-owl-companion');
       if (companion) companion.style.display = 'none';
-      if (window.owlGame) {
-        setTimeout(() => window.owlGame.handleResize(), 60);
-      }
     }
 
     if (id === 'studio3d' && window.resizeStudio3D) {
@@ -313,10 +312,6 @@ class WindowManager {
       data.el.classList.remove('maximized');
     }
 
-    if (id === 'playground' && window.owlGame) {
-      setTimeout(() => window.owlGame.handleResize(), 120);
-    }
-
     if (id === 'studio3d' && window.resizeStudio3D) {
       setTimeout(() => window.resizeStudio3D(), 120);
     }
@@ -333,9 +328,6 @@ class WindowManager {
     if (id === 'playground') {
       const companion = document.getElementById('desktop-owl-companion');
       if (companion) companion.style.display = '';
-      if (window.owlGame) {
-        window.owlGame.closeModal();
-      }
     }
 
     this.pauseVideosInside(data.el);
@@ -410,6 +402,18 @@ class WindowManager {
         btn.classList.remove('open', 'active');
       }
     });
+  }
+
+  pauseVideosInside(el) {
+    if (!el) return;
+    try {
+      el.querySelectorAll('video').forEach(v => {
+        try { v.pause(); } catch (_) {}
+      });
+      el.querySelectorAll('audio').forEach(a => {
+        try { a.pause(); } catch (_) {}
+      });
+    } catch (_) {}
   }
 }
 

@@ -1,4 +1,4 @@
-/* ==========================================================================
+﻿/* ==========================================================================
    ALEESHA OS - WINDOWS DESKTOP & UI ENVIRONMENT
    Fluent Glassmorphism, Windows 11/10 hybrid aesthetics, Taskbar,
    Start Menu, Window System & Tray Widgets
@@ -21,6 +21,7 @@
   --shadow-window: 0 16px 45px rgba(0, 0, 0, 0.12), 0 2px 8px rgba(0, 0, 0, 0.05);
   --radius-window: 10px;
   --font-win: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+  --font-display: 'Plus Jakarta Sans', 'Outfit', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
 * {
@@ -402,13 +403,20 @@ body, html {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   cursor: pointer;
-  transition: transform 0.22s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transition: transform 0.36s cubic-bezier(0.34, 1.7, 0.64, 1);
   user-select: none;
+  -webkit-user-select: none;
+  z-index: 25;
 }
 
-.mockup-icon:hover {
-  transform: translateY(-8px) scale(1.08);
+/* Authentic 3D Pop-Up on Hover & Interaction */
+.mockup-icon:hover,
+.mockup-icon:focus-visible,
+.mockup-icon.is-hovered {
+  transform: translateY(-14px) scale(1.08);
+  z-index: 50;
 }
 
 .mockup-icon.selected .mockup-thumb-card {
@@ -426,20 +434,12 @@ body, html {
 .mockup-icon[data-pos="playground"]  { top: 42%; right: 15.5%; }
 .mockup-icon[data-pos="beyond"]      { top: 59%; right: 9%; }
 
-/* Backward compatibility */
-.mockup-icon[data-pos="diate"]  { top: 11%; left: 26%; }
-.mockup-icon[data-pos="cards"]  { top: 25%; left: 8%; }
-.mockup-icon[data-pos="onam"]   { top: 42%; left: 15.5%; }
-.mockup-icon[data-pos="events"] { top: 59%; left: 9%; }
-.mockup-icon[data-pos="madham"] { top: 11%; right: 26%; }
-.mockup-icon[data-pos="threed"] { top: 25%; right: 8%; }
-.mockup-icon[data-pos="photo"]  { top: 42%; right: 15.5%; }
-.mockup-icon[data-pos="chips"]  { top: 59%; right: 9%; }
+
 
 /* 3D Floating Folder Container — No White Background Box */
 .mockup-thumb-card {
-  width: 88px;
-  height: 82px;
+  width: 92px;
+  height: 86px;
   background: transparent;
   padding: 0;
   border: none;
@@ -449,7 +449,7 @@ body, html {
   justify-content: center;
   position: relative;
   overflow: visible;
-  transition: transform 0.24s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transition: transform 0.32s cubic-bezier(0.34, 1.7, 0.64, 1);
 }
 
 /* 3D Ambient Ground Contact Shadow Beneath Floating Folder */
@@ -459,69 +459,108 @@ body, html {
   bottom: -4px;
   left: 50%;
   transform: translateX(-50%);
-  width: 66px;
+  width: 70px;
   height: 12px;
-  background: radial-gradient(ellipse at center, rgba(15, 23, 42, 0.22) 0%, rgba(15, 23, 42, 0.05) 55%, transparent 75%);
+  background: radial-gradient(ellipse at center, rgba(15, 23, 42, 0.24) 0%, rgba(15, 23, 42, 0.06) 55%, transparent 75%);
   border-radius: 50%;
   filter: blur(3.5px);
   pointer-events: none;
-  transition: all 0.24s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transition: all 0.32s cubic-bezier(0.34, 1.7, 0.64, 1);
   z-index: 1;
 }
 
-.mockup-icon:hover .mockup-thumb-card::after {
-  transform: translateX(-50%) scale(0.85);
-  opacity: 0.55;
-  filter: blur(5px);
-  bottom: -8px;
+.mockup-icon:hover .mockup-thumb-card::after,
+.mockup-icon:focus-visible .mockup-thumb-card::after,
+.mockup-icon.is-hovered .mockup-thumb-card::after {
+  transform: translateX(-50%) scale(1.35);
+  opacity: 0.32;
+  filter: blur(7px);
+  bottom: -16px;
 }
 
-/* 3D Folder Icon Image — Rich Dimensional 3D Drop Shadow */
+/* 3D Folder Icon Image — Smooth morphing pop-up from resting folder to owl */
 .mockup-thumb-img {
   width: 100%;
   height: 100%;
   object-fit: contain;
   display: block;
   -webkit-user-drag: none;
-  position: relative;
+  position: absolute;
+  inset: 0;
   z-index: 2;
-  filter: drop-shadow(0 14px 18px rgba(0, 0, 0, 0.15)) drop-shadow(0 3px 6px rgba(0, 0, 0, 0.08));
-  transition: transform 0.24s cubic-bezier(0.34, 1.56, 0.64, 1), filter 0.24s ease;
+  filter: drop-shadow(0 14px 18px rgba(0, 0, 0, 0.16)) drop-shadow(0 3px 6px rgba(0, 0, 0, 0.08));
+  transition: opacity 0.28s cubic-bezier(0.4, 0, 0.2, 1), transform 0.36s cubic-bezier(0.34, 1.7, 0.64, 1), filter 0.32s ease;
+  transform-origin: center bottom;
 }
 
-.mockup-icon:hover .mockup-thumb-img {
-  transform: scale(1.06) rotate(-1.5deg);
-  filter: drop-shadow(0 22px 28px rgba(0, 0, 0, 0.22)) drop-shadow(0 6px 12px rgba(0, 0, 0, 0.12));
+/* 1. Resting Folder Image (Image 1): Visible by default */
+.mockup-thumb-resting {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+  z-index: 2;
 }
 
-/* Selected State — Subtle Radiant Aura */
-.mockup-icon.selected .mockup-thumb-img {
-  filter: drop-shadow(0 0 14px rgba(0, 120, 212, 0.7)) drop-shadow(0 16px 22px rgba(0, 0, 0, 0.18));
-  transform: scale(1.05);
+/* 2. Hover Pop-Up Owl Image (Image 2): Tucked inside the folder by default */
+.mockup-thumb-hover {
+  opacity: 0;
+  transform: scale(0.85) translateY(12px);
+  pointer-events: none;
+  z-index: 3;
 }
 
-/* Labels & Active Badges */
+/* On Hover / Selected: Resting folder tucks away & cute mascot owl springs UP! */
+.mockup-icon:hover .mockup-thumb-resting,
+.mockup-icon:focus-visible .mockup-thumb-resting,
+.mockup-icon.is-hovered .mockup-thumb-resting,
+.mockup-icon.selected .mockup-thumb-resting {
+  opacity: 0;
+  transform: scale(0.88) translateY(6px);
+}
+
+.mockup-icon:hover .mockup-thumb-hover,
+.mockup-icon:focus-visible .mockup-thumb-hover,
+.mockup-icon.is-hovered .mockup-thumb-hover,
+.mockup-icon.selected .mockup-thumb-hover {
+  opacity: 1;
+  transform: scale(1.15) translateY(-8px) rotate(-1.5deg);
+  filter: drop-shadow(0 26px 36px rgba(0, 0, 0, 0.28)) drop-shadow(0 8px 16px rgba(0, 0, 0, 0.16));
+  animation: folderPopBob 2.2s ease-in-out infinite alternate;
+}
+
+@keyframes folderPopBob {
+  0% { transform: scale(1.15) translateY(-8px) rotate(-1.5deg); }
+  100% { transform: scale(1.18) translateY(-12px) rotate(1.2deg); }
+}
+
+/* Selected State */
+.mockup-icon.selected .mockup-thumb-hover {
+  filter: drop-shadow(0 0 16px rgba(217, 70, 239, 0.8)) drop-shadow(0 18px 24px rgba(0, 0, 0, 0.22));
+  transform: scale(1.12) translateY(-6px);
+}
+
+/* Labels */
 .mockup-icon-label {
   font-size: 0.78rem;
-  font-weight: 600;
+  font-weight: 700;
   color: #1e293b;
   margin-top: 6px;
-  background: rgba(255, 255, 255, 0.75);
-  backdrop-filter: blur(6px);
-  padding: 1.5px 8px;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(8px);
+  padding: 2px 9px;
   border-radius: 6px;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
   text-align: center;
   letter-spacing: -0.01em;
   white-space: nowrap;
-  transition: all 0.2s ease;
+  transition: all 0.24s ease;
 }
 
 .mockup-icon:hover .mockup-icon-label,
 .mockup-icon.selected .mockup-icon-label {
   background: #ffffff;
-  color: #0078d4;
-  box-shadow: 0 2px 8px rgba(0, 120, 212, 0.15);
+  color: #0f172a;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.14);
+  transform: translateY(2px) scale(1.05);
 }
 
 .mockup-icon-badge {
@@ -1870,5 +1909,436 @@ body, html {
   100% {
     transform: translateY(0) rotate(360deg) scale(1);
   }
+}
+
+/* ==========================================================================
+   SKILLS NOTEPAD WINDOW — Crisp Modern Light Theme & Optimized Layout
+   ========================================================================== */
+
+#window-skills {
+  background: #ffffff !important;
+  border: 1px solid #d1d5db;
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.16), 0 4px 10px rgba(0, 0, 0, 0.06);
+}
+
+#window-skills .window-titlebar {
+  background: #f3f4f6;
+  border-bottom: 1px solid #e5e7eb;
+  color: #1f2937;
+}
+
+#window-skills .window-title-text {
+  color: #111827;
+  font-weight: 600;
+}
+
+#window-skills .win-btn {
+  color: #4b5563;
+}
+
+#window-skills .win-btn:hover {
+  background: #e5e7eb;
+  color: #111827;
+}
+
+#window-skills .win-btn.btn-close:hover {
+  background: #ef4444;
+  color: #ffffff;
+}
+
+.skills-window-body {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 0;
+  overflow: hidden;
+  background: #fbfcfd;
+}
+
+/* Notepad Menubar (Authentic Windows Light Theme) */
+.skills-menubar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px 14px;
+  background: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+  flex-shrink: 0;
+  gap: 12px;
+}
+
+.skills-menubar .menubar-left {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.skills-menubar span.menu-item {
+  font-size: 0.76rem;
+  color: #374151;
+  padding: 3px 8px;
+  border-radius: 4px;
+  cursor: default;
+  transition: background 0.15s, color 0.15s;
+  font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+  user-select: none;
+}
+
+.skills-menubar span.menu-item:hover {
+  background: #f3f4f6;
+  color: #111827;
+}
+
+.skills-menubar .menubar-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.skills-search-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.skills-search-wrap .search-icon {
+  position: absolute;
+  left: 8px;
+  font-size: 0.72rem;
+  color: #9ca3af;
+  pointer-events: none;
+}
+
+.skills-search-box {
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  padding: 4px 10px 4px 26px;
+  font-size: 0.72rem;
+  color: #1f2937;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  width: 135px;
+  transition: all 0.2s ease;
+}
+
+.skills-search-box:focus {
+  outline: none;
+  background: #ffffff;
+  border-color: #2563eb;
+  width: 175px;
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.15);
+}
+
+.skills-counter-badge {
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: #0284c7;
+  background: #e0f2fe;
+  padding: 2px 8px;
+  border-radius: 999px;
+  border: 1px solid #bae6fd;
+}
+
+/* Category Filter Tabs */
+.skills-tabs {
+  display: flex;
+  gap: 6px;
+  padding: 8px 16px;
+  background: #f8fafc;
+  border-bottom: 1px solid #e2e8f0;
+  flex-shrink: 0;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.skills-tabs::-webkit-scrollbar { display: none; }
+
+.skills-tab {
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 5px 12px;
+  border-radius: 6px;
+  border: 1px solid #e2e8f0;
+  background: #ffffff;
+  color: #64748b;
+  cursor: pointer;
+  transition: all 0.18s cubic-bezier(0.34, 1.56, 0.64, 1);
+  white-space: nowrap;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02);
+}
+
+.skills-tab:hover {
+  background: #f1f5f9;
+  color: #1e293b;
+  border-color: #cbd5e1;
+}
+
+.skills-tab.active {
+  background: #2563eb;
+  color: #ffffff;
+  border-color: #1d4ed8;
+  box-shadow: 0 2px 8px rgba(37, 99, 235, 0.25);
+}
+
+/* Scrollable Body */
+.skills-scroll {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px 20px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  background: #ffffff;
+  scrollbar-width: thin;
+  scrollbar-color: #cbd5e1 transparent;
+}
+.skills-scroll::-webkit-scrollbar { width: 5px; }
+.skills-scroll::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+
+/* Typed Intro Bar (Light Green Theme) */
+.skills-intro-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-radius: 8px;
+  padding: 9px 14px;
+}
+
+.skills-cursor-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #16a34a;
+  flex-shrink: 0;
+  animation: skillsBlink 1.2s step-end infinite;
+}
+
+.skills-intro-text {
+  font-size: 0.78rem;
+  color: #15803d;
+  font-family: 'Courier New', monospace;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+/* Section Block */
+.skills-section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.skills-section-label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.76rem;
+  font-weight: 800;
+  color: #334155;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding-bottom: 6px;
+  border-bottom: 1.5px solid #f1f5f9;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.skills-label-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.skills-label-count {
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: #64748b;
+  background: #f1f5f9;
+  padding: 2px 7px;
+  border-radius: 999px;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+/* Optimized 2-Column Responsive Logo Grid */
+.skills-logo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+  gap: 12px;
+}
+
+/* Individual Skill Card (Crisp Light Theme) */
+.skill-pill {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 12px 14px;
+  transition: transform 0.22s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.22s ease, border-color 0.2s;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+}
+
+.skill-pill:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  border-color: #93c5fd;
+}
+
+/* Logo Icon Box with Crisp Shadow */
+.skill-logo-wrap {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  background: #f8fafc;
+  border: 1px solid #f1f5f9;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.04);
+}
+
+.skill-logo {
+  width: 38px;
+  height: 38px;
+  object-fit: contain;
+  filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.12));
+  transition: transform 0.25s cubic-bezier(0.34, 1.7, 0.64, 1);
+}
+
+.skill-pill:hover .skill-logo {
+  transform: scale(1.18) rotate(3deg);
+}
+
+/* Pill Info */
+.skill-pill-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+  min-width: 0;
+}
+
+.skill-pill-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+}
+
+.skill-name {
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: #0f172a;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.skill-pct {
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: #2563eb;
+  background: #eff6ff;
+  padding: 1px 6px;
+  border-radius: 999px;
+  border: 1px solid #dbeafe;
+}
+
+.skill-tag {
+  font-size: 0.68rem;
+  color: #64748b;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.skill-project-badge {
+  font-size: 0.65rem;
+  color: #475569;
+  background: #f8fafc;
+  padding: 2px 6px;
+  border-radius: 4px;
+  border: 1px solid #f1f5f9;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.skill-bar {
+  height: 5px;
+  background: #f1f5f9;
+  border-radius: 999px;
+  overflow: hidden;
+  margin-top: 2px;
+  border: 1px solid #e2e8f0;
+}
+
+.skill-bar-fill {
+  height: 100%;
+  border-radius: 999px;
+  animation: skillBarGrow 1s cubic-bezier(0.4, 0, 0.2, 1) both;
+  transform-origin: left;
+}
+
+/* Soft Skills Light Chips Row */
+.skills-chips-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.skills-chip {
+  font-size: 0.74rem;
+  font-weight: 700;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--c) 8%, #ffffff);
+  color: var(--c);
+  border: 1px solid color-mix(in srgb, var(--c) 25%, transparent);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+}
+
+.skills-chip:hover {
+  transform: translateY(-2px) scale(1.04);
+  box-shadow: 0 4px 12px color-mix(in srgb, var(--c) 20%, transparent);
+}
+
+/* Classic Notepad Bottom Statusbar */
+.skills-statusbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4px 14px;
+  background: #f3f4f6;
+  border-top: 1px solid #e5e7eb;
+  font-size: 0.68rem;
+  color: #6b7280;
+  font-family: 'Segoe UI', -apple-system, sans-serif;
+  flex-shrink: 0;
+}
+
+.skills-statusbar .status-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.skills-statusbar .status-left span {
+  padding-right: 14px;
+  border-right: 1px solid #d1d5db;
+}
+
+.skills-statusbar .status-left span:last-child {
+  border-right: none;
 }
 

@@ -176,6 +176,30 @@ class SoundSystem {
       osc.stop(t + 3.0);
     });
   }
+
+  // Bubbly pop sound for folder hover
+  playPop() {
+    if (this.isMuted) return;
+    this.init();
+    if (!this.ctx) return;
+
+    const t = this.ctx.currentTime;
+    const osc = this.ctx.createOscillator();
+    const gain = this.ctx.createGain();
+
+    osc.type = 'sine';
+    osc.frequency.setValueAtTime(380, t);
+    osc.frequency.exponentialRampToValueAtTime(740, t + 0.045);
+
+    gain.gain.setValueAtTime(0.045 * this.masterVolume, t);
+    gain.gain.exponentialRampToValueAtTime(0.001, t + 0.05);
+
+    osc.connect(gain);
+    gain.connect(this.ctx.destination);
+
+    osc.start(t);
+    osc.stop(t + 0.055);
+  }
 }
 
 window.soundSystem = new SoundSystem();

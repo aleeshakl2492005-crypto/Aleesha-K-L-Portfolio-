@@ -1,4 +1,4 @@
-/* ==========================================================================
+﻿/* ==========================================================================
    ALEESHA OS - MAIN SYSTEM INITIALIZER
    Taskbar clock, Start Menu, System Tray flyouts, Desktop icon launcher,
    Global notifications & wallpaper personalization.
@@ -164,16 +164,27 @@ document.addEventListener('DOMContentLoaded', () => {
       if (appId === 'contact') target = 'mail';
       if (appId === 'spatial') target = 'studio3d';
       window.windowManager.open(target);
-      if (target === 'playground' && window.owlGame) {
-        setTimeout(() => window.owlGame.handleResize(), 60);
-      }
     }
   }
 
   mockupIcons.forEach(icon => {
+    icon.addEventListener('mouseenter', () => {
+      icon.classList.add('is-hovered');
+      if (window.soundSystem && typeof window.soundSystem.playPop === 'function') {
+        window.soundSystem.playPop();
+      }
+    });
+
+    icon.addEventListener('mouseleave', () => {
+      icon.classList.remove('is-hovered');
+    });
+
     icon.addEventListener('click', (e) => {
       e.stopPropagation();
-      mockupIcons.forEach(i => i.classList.remove('selected'));
+      mockupIcons.forEach(i => {
+        i.classList.remove('selected');
+        i.classList.remove('is-hovered');
+      });
       icon.classList.add('selected');
       launchMockupItem(icon);
     });
@@ -216,7 +227,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const desktop = document.getElementById('desktop-environment');
   if (desktop) {
     desktop.addEventListener('click', () => {
-      mockupIcons.forEach(i => i.classList.remove('selected'));
+      mockupIcons.forEach(i => {
+        i.classList.remove('selected');
+        i.classList.remove('is-hovered');
+      });
       desktopIcons.forEach(i => i.classList.remove('selected'));
       closeStartMenu();
       closeAllFlyouts();
@@ -544,4 +558,539 @@ function generateCalendarGrid() {
     }
   }, { passive: true });
 })();
+
+// --------------------------------------------------------------------------
+// NOTEPAD SKILLS & SOFTWARE MATRIX CONTROLLER
+// --------------------------------------------------------------------------
+function initNotepadSkillsApp() {
+  const tabSkills = document.getElementById('np-btn-tab-skills');
+  const tabBio = document.getElementById('np-btn-tab-bio');
+  const panelSkills = document.getElementById('np-panel-skills');
+  const panelBio = document.getElementById('np-panel-bio');
+  const titleText = document.getElementById('notepad-title-text');
+  const searchInput = document.getElementById('np-software-search');
+  const catPills = document.querySelectorAll('#np-category-bar .np-cat-pill');
+  const cards = document.querySelectorAll('#np-software-grid .np-soft-card');
+  const spotlightDisplay = document.getElementById('np-spotlight-display');
+  const surpriseBtn = document.getElementById('np-surprise-tool-btn');
+
+  // Tab switching
+  if (tabSkills && tabBio && panelSkills && panelBio) {
+    tabSkills.addEventListener('click', () => {
+      tabSkills.classList.add('active');
+      tabBio.classList.remove('active');
+      panelSkills.style.display = 'block';
+      panelBio.style.display = 'none';
+      if (titleText) titleText.textContent = 'Notepad — Skills_&_Softwares.txt';
+      if (window.soundSystem) window.soundSystem.playClick();
+    });
+
+    tabBio.addEventListener('click', () => {
+      tabBio.classList.add('active');
+      tabSkills.classList.remove('active');
+      panelBio.style.display = 'block';
+      panelSkills.style.display = 'none';
+      if (titleText) titleText.textContent = 'Notepad — About_Aleesha.txt';
+      if (window.soundSystem) window.soundSystem.playClick();
+    });
+  }
+
+  // Category Filtering
+  let activeCat = 'all';
+  function filterCards() {
+    const query = (searchInput ? searchInput.value : '').toLowerCase().trim();
+
+    cards.forEach(card => {
+      const cat = card.getAttribute('data-cat') || '';
+      const name = (card.getAttribute('data-name') || '').toLowerCase();
+      const desc = (card.querySelector('.np-soft-desc') ? card.querySelector('.np-soft-desc').textContent : '').toLowerCase();
+      const used = (card.querySelector('.np-soft-used') ? card.querySelector('.np-soft-used').textContent : '').toLowerCase();
+
+      const matchesCat = (activeCat === 'all' || cat === activeCat);
+      const matchesQuery = !query || name.includes(query) || desc.includes(query) || used.includes(query);
+
+      if (matchesCat && matchesQuery) {
+        card.style.display = 'flex';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  }
+
+  catPills.forEach(pill => {
+    pill.addEventListener('click', () => {
+      catPills.forEach(p => p.classList.remove('active'));
+      pill.classList.add('active');
+      activeCat = pill.getAttribute('data-cat') || 'all';
+      filterCards();
+      if (window.soundSystem) window.soundSystem.playClick();
+    });
+  });
+
+  // Search input filter
+  if (searchInput) {
+    searchInput.addEventListener('input', () => {
+      filterCards();
+    });
+  }
+
+  // Interactive Card Spotlight Click
+  cards.forEach(card => {
+    card.addEventListener('click', () => {
+      cards.forEach(c => c.classList.remove('spotlighted'));
+      card.classList.add('spotlighted');
+
+      const name = card.getAttribute('data-name');
+      const project = card.getAttribute('data-project');
+
+      if (spotlightDisplay) {
+        spotlightDisplay.innerHTML = `<strong>✨ ${name}:</strong> ${project}`;
+        spotlightDisplay.classList.remove('active-pop');
+        void spotlightDisplay.offsetWidth; // retrigger reflow
+        spotlightDisplay.classList.add('active-pop');
+      }
+
+      if (window.soundSystem) {
+        if (typeof window.soundSystem.playPop === 'function') {
+          window.soundSystem.playPop();
+        } else {
+          window.soundSystem.playClick();
+        }
+      }
+    });
+  });
+
+  // Random Tool Spotlight Button
+  if (surpriseBtn) {
+    surpriseBtn.addEventListener('click', () => {
+      const visibleCards = Array.from(cards).filter(c => c.style.display !== 'none');
+      if (visibleCards.length === 0) return;
+
+      const randomCard = visibleCards[Math.floor(Math.random() * visibleCards.length)];
+
+      cards.forEach(c => c.classList.remove('spotlighted'));
+      randomCard.classList.add('spotlighted');
+      randomCard.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+
+      const name = randomCard.getAttribute('data-name');
+      const project = randomCard.getAttribute('data-project');
+
+      if (spotlightDisplay) {
+        spotlightDisplay.innerHTML = `<strong>🎲 Spotlight on ${name}:</strong> ${project}`;
+        spotlightDisplay.classList.remove('active-pop');
+        void spotlightDisplay.offsetWidth;
+        spotlightDisplay.classList.add('active-pop');
+      }
+
+      if (window.soundSystem) {
+        if (typeof window.soundSystem.playPop === 'function') {
+          window.soundSystem.playPop();
+        } else {
+          window.soundSystem.playClick();
+        }
+      }
+    });
+  }
+
+  // Window-Skills Notepad Category Tabs & Search Filter
+  const skillTabs = document.querySelectorAll('#skills-tabs .skills-tab');
+  const skillSections = document.querySelectorAll('#window-skills .skills-section');
+  const skillSearchInput = document.getElementById('skills-search-input');
+  const skillPills = document.querySelectorAll('#window-skills .skill-pill');
+
+  let activeTabGroup = 'all';
+
+  function filterSkills() {
+    const query = skillSearchInput ? skillSearchInput.value.toLowerCase().trim() : '';
+
+    skillPills.forEach(pill => {
+      const name = (pill.getAttribute('data-name') || '').toLowerCase();
+      const proj = (pill.getAttribute('data-project') || '').toLowerCase();
+      const text = pill.textContent.toLowerCase();
+      const matchesSearch = !query || name.includes(query) || proj.includes(query) || text.includes(query);
+
+      const section = pill.closest('.skills-section');
+      const group = section ? section.getAttribute('data-group') : 'all';
+      const matchesTab = activeTabGroup === 'all' || group === activeTabGroup || group === 'all';
+
+      if (matchesSearch && matchesTab) {
+        pill.style.display = 'flex';
+      } else {
+        pill.style.display = 'none';
+      }
+    });
+
+    // Hide empty sections
+    skillSections.forEach(sec => {
+      const visiblePills = sec.querySelectorAll('.skill-pill:not([style*="display: none"])');
+      const isChipsSec = sec.querySelector('.skills-chips-row');
+      const group = sec.getAttribute('data-group');
+      const matchesTab = activeTabGroup === 'all' || group === activeTabGroup || group === 'all';
+
+      if (!matchesTab) {
+        sec.style.display = 'none';
+      } else if (isChipsSec) {
+        sec.style.display = (!query || sec.textContent.toLowerCase().includes(query)) ? 'flex' : 'none';
+      } else {
+        sec.style.display = visiblePills.length > 0 ? 'flex' : 'none';
+      }
+    });
+  }
+
+  skillTabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      skillTabs.forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+      activeTabGroup = tab.getAttribute('data-tab');
+      filterSkills();
+      if (window.soundSystem) window.soundSystem.playClick();
+    });
+  });
+
+  if (skillSearchInput) {
+    skillSearchInput.addEventListener('input', () => {
+      filterSkills();
+    });
+  }
+
+  // Window-Skills individual skill pill sound & pop
+  skillPills.forEach(pill => {
+    pill.addEventListener('click', () => {
+      pill.style.transform = 'translateY(-4px) scale(1.03)';
+      setTimeout(() => {
+        pill.style.transform = '';
+      }, 250);
+
+      if (window.soundSystem) {
+        if (typeof window.soundSystem.playPop === 'function') {
+          window.soundSystem.playPop();
+        } else {
+          window.soundSystem.playClick();
+        }
+      }
+    });
+  });
+}
+
+// --------------------------------------------------------------------------
+// ABOUT ME (JAMES CHUGH STYLE CORKBOARD PINBOARD) CONTROLLER
+// Supports freeform draggable photos & sticky notes, non-scrollable canvas,
+// reset pins, lofi audio, day/night lighting, and polaroid lightbox.
+// --------------------------------------------------------------------------
+function initAboutMeApp() {
+  // 1. Music Player Toggle (James Chugh Style Pill & Vinyl Record)
+  const lofiBtn = document.getElementById('btn-lofi-toggle');
+  const corkMusicLabel = document.getElementById('cork-music-label');
+  const corkMusicIcon = document.getElementById('cork-music-icon');
+  const lofiVisualizer = document.getElementById('lofi-visualizer');
+  const vinylDisc = document.getElementById('about-vinyl-disc');
+  let isLofiPlaying = false;
+  let lofiInterval = null;
+  let chordIndex = 0;
+
+  if (lofiBtn) {
+    lofiBtn.addEventListener('click', () => {
+      isLofiPlaying = !isLofiPlaying;
+      if (isLofiPlaying) {
+        lofiBtn.classList.add('playing');
+        if (corkMusicLabel) corkMusicLabel.textContent = 'Pause music';
+        if (corkMusicIcon) corkMusicIcon.textContent = '⏸';
+        if (lofiVisualizer) lofiVisualizer.classList.remove('paused');
+        if (vinylDisc) vinylDisc.classList.add('playing');
+
+        // Play immediate chord
+        if (window.soundSystem && typeof window.soundSystem.playLoFiChord === 'function') {
+          window.soundSystem.playLoFiChord(chordIndex++);
+        }
+
+        // Loop chords every 2.4s
+        if (lofiInterval) clearInterval(lofiInterval);
+        lofiInterval = setInterval(() => {
+          if (window.soundSystem && typeof window.soundSystem.playLoFiChord === 'function') {
+            window.soundSystem.playLoFiChord(chordIndex++);
+          }
+        }, 2400);
+      } else {
+        lofiBtn.classList.remove('playing');
+        if (corkMusicLabel) corkMusicLabel.textContent = 'Play music';
+        if (corkMusicIcon) corkMusicIcon.textContent = '▶';
+        if (lofiVisualizer) lofiVisualizer.classList.add('paused');
+        if (vinylDisc) vinylDisc.classList.remove('playing');
+        if (lofiInterval) {
+          clearInterval(lofiInterval);
+          lofiInterval = null;
+        }
+      }
+
+      if (window.soundSystem) window.soundSystem.playClick();
+    });
+  }
+
+  // 2. Day / Night Ambient Lighting Toggle
+  const modeBtn = document.getElementById('btn-cork-mode');
+  const corkWrapper = document.getElementById('corkboard-wrapper');
+  const corkModeIcon = document.getElementById('cork-mode-icon');
+  const corkModeText = document.getElementById('cork-mode-text');
+  let isNight = false;
+
+  if (modeBtn && corkWrapper) {
+    modeBtn.addEventListener('click', () => {
+      isNight = !isNight;
+      corkWrapper.classList.toggle('night-mode', isNight);
+      if (corkModeIcon) corkModeIcon.textContent = isNight ? '🌙' : '☀️';
+      if (corkModeText) corkModeText.textContent = isNight ? 'Night' : 'Day';
+      if (window.soundSystem) {
+        if (typeof window.soundSystem.playPop === 'function') {
+          window.soundSystem.playPop();
+        } else {
+          window.soundSystem.playClick();
+        }
+      }
+    });
+  }
+
+  // 3. Copy Email to Clipboard Toast
+  const copyEmailBtn = document.getElementById('btn-about-copy-email');
+  const aboutToast = document.getElementById('about-toast');
+  let toastTimer = null;
+
+  if (copyEmailBtn) {
+    copyEmailBtn.addEventListener('click', () => {
+      const email = 'aleeshakl2495@gmail.com';
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(email).catch(() => {});
+      }
+      if (aboutToast) {
+        aboutToast.classList.add('show');
+        if (toastTimer) clearTimeout(toastTimer);
+        toastTimer = setTimeout(() => {
+          aboutToast.classList.remove('show');
+        }, 2400);
+      }
+      if (window.soundSystem) {
+        if (typeof window.soundSystem.playNotification === 'function') {
+          window.soundSystem.playNotification();
+        } else {
+          window.soundSystem.playClick();
+        }
+      }
+    });
+  }
+
+  // 4. Quick Action Jump Buttons (Resume, Projects, 3D Studio, Mail)
+  const quickResumeBtn = document.getElementById('btn-quick-resume');
+  if (quickResumeBtn) {
+    quickResumeBtn.addEventListener('click', () => {
+      if (window.windowManager) window.windowManager.open('resume');
+      if (window.soundSystem) window.soundSystem.playClick();
+    });
+  }
+
+  const quickProjectsBtn = document.getElementById('btn-quick-projects');
+  if (quickProjectsBtn) {
+    quickProjectsBtn.addEventListener('click', () => {
+      if (window.windowManager) window.windowManager.open('projects');
+      if (window.soundSystem) window.soundSystem.playClick();
+    });
+  }
+
+  const quickSpatialBtn = document.getElementById('btn-quick-spatial');
+  if (quickSpatialBtn) {
+    quickSpatialBtn.addEventListener('click', () => {
+      if (window.windowManager) window.windowManager.open('studio3d');
+      if (window.soundSystem) window.soundSystem.playClick();
+    });
+  }
+
+  const openMailBtn = document.getElementById('btn-about-open-mail');
+  if (openMailBtn) {
+    openMailBtn.addEventListener('click', () => {
+      if (window.windowManager) window.windowManager.open('mail');
+      if (window.soundSystem) window.soundSystem.playClick();
+    });
+  }
+
+  // 5. Polaroid Lightbox Zoom Modal
+  const corkLightbox = document.getElementById('cork-lightbox');
+  const corkLightboxImg = document.getElementById('cork-lightbox-img');
+  const corkLightboxCaption = document.getElementById('cork-lightbox-caption');
+  const corkLightboxClose = document.getElementById('cork-lightbox-close');
+  const btnCloseCorkLightbox = document.getElementById('btn-close-cork-lightbox');
+
+  function openPolaroidLightbox(photoSrc, caption) {
+    if (!corkLightbox || !corkLightboxImg) return;
+    corkLightboxImg.src = photoSrc;
+    if (corkLightboxCaption) corkLightboxCaption.textContent = caption || '';
+    corkLightbox.classList.add('open');
+    corkLightbox.setAttribute('aria-hidden', 'false');
+    if (window.soundSystem) {
+      if (typeof window.soundSystem.playPop === 'function') {
+        window.soundSystem.playPop();
+      } else {
+        window.soundSystem.playClick();
+      }
+    }
+  }
+
+  function closePolaroidLightbox() {
+    if (!corkLightbox) return;
+    corkLightbox.classList.remove('open');
+    corkLightbox.setAttribute('aria-hidden', 'true');
+    if (window.soundSystem) window.soundSystem.playClick();
+  }
+
+  if (corkLightboxClose) corkLightboxClose.addEventListener('click', closePolaroidLightbox);
+  if (btnCloseCorkLightbox) btnCloseCorkLightbox.addEventListener('click', closePolaroidLightbox);
+
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && corkLightbox && corkLightbox.classList.contains('open')) {
+      closePolaroidLightbox();
+    }
+  });
+
+  // 6. Freeform Draggable Corkboard Items (Rearrangeable Photos & Sticky Notes)
+  const corkSurface = document.getElementById('corkboard-surface');
+  const corkItems = corkSurface ? corkSurface.querySelectorAll('.cork-item') : [];
+  let highestCorkZ = 120;
+
+  corkItems.forEach(item => {
+    let isDragging = false;
+    let hasMoved = false;
+    let startX = 0;
+    let startY = 0;
+    let initLeft = 0;
+    let initTop = 0;
+
+    const onPointerDown = (e) => {
+      // Don't drag if clicking interactive buttons directly (let button click work)
+      if (e.target.closest('button') || e.target.closest('a') || e.target.closest('input')) {
+        return;
+      }
+
+      const point = e.touches ? e.touches[0] : e;
+      startX = point.clientX;
+      startY = point.clientY;
+      hasMoved = false;
+      isDragging = false;
+
+      // Calculate position relative to corkSurface
+      const surfaceRect = corkSurface.getBoundingClientRect();
+      const itemRect = item.getBoundingClientRect();
+      initLeft = itemRect.left - surfaceRect.left;
+      initTop = itemRect.top - surfaceRect.top;
+
+      highestCorkZ += 2;
+      item.style.zIndex = highestCorkZ;
+
+      const onPointerMove = (moveEvt) => {
+        const movePoint = moveEvt.touches ? moveEvt.touches[0] : moveEvt;
+        const dx = movePoint.clientX - startX;
+        const dy = movePoint.clientY - startY;
+
+        if (!isDragging && Math.hypot(dx, dy) > 4) {
+          isDragging = true;
+          hasMoved = true;
+          item.classList.add('is-dragging');
+        }
+
+        if (isDragging) {
+          moveEvt.preventDefault();
+          const curSurfaceRect = corkSurface.getBoundingClientRect();
+          let newLeft = initLeft + dx;
+          let newTop = initTop + dy;
+
+          const maxLeft = curSurfaceRect.width - item.offsetWidth - 2;
+          const maxTop = curSurfaceRect.height - item.offsetHeight - 2;
+
+          newLeft = Math.max(2, Math.min(maxLeft, newLeft));
+          newTop = Math.max(2, Math.min(maxTop, newTop));
+
+          item.style.left = `${newLeft}px`;
+          item.style.top = `${newTop}px`;
+          item.style.right = 'auto';
+          item.style.bottom = 'auto';
+        }
+      };
+
+      const onPointerUp = () => {
+        document.removeEventListener('mousemove', onPointerMove);
+        document.removeEventListener('mouseup', onPointerUp);
+        document.removeEventListener('touchmove', onPointerMove);
+        document.removeEventListener('touchend', onPointerUp);
+
+        if (isDragging) {
+          item.classList.remove('is-dragging');
+          if (window.soundSystem) {
+            if (typeof window.soundSystem.playPop === 'function') {
+              window.soundSystem.playPop();
+            } else {
+              window.soundSystem.playClick();
+            }
+          }
+        }
+      };
+
+      document.addEventListener('mousemove', onPointerMove, { passive: false });
+      document.addEventListener('mouseup', onPointerUp);
+      document.addEventListener('touchmove', onPointerMove, { passive: false });
+      document.addEventListener('touchend', onPointerUp);
+    };
+
+    item.addEventListener('mousedown', onPointerDown);
+    item.addEventListener('touchstart', onPointerDown, { passive: true });
+
+    // Handle clicks vs drags for polaroids
+    if (item.classList.contains('polaroid-card')) {
+      item.addEventListener('click', (e) => {
+        if (hasMoved) {
+          e.stopPropagation();
+          e.preventDefault();
+          return;
+        }
+        const photo = item.getAttribute('data-photo');
+        const caption = item.getAttribute('data-caption');
+        if (photo) openPolaroidLightbox(photo, caption);
+      });
+    }
+  });
+
+  // 7. Reset Pins Button (Smoothly animates all pins back to default layout)
+  const resetPinsBtn = document.getElementById('btn-cork-reset');
+  if (resetPinsBtn && corkItems.length > 0) {
+    resetPinsBtn.addEventListener('click', () => {
+      corkItems.forEach(item => {
+        const defLeft = item.getAttribute('data-default-left');
+        const defTop = item.getAttribute('data-default-top');
+        if (defLeft && defTop) {
+          item.classList.add('is-resetting');
+          item.style.left = defLeft;
+          item.style.top = defTop;
+        }
+      });
+
+      if (window.soundSystem) {
+        if (typeof window.soundSystem.playPop === 'function') {
+          window.soundSystem.playPop();
+        } else {
+          window.soundSystem.playClick();
+        }
+      }
+
+      setTimeout(() => {
+        corkItems.forEach(item => item.classList.remove('is-resetting'));
+      }, 500);
+    });
+  }
+}
+
+// Initialize when DOM ready
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', () => {
+    initNotepadSkillsApp();
+    initAboutMeApp();
+  });
+} else {
+  initNotepadSkillsApp();
+  initAboutMeApp();
+}
 

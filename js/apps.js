@@ -1336,6 +1336,137 @@ const SOLARI_PROJECTS_DATA = [
   }
 ];
 
+/**
+ * Interactive 3D Card Stack Drag & Swipe Controller
+ * Allows natural cursor/finger drag to browse next/prev project cards,
+ * while distinguishing clicks to trigger the 3D card flip.
+ */
+function setupCardDragInteraction(cardEl, { onNext, onPrev, onFlip }) {
+  if (!cardEl) return;
+
+  let startX = 0;
+  let startY = 0;
+  let startTime = 0;
+  let isDragging = false;
+  let hasMoved = false;
+  let pointerId = null;
+
+  function onPointerDown(e) {
+    if (cardEl.classList.contains('is-flipping')) return;
+    if (e.button !== undefined && e.button !== 0) return;
+
+    startX = e.clientX;
+    startY = e.clientY;
+    startTime = Date.now();
+    isDragging = true;
+    hasMoved = false;
+    pointerId = e.pointerId;
+
+    try {
+      cardEl.setPointerCapture(e.pointerId);
+    } catch (_) {}
+
+    cardEl.classList.add('is-dragging');
+  }
+
+  function onPointerMove(e) {
+    if (!isDragging) return;
+    const deltaX = e.clientX - startX;
+    const deltaY = e.clientY - startY;
+
+    if (!hasMoved && Math.hypot(deltaX, deltaY) > 6) {
+      hasMoved = true;
+    }
+
+    if (hasMoved) {
+      const rotation = deltaX * 0.075;
+      const ty = deltaY * 0.16;
+      cardEl.style.transform = `translate3d(${deltaX}px, ${ty}px, 0) rotate(${rotation}deg) scale(1.02)`;
+
+      const bgCard1 = cardEl.parentElement ? cardEl.parentElement.querySelector('.card-bg-1') : null;
+      if (bgCard1) {
+        const pullProgress = Math.min(Math.abs(deltaX) / 180, 1);
+        const bgRot = -3 + (deltaX > 0 ? 3.5 : -3.5) * pullProgress;
+        const bgScale = 0.965 + 0.02 * pullProgress;
+        bgCard1.style.transform = `translate(-12px, 7px) rotate(${bgRot}deg) scale(${bgScale})`;
+      }
+    }
+  }
+
+  function onPointerEnd(e) {
+    if (!isDragging) return;
+    isDragging = false;
+    cardEl.classList.remove('is-dragging');
+
+    try {
+      if (pointerId !== null) cardEl.releasePointerCapture(pointerId);
+    } catch (_) {}
+
+    const deltaX = e.clientX - startX;
+    const elapsed = Math.max(Date.now() - startTime, 1);
+    const velocity = Math.abs(deltaX) / elapsed;
+
+    const bgCard1 = cardEl.parentElement ? cardEl.parentElement.querySelector('.card-bg-1') : null;
+    if (bgCard1) {
+      bgCard1.style.transform = '';
+    }
+
+    const isSwipe = Math.abs(deltaX) > 55 || (velocity > 0.35 && Math.abs(deltaX) > 22);
+
+    if (hasMoved && isSwipe) {
+      if (deltaX < 0) {
+        // Dragged Left -> Next Card
+        cardEl.style.transition = 'transform 0.22s ease-out, opacity 0.2s ease-out';
+        cardEl.style.transform = 'translate3d(-340px, 15px, 0) rotate(-18deg) scale(0.9)';
+        cardEl.style.opacity = '0';
+        setTimeout(() => {
+          onNext();
+        }, 170);
+      } else {
+        // Dragged Right -> Previous Card
+        cardEl.style.transition = 'transform 0.22s ease-out, opacity 0.2s ease-out';
+        cardEl.style.transform = 'translate3d(340px, 15px, 0) rotate(18deg) scale(0.9)';
+        cardEl.style.opacity = '0';
+        setTimeout(() => {
+          onPrev();
+        }, 170);
+      }
+    } else if (hasMoved) {
+      // Snapping back gently
+      cardEl.style.transition = 'transform 0.28s cubic-bezier(0.2, 0.9, 0.3, 1.2)';
+      cardEl.style.transform = 'translate3d(0, 0, 0) rotate(0deg) scale(1)';
+      setTimeout(() => {
+        cardEl.style.transition = '';
+        cardEl.style.transform = '';
+      }, 290);
+    } else {
+      // Pure click/tap without drag
+      onFlip();
+    }
+  }
+
+  cardEl.addEventListener('pointerdown', onPointerDown);
+  cardEl.addEventListener('pointermove', onPointerMove);
+  cardEl.addEventListener('pointerup', onPointerEnd);
+  cardEl.addEventListener('pointercancel', onPointerEnd);
+
+  // Suppress synthetic click when dragging
+  cardEl.addEventListener('click', (e) => {
+    if (hasMoved) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
+  }, true);
+
+  // Keyboard accessibility
+  cardEl.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      onFlip();
+    }
+  });
+}
+
 function initFileExplorer() {
   initSolariProjects();
 }
@@ -1658,157 +1789,149 @@ function initSolariProjects() {
       }
 
       detailBody.innerHTML = `
-        <div class="solari-case-card" style="--case-color: #fdf2f8;">
-          <div class="solari-case-hero" style="background: linear-gradient(135deg, #fdf2f8 0%, #fce7f3 50%, #fff1f2 100%);">
-            <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:12px;">
-              <div>
-                <div class="solari-case-index" style="color:#db2777;">Folder 09 • Books, UI/UX Apps &amp; Photography Exhibition</div>
-                <h2 class="solari-case-title" style="color:#831843;">Beyond the Brief</h2>
-                <p class="solari-case-subtitle" style="color:#9d174d; margin-bottom:10px;">8 interactive case studies decoded from live client briefs, publications, prototypes, and tarot oracle deck.</p>
-                <div class="solari-case-meta-row">
-                  <span class="solari-meta-badge" style="background:#fce7f3; color:#be185d; border-color:#fbcfe8;">✨ 8 Interactive Sites</span>
-                  <span class="solari-meta-badge">📚 4 Books</span>
-                  <span class="solari-meta-badge">📱 3 UI/UX Apps</span>
-                  <span class="solari-meta-badge">📸 1 Photography Exhibition</span>
+        <div class="solari-beyond-stage">
+          <!-- Top Subnav (Folder 09 info, Switcher, Popout) -->
+          <div class="solari-beyond-subnav">
+            <div class="solari-beyond-subnav-left">
+              <span class="solari-meta-badge" style="background:#fce7f3; color:#be185d; border-color:#fbcfe8; font-weight:800; font-size:0.75rem;">
+                FOLDER 09 • BEYOND THE BRIEF
+              </span>
+              <span class="solari-beyond-subnav-title">8 Interactive Projects &amp; Curated Publications</span>
+            </div>
+            <div class="solari-beyond-subnav-right">
+              <div class="deck-view-switcher">
+                <button type="button" class="deck-switch-btn active" id="btn-view-deck" title="Interactive Card Deck">🃏 3D Card Stack</button>
+                <button type="button" class="deck-switch-btn" id="btn-view-grid" title="Grid of All Projects">⊞ Grid View</button>
+              </div>
+              <button type="button" class="solari-btn-pill primary" id="solari-launch-beyond-btn" style="cursor:pointer; display:inline-flex; align-items:center; gap:6px; font-size:0.75rem; padding:6px 14px; background:linear-gradient(135deg, #f472b6, #c084fc); color:#fff; border:none; border-radius:20px; font-weight:700; box-shadow:0 3px 10px rgba(192, 132, 252, 0.35);">
+                <span>✦ Open Studio Window ↗</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- 1. SHABNAM-STYLE CARD DECK -->
+          <div class="shabnam-deck-container" id="shabnam-deck-view">
+            <div class="shabnam-deck-layout">
+              <!-- Left: Headline & Pinned Sticky Notes -->
+              <div class="shabnam-deck-left">
+                <div class="shabnam-deck-tag">
+                  <span>✦</span>
+                  <span>CURATED EXPERIENCES · BEYOND THE BRIEF</span>
+                </div>
+                <h2 class="shabnam-deck-heading">Aleesha K. L.</h2>
+                <p class="shabnam-deck-lede">
+                  I design <span class="shabnam-highlighter">tactile editorial publications</span>, human-centred mobile interfaces, and ritual tarot oracle decks.
+                  <span style="display:block; margin-top:6px; font-size:0.86rem; color:#4a3856;"><strong>⇄ Drag card to browse • Click to flip &amp; open live experience.</strong></span>
+                </p>
+
+                <div class="shabnam-stickies">
+                  <div class="shabnam-sticky note-yellow">
+                    <div class="shabnam-tape"></div>
+                    <div class="shabnam-sticky-val">08</div>
+                    <div class="shabnam-sticky-lbl">Interactive Live Websites</div>
+                  </div>
+                  <div class="shabnam-sticky note-red">
+                    <div class="shabnam-tape"></div>
+                    <div class="shabnam-sticky-val">04</div>
+                    <div class="shabnam-sticky-lbl">Editorial Books &amp; Manuals</div>
+                  </div>
+                  <div class="shabnam-sticky note-cream">
+                    <div class="shabnam-tape"></div>
+                    <div class="shabnam-sticky-val">03</div>
+                    <div class="shabnam-sticky-lbl">Mobile UI/UX Prototypes</div>
+                  </div>
+                  <div class="shabnam-sticky note-beige">
+                    <div class="shabnam-tape"></div>
+                    <div class="shabnam-sticky-val">01</div>
+                    <div class="shabnam-sticky-lbl">Studio Lighting Exhibition</div>
+                  </div>
                 </div>
               </div>
-              <div style="display:flex; gap:10px; flex-wrap:wrap;">
-                <button type="button" class="solari-btn-pill primary" id="solari-launch-beyond-btn" style="cursor:pointer; display:inline-flex; align-items:center; gap:8px; font-size:0.82rem; padding:8px 18px; box-shadow:0 4px 12px rgba(219,39,119,0.25); background:#db2777; color:#fff; border:none; border-radius:20px; font-weight:700;">
-                  <span>✦ Open Studio Window ↗</span>
-                </button>
+
+              <!-- Right: Stack of Cards -->
+              <div class="shabnam-card-stack-wrap">
+                <div class="shabnam-deck-stage" id="deck-stage">
+                  <!-- Populated dynamically -->
+                </div>
+
+                <!-- Controls Below Cards -->
+                <div class="shabnam-deck-controls">
+                  <div class="shabnam-deck-hint">⇄ Drag card left / right to browse • Click to flip &amp; open site</div>
+                  <div class="shabnam-deck-pills-row">
+                    <button type="button" class="deck-ctrl-btn" id="deck-ctrl-prev" aria-label="Previous card">
+                      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                    </button>
+                    <span class="deck-counter-badge" id="deck-counter-display">01 / 08</span>
+                    <button type="button" class="deck-ctrl-btn" id="deck-ctrl-next" aria-label="Next card">
+                      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                    </button>
+                  </div>
+                  <div class="deck-dots-row" id="deck-dots-container"></div>
+                </div>
               </div>
             </div>
           </div>
 
-          <div class="solari-case-content" style="padding: 24px;">
-            <!-- View Switcher -->
-            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 20px; flex-wrap: wrap; gap: 12px;">
-              <div style="display:flex; align-items:center; gap:8px;">
-                <span style="font-size:0.95rem; font-weight:800; color:#0f172a;">Showcase Gallery</span>
-                <span style="font-size:0.75rem; background:#fce7f3; color:#be185d; padding:2px 10px; border-radius:999px; font-weight:700;">3D Card Deck</span>
-              </div>
-              <div class="deck-view-switcher">
-                <button type="button" class="deck-switch-btn active" id="btn-view-deck" title="Interactive Card Deck">🃏 Card Deck</button>
-                <button type="button" class="deck-switch-btn" id="btn-view-grid" title="Grid of All Projects">⊞ Grid View</button>
-              </div>
-            </div>
-
-            <!-- 1. SHABNAM-STYLE CARD DECK -->
-            <div class="shabnam-deck-container" id="shabnam-deck-view">
-              <div class="shabnam-deck-layout">
-                <!-- Left: Headline & Pinned Sticky Notes -->
-                <div class="shabnam-deck-left">
-                  <div class="shabnam-deck-tag">CURATED EXPERIENCES</div>
-                  <h3 class="shabnam-deck-heading">ALEESHA K. L.</h3>
-                  <p class="shabnam-deck-lede">
-                    I design tactile editorial books, human-centred mobile interfaces, and ritual tarot oracle decks.
-                    <strong>Click any project card in the stack to flip it and launch the live site.</strong>
-                  </p>
-
-                  <div class="shabnam-stickies">
-                    <div class="shabnam-sticky">
-                      <div class="shabnam-tape"></div>
-                      <div class="shabnam-sticky-val">8</div>
-                      <div class="shabnam-sticky-lbl">Interactive Live Websites</div>
-                    </div>
-                    <div class="shabnam-sticky">
-                      <div class="shabnam-tape"></div>
-                      <div class="shabnam-sticky-val">4</div>
-                      <div class="shabnam-sticky-lbl">Editorial Books &amp; Manuals</div>
-                    </div>
-                    <div class="shabnam-sticky">
-                      <div class="shabnam-tape"></div>
-                      <div class="shabnam-sticky-val">3</div>
-                      <div class="shabnam-sticky-lbl">Mobile UI/UX Prototypes</div>
-                    </div>
-                    <div class="shabnam-sticky">
-                      <div class="shabnam-tape"></div>
-                      <div class="shabnam-sticky-val">1</div>
-                      <div class="shabnam-sticky-lbl">Studio Lighting Exhibition</div>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Right: Stack of Cards -->
-                <div class="shabnam-card-stack-wrap">
-                  <div class="shabnam-deck-stage" id="deck-stage">
-                    <!-- Populated dynamically -->
-                  </div>
-
-                  <!-- Controls -->
-                  <div class="shabnam-deck-controls">
-                    <div class="shabnam-deck-hint">Click card to flip &amp; open live case study</div>
-                    <div class="shabnam-deck-pills-row">
-                      <button type="button" class="deck-ctrl-btn" id="deck-ctrl-prev" aria-label="Previous card">
-                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"></polyline></svg>
-                      </button>
-                      <span class="deck-counter-badge" id="deck-counter-display">01 / 08</span>
-                      <button type="button" class="deck-ctrl-btn" id="deck-ctrl-next" aria-label="Next card">
-                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
-                      </button>
-                    </div>
-                    <div class="deck-dots-row" id="deck-dots-container"></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- 2. IN-PLACE LIVE CASE STUDY VIEWER (REVEALED ON FLIP) -->
-            <div class="solari-beyond-case-view" id="solari-beyond-case-view" style="display:none;">
-              <div class="solari-beyond-case-bar">
-                <button type="button" class="solari-btn-pill" id="btn-solari-back-deck" style="cursor:pointer; display:inline-flex; align-items:center; gap:6px; background:rgba(255,255,255,0.12); color:#fff; border:1px solid rgba(255,255,255,0.25); border-radius:6px; padding:5px 12px; font-size:0.75rem; font-weight:700;">
+          <!-- 2. IN-PLACE LIVE CASE STUDY VIEWER (REVEALED ON FLIP) -->
+          <div class="solari-beyond-case-view" id="solari-beyond-case-view" style="display:none;">
+            <div class="solari-beyond-case-bar">
+              <div style="display:flex; align-items:center; gap:10px;">
+                <button type="button" class="solari-btn-pill" id="btn-solari-back-deck" style="cursor:pointer; display:inline-flex; align-items:center; gap:6px; background:rgba(255,255,255,0.14); color:#fff; border:1px solid rgba(255,255,255,0.25); border-radius:6px; padding:6px 14px; font-size:0.78rem; font-weight:700;">
                   ← Back to Card Deck
                 </button>
-                <div style="display:flex; align-items:center; gap:8px;">
-                  <span class="solari-meta-badge" id="solari-beyond-active-badge" style="background:#db2777; color:#fff; border:none; font-size:0.68rem; padding:2px 8px;">LIVE CASE STUDY</span>
-                  <span id="solari-beyond-active-title" style="font-weight:700; color:#fff; font-size:0.85rem; max-width:340px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">Title</span>
-                </div>
-                <div style="display:flex; gap:8px;">
-                  <button type="button" class="solari-btn-pill" id="btn-solari-popout-window" style="cursor:pointer; background:rgba(255,255,255,0.12); color:#fff; border:1px solid rgba(255,255,255,0.25); border-radius:6px; padding:5px 12px; font-size:0.75rem; font-weight:600;">
-                    Open Studio Window ↗
-                  </button>
-                  <a href="#" target="_blank" class="solari-btn-pill primary" id="btn-solari-newtab-link" style="text-decoration:none; display:inline-flex; align-items:center; background:#db2777; color:#fff; border-radius:6px; padding:5px 12px; font-size:0.75rem; font-weight:700;">
-                    New Tab ↗
-                  </a>
-                </div>
+                <span class="solari-meta-badge" id="solari-beyond-active-badge" style="background:linear-gradient(135deg, #f472b6, #c084fc); color:#fff; border:none; font-size:0.7rem; padding:3px 10px; font-weight:800; border-radius:4px;">LIVE CASE STUDY</span>
+                <span id="solari-beyond-active-title" style="font-weight:700; color:#fff; font-size:0.88rem; max-width:380px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">Title</span>
               </div>
+              <div style="display:flex; align-items:center; gap:8px;">
+                <button type="button" class="solari-btn-pill" id="btn-solari-pdf-view" style="display:none; cursor:pointer; background:rgba(225,29,72,0.2); color:#fda4af; border:1px solid rgba(225,29,72,0.4); border-radius:6px; padding:5px 12px; font-size:0.75rem; font-weight:700;">
+                  📄 View PDF
+                </button>
+                <button type="button" class="solari-btn-pill" id="btn-solari-popout-window" style="cursor:pointer; background:rgba(255,255,255,0.12); color:#fff; border:1px solid rgba(255,255,255,0.25); border-radius:6px; padding:5px 12px; font-size:0.75rem; font-weight:600;">
+                  Open Studio Window ↗
+                </button>
+                <a href="#" target="_blank" class="solari-btn-pill primary" id="btn-solari-newtab-link" style="text-decoration:none; display:inline-flex; align-items:center; background:linear-gradient(135deg, #f472b6, #c084fc); color:#fff; border-radius:6px; padding:5px 12px; font-size:0.75rem; font-weight:700;">
+                  New Tab ↗
+                </a>
+              </div>
+            </div>
+            <div style="flex:1; width:100%; height:100%; position:relative; min-height:480px; background:#fff;">
               <iframe src="about:blank" id="solari-beyond-case-iframe" class="solari-beyond-case-iframe" title="Interactive Project"></iframe>
             </div>
+          </div>
 
-            <!-- 3. GRID VIEW (FALLBACK TOGGLE) -->
-            <div class="beyond-grid" id="solari-beyond-grid-view" style="display:none; margin-top: 16px;">
-              ${PORTFOLIO_DATA.beyond.map(item => `
-                <div class="beyond-card" data-beyond-id="${item.id}" style="cursor:pointer;">
-                  <div class="beyond-img-wrap">
-                    <img src="${item.img}" alt="${item.title}" class="beyond-img" loading="lazy">
-                    <div class="beyond-spine-shadow"></div>
-                    <div class="beyond-img-overlay">
-                      ${item.hasSite ? `<span class="beyond-site-pill">✨ Interactive</span>` : ''}
-                      <span class="beyond-format-pill">${item.format}</span>
-                    </div>
-                    <div class="beyond-cover-hover">
-                      <span>✦ Explore Experience ↗</span>
-                    </div>
+          <!-- 3. GRID VIEW (FALLBACK TOGGLE) -->
+          <div class="beyond-grid" id="solari-beyond-grid-view" style="display:none; margin-top: 16px;">
+            ${PORTFOLIO_DATA.beyond.map(item => `
+              <div class="beyond-card" data-beyond-id="${item.id}" style="cursor:pointer;">
+                <div class="beyond-img-wrap">
+                  <img src="${item.img}" alt="${item.title}" class="beyond-img" loading="lazy">
+                  <div class="beyond-spine-shadow"></div>
+                  <div class="beyond-img-overlay">
+                    ${item.hasSite ? `<span class="beyond-site-pill">✨ Interactive</span>` : ''}
+                    <span class="beyond-format-pill">${item.format}</span>
                   </div>
-                  <div class="beyond-info">
-                    <div style="display:flex; align-items:center; justify-content:space-between; gap:6px;">
-                      <span class="beyond-badge">${item.badge}</span>
-                      <span style="font-size:0.68rem; color:#64748b; font-weight:600;">${item.categoryLabel}</span>
-                    </div>
-                    <div class="beyond-title">${item.title}</div>
-                    <div class="beyond-desc">${item.desc}</div>
-                    <div class="playground-tags" style="margin-top:6px;">
-                      ${item.tools.slice(0, 3).map(t => `<span class="playground-tag">${t}</span>`).join('')}
-                    </div>
+                  <div class="beyond-cover-hover">
+                    <span>✦ Explore Experience ↗</span>
                   </div>
                 </div>
-              `).join('')}
-            </div>
+                <div class="beyond-info">
+                  <div style="display:flex; align-items:center; justify-content:space-between; gap:6px;">
+                    <span class="beyond-badge">${item.badge}</span>
+                    <span style="font-size:0.68rem; color:#64748b; font-weight:600;">${item.categoryLabel}</span>
+                  </div>
+                  <div class="beyond-title">${item.title}</div>
+                  <div class="beyond-desc">${item.desc}</div>
+                  <div class="playground-tags" style="margin-top:6px;">
+                    ${item.tools.slice(0, 3).map(t => `<span class="playground-tag">${t}</span>`).join('')}
+                  </div>
+                </div>
+              </div>
+            `).join('')}
           </div>
         </div>
       `;
 
-      // Wire up launch button for top hero
+      // Wire up launch button for top studio popout
       const launchBtn = detailBody.querySelector('#solari-launch-beyond-btn');
       if (launchBtn) {
         launchBtn.addEventListener('click', () => {
@@ -1883,14 +2006,14 @@ function initSolariProjects() {
           <!-- Card 3 (Bottom Layer) -->
           <div class="shabnam-deck-card card-bg-2">
             <div class="deck-card-face deck-card-front">
-              <div class="shabnam-tape"></div>
+              <div class="deck-card-tape"></div>
               <div class="deck-card-img-wrap">
                 <img src="${next2.img}" alt="${next2.title}" class="deck-card-img">
               </div>
               <div class="deck-card-info">
                 <div class="deck-card-meta">
                   <span class="deck-card-num">${String(((activeDeckIdx + 2) % totalCards) + 1).padStart(2, '0')}</span>
-                  <span class="deck-card-pill">${next2.categoryLabel}</span>
+                  <span class="deck-card-tag">${next2.badge || next2.categoryLabel}</span>
                 </div>
                 <div class="deck-card-title">${next2.title}</div>
               </div>
@@ -1900,14 +2023,14 @@ function initSolariProjects() {
           <!-- Card 2 (Middle Layer) -->
           <div class="shabnam-deck-card card-bg-1">
             <div class="deck-card-face deck-card-front">
-              <div class="shabnam-tape"></div>
+              <div class="deck-card-tape"></div>
               <div class="deck-card-img-wrap">
                 <img src="${next1.img}" alt="${next1.title}" class="deck-card-img">
               </div>
               <div class="deck-card-info">
                 <div class="deck-card-meta">
                   <span class="deck-card-num">${String(((activeDeckIdx + 1) % totalCards) + 1).padStart(2, '0')}</span>
-                  <span class="deck-card-pill">${next1.categoryLabel}</span>
+                  <span class="deck-card-tag">${next1.badge || next1.categoryLabel}</span>
                 </div>
                 <div class="deck-card-title">${next1.title}</div>
               </div>
@@ -1915,10 +2038,10 @@ function initSolariProjects() {
           </div>
 
           <!-- Card 1 (Active Front Layer with 3D Flip) -->
-          <div class="shabnam-deck-card card-active" id="active-deck-card">
+          <div class="shabnam-deck-card card-active" id="active-deck-card" tabindex="0" role="button" aria-label="Open ${current.title}">
             <!-- Front Face -->
             <div class="deck-card-face deck-card-front">
-              <div class="shabnam-tape"></div>
+              <div class="deck-card-tape"></div>
               <div class="deck-card-img-wrap">
                 <img src="${current.img}" alt="${current.title}" class="deck-card-img">
                 <div class="deck-card-img-overlay">
@@ -1929,10 +2052,10 @@ function initSolariProjects() {
               <div class="deck-card-info">
                 <div class="deck-card-meta">
                   <span class="deck-card-num">${String(activeDeckIdx + 1).padStart(2, '0')}</span>
-                  <span class="deck-card-pill">${current.categoryLabel}</span>
+                  <span class="deck-card-tag">${current.categoryLabel}</span>
                 </div>
                 <div class="deck-card-title">${current.title}</div>
-                <div class="deck-card-tools">${current.tools.slice(0, 3).join(' · ')}</div>
+                <div class="deck-card-sub">${current.format} · ${current.tools.slice(0, 3).join(' · ')}</div>
                 <div class="deck-card-cta">
                   <span>✦ Click to Flip &amp; Open Site</span>
                   <span class="arrow">→</span>
@@ -1954,11 +2077,23 @@ function initSolariProjects() {
           </div>
         `;
 
-        // Wire up click on front card to trigger 3D FLIP and open
+        // Wire up drag & swipe on front card to browse between projects, or flip to open
         const activeCard = deckStage.querySelector('#active-deck-card');
         if (activeCard) {
-          activeCard.addEventListener('click', () => {
-            triggerCardFlipAndOpen(current);
+          setupCardDragInteraction(activeCard, {
+            onNext: () => {
+              activeDeckIdx = (activeDeckIdx + 1) % totalCards;
+              if (window.soundSystem) window.soundSystem.playClick();
+              renderDeckStage();
+            },
+            onPrev: () => {
+              activeDeckIdx = (activeDeckIdx - 1 + totalCards) % totalCards;
+              if (window.soundSystem) window.soundSystem.playClick();
+              renderDeckStage();
+            },
+            onFlip: () => {
+              triggerCardFlipAndOpen(current);
+            }
           });
         }
       }
@@ -1973,7 +2108,7 @@ function initSolariProjects() {
 
         setTimeout(() => {
           openInPlaceCaseStudy(item);
-        }, 580);
+        }, 520);
       }
 
       // Open in-place case study viewer in Folder 09
@@ -1983,6 +2118,20 @@ function initSolariProjects() {
         if (caseTitle) caseTitle.textContent = item.siteTitle || item.title;
         if (caseBadge) caseBadge.textContent = item.badge || 'LIVE CASE STUDY';
         if (newtabLink) newtabLink.href = item.siteUrl;
+
+        const pdfViewBtn = detailBody.querySelector('#btn-solari-pdf-view');
+        if (pdfViewBtn) {
+          if (item.file) {
+            pdfViewBtn.style.display = 'inline-flex';
+            pdfViewBtn.onclick = () => {
+              if (typeof window.openPdfViewer === 'function') {
+                window.openPdfViewer(item.file, item.title, item.size);
+              }
+            };
+          } else {
+            pdfViewBtn.style.display = 'none';
+          }
+        }
 
         if (popoutBtn) {
           popoutBtn.onclick = () => {
@@ -2028,6 +2177,24 @@ function initSolariProjects() {
           renderDeckStage();
         });
       }
+
+      // Keyboard arrow navigation
+      function handleDeckKeydown(e) {
+        if (!deckView || deckView.style.display === 'none') return;
+        if (e.key === 'ArrowRight') {
+          activeDeckIdx = (activeDeckIdx + 1) % totalCards;
+          if (window.soundSystem) window.soundSystem.playClick();
+          renderDeckStage();
+        } else if (e.key === 'ArrowLeft') {
+          activeDeckIdx = (activeDeckIdx - 1 + totalCards) % totalCards;
+          if (window.soundSystem) window.soundSystem.playClick();
+          renderDeckStage();
+        } else if (e.key === 'Enter') {
+          const current = beyondItems[activeDeckIdx];
+          if (current) triggerCardFlipAndOpen(current);
+        }
+      }
+      document.addEventListener('keydown', handleDeckKeydown);
 
       // View toggle (Deck vs Grid)
       if (btnViewDeck && btnViewGrid && gridView && deckView) {
@@ -3544,6 +3711,9 @@ window.openBeyondSite = function(siteUrl, title, pdfFile, pdfSize) {
 
 function initBeyondTheBrief() {
   const container = document.getElementById('beyond-cards-container');
+  const deckView = document.getElementById('beyond-win-deck-view');
+  const btnDeck = document.getElementById('btn-beyond-win-deck');
+  const btnGrid = document.getElementById('btn-beyond-win-grid');
   const tabs = document.querySelectorAll('[data-by-filter]');
   const backBtn = document.getElementById('beyond-btn-back');
   const beyondSiteView = document.getElementById('beyond-site-view');
@@ -3555,10 +3725,225 @@ function initBeyondTheBrief() {
       if (iframe) {
         iframe.src = 'about:blank';
       }
+      renderWinDeck();
     });
   }
 
   let currentFilter = 'all';
+  let activeWinDeckIdx = 0;
+  const beyondItems = PORTFOLIO_DATA.beyond || [];
+  const totalWinCards = beyondItems.length;
+
+  function renderWinDeck() {
+    if (!deckView || totalWinCards === 0) return;
+
+    const current = beyondItems[activeWinDeckIdx];
+    const next1 = beyondItems[(activeWinDeckIdx + 1) % totalWinCards];
+    const next2 = beyondItems[(activeWinDeckIdx + 2) % totalWinCards];
+
+    deckView.innerHTML = `
+      <div class="shabnam-deck-layout">
+        <!-- Left: Headline & Pinned Sticky Notes -->
+        <div class="shabnam-deck-left">
+          <div class="shabnam-deck-tag">
+            <span>✦</span>
+            <span>CURATED EXPERIENCES · BEYOND THE BRIEF</span>
+          </div>
+          <h2 class="shabnam-deck-heading">Aleesha K. L.</h2>
+          <p class="shabnam-deck-lede">
+            I design <span class="shabnam-highlighter">tactile editorial publications</span>, human-centred mobile interfaces, and ritual tarot oracle decks.
+            <span style="display:block; margin-top:6px; font-size:0.86rem; color:#4a3856;"><strong>⇄ Drag card to browse • Click to flip &amp; open live experience.</strong></span>
+          </p>
+
+          <div class="shabnam-stickies">
+            <div class="shabnam-sticky note-yellow">
+              <div class="shabnam-tape"></div>
+              <div class="shabnam-sticky-val">08</div>
+              <div class="shabnam-sticky-lbl">Interactive Live Websites</div>
+            </div>
+            <div class="shabnam-sticky note-red">
+              <div class="shabnam-tape"></div>
+              <div class="shabnam-sticky-val">04</div>
+              <div class="shabnam-sticky-lbl">Editorial Books &amp; Manuals</div>
+            </div>
+            <div class="shabnam-sticky note-cream">
+              <div class="shabnam-tape"></div>
+              <div class="shabnam-sticky-val">03</div>
+              <div class="shabnam-sticky-lbl">Mobile UI/UX Prototypes</div>
+            </div>
+            <div class="shabnam-sticky note-beige">
+              <div class="shabnam-tape"></div>
+              <div class="shabnam-sticky-val">01</div>
+              <div class="shabnam-sticky-lbl">Studio Lighting Exhibition</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Stack of Cards -->
+        <div class="shabnam-card-stack-wrap">
+          <div class="shabnam-deck-stage" id="beyond-win-deck-stage">
+            <!-- Card 3 -->
+            <div class="shabnam-deck-card card-bg-2">
+              <div class="deck-card-face deck-card-front">
+                <div class="deck-card-tape"></div>
+                <div class="deck-card-img-wrap">
+                  <img src="${next2.img}" alt="${next2.title}" class="deck-card-img">
+                </div>
+                <div class="deck-card-info">
+                  <div class="deck-card-meta">
+                    <span class="deck-card-num">${String(((activeWinDeckIdx + 2) % totalWinCards) + 1).padStart(2, '0')}</span>
+                    <span class="deck-card-tag">${next2.badge || next2.categoryLabel}</span>
+                  </div>
+                  <div class="deck-card-title">${next2.title}</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="shabnam-deck-card card-bg-1">
+              <div class="deck-card-face deck-card-front">
+                <div class="deck-card-tape"></div>
+                <div class="deck-card-img-wrap">
+                  <img src="${next1.img}" alt="${next1.title}" class="deck-card-img">
+                </div>
+                <div class="deck-card-info">
+                  <div class="deck-card-meta">
+                    <span class="deck-card-num">${String(((activeWinDeckIdx + 1) % totalWinCards) + 1).padStart(2, '0')}</span>
+                    <span class="deck-card-tag">${next1.badge || next1.categoryLabel}</span>
+                  </div>
+                  <div class="deck-card-title">${next1.title}</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 1 -->
+            <div class="shabnam-deck-card card-active" id="active-win-deck-card" tabindex="0" role="button">
+              <div class="deck-card-face deck-card-front">
+                <div class="deck-card-tape"></div>
+                <div class="deck-card-img-wrap">
+                  <img src="${current.img}" alt="${current.title}" class="deck-card-img">
+                  <div class="deck-card-img-overlay">
+                    <span class="deck-card-img-badge">${current.badge}</span>
+                    <span style="font-size:0.68rem; color:#fff; font-weight:700; text-shadow:0 1px 3px rgba(0,0,0,0.8);">✨ Click to Flip ↗</span>
+                  </div>
+                </div>
+                <div class="deck-card-info">
+                  <div class="deck-card-meta">
+                    <span class="deck-card-num">${String(activeWinDeckIdx + 1).padStart(2, '0')}</span>
+                    <span class="deck-card-tag">${current.categoryLabel}</span>
+                  </div>
+                  <div class="deck-card-title">${current.title}</div>
+                  <div class="deck-card-sub">${current.format} · ${current.tools.slice(0, 3).join(' · ')}</div>
+                  <div class="deck-card-cta">
+                    <span>✦ Click to Flip &amp; Open Site</span>
+                    <span class="arrow">→</span>
+                  </div>
+                </div>
+              </div>
+              <div class="deck-card-face deck-card-back">
+                <div class="deck-back-spark">✦</div>
+                <div class="deck-back-eyebrow">FLIPPING &amp; LAUNCHING</div>
+                <div class="deck-back-title">${current.title}</div>
+                <div class="deck-back-format">${current.format}</div>
+                <div class="deck-back-status">
+                  <span class="deck-pulse-dot"></span>
+                  <span>Opening live interactive experience...</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Controls Below Cards -->
+          <div class="shabnam-deck-controls">
+            <div class="shabnam-deck-hint">⇄ Drag card left / right to browse • Click to flip &amp; open site</div>
+            <div class="shabnam-deck-pills-row">
+              <button type="button" class="deck-ctrl-btn" id="win-deck-ctrl-prev" aria-label="Previous card">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"></polyline></svg>
+              </button>
+              <span class="deck-counter-badge" id="win-deck-counter-display">${String(activeWinDeckIdx + 1).padStart(2, '0')} / ${String(totalWinCards).padStart(2, '0')}</span>
+              <button type="button" class="deck-ctrl-btn" id="win-deck-ctrl-next" aria-label="Next card">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+              </button>
+            </div>
+            <div class="deck-dots-row" id="win-deck-dots">
+              ${beyondItems.map((_, i) => `<button type="button" class="deck-dot ${i === activeWinDeckIdx ? 'active' : ''}" data-win-idx="${i}"></button>`).join('')}
+            </div>
+          </div>
+        </div>
+      </div>
+    `;
+
+    const activeCard = deckView.querySelector('#active-win-deck-card');
+    if (activeCard) {
+      setupCardDragInteraction(activeCard, {
+        onNext: () => {
+          activeWinDeckIdx = (activeWinDeckIdx + 1) % totalWinCards;
+          if (window.soundSystem) window.soundSystem.playClick();
+          renderWinDeck();
+        },
+        onPrev: () => {
+          activeWinDeckIdx = (activeWinDeckIdx - 1 + totalWinCards) % totalWinCards;
+          if (window.soundSystem) window.soundSystem.playClick();
+          renderWinDeck();
+        },
+        onFlip: () => {
+          if (activeCard.classList.contains('is-flipping')) return;
+          if (window.soundSystem) window.soundSystem.playClick();
+          activeCard.classList.add('is-flipping');
+          setTimeout(() => {
+            window.openBeyondSite(current.siteUrl, current.title, current.file, current.size);
+          }, 520);
+        }
+      });
+    }
+
+    const prevB = deckView.querySelector('#win-deck-ctrl-prev');
+    const nextB = deckView.querySelector('#win-deck-ctrl-next');
+    if (prevB) {
+      prevB.onclick = () => {
+        activeWinDeckIdx = (activeWinDeckIdx - 1 + totalWinCards) % totalWinCards;
+        if (window.soundSystem) window.soundSystem.playClick();
+        renderWinDeck();
+      };
+    }
+    if (nextB) {
+      nextB.onclick = () => {
+        activeWinDeckIdx = (activeWinDeckIdx + 1) % totalWinCards;
+        if (window.soundSystem) window.soundSystem.playClick();
+        renderWinDeck();
+      };
+    }
+
+    deckView.querySelectorAll('.deck-dot').forEach(dot => {
+      dot.onclick = () => {
+        const idx = parseInt(dot.getAttribute('data-win-idx'), 10);
+        if (!isNaN(idx)) {
+          activeWinDeckIdx = idx;
+          if (window.soundSystem) window.soundSystem.playClick();
+          renderWinDeck();
+        }
+      };
+    });
+  }
+
+  // Toggle between deck and grid in Studio Window
+  if (btnDeck && btnGrid && deckView && container) {
+    btnDeck.addEventListener('click', () => {
+      btnDeck.classList.add('active');
+      btnGrid.classList.remove('active');
+      deckView.style.display = 'block';
+      container.style.display = 'none';
+      renderWinDeck();
+    });
+
+    btnGrid.addEventListener('click', () => {
+      btnGrid.classList.add('active');
+      btnDeck.classList.remove('active');
+      deckView.style.display = 'none';
+      container.style.display = 'grid';
+      renderBeyond();
+    });
+  }
 
   function renderBeyond() {
     if (!container || !PORTFOLIO_DATA.beyond) return;
@@ -3624,6 +4009,7 @@ function initBeyondTheBrief() {
     });
   });
 
+  renderWinDeck();
   renderBeyond();
 }
 
