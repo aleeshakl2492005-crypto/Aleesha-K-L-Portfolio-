@@ -2136,24 +2136,30 @@ function init3DStudio() {
     truck: {
       id: "truck",
       name: "Radio Mango × Bharath Benz Stage Truck",
-      file: "3d space/thira truck .glb",
+      file: "3d%20space/thira%20truck%20.glb",
       fileName: "thira truck .glb",
+      dataFile: "3d space/thira_truck_data.js",
+      dataVar: "THIRA_TRUCK_BASE64",
       size: "31 MB",
       badge: "Radio Mango Truck (31 MB)"
     },
     stall: {
       id: "stall",
       name: "Neithi Exhibition Stall Pavilion",
-      file: "3d space/neithi stall1.glb",
+      file: "3d%20space/neithi%20stall1.glb",
       fileName: "neithi stall1.glb",
+      dataFile: "3d space/neithi_stall_data.js",
+      dataVar: "NEITHI_STALL_BASE64",
       size: "87 MB",
       badge: "Neithi Stall (87 MB)"
     },
     radiomango: {
       id: "radiomango",
       name: "Radio Mango Spadikam Arena Stage",
-      file: "3d space/thira radio mango_17004_autosave.glb",
+      file: "3d%20space/thira%20radio%20mango_17004_autosave.glb",
       fileName: "thira radio mango_17004_autosave.glb",
+      dataFile: "3d space/thira_stage_data.js",
+      dataVar: "THIRA_STAGE_BASE64",
       size: "67 MB",
       badge: "Spadikam Arena (67 MB)"
     }
@@ -2300,7 +2306,8 @@ function init3DStudio() {
 
     const maxDim = Math.max(size.x, size.y, size.z);
     const fov = camera.fov * (Math.PI / 180);
-    let camDist = Math.abs(maxDim / 2 / Math.tan(fov / 2)) * 1.55;
+    const distMultiplier = (activeModelKey === 'truck') ? 0.62 : 1.25;
+    let camDist = Math.abs(maxDim / 2 / Math.tan(fov / 2)) * distMultiplier;
     camDist = Math.max(camDist, 8);
 
     camera.position.set(camDist * 0.72, camDist * 0.42, camDist * 0.88);
@@ -2340,6 +2347,86 @@ function init3DStudio() {
     }
   }
 
+  function decodeBase64ToBuffer(b64, cb) {
+    try {
+      fetch('data:application/octet-stream;base64,' + b64)
+        .then(res => res.arrayBuffer())
+        .then(buf => cb(null, buf))
+        .catch(() => fallbackDecode(b64, cb));
+    } catch (e) {
+      fallbackDecode(b64, cb);
+    }
+  }
+
+  function fallbackDecode(b64, cb) {
+    try {
+      const binStr = atob(b64);
+      const len = binStr.length;
+      const bytes = new Uint8Array(len);
+      for (let i = 0; i < len; i++) {
+        bytes[i] = binStr.charCodeAt(i);
+      }
+      cb(null, bytes.buffer);
+    } catch (err) {
+      cb(err, null);
+    }
+  }
+
+  function loadFromScriptData(model, cbFail) {
+    if (loadingOverlay) {
+      loadingOverlay.style.display = 'flex';
+      if (loadingText) loadingText.textContent = `Rendering ${model.name}...`;
+      if (loadingBar) loadingBar.style.width = '35%';
+      if (loadingSub) loadingSub.textContent = `Streaming binary 3D mesh into WebGL memory...`;
+    }
+
+    function parseModelData(b64) {
+      if (loadingBar) loadingBar.style.width = '65%';
+      decodeBase64ToBuffer(b64, (err, buffer) => {
+        if (err || !buffer) {
+          if (cbFail) cbFail();
+          return;
+        }
+        if (loadingBar) loadingBar.style.width = '90%';
+        if (loadingSub) loadingSub.textContent = `Constructing PBR materials and shaders...`;
+        setTimeout(() => {
+          gltfLoader.parse(
+            buffer,
+            '',
+            (gltf) => {
+              onModelLoaded(gltf, model);
+            },
+            (parseErr) => {
+              console.error('Error parsing GLB data:', parseErr);
+              if (cbFail) cbFail();
+            }
+          );
+        }, 15);
+      });
+    }
+
+    if (window[model.dataVar]) {
+      parseModelData(window[model.dataVar]);
+      return;
+    }
+
+    // Dynamically inject script tag (zero CORS restriction on file://)
+    const script = document.createElement('script');
+    script.src = model.dataFile;
+    script.onload = () => {
+      if (window[model.dataVar]) {
+        parseModelData(window[model.dataVar]);
+      } else {
+        if (cbFail) cbFail();
+      }
+    };
+    script.onerror = () => {
+      console.warn(`Could not load script ${model.dataFile}`);
+      if (cbFail) cbFail();
+    };
+    document.head.appendChild(script);
+  }
+
   function loadModel(modelKey) {
     activeModelKey = modelKey;
     const model = SPATIAL_MODELS[modelKey] || SPATIAL_MODELS.truck;
@@ -2359,12 +2446,24 @@ function init3DStudio() {
     if (loadingOverlay) {
       loadingOverlay.style.display = 'flex';
       if (loadingText) loadingText.textContent = `Loading ${model.name}...`;
-      if (loadingBar) loadingBar.style.width = '0%';
-      if (loadingSub) loadingSub.textContent = `Connecting to ${model.fileName} (${model.size})...`;
+      if (loadingBar) loadingBar.style.width = '10%';
+      if (loadingSub) loadingSub.textContent = `Loading ${model.fileName} (${model.size})...`;
     }
     if (fallbackCard) fallbackCard.style.display = 'none';
 
-    // Direct HTTP/HTTPS load with progress tracking
+    // If opened directly via file://, load immediately from bundled script data without failing CORS
+    if (window.location.protocol === 'file:') {
+      loadFromScriptData(model, () => {
+        if (loadingOverlay) loadingOverlay.style.display = 'none';
+        if (fallbackCard) {
+          fallbackCard.style.display = 'block';
+          if (fallbackModelName) fallbackModelName.textContent = model.fileName;
+        }
+      });
+      return;
+    }
+
+    // Direct HTTP/HTTPS load with progress tracking (GitHub Pages / Vercel / dev server)
     gltfLoader.load(
       model.file,
       (gltf) => {
@@ -2384,13 +2483,14 @@ function init3DStudio() {
         }
       },
       (err) => {
-        console.warn('Direct fetch notice (Chromium restricts file:// protocol CORS):', err);
-        // Fallback for file:// or offline CORS: show 1-click local file picker
-        if (loadingOverlay) loadingOverlay.style.display = 'none';
-        if (fallbackCard) {
-          fallbackCard.style.display = 'block';
-          if (fallbackModelName) fallbackModelName.textContent = model.fileName;
-        }
+        console.warn('Direct fetch note, switching to instant model asset data:', err);
+        loadFromScriptData(model, () => {
+          if (loadingOverlay) loadingOverlay.style.display = 'none';
+          if (fallbackCard) {
+            fallbackCard.style.display = 'block';
+            if (fallbackModelName) fallbackModelName.textContent = model.fileName;
+          }
+        });
       }
     );
   }

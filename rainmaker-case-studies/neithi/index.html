@@ -366,9 +366,9 @@ model-viewer { width: 100%; height: 100%; outline: none; --poster-color: transpa
 
 <span class="hud tl" id="cs-hud-tl"><i></i>CAM_01 · Front · Persp</span>
 <div class="shading" role="group" aria-label="Viewport shading">
-  <button type="button" data-mode="solid" aria-pressed="true">Workspace</button>
+  <button type="button" data-mode="solid" aria-pressed="false">Workspace</button>
   <button type="button" data-mode="render" aria-pressed="false">Rendered</button>
-  <button type="button" data-mode="3d" aria-pressed="false" title="Inspect 3D Orbit Mesh">✨ 3D Orbit</button>
+  <button type="button" data-mode="3d" aria-pressed="true" title="Inspect 3D Orbit Mesh">✨ 3D Orbit</button>
 </div>
 <span class="hud bl" id="cs-hud-bl">Scene · Exhibition stall</span></div>
 <div class="info"><div>
@@ -458,10 +458,77 @@ model-viewer { width: 100%; height: 100%; outline: none; --poster-color: transpa
   var inputFallback = document.getElementById('input-fallback-glb');
   var btnFallback = document.getElementById('btn-fallback-render');
 
+  function decodeBase64Blob(b64, cb) {
+    try {
+      fetch('data:application/octet-stream;base64,' + b64)
+        .then(function (res) { return res.arrayBuffer(); })
+        .then(function (buf) {
+          var blob = new Blob([buf], { type: 'model/gltf-binary' });
+          cb(URL.createObjectURL(blob));
+        })
+        .catch(function () {
+          fallbackBlob(b64, cb);
+        });
+    } catch (e) {
+      fallbackBlob(b64, cb);
+    }
+  }
+
+  function fallbackBlob(b64, cb) {
+    try {
+      var bin = atob(b64);
+      var bytes = new Uint8Array(bin.length);
+      for (var i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i);
+      var blob = new Blob([bytes.buffer], { type: 'model/gltf-binary' });
+      cb(URL.createObjectURL(blob));
+    } catch (err) {
+      cb(null);
+    }
+  }
+
+  function loadNeithiModelData(cb) {
+    var varName = 'NEITHI_STALL_BASE64';
+    var scriptSrc = '../../3d%20space/neithi_stall_data.js';
+
+    if (window[varName]) {
+      decodeBase64Blob(window[varName], cb);
+      return;
+    }
+
+    var s = document.createElement('script');
+    s.src = scriptSrc;
+    s.onload = function () {
+      if (window[varName]) {
+        decodeBase64Blob(window[varName], cb);
+      } else {
+        cb(null);
+      }
+    };
+    s.onerror = function () {
+      cb(null);
+    };
+    document.head.appendChild(s);
+  }
+
   function init3DModel() {
     if (!mv) return;
-    if (!mv.src && mv.dataset.src) {
-      mv.src = mv.dataset.src;
+    if (window.location.protocol === 'file:') {
+      if (mvProgress) {
+        mvProgress.classList.remove('is-hidden');
+        if (mvFill) mvFill.style.width = '30%';
+        if (mvLabel) mvLabel.textContent = 'Streaming 3D Neithi Stall...';
+      }
+      loadNeithiModelData(function (blobUrl) {
+        if (blobUrl) {
+          mv.src = blobUrl;
+        } else if (mv.dataset.src) {
+          mv.src = mv.dataset.src;
+        }
+      });
+    } else {
+      if (!mv.src && mv.dataset.src) {
+        mv.src = mv.dataset.src;
+      }
     }
   }
 
@@ -477,8 +544,14 @@ model-viewer { width: 100%; height: 100%; outline: none; --poster-color: transpa
       if (hudBL) hudBL.textContent = 'Interactive 3D Mesh · Neithi Stall (Orbit Active)';
     });
     mv.addEventListener('error', function () {
-      if (mvProgress) mvProgress.classList.add('is-hidden');
-      if (mvError) mvError.style.display = 'flex';
+      loadNeithiModelData(function (blobUrl) {
+        if (blobUrl && mv.src !== blobUrl) {
+          mv.src = blobUrl;
+        } else {
+          if (mvProgress) mvProgress.classList.add('is-hidden');
+          if (mvError) mvError.style.display = 'flex';
+        }
+      });
     });
   }
 
@@ -552,7 +625,7 @@ model-viewer { width: 100%; height: 100%; outline: none; --poster-color: transpa
 
   heroBtns.forEach(function (b) { b.addEventListener('click', function () { touched = true; setShade(b.dataset.mode); }); });
   var heroRender = $('.render', hero);
-  function reveal() { setTimeout(function () { if (!touched) setShade('render'); }, reduce ? 0 : 1100); }
+  function reveal() { setTimeout(function () { if (!touched) setShade('3d'); }, reduce ? 0 : 350); }
   if (heroRender.complete) reveal(); else { heroRender.addEventListener('load', reveal); heroRender.addEventListener('error', reveal); }
 
   /* view switcher (optional) */

@@ -1,0 +1,828 @@
+<meta charset="utf-8">
+<title>NIFT Graduation Show 2026 Brand Guidelines</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Brand guidelines for the NIFT Kannur Graduation Show 2026. Identity design case study by Aleesha K. L.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Figtree:ital,wght@0,400;0,500;0,600;1,400&family=Caveat:wght@500;700&display=swap">
+
+<style>
+/* Page background only. Delete this block if you paste the case study into a page that already sets one. */
+:root { color-scheme: light; }
+body { background: #ffffff; margin: 0; }
+</style>
+
+<style>
+/* ============================================================================
+   NIFT GRADUATION SHOW 2026 · BRAND GUIDELINES
+   Identity design case study for Aleesha OS (aleeshakl.vercel.app)
+
+   Layout concept: a clean white sheet (the manual's own rule: white grounds the
+   palette) with the scribble energy breaking out of it. Painted ribbons sweep
+   across the opening, hand-drawn notes sit in the margins, and every section
+   keeps the manual's thin rule-and-title header.
+   Single light theme on purpose. Everything is scoped under .ngs.
+   ========================================================================= */
+.ngs {
+  --paper:  #ffffff;   /* the manual's primary background */
+  --beige:  #f3dfc4;   /* accent neutral */
+  --ink:    #161616;   /* wordmark black */
+  --muted:  #5d5a63;   /* secondary text */
+  --rule:   #e4e1e8;   /* hairlines */
+  --blue:   #4a63e7;   /* Core Blue */
+  --pink:   #ff8bc7;   /* Creative Pink */
+  --yellow: #ffe05a;   /* Solar Yellow */
+  --plum:   #4a184f;   /* Studio Plum */
+  --green:  #4dbb8a;   /* Fresh Green */
+
+  --f-display: "Bricolage Grotesque", "Coolvetica", "Helvetica Neue", Arial, sans-serif;
+  --f-body:    "Figtree", "Euclid Circular A", "Helvetica Neue", Arial, sans-serif;
+  --f-hand:    "Caveat", "Comic Sans MS", cursive;
+
+  --gl: max(16px, env(safe-area-inset-left, 0px));
+  --gr: max(16px, env(safe-area-inset-right, 0px));
+  --max: 1200px;
+
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--f-body);
+  font-size: 17px;
+  line-height: 1.6;
+  position: relative;
+  overflow-x: clip;
+  -webkit-font-smoothing: antialiased;
+}
+@media (min-width: 760px) { .ngs { --gl: max(32px, env(safe-area-inset-left, 0px)); --gr: max(32px, env(safe-area-inset-right, 0px)); } }
+.ngs *, .ngs *::before, .ngs *::after { box-sizing: border-box; }
+.ngs img { display: block; max-width: 100%; height: auto; }
+.ngs h1, .ngs h2, .ngs h3, .ngs p, .ngs ul, .ngs ol, .ngs figure, .ngs dl, .ngs dd, .ngs blockquote { margin: 0; }
+.ngs ul, .ngs ol { padding: 0; list-style: none; }
+.ngs a { color: inherit; }
+.ngs button { font: inherit; color: inherit; }
+.ngs :focus-visible { outline: 2px solid var(--blue); outline-offset: 3px; }
+
+.ngs .wrap { max-width: calc(var(--max) + 64px); margin-inline: auto; padding-left: var(--gl); padding-right: var(--gr); }
+.ngs .sec { padding-block: clamp(72px, 9vw, 130px); position: relative; overflow: clip; }
+
+/* the manual's own section header: title above a thin rule */
+.ngs .ttl { display: flex; justify-content: space-between; align-items: end; gap: 16px; border-bottom: 1.5px solid var(--ink); padding-bottom: 10px; margin-bottom: clamp(30px, 4vw, 52px); }
+.ngs .ttl span { font-family: var(--f-display); font-weight: 700; font-size: 15px; letter-spacing: -.01em; }
+.ngs .ttl small { font-size: 13px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.ngs .h2 { font-family: var(--f-display); font-weight: 800; font-size: clamp(42px, 6.4vw, 92px); line-height: .95; letter-spacing: -.035em; text-wrap: balance; }
+.ngs .h3 { font-family: var(--f-display); font-weight: 700; font-size: clamp(24px, 2.4vw, 30px); line-height: 1.05; letter-spacing: -.02em; }
+.ngs .body { color: var(--muted); max-width: 60ch; }
+.ngs .lede { font-size: clamp(19px, 1.7vw, 22px); line-height: 1.5; max-width: 40ch; }
+.ngs .hand { font-family: var(--f-hand); font-weight: 700; font-size: 24px; line-height: 1.1; color: var(--blue); }
+.ngs .split { display: grid; gap: 24px; align-items: end; margin-bottom: clamp(36px, 5vw, 60px); }
+@media (min-width: 900px) { .ngs .split { grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); gap: 64px; } }
+.ngs .split > * { min-width: 0; }
+
+/* scribble underline drawn under a word */
+.ngs .scrib { position: relative; white-space: nowrap; }
+.ngs .scrib svg { position: absolute; left: -4%; bottom: -.18em; width: 108%; height: .42em; overflow: visible; pointer-events: none; }
+.ngs .scrib path { fill: none; stroke: var(--c, var(--pink)); stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 1; stroke-dashoffset: 1; }
+.ngs .drawn .scrib path, .ngs .scrib.drawn path { animation: ngs-draw 1.1s .2s cubic-bezier(.6,.1,.3,1) forwards; }
+@keyframes ngs-draw { to { stroke-dashoffset: 0; } }
+
+/* ---------- progress ---------- */
+.ngs .progress { position: fixed; top: env(safe-area-inset-top, 0px); left: 0; width: 100%; height: 4px; z-index: 60; transform-origin: 0 50%; transform: scaleX(0); pointer-events: none;
+  background: linear-gradient(90deg, var(--plum) 0 20%, var(--yellow) 20% 40%, var(--green) 40% 60%, var(--pink) 60% 80%, var(--blue) 80%); }
+
+/* ---------- hero ---------- */
+.ngs .hero { position: relative; padding-top: clamp(24px, 4vw, 48px); padding-bottom: clamp(60px, 8vw, 110px); overflow: clip; }
+.ngs .ribbons { position: absolute; z-index: 0; right: -8%; top: -6%; width: min(1100px, 92vw); height: auto; pointer-events: none; }
+.ngs .ribbons path { fill: none; stroke-linecap: round; stroke-width: 46; stroke-dasharray: 1; stroke-dashoffset: 1; animation: ngs-draw 1.8s cubic-bezier(.5,.05,.2,1) forwards; }
+.ngs .ribbons path:nth-child(2) { animation-delay: .08s; } .ngs .ribbons path:nth-child(3) { animation-delay: .16s; }
+.ngs .ribbons path:nth-child(4) { animation-delay: .24s; } .ngs .ribbons path:nth-child(5) { animation-delay: .32s; }
+.ngs .hero .wrap { position: relative; z-index: 1; }
+@media (max-width: 700px) { .ngs .ribbons { top: 64px; right: -20%; width: 120vw; } }
+.ngs .eyebrow { display: flex; flex-wrap: wrap; gap: 8px 14px; align-items: center; font-size: 13px; font-weight: 500; color: var(--muted); }
+.ngs .eyebrow b { font-family: var(--f-display); font-weight: 700; color: var(--ink); font-size: 14px; }
+.ngs .hero h1 { font-family: var(--f-display); font-weight: 800; letter-spacing: -.045em; line-height: .86; font-size: clamp(64px, 12.5vw, 176px); margin-top: clamp(80px, 14vw, 200px); }
+.ngs .hero h1 span { display: block; }
+.ngs .hero-row { display: grid; gap: 34px; margin-top: clamp(30px, 4vw, 52px); align-items: start; }
+@media (min-width: 900px) { .ngs .hero-row { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 64px; } }
+.ngs .hero-row > * { min-width: 0; }
+.ngs .hero-logo { background: var(--paper); border: 1.5px solid var(--ink); border-radius: 14px; padding: clamp(18px, 3vw, 30px); display: grid; gap: 12px; box-shadow: 8px 8px 0 var(--yellow); }
+.ngs .hero-logo img { width: 100%; }
+.ngs .hero-logo .hand { color: var(--muted); font-size: 21px; }
+.ngs .spec { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 22px; margin-top: 28px; }
+.ngs .spec div { border-top: 1px solid var(--rule); padding: 12px 0; min-width: 0; }
+.ngs .spec dt { font-size: 12px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.ngs .spec dd { font-size: 16px; margin-top: 2px; }
+
+/* ---------- flip book ---------- */
+.ngs .book-sec { background: var(--beige); padding-top: clamp(56px, 7vw, 100px); }
+.ngs #book {
+  --fb-ink: var(--ink); --fb-mute: #6b5d4c; --fb-line: rgba(22,22,22,.25); --fb-accent: var(--blue); --fb-btn-bg: var(--paper);
+  --fb-maxw: 1140px; --fb-meta-font: 500 13px/1.4 var(--f-body); --fb-btn-font: 600 13px/1 var(--f-body); --fb-fs-bg: #161616; --fb-fs-ink: #fff;
+}
+
+/* ---------- concept + pins ---------- */
+.ngs .concept { display: grid; gap: clamp(30px, 5vw, 70px); align-items: center; }
+@media (min-width: 980px) { .ngs .concept { grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr); } }
+.ngs .concept > * { min-width: 0; }
+.ngs .logo-stage { position: relative; padding: clamp(20px, 4vw, 44px) clamp(14px, 3vw, 30px); background-color: var(--paper);
+  background-image: linear-gradient(var(--rule) 1px, transparent 1px), linear-gradient(90deg, var(--rule) 1px, transparent 1px); background-size: 24px 24px; border: 1.5px solid var(--ink); border-radius: 14px; }
+.ngs .logo-box { position: relative; }
+.ngs .pin { position: absolute; left: var(--x); top: var(--y); width: 34px; height: 34px; margin: -17px 0 0 -17px; border-radius: 50%; border: 2px solid var(--ink); cursor: pointer; background: var(--paper); font-family: var(--f-display); font-weight: 800; font-size: 14px; display: grid; place-items: center; transition: transform .3s cubic-bezier(.3,1.6,.5,1), background .2s; }
+.ngs .pin::after { content: ""; position: absolute; inset: -8px; border-radius: 50%; border: 2px solid var(--c, var(--pink)); opacity: 0; animation: ngs-ping 2.4s infinite; }
+@keyframes ngs-ping { 0% { opacity: .9; transform: scale(.6); } 80%, 100% { opacity: 0; transform: scale(1.4); } }
+.ngs .pin:hover, .ngs .pin[aria-pressed="true"] { transform: scale(1.18) rotate(-8deg); background: var(--c, var(--pink)); }
+.ngs .parts { display: grid; }
+.ngs .parts li { display: grid; grid-template-columns: 34px minmax(0, 1fr); gap: 14px; padding: 14px 8px; border-top: 1px solid var(--rule); cursor: pointer; border-radius: 10px; transition: background .25s; }
+.ngs .parts li:last-child { border-bottom: 1px solid var(--rule); }
+.ngs .parts li > span { width: 30px; height: 30px; border-radius: 50%; border: 2px solid var(--ink); display: grid; place-items: center; font-family: var(--f-display); font-weight: 800; font-size: 13px; background: var(--paper); }
+.ngs .parts li.on { background: color-mix(in srgb, var(--c) 18%, var(--paper)); }
+.ngs .parts li.on > span { background: var(--c); }
+.ngs .parts b { font-family: var(--f-display); font-weight: 700; font-size: 18px; letter-spacing: -.01em; }
+.ngs .parts p { font-size: 15px; color: var(--muted); line-height: 1.5; }
+.ngs .meaning { margin-top: clamp(60px, 8vw, 110px); display: grid; gap: 20px; justify-items: center; text-align: center; }
+.ngs .meaning blockquote { font-family: var(--f-display); font-weight: 700; font-size: clamp(30px, 4.4vw, 60px); line-height: 1.02; letter-spacing: -.03em; max-width: 20ch; text-wrap: balance; }
+
+/* ---------- tone morph ---------- */
+.ngs .tone { background: var(--ink); color: var(--paper); border-radius: 22px; padding: clamp(28px, 5vw, 56px) clamp(20px, 4vw, 48px); display: grid; gap: 30px; }
+.ngs .tone .ttl { border-color: rgba(255,255,255,.5); margin-bottom: 0; }
+.ngs .tone .ttl small { color: #bdb8c7; }
+.ngs .morph { display: grid; gap: 8px; }
+.ngs .morph div { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 16px; align-items: baseline; border-bottom: 1px dashed rgba(255,255,255,.18); padding-bottom: 8px; }
+.ngs .morph span { font-size: clamp(32px, 6vw, 76px); line-height: 1; white-space: nowrap; overflow: hidden; text-overflow: clip; }
+.ngs .morph small { font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: #bdb8c7; white-space: nowrap; }
+.ngs .morph .m1 { font-family: var(--f-hand); font-weight: 500; color: var(--yellow); transform: rotate(-2deg); transform-origin: left; }
+.ngs .morph .m2 { font-family: var(--f-hand); font-weight: 700; color: var(--pink); }
+.ngs .morph .m3 { font-family: var(--f-body); font-weight: 500; color: var(--green); letter-spacing: -.01em; }
+.ngs .morph .m4 { font-family: var(--f-display); font-weight: 700; color: #a9b6ff; letter-spacing: -.03em; }
+.ngs .morph .m5 { font-family: var(--f-display); font-weight: 800; color: var(--paper); letter-spacing: -.05em; }
+.ngs .words { display: flex; flex-wrap: wrap; gap: 8px; }
+.ngs .words span { border: 1.5px solid rgba(255,255,255,.55); border-radius: 999px; padding: 6px 14px; font-size: 14px; }
+
+/* ---------- colour ---------- */
+.ngs .prim { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+@media (min-width: 720px) { .ngs .prim { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (min-width: 1080px) { .ngs .prim { grid-template-columns: repeat(5, minmax(0, 1fr)); } }
+.ngs .chip { text-align: left; cursor: pointer; border: 1.5px solid var(--ink); border-radius: 14px; overflow: hidden; background: var(--paper); padding: 0; display: grid; transition: transform .35s cubic-bezier(.3,1.5,.5,1), box-shadow .3s; }
+.ngs .chip:hover { transform: translateY(-6px) rotate(-1.2deg); box-shadow: 6px 6px 0 var(--ink); }
+.ngs .chip .sw { height: 150px; background: var(--c); position: relative; overflow: hidden; }
+.ngs .chip .sw svg { position: absolute; inset: auto -10% -30% -10%; width: 120%; opacity: .35; }
+.ngs .chip .tx { padding: 14px 14px 16px; display: grid; gap: 4px; min-width: 0; }
+.ngs .chip b { font-family: var(--f-display); font-weight: 700; font-size: 20px; letter-spacing: -.02em; }
+.ngs .chip dl { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 1px 10px; font-size: 12.5px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.ngs .chip dt { font-weight: 600; color: var(--ink); }
+.ngs .tints { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin-top: 18px; }
+.ngs .pair { display: grid; grid-template-columns: 1fr 1fr; border-radius: 12px; overflow: hidden; border: 1.5px solid var(--ink); min-height: 92px; }
+.ngs .pair button { border: 0; cursor: pointer; background: var(--c); padding: 10px; display: grid; align-content: end; text-align: left; font-size: 11.5px; line-height: 1.25; color: var(--t, var(--ink)); min-width: 0; }
+.ngs .pair button b { font-weight: 600; display: block; }
+.ngs .neutrals { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin-top: 18px; }
+.ngs .neutrals button { border: 1.5px solid var(--ink); border-radius: 12px; background: var(--c); color: var(--t, var(--ink)); padding: 40px 14px 12px; text-align: left; cursor: pointer; font-size: 13px; }
+.ngs .neutrals b { font-family: var(--f-display); font-weight: 700; font-size: 18px; display: block; }
+.ngs .sub { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-top: clamp(44px, 6vw, 70px); }
+.ngs .sub .h3 { font-size: 22px; }
+.ngs .sub p { font-size: 15px; color: var(--muted); max-width: 52ch; }
+
+/* logo background tester */
+.ngs .tester { margin-top: clamp(56px, 7vw, 90px); display: grid; gap: 22px; }
+@media (min-width: 940px) { .ngs .tester { grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: 50px; align-items: center; } }
+.ngs .tester > * { min-width: 0; }
+.ngs .bgopts { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
+.ngs .bgopts button { display: inline-flex; align-items: center; gap: 8px; border: 1.5px solid var(--ink); border-radius: 999px; background: var(--paper); padding: 8px 14px 8px 8px; cursor: pointer; font-size: 14px; font-weight: 500; }
+.ngs .bgopts button i { width: 22px; height: 22px; border-radius: 50%; background: var(--c); border: 1px solid rgba(0,0,0,.25); }
+.ngs .bgopts button[aria-pressed="true"] { background: var(--ink); color: var(--paper); }
+.ngs .preview { position: relative; border: 1.5px solid var(--ink); border-radius: 18px; aspect-ratio: 16 / 9; max-width: 100%; display: grid; place-items: center; overflow: hidden; background: var(--pv, var(--paper)) center / cover; transition: background-color .4s; }
+.ngs .preview img { width: 64%; transition: opacity .3s; }
+.ngs .verdict { position: absolute; left: 14px; top: 14px; display: inline-flex; gap: 8px; align-items: center; background: var(--paper); color: var(--ink); border: 1.5px solid var(--ink); border-radius: 999px; padding: 6px 12px; font-weight: 600; font-size: 14px; }
+.ngs .verdict i { width: 20px; height: 20px; border-radius: 50%; display: grid; place-items: center; font-style: normal; font-size: 12px; color: #fff; background: var(--green); }
+.ngs .verdict.no i { background: #d93a3a; }
+
+/* ---------- typography ---------- */
+.ngs .faces { display: grid; gap: 14px; grid-template-columns: minmax(0, 1fr); }
+@media (min-width: 860px) { .ngs .faces { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.ngs .face { border: 1.5px solid var(--ink); border-radius: 18px; overflow: hidden; display: grid; grid-template-rows: auto 1fr; }
+.ngs .face .im { background: var(--paper); border-bottom: 1.5px solid var(--ink); padding: 16px; }
+.ngs .face .tx { padding: 20px 22px 24px; display: grid; gap: 10px; align-content: start; }
+.ngs .face .role { font-size: 12px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--blue); }
+.ngs .rules { display: grid; gap: 6px; font-size: 15px; color: var(--muted); }
+.ngs .rules li { padding-left: 22px; position: relative; }
+.ngs .rules li::before { content: ""; position: absolute; left: 0; top: .55em; width: 12px; height: 6px; border-radius: 6px; background: var(--c, var(--pink)); transform: rotate(-12deg); }
+.ngs .hier-wrap { overflow-x: auto; margin-top: clamp(40px, 5vw, 64px); }
+.ngs .hier { width: 100%; border-collapse: collapse; min-width: 560px; }
+.ngs .hier th { text-align: left; font-size: 12px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); padding: 10px 16px 10px 0; border-bottom: 1.5px solid var(--ink); }
+.ngs .hier td { padding: 16px 16px 16px 0; border-bottom: 1px solid var(--rule); vertical-align: baseline; }
+.ngs .hier td.n { font-variant-numeric: tabular-nums; white-space: nowrap; font-size: 14px; color: var(--muted); }
+.ngs .hier .s1 { font-family: var(--f-display); font-weight: 700; font-size: 36px; line-height: 38px; letter-spacing: -.02em; }
+.ngs .hier .s2 { font-family: var(--f-display); font-weight: 700; font-size: 24px; line-height: 28px; letter-spacing: -.015em; }
+.ngs .hier .s3 { font-size: 16px; line-height: 20px; }
+.ngs .hier .s4 { font-size: 13.5px; line-height: 17.5px; color: var(--muted); max-width: 52ch; }
+.ngs .note { font-size: 13.5px; color: var(--muted); margin-top: 12px; }
+
+/* ---------- visual language ---------- */
+.ngs .elements { display: grid; gap: 14px; grid-template-columns: minmax(0, 1fr); }
+@media (min-width: 820px) { .ngs .elements { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.ngs .el { border: 1.5px solid var(--ink); border-radius: 18px; padding: 22px; display: grid; gap: 12px; align-content: start; background: var(--paper); }
+.ngs .el svg { width: 100%; height: 120px; display: block; }
+.ngs .el p { font-size: 15px; color: var(--muted); }
+.ngs .pages2 { display: grid; gap: 14px; grid-template-columns: minmax(0, 1fr); margin-top: 14px; }
+@media (min-width: 760px) { .ngs .pages2 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.ngs .pg { border: 1.5px solid var(--ink); border-radius: 14px; overflow: hidden; cursor: pointer; padding: 0; background: var(--paper); display: block; width: 100%; position: relative; }
+.ngs .pg img { width: 100%; transition: transform 1s cubic-bezier(.2,.7,.2,1); }
+.ngs .pg:hover img { transform: scale(1.03); }
+.ngs .pg .go { position: absolute; right: 10px; bottom: 10px; background: var(--ink); color: var(--paper); border-radius: 999px; padding: 6px 12px; font-size: 12.5px; font-weight: 600; }
+
+/* ---------- don'ts ---------- */
+.ngs .donts { display: grid; gap: 12px; grid-template-columns: minmax(0, 1fr); }
+@media (min-width: 640px) { .ngs .donts { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (min-width: 1040px) { .ngs .donts { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+.ngs .dont { border: 1.5px solid var(--ink); border-radius: 16px; padding: 18px 18px 20px; display: grid; gap: 10px; align-content: start; position: relative; background: var(--paper); transition: transform .35s cubic-bezier(.3,1.5,.5,1); }
+.ngs .dont:hover { transform: rotate(-1.5deg) translateY(-4px); }
+.ngs .dont .x { width: 38px; height: 38px; }
+.ngs .dont b { font-family: var(--f-display); font-weight: 700; font-size: 18px; line-height: 1.15; letter-spacing: -.01em; }
+.ngs .dont p { font-size: 14.5px; color: var(--muted); line-height: 1.45; }
+.ngs .dont .demo { height: 64px; display: grid; place-items: center; overflow: hidden; border-radius: 10px; background: #f6f5f8; }
+.ngs .dont .demo img { width: 72%; }
+
+/* ---------- applications ---------- */
+.ngs .apps { display: grid; gap: 14px; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+@media (min-width: 980px) { .ngs .apps { grid-template-columns: repeat(5, minmax(0, 1fr)); } }
+.ngs .app { display: grid; gap: 10px; text-align: left; background: none; border: 0; padding: 0; cursor: pointer; }
+.ngs .app .pg { pointer-events: none; aspect-ratio: 1100 / 1032; }
+.ngs .app .pg img { height: 100%; object-fit: cover; }
+.ngs .app b { font-family: var(--f-display); font-weight: 700; font-size: 17px; letter-spacing: -.01em; }
+.ngs .app span { font-size: 13.5px; color: var(--muted); line-height: 1.4; }
+
+/* ---------- outro ---------- */
+.ngs .outro { position: relative; padding-top: clamp(90px, 12vw, 170px); padding-bottom: clamp(220px, 30vw, 420px); overflow: clip; text-align: center; }
+.ngs .outro .ribbons { left: -10%; right: auto; top: auto; bottom: -38%; transform: scaleY(-1); width: 120%; opacity: .95; }
+.ngs .outro .wrap { position: relative; z-index: 1; }
+.ngs .outro h2 { font-family: var(--f-display); font-weight: 800; font-size: clamp(56px, 10vw, 150px); letter-spacing: -.05em; line-height: .9; }
+.ngs .outro-row { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-top: 32px; }
+.ngs .btn { display: inline-flex; align-items: center; gap: 8px; text-decoration: none; cursor: pointer; font-weight: 600; font-size: 14px; color: var(--ink); background: var(--paper); border: 1.5px solid var(--ink); border-radius: 999px; padding: 11px 18px; transition: transform .3s cubic-bezier(.3,1.5,.5,1), box-shadow .3s; }
+.ngs .btn:hover { transform: translate(-2px, -2px); box-shadow: 4px 4px 0 var(--ink); }
+.ngs .credit { margin-top: 24px; font-size: 13px; color: var(--muted); }
+
+.ngs .toast { position: fixed; left: 50%; bottom: max(20px, env(safe-area-inset-bottom, 0px)); transform: translate(-50%, 20px); opacity: 0; z-index: 80; background: var(--ink); color: var(--paper); font-weight: 600; font-size: 14px; padding: 10px 18px; border-radius: 999px; transition: opacity .3s, transform .3s; pointer-events: none; }
+.ngs .toast.on { opacity: 1; transform: translate(-50%, 0); }
+
+.ngs .pre { transform: translateY(26px); }
+.ngs .in { transform: none; transition: transform .9s cubic-bezier(.2,.7,.2,1); }
+
+/* ---------- Flip book (shared component, scoped under .fb) ---------- */
+.fb { display: grid; gap: 18px; color: var(--fb-ink); }
+.fb *, .fb *::before, .fb *::after { box-sizing: border-box; }
+.fb-stage { width: 100%; max-width: min(var(--fb-maxw, 1100px), calc(74vh * var(--fb-ratio2, 1.5))); margin-inline: auto; position: relative; }
+.fb-book { width: 100%; transition: transform .7s cubic-bezier(.3,.7,.2,1); will-change: transform; }
+.fb-book.is-closed-front { transform: translateX(-25%); }
+.fb-book.is-closed-back { transform: translateX(25%); }
+.fb-page { background: #fff; overflow: hidden; }
+.fb-page img { display: block; width: 100%; height: 100%; object-fit: cover; user-select: none; -webkit-user-drag: none; pointer-events: none; }
+.fb-page::after { content: ""; position: absolute; inset: 0; pointer-events: none; }
+.fb-page.--left::after { background: linear-gradient(to left, rgba(0,0,0,.16), rgba(0,0,0,.04) 3%, rgba(0,0,0,0) 8%); }
+.fb-page.--right::after { background: linear-gradient(to right, rgba(0,0,0,.16), rgba(0,0,0,.04) 3%, rgba(0,0,0,0) 8%); }
+.fb-page.--hard::after, .fb.is-portrait .fb-page::after { background: none; }
+.fb .stf__parent { margin-inline: auto; }
+.fb-hint { margin: 12px 0 0; text-align: center; font: var(--fb-meta-font, 12px/1.4 system-ui, sans-serif); letter-spacing: .08em; text-transform: uppercase; color: var(--fb-mute); }
+.fb-bar { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 10px; width: 100%; max-width: 760px; margin-inline: auto; }
+.fb-meta { flex: 1 1 220px; display: grid; gap: 6px; min-width: 0; }
+.fb-count { text-align: center; font: var(--fb-meta-font, 12px/1.4 system-ui, sans-serif); letter-spacing: .06em; color: var(--fb-ink); font-variant-numeric: tabular-nums; }
+.fb-range { width: 100%; margin: 0; accent-color: var(--fb-accent); cursor: pointer; }
+.fb-btn { font: var(--fb-btn-font, 13px/1 system-ui, sans-serif); letter-spacing: .04em; color: var(--fb-ink); background: var(--fb-btn-bg, transparent); border: 1px solid var(--fb-line); border-radius: var(--fb-radius, 999px); padding: 10px 16px; min-height: 40px; cursor: pointer; transition: background .25s, color .25s, border-color .25s; }
+.fb-btn:hover:not(:disabled) { background: var(--fb-ink); color: var(--fb-btn-hover-ink, #fff); border-color: var(--fb-ink); }
+.fb-btn:disabled { opacity: .35; cursor: default; }
+.fb-btn:focus-visible, .fb-range:focus-visible, .fb-thumbs button:focus-visible { outline: 2px solid var(--fb-accent); outline-offset: 3px; }
+.fb-thumbs { display: flex; gap: 10px; overflow-x: auto; padding: 8px 4px 14px; scroll-snap-type: x proximity; overscroll-behavior-x: contain; scrollbar-color: var(--fb-accent) transparent; }
+.fb-thumbs[hidden] { display: none !important; }
+.fb-thumbs button { flex: 0 0 auto; scroll-snap-align: start; border: 0; background: none; padding: 0; cursor: pointer; display: grid; gap: 5px; justify-items: center; font: var(--fb-meta-font, 11px/1.3 system-ui, sans-serif); color: var(--fb-mute); }
+.fb-thumbs img { display: block; height: 104px; width: auto; max-width: none; box-shadow: 0 2px 10px rgba(0,0,0,.14); transition: transform .25s; }
+.fb-thumbs button:hover img { transform: translateY(-3px); }
+.fb-thumbs button[aria-current="true"] img { outline: 2px solid var(--fb-accent); outline-offset: 3px; }
+.fb-thumbs button[aria-current="true"] { color: var(--fb-ink); }
+.fb:fullscreen { background: var(--fb-fs-bg, #111); padding: 24px max(16px, env(safe-area-inset-right, 0px)) 24px max(16px, env(safe-area-inset-left, 0px)); align-content: center; overflow: auto; --fb-ink: var(--fb-fs-ink, #fff); --fb-mute: var(--fb-fs-ink, #ccc); --fb-line: rgba(255,255,255,.3); --fb-btn-hover-ink: #111; }
+.fb:fullscreen .fb-stage { max-width: min(96vw, calc(80vh * var(--fb-ratio2, 1.5))); }
+.fb-fallback { display: grid; place-items: center; }
+.fb-fallback img { max-height: 74vh; width: auto; box-shadow: 0 20px 50px rgba(0,0,0,.2); }
+@media (max-width: 560px) { .fb-fs { display: none; } .fb-meta { order: -1; flex-basis: 100%; } .fb-btn { padding: 10px 14px; } }
+@media (prefers-reduced-motion: reduce) { .fb-book { transition: none; } }
+
+
+@media (prefers-reduced-motion: reduce) {
+  .ngs *, .ngs *::before, .ngs *::after { animation: none !important; transition: none !important; }
+  .ngs .ribbons path, .ngs .scrib path { stroke-dashoffset: 0; }
+}
+</style>
+
+<div class="ngs" id="ngs">
+  <div class="progress" aria-hidden="true"></div>
+
+  <!-- ================= HERO ================= -->
+  <header class="hero">
+    <svg class="ribbons" viewBox="0 0 1100 520" aria-hidden="true">
+      <path pathLength="1" stroke="#4a184f" d="M1150 40 C 960 40, 900 190, 760 200 S 520 120, 400 260 S 160 420, -40 380"/>
+      <path pathLength="1" stroke="#ffe05a" d="M1150 86 C 970 86, 920 236, 780 246 S 540 166, 420 306 S 180 466, -20 426"/>
+      <path pathLength="1" stroke="#4dbb8a" d="M1150 132 C 980 132, 940 282, 800 292 S 560 212, 440 352 S 200 512, 0 472"/>
+      <path pathLength="1" stroke="#ff8bc7" d="M1150 178 C 990 178, 960 328, 820 338 S 580 258, 460 398 S 220 558, 20 518"/>
+      <path pathLength="1" stroke="#4a63e7" d="M1150 224 C 1000 224, 980 374, 840 384 S 600 304, 480 444 S 240 604, 40 564"/>
+    </svg>
+    <div class="wrap">
+      <div class="eyebrow"><b>Brand Guidelines</b><span>Identity design · NIFT Kannur Graduation Show 2026</span></div>
+      <h1><span>From scribble</span><span>to <span class="scrib drawn" style="display:inline">statement<svg viewBox="0 0 300 30" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" style="--c:var(--pink)" d="M4 20 C 60 6, 120 28, 180 14 S 260 8, 296 18"/></svg></span></span></h1>
+      <div class="hero-row">
+        <div>
+          <p class="lede">A visual identity for NIFT Kannur’s annual Graduation Show, built on one idea: a designer’s journey from instinctive childhood scribbles to confident creative expression.</p>
+          <dl class="spec">
+            <div><dt>Deliverable</dt><dd>Brand manual · 48 pages</dd></div>
+            <div><dt>Format</dt><dd>8 × 7.5 in landscape</dd></div>
+            <div><dt>Chapters</dt><dd>9 · foundation to governance</dd></div>
+            <div><dt>Typefaces</dt><dd>Coolvetica · Euclid Circular A</dd></div>
+          </dl>
+        </div>
+        <figure class="hero-logo">
+          <img src="assets/logo.png" alt="Graduation Show 2026 wordmark: black type with a green hand-drawn a, a pink t, a blue triangle replacing the o in Show and a yellow dot" width="1200" height="435">
+          <figcaption class="hand">the wordmark: clean type, four scribbles</figcaption>
+        </figure>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= FLIP BOOK ================= -->
+  <section class="sec book-sec" aria-labelledby="ngs-book-h">
+    <div class="wrap">
+      <div class="ttl"><span id="ngs-book-h">Flip through the manual</span><small>48 pages</small></div>
+      <div id="book" aria-label="Flip book: NIFT Graduation Show 2026 brand guidelines"></div>
+    </div>
+  </section>
+
+  <!-- ================= CONCEPT ================= -->
+  <section class="sec">
+    <div class="wrap">
+      <div class="ttl"><span>Logo System</span><small>pp. 13–18</small></div>
+      <div class="concept" data-reveal>
+        <div>
+          <div class="logo-stage">
+            <div class="logo-box" id="ngs-logo">
+              <img src="assets/logo.png" alt="Graduation Show 2026 wordmark" width="1200" height="435">
+              <button class="pin" type="button" style="--x:4%;--y:10%;--c:var(--yellow)" data-p="0" aria-label="Primary wordmark">1</button>
+              <button class="pin" type="button" style="--x:27%;--y:28%;--c:var(--green)" data-p="1" aria-label="Scribble letterform a">2</button>
+              <button class="pin" type="button" style="--x:72%;--y:6%;--c:var(--pink)" data-p="2" aria-label="Scribble letterform t">3</button>
+              <button class="pin" type="button" style="--x:26%;--y:78%;--c:#a9b6ff" data-p="3" aria-label="Symbolic O">4</button>
+              <button class="pin" type="button" style="--x:58%;--y:96%;--c:var(--yellow)" data-p="4" aria-label="Textured separator dot">5</button>
+            </div>
+          </div>
+          <p class="hand" style="margin-top:14px;color:var(--muted);font-size:22px">tap a number ↑ to read each part</p>
+        </div>
+        <div>
+          <h2 class="h2" style="font-size:clamp(36px,4.6vw,62px);margin-bottom:24px">Childlike marks, held inside <span class="scrib">clean type<svg viewBox="0 0 300 30" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" style="--c:var(--green)" d="M4 18 C 70 30, 140 4, 210 18 S 280 24, 296 12"/></svg></span></h2>
+          <ol class="parts" id="ngs-parts">
+            <li data-p="0" style="--c:var(--yellow)"><span>1</span><div><b>Primary wordmark</b><p>“Graduation Show 2026” in Coolvetica on two fixed lines, chosen for readability and institutional clarity.</p></div></li>
+            <li data-p="1" style="--c:var(--green)"><span>2</span><div><b>Scribble ‘a’</b><p>A compressed, imperfect, hand-drawn letter: a pressure point holding creative energy inside the word.</p></div></li>
+            <li data-p="2" style="--c:var(--pink)"><span>3</span><div><b>Scribble ‘t’</b><p>The second hand-drawn letterform, early mark-making set into a disciplined grid.</p></div></li>
+            <li data-p="3" style="--c:#a9b6ff"><span>4</span><div><b>Symbolic ‘O’</b><p>A triangle replaces the o in Show, for play, experimentation and non-linear thinking.</p></div></li>
+            <li data-p="4" style="--c:var(--yellow)"><span>5</span><div><b>Textured separator dot</b><p>A tactile pause between Show and 2026: the point where education turns into professional practice.</p></div></li>
+          </ol>
+        </div>
+      </div>
+      <div class="meaning" data-reveal>
+        <span class="hand">logo meaning, p. 14</span>
+        <blockquote>Graduation is not an end point. It is a release.</blockquote>
+        <p class="body" style="text-align:center">The restrained energy in the wordmark expands outward into fluid, layered colour forms: ideas no longer contained in assignments or classrooms, flowing out into the industry and the world.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FOUNDATION / TONE ================= -->
+  <section class="sec" style="padding-top:0">
+    <div class="wrap">
+      <div class="tone" data-reveal>
+        <div class="ttl"><span>Tone &amp; Communication Style</span><small>p. 6</small></div>
+        <p style="max-width:60ch;color:#d9d5e0">The voice evolves from playful and exploratory to confident and resolved. Communication moves from raw, hand-drawn expression to bold, structured clarity, the same journey as the students themselves.</p>
+        <div class="morph" aria-label="The word Graduation set five times, moving from handwriting to bold structured type">
+          <div><span class="m1">graduation</span><small>childhood scribble</small></div>
+          <div><span class="m2">Graduation</span><small>playful</small></div>
+          <div><span class="m3">Graduation</span><small>exploring</small></div>
+          <div><span class="m4">Graduation</span><small>confident</small></div>
+          <div><span class="m5">Graduation</span><small>resolved</small></div>
+        </div>
+        <div class="words" aria-label="Brand personality">
+          <span>Experimental yet grounded</span><span>Articulate</span><span>Confident</span><span>Minimal</span><span>Modern</span><span>Culturally conscious</span><span>Youthful with purpose</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= COLOUR ================= -->
+  <section class="sec" style="padding-top:0">
+    <div class="wrap">
+      <div class="ttl"><span>Colour Identity</span><small>pp. 19–22</small></div>
+      <div class="split" data-reveal>
+        <h2 class="h2">Five colours, <span class="scrib">one burst<svg viewBox="0 0 300 30" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" style="--c:var(--yellow)" d="M4 14 C 50 26, 110 2, 160 16 S 250 26, 296 10"/></svg></span></h2>
+        <p class="body">Bold primaries balanced with warmth, for creativity, diversity and contemporary expression. The scribble letters each take one colour, and the same five paint every ribbon, texture and pattern. Tap any colour to copy its hex.</p>
+      </div>
+      <div class="prim" id="ngs-prim" data-reveal></div>
+
+      <div class="sub" data-reveal><h3 class="h3">Secondary tints</h3><p>For digital interfaces, infographics and illustrations only. Always used tone-on-tone, never as the hero colour.</p></div>
+      <div class="tints" id="ngs-tints" data-reveal></div>
+
+      <div class="sub" data-reveal><h3 class="h3">Accent neutrals</h3><p>White, black and beige give the primaries room. Books and posters always use white as the main background.</p></div>
+      <div class="neutrals" id="ngs-neutrals" data-reveal></div>
+
+      <div class="tester" data-reveal>
+        <div>
+          <h3 class="h3">Where can the logo sit?</h3>
+          <p class="body" style="margin-top:10px">The manual allows only white, black or beige behind the wordmark. Try a background.</p>
+          <div class="bgopts" id="ngs-bg" role="group" aria-label="Logo background">
+            <button type="button" data-bg="white" style="--c:#fff" aria-pressed="true"><i></i>White</button>
+            <button type="button" data-bg="beige" style="--c:#f3dfc4" aria-pressed="false"><i></i>Beige</button>
+            <button type="button" data-bg="black" style="--c:#000" aria-pressed="false"><i></i>Black</button>
+            <button type="button" data-bg="blue" style="--c:#4a63e7" aria-pressed="false"><i></i>Core Blue</button>
+            <button type="button" data-bg="pink" style="--c:#ff8bc7" aria-pressed="false"><i></i>Creative Pink</button>
+            <button type="button" data-bg="yellow" style="--c:#ffe05a" aria-pressed="false"><i></i>Solar Yellow</button>
+            <button type="button" data-bg="pattern" style="--c:conic-gradient(#4a184f,#ffe05a,#4dbb8a,#ff8bc7,#4a63e7,#4a184f)" aria-pressed="false"><i></i>Pattern</button>
+          </div>
+        </div>
+        <div class="preview" id="ngs-pv" aria-live="polite">
+          <span class="verdict" id="ngs-verdict"><i>✓</i>Allowed</span>
+          <img id="ngs-pvimg" src="assets/logo.png" alt="Logo preview on the chosen background" width="1200" height="435">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= TYPE ================= -->
+  <section class="sec" style="background:#fbfaf7">
+    <div class="wrap">
+      <div class="ttl"><span>Typography System</span><small>pp. 24–26</small></div>
+      <div class="split" data-reveal>
+        <h2 class="h2">Two faces, <span class="scrib">no fuss<svg viewBox="0 0 300 30" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" style="--c:var(--blue)" d="M4 16 C 70 4, 150 28, 220 12 S 280 14, 296 20"/></svg></span></h2>
+        <p class="body">A rounded, slightly quirky grotesk for headlines and a calm geometric sans for reading. The expression lives in the scribbles, so the type stays disciplined.</p>
+      </div>
+      <div class="faces" data-reveal>
+        <article class="face">
+          <div class="im"><img src="assets/type/coolvetica.jpg" alt="Coolvetica specimen: lowercase, uppercase, numerals and symbols" width="1001" height="671"></div>
+          <div class="tx">
+            <span class="role">Primary · headlines &amp; wordmark</span>
+            <h3 class="h3">Coolvetica</h3>
+            <ul class="rules">
+              <li style="--c:var(--pink)">Optical kerning, tracking 0</li>
+              <li style="--c:var(--yellow)">Leading equal to the font size</li>
+              <li style="--c:var(--green)">Sentence case or all caps, never all lowercase</li>
+            </ul>
+          </div>
+        </article>
+        <article class="face">
+          <div class="im"><img src="assets/type/euclid.jpg" alt="Euclid Circular A specimen: lowercase, uppercase, numerals and symbols" width="1001" height="648"></div>
+          <div class="tx">
+            <span class="role">Secondary · paragraphs, captions, information</span>
+            <h3 class="h3">Euclid Circular A</h3>
+            <ul class="rules">
+              <li style="--c:var(--blue)">Books: 12 pt on 15 pt leading</li>
+              <li style="--c:var(--pink)">Kerning 0</li>
+              <li style="--c:var(--green)">Used across digital and printed collateral</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+      <div class="hier-wrap" data-reveal>
+        <table class="hier">
+          <thead><tr><th>Level</th><th>Spec</th><th>Sample</th></tr></thead>
+          <tbody>
+            <tr><td>H1</td><td class="n">Coolvetica 36/38</td><td class="s1">A New Generation of Design</td></tr>
+            <tr><td>H2</td><td class="n">Coolvetica 24/28</td><td class="s2">Where creativity, craft, and communication converge</td></tr>
+            <tr><td>Subhead</td><td class="n">Euclid Circular A 12/15</td><td class="s3">Showcasing work across disciplines, the graduation show reflects contemporary design thinking rooted in cultural awareness and future relevance.</td></tr>
+            <tr><td>Body</td><td class="n">Euclid Circular A 10/13</td><td class="s4">The Graduation Show brings together final-year projects that demonstrate conceptual clarity, technical skill, and individual voice.</td></tr>
+          </tbody>
+        </table>
+        <p class="note">Samples are the manual’s own copy, shown in web stand-ins at the same size and leading ratios. The specimen images above are the real faces.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= VISUAL LANGUAGE ================= -->
+  <section class="sec">
+    <div class="wrap">
+      <div class="ttl"><span>Visual Language</span><small>pp. 28–29</small></div>
+      <div class="split" data-reveal>
+        <h2 class="h2">Crayon, scribble, <span class="scrib">watercolour<svg viewBox="0 0 300 30" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" style="--c:var(--pink)" d="M4 20 C 60 6, 120 28, 180 14 S 260 8, 296 18"/></svg></span></h2>
+        <p class="body">The graphic system avoids literal imagery. It is built from three elements, applied with controlled repetition so the playfulness never crowds the content.</p>
+      </div>
+      <div class="elements" data-reveal>
+        <div class="el">
+          <svg viewBox="0 0 300 120" aria-hidden="true"><defs><filter id="ngs-grain"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" result="n"/><feColorMatrix type="saturate" values="0"/><feBlend in="SourceGraphic" mode="multiply"/></filter></defs><rect x="0" y="0" width="300" height="120" rx="12" fill="#ffe05a" filter="url(#ngs-grain)"/><rect x="150" y="0" width="150" height="120" rx="12" fill="#4dbb8a" filter="url(#ngs-grain)"/></svg>
+          <h3 class="h3" style="font-size:22px">Textured colour fields</h3><p>Flat primaries given a crayon and watercolour grain, so they feel made by hand.</p>
+        </div>
+        <div class="el">
+          <svg viewBox="0 0 300 120" aria-hidden="true"><path d="M-10 70 C 40 10, 90 110, 140 60 S 230 0, 310 50 L 310 130 L -10 130 Z" fill="#4a184f"/><path d="M-10 90 C 40 40, 90 130, 140 84 S 230 30, 310 76 L 310 130 L -10 130 Z" fill="#ff8bc7"/><path d="M-10 108 C 40 70, 90 140, 140 106 S 230 60, 310 100 L 310 130 L -10 130 Z" fill="#4a63e7"/></svg>
+          <h3 class="h3" style="font-size:22px">Organic shapes</h3><p>Fluid, layered ribbons that carry the logo’s energy out to the page edge.</p>
+        </div>
+        <div class="el">
+          <svg viewBox="0 0 300 120" aria-hidden="true"><path d="M20 90 C 40 20, 60 100, 80 40 S 120 100, 140 30 S 180 100, 200 40 S 240 100, 280 30" fill="none" stroke="#4a63e7" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><path d="M30 60 C 60 30, 100 80, 150 50 S 230 30, 270 70" fill="none" stroke="#ff8bc7" stroke-width="4" stroke-linecap="round"/></svg>
+          <h3 class="h3" style="font-size:22px">Gestural line work</h3><p>Loose scribbles and loops drawn over colour, the same hand as the letters.</p>
+        </div>
+      </div>
+      <div class="pages2" data-reveal>
+        <button type="button" class="pg" data-goto="33"><img src="assets/pages/33.jpg" alt="Manual page: Graphic Elements" loading="lazy" width="1100" height="1032"><span class="go">Open p. 28 →</span></button>
+        <button type="button" class="pg" data-goto="34"><img src="assets/pages/34.jpg" alt="Manual page: Pattern and Texture Applications" loading="lazy" width="1100" height="1032"><span class="go">Open p. 29 →</span></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= DON'TS ================= -->
+  <section class="sec" style="padding-top:0">
+    <div class="wrap">
+      <div class="ttl"><span>Incorrect Usage</span><small>pp. 16–18</small></div>
+      <div class="split" data-reveal>
+        <h2 class="h2">Eight ways to <span class="scrib">break it<svg viewBox="0 0 300 30" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" style="--c:#d93a3a" d="M4 14 C 50 26, 110 2, 160 16 S 250 26, 296 10"/></svg></span></h2>
+        <p class="body">The scribbles already look imperfect, which makes the lockup easy to “fix” by mistake. The manual spells out what never to do.</p>
+      </div>
+      <div class="donts" id="ngs-donts" data-reveal></div>
+    </div>
+  </section>
+
+  <!-- ================= APPLICATIONS ================= -->
+  <section class="sec" style="background:var(--beige)">
+    <div class="wrap">
+      <div class="ttl"><span>Brand Applications</span><small>pp. 31–38</small></div>
+      <div class="split" data-reveal>
+        <h2 class="h2">On stage, on screen, <span class="scrib">on a badge<svg viewBox="0 0 300 30" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" style="--c:var(--blue)" d="M4 16 C 70 4, 150 28, 220 12 S 280 14, 296 20"/></svg></span></h2>
+        <p class="body">Every application sits on white or beige, with graphics used sparingly so they keep their impact at any scale. Tap one to open it in the manual.</p>
+      </div>
+      <div class="apps" data-reveal>
+        <button type="button" class="app" data-goto="37"><span class="pg"><img src="assets/pages/37.jpg" alt="Social media templates page" loading="lazy" width="1100" height="1032"></span><b>Social media</b><span>White grounds, bold colour used to guide the eye</span></button>
+        <button type="button" class="app" data-goto="39"><span class="pg"><img src="assets/pages/39.jpg" alt="Event backdrop page" loading="lazy" width="1100" height="1032"></span><b>Event backdrop</b><span>Large, legible forms for the auditorium</span></button>
+        <button type="button" class="app" data-goto="40"><span class="pg"><img src="assets/pages/40.jpg" alt="Merchandise page" loading="lazy" width="1100" height="1032"></span><b>Merchandise</b><span>Minimal, so each item feels intentional</span></button>
+        <button type="button" class="app" data-goto="41"><span class="pg"><img src="assets/pages/41.jpg" alt="Signage and wayfinding page" loading="lazy" width="1100" height="1032"></span><b>Signage</b><span>Graphic devices kept to the edges</span></button>
+        <button type="button" class="app" data-goto="43"><span class="pg"><img src="assets/pages/43.jpg" alt="Partner logo placement page" loading="lazy" width="1100" height="1032"></span><b>Co-branding</b><span>One ‘G’ height of space beside NIFT@40</span></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= OUTRO ================= -->
+  <section class="outro">
+    <svg class="ribbons" viewBox="0 0 1100 520" aria-hidden="true">
+      <path pathLength="1" stroke="#4a184f" d="M1150 40 C 960 40, 900 190, 760 200 S 520 120, 400 260 S 160 420, -40 380"/>
+      <path pathLength="1" stroke="#ffe05a" d="M1150 86 C 970 86, 920 236, 780 246 S 540 166, 420 306 S 180 466, -20 426"/>
+      <path pathLength="1" stroke="#4dbb8a" d="M1150 132 C 980 132, 940 282, 800 292 S 560 212, 440 352 S 200 512, 0 472"/>
+      <path pathLength="1" stroke="#ff8bc7" d="M1150 178 C 990 178, 960 328, 820 338 S 580 258, 460 398 S 220 558, 20 518"/>
+      <path pathLength="1" stroke="#4a63e7" d="M1150 224 C 1000 224, 980 374, 840 384 S 600 304, 480 444 S 240 604, 40 564"/>
+    </svg>
+    <div class="wrap">
+      <p class="hand" style="font-size:28px">class of 2026,</p>
+      <h2>go take<br>up space.</h2>
+      <div class="outro-row">
+        <button class="btn" type="button" data-goto="1">Back to the cover</button>
+        <a class="btn" href="https://aleeshakl.vercel.app/">← All Projects Index</a>
+        <a class="btn" href="#ngs">Back to top ↑</a>
+      </div>
+      <p class="credit">Brand identity and manual by Aleesha K. L. · NIFT Kannur</p>
+    </div>
+  </section>
+
+  <div class="toast" id="ngs-toast" role="status" aria-live="polite"></div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/page-flip@2.0.7/dist/js/page-flip.browser.js"></script>
+<script>
+/* Flip book component. Uses StPageFlip (page-flip@2.0.7) when available, plain pager otherwise. */
+(function () {
+  function pad(i) { return (i < 9 ? '0' : '') + (i + 1); }
+  function Flipbook(el, o) {
+    var n = o.count, dir = o.dir;
+    var src = function (i) { return dir + '/pages/' + pad(i) + '.jpg'; };
+    var th = function (i) { return dir + '/thumbs/' + pad(i) + '.jpg'; };
+    var label = o.label || function (i) { return 'Page ' + (i + 1); };
+    var id = el.id || ('fb' + Math.random().toString(36).slice(2, 7));
+    el.classList.add('fb');
+    el.style.setProperty('--fb-ratio2', (2 * o.w / o.h).toFixed(3));
+    el.innerHTML =
+      '<div class="fb-stage"><div class="fb-book"></div><p class="fb-hint">' + (o.hint || 'Drag a corner or tap the page edge to turn') + '</p></div>' +
+      '<div class="fb-bar">' +
+        '<button class="fb-btn fb-prev" type="button" aria-label="Previous page">&larr; Prev</button>' +
+        '<div class="fb-meta"><span class="fb-count" aria-live="polite"></span>' +
+        '<input class="fb-range" id="' + id + '-range" type="range" min="0" max="' + (n - 1) + '" value="0" aria-label="Go to page"></div>' +
+        '<button class="fb-btn fb-next" type="button" aria-label="Next page">Next &rarr;</button>' +
+        '<button class="fb-btn fb-tbtn" type="button" aria-expanded="false" aria-controls="' + id + '-thumbs">All pages</button>' +
+        '<button class="fb-btn fb-fs" type="button">Full screen</button>' +
+      '</div>' +
+      '<div class="fb-thumbs" id="' + id + '-thumbs" hidden></div>';
+    var q = function (s) { return el.querySelector(s); };
+    var book = q('.fb-book'), count = q('.fb-count'), range = q('.fb-range');
+    var prev = q('.fb-prev'), next = q('.fb-next'), tbtn = q('.fb-tbtn'), thumbs = q('.fb-thumbs'), fs = q('.fb-fs');
+    var warmed = {};
+    function warm(c) { for (var i = c - 2; i <= c + 6; i++) { if (i < 0 || i >= n || warmed[i]) continue; warmed[i] = 1; var im = new Image(); im.src = src(i); } }
+    var pf = null, cur = 0, portrait = false;
+
+    function text(i) {
+      if (portrait || i === 0 || i === n - 1) return label(i) + '  ·  ' + (i + 1) + ' / ' + n;
+      var a = i % 2 ? i : i - 1;
+      return label(a) + '  ·  ' + (a + 1) + '–' + (a + 2) + ' / ' + n;
+    }
+    function shift(i) {
+      book.classList.toggle('is-closed-front', !portrait && i === 0);
+      book.classList.toggle('is-closed-back', !portrait && i === n - 1 && (n % 2 === 0));
+    }
+    function upd(i) {
+      cur = i; count.textContent = text(i); range.value = i;
+      prev.disabled = i <= 0; next.disabled = portrait ? i >= n - 1 : i >= n - 1 || (i % 2 === 1 && i + 1 >= n - 1 && n % 2 === 1);
+      shift(i);
+      var b = thumbs.querySelectorAll('button');
+      for (var k = 0; k < b.length; k++) b[k].setAttribute('aria-current', String(k === i || (!portrait && i > 0 && (i % 2 ? k === i + 1 : k === i - 1) && k < n - 1 && k > 0)));
+      if (o.onChange) o.onChange(i);
+    }
+    function go(i) {
+      i = Math.max(0, Math.min(n - 1, i | 0)); warm(i);
+      if (!pf) { fallbackShow(i); return; }
+      var c = pf.getCurrentPageIndex();
+      if (Math.abs(i - c) <= 2) { shift(i); pf.flip(i); } else { pf.turnToPage(i); upd(i); }
+    }
+
+    // pages
+    var pages = [];
+    for (var i = 0; i < n; i++) {
+      var d = document.createElement('div');
+      d.className = 'fb-page';
+      if (o.hard && (i === 0 || i === n - 1)) d.setAttribute('data-density', 'hard');
+      d.innerHTML = '<img src="' + src(i) + '" alt="' + (o.alt ? o.alt(i) : label(i)).replace(/"/g, '&quot;') + '" loading="' + (i < 4 ? 'eager' : 'lazy') + '" decoding="async" width="' + o.w + '" height="' + o.h + '" draggable="false">';
+      pages.push(d); book.appendChild(d);
+    }
+
+    var fbImg;
+    function fallbackShow(i) { cur = i; fbImg.src = src(i); fbImg.alt = label(i); upd(i); }
+    if (window.St && window.St.PageFlip) {
+      pf = new window.St.PageFlip(book, {
+        width: o.w, height: o.h, size: 'stretch',
+        minWidth: o.minW || 240, maxWidth: o.w, minHeight: Math.round((o.minW || 240) * o.h / o.w), maxHeight: o.h,
+        showCover: true, maxShadowOpacity: .45, mobileScrollSupport: true, flippingTime: 850,
+        usePortrait: true, autoSize: true, drawShadow: true, showPageCorners: true
+      });
+      pf.loadFromHTML(pages);
+      portrait = pf.getOrientation() === 'portrait';
+      el.classList.toggle('is-portrait', portrait);
+      pf.on('flip', function (e) { warm(e.data); upd(e.data); });
+      pf.on('changeOrientation', function (e) { portrait = e.data === 'portrait'; el.classList.toggle('is-portrait', portrait); upd(pf.getCurrentPageIndex()); });
+      pf.on('changeState', function (e) {
+        if (e.data === 'user_fold' || e.data === 'flipping') { book.classList.remove('is-closed-front', 'is-closed-back'); }
+        else if (e.data === 'read') shift(pf.getCurrentPageIndex());
+      });
+    } else {
+      book.innerHTML = ''; book.className = 'fb-book fb-fallback';
+      fbImg = document.createElement('img'); book.appendChild(fbImg); portrait = true;
+      fallbackShow(0);
+    }
+    warm(0); upd(0);
+
+    prev.addEventListener('click', function () { if (pf) pf.flipPrev(); else go(cur - 1); });
+    next.addEventListener('click', function () { if (pf) { shift(cur + 1); pf.flipNext(); } else go(cur + 1); });
+    range.addEventListener('input', function () { count.textContent = text(+range.value); });
+    range.addEventListener('change', function () { go(+range.value); });
+    tbtn.addEventListener('click', function () {
+      if (!thumbs.childElementCount) {
+        var h = '';
+        for (var k = 0; k < n; k++) h += '<button type="button" data-i="' + k + '"><img src="' + th(k) + '" alt="" loading="lazy">' + (k + 1) + '</button>';
+        thumbs.innerHTML = h; upd(cur);
+      }
+      thumbs.hidden = !thumbs.hidden; tbtn.setAttribute('aria-expanded', String(!thumbs.hidden));
+      tbtn.textContent = thumbs.hidden ? 'All pages' : 'Hide pages';
+      if (!thumbs.hidden) { var c = thumbs.querySelector('[aria-current="true"]'); if (c) thumbs.scrollLeft = c.offsetLeft - 40; }
+    });
+    thumbs.addEventListener('click', function (e) { var b = e.target.closest('button'); if (b) go(+b.getAttribute('data-i')); });
+    fs.addEventListener('click', function () {
+      try {
+        if (document.fullscreenElement) document.exitFullscreen();
+        else if (el.requestFullscreen) { var p = el.requestFullscreen(); if (p && p.catch) p.catch(function () {}); }
+      } catch (err) {}
+    });
+    document.addEventListener('fullscreenchange', function () {
+      fs.textContent = document.fullscreenElement === el ? 'Exit full screen' : 'Full screen';
+      if (pf) setTimeout(function () { pf.update(); }, 120);
+    });
+    // keyboard when the book is on screen
+    var onScreen = false, opened = false;
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(function (es) {
+        es.forEach(function (en) {
+          onScreen = en.intersectionRatio > 0.35;
+          if (onScreen && !opened && o.autoOpen && pf && cur === 0) {
+            opened = true;
+            setTimeout(function () { if (cur === 0 && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) { shift(1); pf.flipNext(); } }, 700);
+          }
+        });
+      }, { threshold: [0, .35, .6] }).observe(q('.fb-stage'));
+    }
+    document.addEventListener('keydown', function (e) {
+      if ((!onScreen && document.fullscreenElement !== el) || /input|textarea|select/i.test(e.target.tagName) && e.target !== range) return;
+      if (e.target === range) return;
+      if (e.key === 'ArrowRight') { e.preventDefault(); next.click(); }
+      if (e.key === 'ArrowLeft') { e.preventDefault(); prev.click(); }
+    });
+    var api = { go: go, el: el, get current() { return cur; } };
+    el.flipbook = api;
+    return api;
+  }
+  // [data-goto="12"] anywhere on the page: scroll to the book and open that page (1-based)
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest('[data-goto]'); if (!a) return;
+    var book = document.getElementById(a.getAttribute('data-book') || 'book');
+    if (!book || !book.flipbook) return;
+    e.preventDefault();
+    var p = +a.getAttribute('data-goto') - 1;
+    book.scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'center' });
+    setTimeout(function () { book.flipbook.go(p); }, 550);
+  });
+  window.Flipbook = Flipbook;
+})();
+
+</script>
+<script>
+(function () {
+  var root = document.getElementById('ngs'); if (!root) return;
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var $ = function (s) { return root.querySelector(s); };
+
+  var chapters = [[1, 'Cover'], [5, 'Contents'], [6, '1 · Brand Foundation'], [12, '2 · Logo System'], [24, '3 · Colour Identity'], [28, '4 · Typography System'],
+    [32, '5 · Visual Language'], [36, '6 · Digital Presence'], [38, '7 · Brand Applications'], [42, '8 · Co-branding'], [44, '9 · Brand Governance'], [46, 'Closing'], [48, 'Back cover']];
+  function label(i) { var l = 'Cover'; for (var k = 0; k < chapters.length; k++) if (chapters[k][0] <= i + 1) l = chapters[k][1]; return l; }
+  Flipbook(document.getElementById('book'), {
+    dir: 'assets', count: 48, w: 1100, h: 1032, hard: true, autoOpen: true, label: label,
+    alt: function (i) { return 'Brand manual page ' + (i + 1); }, hint: 'Drag a corner to turn · arrow keys work too'
+  });
+
+  /* ---- logo pins ---- */
+  function part(p) {
+    root.querySelectorAll('#ngs-parts li').forEach(function (li) { li.classList.toggle('on', li.getAttribute('data-p') === p); });
+    root.querySelectorAll('#ngs-logo .pin').forEach(function (b) { b.setAttribute('aria-pressed', String(b.getAttribute('data-p') === p)); });
+  }
+  root.addEventListener('click', function (e) { var t = e.target.closest('#ngs-parts li, #ngs-logo .pin'); if (t) part(t.getAttribute('data-p')); });
+  root.addEventListener('mouseover', function (e) { var t = e.target.closest('#ngs-parts li, #ngs-logo .pin'); if (t) part(t.getAttribute('data-p')); });
+  part('1');
+
+  /* ---- colour ---- */
+  var wave = '<svg viewBox="0 0 200 80" aria-hidden="true"><path d="M0 40 C 30 10, 60 70, 100 40 S 170 10, 200 40 L200 80 L0 80Z" fill="#fff"/></svg>';
+  var prim = [
+    ['Core Blue', '#4A63E7', '74, 99, 231', '68, 57, 0, 9', '2727 C'],
+    ['Creative Pink', '#FF8BC7', '255, 139, 199', '0, 45, 22, 0', '2036 C'],
+    ['Solar Yellow', '#FFE05A', '255, 224, 90', '0, 12, 65, 0', '7404 C'],
+    ['Studio Plum', '#4B144B', '74, 24, 79', '6, 70, 0, 69', '2627 C'],
+    ['Fresh Green', '#4DBB8A', '77, 187, 138', '59, 0, 26, 27', '3395 C']
+  ];
+  $('#ngs-prim').innerHTML = prim.map(function (c) {
+    return '<button type="button" class="chip" data-hex="' + c[1] + '"><span class="sw" style="--c:' + c[1] + '">' + wave + '</span><span class="tx"><b>' + c[0] + '</b><dl><dt>HEX</dt><dd>' + c[1] + '</dd><dt>RGB</dt><dd>' + c[2] + '</dd><dt>CMYK</dt><dd>' + c[3] + '</dd><dt>PMS</dt><dd>' + c[4] + '</dd></dl></span></button>';
+  }).join('');
+  var tints = [
+    [['Soft Core Blue', '#78A2FF'], ['Muted Indigo Blue', '#6F86C4', '#fff']],
+    [['Muted Studio Plum', '#8E3B7A', '#fff'], ['Deep Studio Plum', '#4A184F', '#fff']],
+    [['Washed Fresh Green', '#9ED6C2'], ['Light Fresh Green', '#4DBB8A']],
+    [['Soft Creative Pink', '#F2B6CF'], ['Light Creative Pink', '#FF8BC7']],
+    [['Pale Solar Yellow', '#FFF1A8'], ['Light Solar Yellow', '#FFE05A']]
+  ];
+  $('#ngs-tints').innerHTML = tints.map(function (p) {
+    return '<div class="pair">' + p.map(function (c) { return '<button type="button" data-hex="' + c[1] + '" style="--c:' + c[1] + ';' + (c[2] ? '--t:' + c[2] : '') + '"><b>' + c[0] + '</b>' + c[1] + '</button>'; }).join('') + '</div>';
+  }).join('');
+  $('#ngs-neutrals').innerHTML = [['White', '#FFFFFF', ''], ['Black', '#000000', '#fff'], ['Beige', '#F3DFC4', '']].map(function (c) {
+    return '<button type="button" data-hex="' + c[1] + '" style="--c:' + c[1] + ';' + (c[2] ? '--t:' + c[2] : '') + '"><b>' + c[0] + '</b>' + c[1] + '</button>';
+  }).join('');
+  var toast = $('#ngs-toast'), tt;
+  function say(m) { toast.textContent = m; toast.classList.add('on'); clearTimeout(tt); tt = setTimeout(function () { toast.classList.remove('on'); }, 1600); }
+  root.addEventListener('click', function (e) {
+    var b = e.target.closest('[data-hex]'); if (!b) return; var hex = b.getAttribute('data-hex');
+    try { navigator.clipboard.writeText(hex).then(function () { say('Copied ' + hex); }, function () { say(hex); }); } catch (err) { say(hex); }
+  });
+
+  /* ---- background tester ---- */
+  var bgs = {
+    white: ['#ffffff', 1, 'Allowed · white is the primary ground'], beige: ['#f3dfc4', 1, 'Allowed · beige accent'], black: ['#000000', 1, 'Allowed · reversed wordmark'],
+    blue: ['#4a63e7', 0, 'Not allowed · the blue O disappears'], pink: ['#ff8bc7', 0, 'Not allowed · the pink t disappears'], yellow: ['#ffe05a', 0, 'Not allowed · the dot disappears'],
+    pattern: ['#4a184f', 0, 'Not allowed · busy backgrounds hurt legibility']
+  };
+  var pv = $('#ngs-pv'), vd = $('#ngs-verdict'), pimg = $('#ngs-pvimg');
+  $('#ngs-bg').addEventListener('click', function (e) {
+    var b = e.target.closest('button'); if (!b) return; var k = b.getAttribute('data-bg'), v = bgs[k];
+    root.querySelectorAll('#ngs-bg button').forEach(function (x) { x.setAttribute('aria-pressed', String(x === b)); });
+    pv.style.backgroundColor = v[0];
+    pv.style.backgroundImage = k === 'pattern' ? 'url(assets/pages/02.jpg)' : 'none';
+    pimg.src = k === 'black' ? 'assets/logo-rev.png' : 'assets/logo.png';
+    vd.className = 'verdict' + (v[1] ? '' : ' no'); vd.innerHTML = '<i>' + (v[1] ? '✓' : '✕') + '</i>' + v[2];
+  });
+
+  /* ---- don'ts ---- */
+  var X = '<svg class="x" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="18" fill="#d93a3a"/><path d="M13 13 L27 27 M27 13 L13 27" stroke="#fff" stroke-width="3.5" stroke-linecap="round"/></svg>';
+  var donts = [
+    ['Distort or rescale', 'Always scale proportionally. No stretching or squashing to fit.', 'transform:scaleX(1.5)'],
+    ['Modify colours', 'No new letter colours, gradients, shadows or textures.', 'filter:hue-rotate(140deg)'],
+    ['Alter the typography', 'Never replace the font, retype the words, or change weight or spacing.', 'filter:blur(1.2px)'],
+    ['Rearrange elements', 'Graduation, Show and 2026 are one fixed lockup on two lines.', 'transform:rotate(180deg) scaleX(-1)'],
+    ['Crowd the clear space', 'Keep ½X clear on every side, where X is the height of the capital G.', 'transform:scale(1.7)'],
+    ['Use low contrast', 'No busy, patterned or low-contrast backgrounds behind the wordmark.', 'opacity:.22'],
+    ['Rotate or skew', 'The logo always stands upright. No angles, no perspective.', 'transform:rotate(-14deg) skewX(-14deg)'],
+    ['Add effects', 'No outlines, drop shadows, glows or transparency.', 'filter:drop-shadow(4px 4px 0 #4a63e7) drop-shadow(-3px -3px 0 #ff8bc7)']
+  ];
+  $('#ngs-donts').innerHTML = donts.map(function (d, i) {
+    return '<article class="dont">' + X + '<div class="demo" aria-hidden="true"><img src="assets/logo.png" alt="" style="' + d[2] + '"></div><b>Don’t ' + d[0].charAt(0).toLowerCase() + d[0].slice(1) + '</b><p>' + d[1] + '</p></article>';
+  }).join('');
+
+  /* ---- progress + reveals + scribbles ---- */
+  var bar = $('.progress');
+  function onScroll() { var h = document.documentElement; var p = h.scrollTop / Math.max(1, h.scrollHeight - h.clientHeight); bar.style.transform = 'scaleX(' + Math.min(1, Math.max(0, p)) + ')'; }
+  window.addEventListener('scroll', onScroll, { passive: true }); onScroll();
+  var els = root.querySelectorAll('[data-reveal]');
+  if (!reduce && 'IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (es) { es.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add('in', 'drawn'); io.unobserve(en.target); } }); }, { rootMargin: '0px 0px -10% 0px' });
+    els.forEach(function (el) { if (el.getBoundingClientRect().top > window.innerHeight) { el.classList.add('pre'); } io.observe(el); });
+  } else els.forEach(function (el) { el.classList.add('drawn'); });
+})();
+</script>

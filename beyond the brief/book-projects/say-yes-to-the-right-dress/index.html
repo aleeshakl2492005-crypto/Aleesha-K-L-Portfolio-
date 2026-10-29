@@ -1,0 +1,610 @@
+<meta charset="utf-8">
+<title>Say Yes to the Right Dress</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Say Yes to the Right Dress: an A–Z bridal fashion glossary book. Book design case study by Aleesha K. L.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Crimson+Pro:ital,wght@0,400;0,500;1,400&family=Jost:wght@400;500&display=swap">
+
+<style>
+/* Page background only. Delete this block if you paste the case study into a page that already sets one. */
+:root { color-scheme: light; }
+body { background: #f7f2ee; margin: 0; }
+</style>
+
+<style>
+/* ============================================================================
+   SAY YES TO THE RIGHT DRESS · bridal glossary book
+   Book design case study for Aleesha OS (aleeshakl.vercel.app)
+
+   Layout concept: a bridal boutique lookbook. Pearl paper, one centred column
+   at a time, the book's own giant A–Z watermark letters sitting behind the
+   sections, and champagne / mink / cocoa doing the work the book gives them.
+   Single light theme on purpose (it is a white-wedding book).
+   Everything is scoped under .syd so it won't affect the rest of the site.
+   ========================================================================= */
+.syd {
+  --pearl:     #f7f2ee;   /* page ground */
+  --veil:      #ffffff;   /* raised paper */
+  --lace:      #ece3dc;   /* hairlines, quiet fills */
+  --champagne: #c59a7c;   /* most-used term colour, watermark letters */
+  --mink:      #827169;   /* secondary term colour */
+  --cocoa:     #5a2f15;   /* dark term colour, headings */
+  --gold:      #bd902f;   /* chapter titles */
+  --ink:       #2b1d14;   /* body text */
+  --muted:     #6f5f55;   /* secondary text */
+
+  --f-script:  "Great Vibes", "Snell Roundhand", "Apple Chancery", cursive;
+  --f-display: "Cormorant Garamond", "Cormorant", Garamond, "Times New Roman", serif;
+  --f-body:    "Crimson Pro", "Minion Pro", Georgia, serif;
+  --f-meta:    "Jost", "Century Gothic", "Futura", "Avenir Next", sans-serif;
+
+  --gl: max(16px, env(safe-area-inset-left, 0px));
+  --gr: max(16px, env(safe-area-inset-right, 0px));
+  --max: 1180px;
+
+  background: var(--pearl);
+  color: var(--ink);
+  font-family: var(--f-body);
+  font-size: 19px;
+  line-height: 1.6;
+  position: relative;
+  overflow-x: clip;
+  -webkit-font-smoothing: antialiased;
+}
+@media (min-width: 760px) { .syd { --gl: max(32px, env(safe-area-inset-left, 0px)); --gr: max(32px, env(safe-area-inset-right, 0px)); } }
+.syd *, .syd *::before, .syd *::after { box-sizing: border-box; }
+.syd img { display: block; max-width: 100%; height: auto; }
+.syd h1, .syd h2, .syd h3, .syd p, .syd ul, .syd ol, .syd figure, .syd dl, .syd dd, .syd blockquote { margin: 0; }
+.syd ul, .syd ol { padding: 0; list-style: none; }
+.syd a { color: inherit; }
+.syd button { font: inherit; color: inherit; }
+.syd :focus-visible { outline: 2px solid var(--cocoa); outline-offset: 3px; }
+
+.syd .wrap { max-width: calc(var(--max) + 64px); margin-inline: auto; padding-left: var(--gl); padding-right: var(--gr); }
+.syd .sec { padding-block: clamp(72px, 10vw, 140px); position: relative; overflow: clip; }
+.syd .book-sec { padding-top: clamp(40px, 6vw, 80px); }
+
+/* ---------- type ---------- */
+.syd .label { font-family: var(--f-meta); font-size: 12px; font-weight: 500; letter-spacing: .22em; text-transform: uppercase; color: var(--muted); }
+.syd .label b { color: var(--champagne); font-weight: 500; }
+.syd .h2 { font-family: var(--f-display); font-weight: 500; font-size: clamp(42px, 6vw, 80px); line-height: 1; letter-spacing: -.01em; color: var(--cocoa); text-wrap: balance; }
+.syd .h2 .s { font-family: var(--f-script); font-weight: 400; color: var(--champagne); font-size: 1.15em; letter-spacing: 0; line-height: .8; }
+.syd .lede { font-size: clamp(20px, 1.8vw, 23px); line-height: 1.5; max-width: 34ch; color: var(--ink); }
+.syd .body { color: var(--muted); max-width: 60ch; }
+.syd .head { display: grid; gap: 18px; margin-bottom: clamp(36px, 5vw, 60px); }
+.syd .head.c { justify-items: center; text-align: center; }
+.syd .head.c .body { margin-inline: auto; }
+
+/* giant watermark letters, as in the book */
+.syd .wm { position: absolute; z-index: 0; pointer-events: none; font-family: var(--f-display); font-weight: 500; line-height: .8; color: var(--champagne); opacity: .13; font-size: clamp(260px, 40vw, 560px); user-select: none; }
+.syd .sec > .wrap { position: relative; z-index: 1; }
+
+/* ---------- progress (a thread of lace) ---------- */
+.syd .progress { position: fixed; top: env(safe-area-inset-top, 0px); left: 0; width: 100%; height: 2px; z-index: 60; transform-origin: 0 50%; transform: scaleX(0); background: var(--champagne); pointer-events: none; }
+
+/* ---------- hero ---------- */
+.syd .hero { padding-top: clamp(28px, 5vw, 64px); padding-bottom: clamp(56px, 8vw, 110px); position: relative; }
+.syd .hero-grid { display: grid; gap: clamp(36px, 6vw, 80px); align-items: center; }
+@media (min-width: 900px) { .syd .hero-grid { grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr); } }
+.syd .hero-grid > * { min-width: 0; }
+.syd .hero h1 { font-weight: 400; color: var(--cocoa); margin-top: 18px; }
+.syd .hero h1 .say { display: block; font-family: var(--f-script); font-size: clamp(76px, 11vw, 150px); line-height: .85; color: var(--cocoa); }
+.syd .hero h1 .say em { font-style: normal; color: var(--champagne); }
+.syd .hero h1 .rest { display: block; font-family: var(--f-display); font-style: italic; font-size: clamp(30px, 3.6vw, 46px); line-height: 1.05; padding-left: .25em; margin-top: .1em; color: var(--mink); }
+.syd .hero .lede { margin-top: 26px; }
+.syd .spec { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 24px; margin-top: 34px; border-top: 1px solid var(--lace); }
+.syd .spec div { padding: 14px 0; border-bottom: 1px solid var(--lace); min-width: 0; }
+.syd .spec dt { font-family: var(--f-meta); font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: var(--muted); }
+.syd .spec dd { font-size: 17px; margin-top: 2px; }
+
+/* the cover, as a real object you can tilt */
+.syd .object { perspective: 1400px; display: grid; place-items: center; padding: 10px 0 30px; }
+.syd .cover3d { position: relative; width: min(100%, 440px); aspect-ratio: 1100 / 1210; transform-style: preserve-3d; transform: rotateY(var(--ry, -16deg)) rotateX(var(--rx, 4deg)); transition: transform .9s cubic-bezier(.2,.7,.2,1); }
+.syd .cover3d img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; border-radius: 2px 6px 6px 2px; box-shadow: 0 40px 70px -30px rgba(60,30,10,.55), 0 10px 20px -10px rgba(60,30,10,.3); }
+.syd .cover3d::before { /* page block */
+  content: ""; position: absolute; top: 1.2%; bottom: 1.2%; right: -14px; width: 16px; transform: rotateY(90deg) translateZ(0); transform-origin: left;
+  background: repeating-linear-gradient(90deg, #fff 0 1px, #e9e2db 1px 2px);
+}
+.syd .cover3d::after { /* spine highlight */
+  content: ""; position: absolute; inset: 0; border-radius: 2px 6px 6px 2px; pointer-events: none;
+  background: linear-gradient(90deg, rgba(255,255,255,.35) 0 1%, rgba(0,0,0,.25) 2.2%, rgba(255,255,255,.12) 3.6%, rgba(255,255,255,0) 9%);
+}
+.syd .object figcaption { margin-top: 26px; font-family: var(--f-meta); font-size: 12px; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); text-align: center; }
+
+/* ---------- flip book section ---------- */
+.syd .book-sec { background: linear-gradient(180deg, var(--pearl), #efe6df 40%, #efe6df 70%, var(--pearl)); }
+.syd #book {
+  --fb-ink: var(--cocoa); --fb-mute: var(--muted); --fb-line: #d9c8bb; --fb-accent: var(--champagne);
+  --fb-maxw: 1080px; --fb-meta-font: 500 12px/1.4 var(--f-meta); --fb-btn-font: 500 12px/1 var(--f-meta); --fb-fs-bg: #2b1d14; --fb-fs-ink: #f7f2ee;
+}
+
+/* ---------- quote ---------- */
+.syd .quote { text-align: center; display: grid; gap: 22px; justify-items: center; }
+.syd .quote blockquote { font-family: var(--f-display); font-style: italic; font-size: clamp(30px, 4.2vw, 54px); line-height: 1.15; color: var(--cocoa); max-width: 22ch; text-wrap: balance; }
+.syd .quote blockquote::before { content: "\201C"; display: block; font-size: 1.8em; line-height: .6; color: var(--champagne); }
+.syd .two { display: grid; gap: 28px; margin-top: clamp(48px, 7vw, 90px); text-align: left; }
+@media (min-width: 820px) { .syd .two { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 56px; } }
+.syd .two p { color: var(--muted); }
+.syd .two p:first-letter { font-family: var(--f-display); font-size: 3.4em; float: left; line-height: .8; padding: 6px 10px 0 0; color: var(--champagne); }
+
+/* ---------- A to Z ---------- */
+.syd .az { display: grid; gap: clamp(28px, 4vw, 48px); }
+@media (min-width: 960px) { .syd .az { grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); align-items: start; } }
+.syd .az > * { min-width: 0; }
+.syd .letters { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 4px; }
+@media (min-width: 560px) { .syd .letters { grid-template-columns: repeat(9, minmax(0, 1fr)); } }
+.syd .letters button {
+  aspect-ratio: 1; border: 1px solid transparent; background: transparent; border-radius: 50%; cursor: pointer;
+  font-family: var(--f-display); font-size: clamp(26px, 3.6vw, 44px); line-height: 1; color: var(--mink);
+  display: grid; place-items: center; transition: color .25s, background .25s, transform .35s cubic-bezier(.2,.7,.2,1);
+}
+.syd .letters button:hover { color: var(--cocoa); transform: translateY(-3px); }
+.syd .letters button[aria-pressed="true"] { background: var(--veil); color: var(--champagne); border-color: var(--lace); box-shadow: 0 10px 24px -14px rgba(90,47,21,.45); }
+.syd .card { background: var(--veil); border: 1px solid var(--lace); border-radius: 4px; padding: clamp(22px, 3vw, 34px); position: relative; overflow: hidden; display: grid; gap: 14px; }
+@media (min-width: 960px) { .syd .card { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 24px); } }
+.syd .card .big { position: absolute; right: -6px; top: -30px; font-family: var(--f-display); font-size: 230px; line-height: 1; color: var(--champagne); opacity: .16; pointer-events: none; }
+.syd .card h3 { font-family: var(--f-display); font-weight: 500; font-size: 34px; line-height: 1; color: var(--cocoa); position: relative; }
+.syd .card ul { display: grid; gap: 2px; position: relative; }
+.syd .card li { font-style: italic; font-size: 20px; padding: 6px 0; border-bottom: 1px dotted #dccbbd; }
+.syd .card li:nth-child(3n+1) { color: var(--champagne); } .syd .card li:nth-child(3n+2) { color: var(--mink); } .syd .card li:nth-child(3n) { color: var(--cocoa); }
+.syd .card .meta { font-family: var(--f-meta); font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); position: relative; }
+.syd .btn {
+  display: inline-flex; align-items: center; gap: 10px; justify-self: start; text-decoration: none; cursor: pointer;
+  font-family: var(--f-meta); font-weight: 500; font-size: 12px; letter-spacing: .16em; text-transform: uppercase;
+  color: var(--cocoa); background: transparent; border: 1px solid var(--cocoa); border-radius: 999px; padding: 12px 20px; transition: background .25s, color .25s; position: relative;
+}
+.syd .btn:hover { background: var(--cocoa); color: var(--pearl); }
+
+/* ---------- brides ---------- */
+.syd .brides { display: flex; gap: 18px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 6px var(--gr) 22px var(--gl); scroll-padding-left: var(--gl); scrollbar-color: var(--champagne) transparent; overscroll-behavior-x: contain; }
+.syd .bride { flex: 0 0 min(78vw, 300px); scroll-snap-align: start; display: grid; gap: 14px; align-content: start; text-decoration: none; cursor: pointer; background: none; border: 0; padding: 0; text-align: left; }
+.syd .bride .ph { overflow: hidden; aspect-ratio: 1100 / 1210; background: var(--lace); position: relative; }
+.syd .bride img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.1s cubic-bezier(.2,.7,.2,1); }
+.syd .bride:hover img, .syd .bride:focus-visible img { transform: scale(1.05); }
+.syd .bride .yr { position: absolute; left: 12px; bottom: 12px; font-family: var(--f-meta); font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: #fff; background: rgba(43,29,20,.55); padding: 6px 9px; }
+.syd .bride b { font-family: var(--f-display); font-weight: 500; font-size: 30px; line-height: 1; color: var(--cocoa); }
+.syd .bride .by { font-family: var(--f-meta); font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--gold); }
+.syd .bride p { color: var(--muted); font-size: 17px; line-height: 1.45; }
+.syd .bride .open { font-family: var(--f-meta); font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--cocoa); border-bottom: 1px solid var(--champagne); justify-self: start; padding-bottom: 2px; }
+.syd .row-ctrl { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; }
+
+/* ---------- colour ---------- */
+.syd .tags { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+@media (min-width: 700px) { .syd .tags { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (min-width: 1060px) { .syd .tags { grid-template-columns: repeat(6, minmax(0, 1fr)); } }
+.syd .tag {
+  text-align: left; cursor: pointer; border: 1px solid var(--lace); background: var(--veil); padding: 0; border-radius: 3px; overflow: hidden;
+  display: grid; transition: transform .45s cubic-bezier(.2,.7,.2,1), box-shadow .45s; position: relative;
+}
+.syd .tag:hover { transform: translateY(-6px) rotate(-.6deg); box-shadow: 0 22px 40px -24px rgba(90,47,21,.5); }
+.syd .tag .sw { height: 120px; background: var(--c); position: relative; }
+.syd .tag .sw::after { /* the punched hole of a fabric swatch tag */
+  content: ""; position: absolute; top: 12px; left: 12px; width: 12px; height: 12px; border-radius: 50%; background: var(--pearl); box-shadow: inset 0 1px 2px rgba(0,0,0,.25);
+}
+.syd .tag .tx { padding: 14px 14px 16px; display: grid; gap: 3px; min-width: 0; }
+.syd .tag b { font-family: var(--f-display); font-weight: 600; font-size: 22px; line-height: 1.1; color: var(--cocoa); }
+.syd .tag code { font-family: var(--f-meta); font-size: 12px; letter-spacing: .1em; color: var(--muted); }
+.syd .tag span { font-size: 15px; line-height: 1.35; color: var(--muted); }
+.syd .tag[data-light] .sw { box-shadow: inset 0 0 0 1px var(--lace); }
+.syd .ratio { margin-top: clamp(44px, 6vw, 70px); display: grid; gap: 14px; }
+.syd .bar { display: flex; height: 54px; border-radius: 3px; overflow: hidden; }
+.syd .bar span { flex: var(--w) 1 0; background: var(--c); display: grid; align-items: end; padding: 8px 10px; font-family: var(--f-meta); font-size: 12px; color: #fff; letter-spacing: .06em; font-variant-numeric: tabular-nums; min-width: 0; overflow: hidden; white-space: nowrap; transform-origin: left; }
+.syd .is-ready .bar span { animation: syd-grow 1.2s cubic-bezier(.2,.7,.2,1) both; }
+@keyframes syd-grow { from { transform: scaleX(0); } }
+.syd .ratio p { font-size: 16px; color: var(--muted); max-width: 70ch; }
+
+/* ---------- typography ---------- */
+.syd .specimens { display: grid; gap: 16px; grid-template-columns: minmax(0, 1fr); }
+@media (min-width: 860px) { .syd .specimens { grid-template-columns: repeat(6, minmax(0, 1fr)); } .syd .sp.w3 { grid-column: span 3; } .syd .sp.w2 { grid-column: span 2; } .syd .sp.w4 { grid-column: span 4; } }
+.syd .sp { background: var(--veil); border: 1px solid var(--lace); display: grid; grid-template-rows: auto 1fr; min-width: 0; }
+.syd .sp .im { display: grid; place-items: center; background: var(--veil); border-bottom: 1px solid var(--lace); overflow: hidden; min-height: 180px; padding: 18px; }
+.syd .sp .im img { max-height: 260px; width: auto; }
+.syd .sp .im.dark { background: #2b1d14; padding: 0; }
+.syd .sp .im.dark img { max-height: none; width: 100%; height: 100%; object-fit: cover; }
+.syd .sp .tx { padding: 18px 20px 22px; display: grid; gap: 6px; align-content: start; }
+.syd .sp .role { font-family: var(--f-meta); font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: var(--champagne); }
+.syd .sp h3 { font-family: var(--f-display); font-weight: 600; font-size: 28px; line-height: 1.05; color: var(--cocoa); }
+.syd .sp p { font-size: 16.5px; color: var(--muted); line-height: 1.5; }
+.syd .scale { margin-top: 16px; width: 100%; border-collapse: collapse; font-size: 16px; }
+.syd .scale-wrap { overflow-x: auto; margin-top: clamp(40px, 5vw, 60px); }
+.syd .scale th { font-family: var(--f-meta); font-weight: 500; font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); text-align: left; padding: 10px 14px 10px 0; border-bottom: 1px solid var(--cocoa); }
+.syd .scale td { padding: 12px 14px 12px 0; border-bottom: 1px solid var(--lace); vertical-align: baseline; white-space: nowrap; }
+.syd .scale td:last-child { white-space: normal; color: var(--muted); min-width: 220px; }
+.syd .scale .n { font-family: var(--f-meta); font-size: 13px; font-variant-numeric: tabular-nums; color: var(--cocoa); }
+
+/* anatomy of a spread */
+.syd .anat { display: grid; gap: clamp(28px, 4vw, 56px); margin-top: clamp(60px, 8vw, 110px); align-items: center; }
+@media (min-width: 900px) { .syd .anat { grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); } }
+.syd .anat > * { min-width: 0; }
+.syd .pinned { position: relative; background: #fff; box-shadow: 0 30px 60px -36px rgba(90,47,21,.5); max-width: 520px; justify-self: center; width: 100%; }
+.syd .pin { position: absolute; left: var(--x); top: var(--y); width: 30px; height: 30px; margin: -15px 0 0 -15px; border-radius: 50%; border: 0; cursor: pointer; background: var(--cocoa); color: var(--pearl); font-family: var(--f-meta); font-size: 13px; display: grid; place-items: center; box-shadow: 0 0 0 5px rgba(197,154,124,.35); transition: transform .3s, background .3s; }
+.syd .pin:hover, .syd .pin[aria-pressed="true"] { transform: scale(1.15); background: var(--champagne); }
+.syd .notes { display: grid; gap: 0; counter-reset: n; }
+.syd .notes li { display: grid; grid-template-columns: 36px minmax(0, 1fr); gap: 12px; padding: 14px 10px; border-top: 1px solid var(--lace); transition: background .3s; cursor: pointer; }
+.syd .notes li:last-child { border-bottom: 1px solid var(--lace); }
+.syd .notes li.on { background: var(--veil); }
+.syd .notes li > span { width: 28px; height: 28px; border-radius: 50%; background: var(--cocoa); color: var(--pearl); font-family: var(--f-meta); font-size: 13px; display: grid; place-items: center; }
+.syd .notes li.on > span { background: var(--champagne); }
+.syd .notes b { font-family: var(--f-display); font-weight: 600; font-size: 22px; color: var(--cocoa); }
+.syd .notes p { font-size: 16.5px; color: var(--muted); }
+
+/* ---------- endpapers ---------- */
+.syd .endpaper { position: relative; padding-block: clamp(90px, 12vw, 170px); background: #cac1ba url("assets/pages/02.jpg") center / 520px auto repeat; }
+.syd .endpaper .slip { position: relative; background: var(--pearl); max-width: 560px; margin-inline: auto; padding: clamp(30px, 5vw, 52px); text-align: center; display: grid; gap: 16px; justify-items: center; box-shadow: 0 30px 60px -30px rgba(43,29,20,.6); }
+.syd .endpaper .slip::before { content: ""; position: absolute; inset: 8px; border: 1px solid var(--champagne); pointer-events: none; }
+.syd .motifs { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px 8px; }
+.syd .motifs span { font-family: var(--f-meta); font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--cocoa); border: 1px solid #ddc9b9; border-radius: 999px; padding: 5px 11px; }
+
+/* ---------- outro ---------- */
+.syd .outro { text-align: center; padding-block: clamp(90px, 12vw, 170px); }
+.syd .outro .end { font-family: var(--f-display); font-size: 14px; letter-spacing: .5em; text-transform: uppercase; color: var(--muted); }
+.syd .outro h2 { font-family: var(--f-script); font-weight: 400; font-size: clamp(80px, 13vw, 190px); line-height: 1; color: var(--cocoa); margin-top: 10px; }
+.syd .outro h2 em { font-style: normal; color: var(--champagne); }
+.syd .outro-row { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin-top: 36px; }
+.syd .credit { margin-top: 28px; font-family: var(--f-meta); font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+
+/* toast */
+.syd .toast { position: fixed; left: 50%; bottom: max(20px, env(safe-area-inset-bottom, 0px)); transform: translate(-50%, 20px); opacity: 0; z-index: 80; background: var(--cocoa); color: var(--pearl); font-family: var(--f-meta); font-size: 13px; letter-spacing: .08em; padding: 11px 18px; border-radius: 999px; transition: opacity .3s, transform .3s; pointer-events: none; }
+.syd .toast.on { opacity: 1; transform: translate(-50%, 0); }
+
+/* reveal: content is visible at rest; only things below the fold get the drift-in */
+.syd .pre { transform: translateY(28px); }
+.syd .in { transform: none; transition: transform 1s cubic-bezier(.2,.7,.2,1); }
+
+/* ---------- Flip book (shared component, scoped under .fb) ---------- */
+.fb { display: grid; gap: 18px; color: var(--fb-ink); }
+.fb *, .fb *::before, .fb *::after { box-sizing: border-box; }
+.fb-stage { width: 100%; max-width: min(var(--fb-maxw, 1100px), calc(74vh * var(--fb-ratio2, 1.5))); margin-inline: auto; position: relative; }
+.fb-book { width: 100%; transition: transform .7s cubic-bezier(.3,.7,.2,1); will-change: transform; }
+.fb-book.is-closed-front { transform: translateX(-25%); }
+.fb-book.is-closed-back { transform: translateX(25%); }
+.fb-page { background: #fff; overflow: hidden; }
+.fb-page img { display: block; width: 100%; height: 100%; object-fit: cover; user-select: none; -webkit-user-drag: none; pointer-events: none; }
+.fb-page::after { content: ""; position: absolute; inset: 0; pointer-events: none; }
+.fb-page.--left::after { background: linear-gradient(to left, rgba(0,0,0,.16), rgba(0,0,0,.04) 3%, rgba(0,0,0,0) 8%); }
+.fb-page.--right::after { background: linear-gradient(to right, rgba(0,0,0,.16), rgba(0,0,0,.04) 3%, rgba(0,0,0,0) 8%); }
+.fb-page.--hard::after, .fb.is-portrait .fb-page::after { background: none; }
+.fb .stf__parent { margin-inline: auto; }
+.fb-hint { margin: 12px 0 0; text-align: center; font: var(--fb-meta-font, 12px/1.4 system-ui, sans-serif); letter-spacing: .08em; text-transform: uppercase; color: var(--fb-mute); }
+.fb-bar { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 10px; width: 100%; max-width: 760px; margin-inline: auto; }
+.fb-meta { flex: 1 1 220px; display: grid; gap: 6px; min-width: 0; }
+.fb-count { text-align: center; font: var(--fb-meta-font, 12px/1.4 system-ui, sans-serif); letter-spacing: .06em; color: var(--fb-ink); font-variant-numeric: tabular-nums; }
+.fb-range { width: 100%; margin: 0; accent-color: var(--fb-accent); cursor: pointer; }
+.fb-btn { font: var(--fb-btn-font, 13px/1 system-ui, sans-serif); letter-spacing: .04em; color: var(--fb-ink); background: var(--fb-btn-bg, transparent); border: 1px solid var(--fb-line); border-radius: var(--fb-radius, 999px); padding: 10px 16px; min-height: 40px; cursor: pointer; transition: background .25s, color .25s, border-color .25s; }
+.fb-btn:hover:not(:disabled) { background: var(--fb-ink); color: var(--fb-btn-hover-ink, #fff); border-color: var(--fb-ink); }
+.fb-btn:disabled { opacity: .35; cursor: default; }
+.fb-btn:focus-visible, .fb-range:focus-visible, .fb-thumbs button:focus-visible { outline: 2px solid var(--fb-accent); outline-offset: 3px; }
+.fb-thumbs { display: flex; gap: 10px; overflow-x: auto; padding: 8px 4px 14px; scroll-snap-type: x proximity; overscroll-behavior-x: contain; scrollbar-color: var(--fb-accent) transparent; }
+.fb-thumbs[hidden] { display: none !important; }
+.fb-thumbs button { flex: 0 0 auto; scroll-snap-align: start; border: 0; background: none; padding: 0; cursor: pointer; display: grid; gap: 5px; justify-items: center; font: var(--fb-meta-font, 11px/1.3 system-ui, sans-serif); color: var(--fb-mute); }
+.fb-thumbs img { display: block; height: 104px; width: auto; max-width: none; box-shadow: 0 2px 10px rgba(0,0,0,.14); transition: transform .25s; }
+.fb-thumbs button:hover img { transform: translateY(-3px); }
+.fb-thumbs button[aria-current="true"] img { outline: 2px solid var(--fb-accent); outline-offset: 3px; }
+.fb-thumbs button[aria-current="true"] { color: var(--fb-ink); }
+.fb:fullscreen { background: var(--fb-fs-bg, #111); padding: 24px max(16px, env(safe-area-inset-right, 0px)) 24px max(16px, env(safe-area-inset-left, 0px)); align-content: center; overflow: auto; --fb-ink: var(--fb-fs-ink, #fff); --fb-mute: var(--fb-fs-ink, #ccc); --fb-line: rgba(255,255,255,.3); --fb-btn-hover-ink: #111; }
+.fb:fullscreen .fb-stage { max-width: min(96vw, calc(80vh * var(--fb-ratio2, 1.5))); }
+.fb-fallback { display: grid; place-items: center; }
+.fb-fallback img { max-height: 74vh; width: auto; box-shadow: 0 20px 50px rgba(0,0,0,.2); }
+@media (max-width: 560px) { .fb-fs { display: none; } .fb-meta { order: -1; flex-basis: 100%; } .fb-btn { padding: 10px 14px; } }
+@media (prefers-reduced-motion: reduce) { .fb-book { transition: none; } }
+
+
+@media (prefers-reduced-motion: reduce) {
+  .syd *, .syd *::before, .syd *::after { animation: none !important; transition: none !important; }
+}
+</style>
+
+<div class="syd" id="syd">
+  <div class="progress" aria-hidden="true"></div>
+
+  <!-- ================= HERO ================= -->
+  <header class="hero">
+    <span class="wm" aria-hidden="true" style="left:-2vw;top:-4vw">S</span>
+    <div class="wrap hero-grid">
+      <div>
+        <span class="label"><b>✦</b>&nbsp; Book design · Bridal fashion glossary</span>
+        <h1><span class="say">Say <em>Yes</em></span><span class="rest">to the Right Dress</span></h1>
+        <p class="lede">An A to Z of bridal fashion, written so a bride can walk into any boutique and understand every word the stylist says.</p>
+        <dl class="spec">
+          <div><dt>Format</dt><dd>Book · 200 × 220 mm</dd></div>
+          <div><dt>Extent</dt><dd>29 spreads + covers</dd></div>
+          <div><dt>Contents</dt><dd>26 letters · 7 iconic brides</dd></div>
+          <div><dt>My role</dt><dd>Author, editor, cover &amp; layout</dd></div>
+        </dl>
+      </div>
+      <figure class="object">
+        <div class="cover3d" id="syd-cover"><img src="assets/pages/01.jpg" alt="Book cover: a bride in a lace ball gown before a gilded mirror, with the title in white script" width="1100" height="1210"></div>
+        <figcaption>Front cover · move to tilt</figcaption>
+      </figure>
+    </div>
+  </header>
+
+  <!-- ================= FLIP BOOK ================= -->
+  <section class="sec book-sec" aria-labelledby="syd-book-h">
+    <div class="wrap">
+      <div class="head c">
+        <span class="label">01 · The book</span>
+        <h2 class="h2" id="syd-book-h">Turn the <span class="s">pages</span></h2>
+      </div>
+      <div id="book" aria-label="Flip book: Say Yes to the Right Dress"></div>
+    </div>
+  </section>
+
+  <!-- ================= BRIEF ================= -->
+  <section class="sec">
+    <span class="wm" aria-hidden="true" style="right:-4vw;top:0">Y</span>
+    <div class="wrap quote" data-reveal>
+      <span class="label">02 · The idea</span>
+      <blockquote>Bridal fashion is a timeless story. Let this glossary be your guide to its beauty and artistry.</blockquote>
+      <p class="body" style="text-align:center;max-width:52ch">Every bridal term from A-line to zero-waste, explained in a line or two and shown on a real dress, with seven chapters on gowns that changed bridal fashion.</p>
+    </div>
+  </section>
+
+  <!-- ================= COLOUR ================= -->
+  <section class="sec" style="background:var(--veil)">
+    <span class="wm" aria-hidden="true" style="left:-3vw;bottom:-6vw">C</span>
+    <div class="wrap">
+      <div class="head" data-reveal>
+        <span class="label">03 · Colour</span>
+        <h2 class="h2">Lace, linen and <span class="s">old photographs</span></h2>
+        <p class="body">Warm, quiet tones pulled from the lace, so the type never tints the white gowns. Tap a swatch to copy its hex.</p>
+      </div>
+      <div class="tags" id="syd-tags" data-reveal></div>
+    </div>
+  </section>
+
+  <!-- ================= TYPE ================= -->
+  <section class="sec">
+    <div class="wrap">
+      <div class="head" data-reveal>
+        <span class="label">04 · Typography</span>
+        <h2 class="h2">A <span class="s">script</span>, a serif and a quiet sans</h2>
+        <p class="body">A script for the title, a bold serif for names, a book serif for reading.</p>
+      </div>
+      <div class="specimens" data-reveal>
+        <article class="sp w3">
+          <div class="im"><img src="assets/type/title.jpg" alt="Title lockup set in Great Vibes script with a small bouquet" width="900" height="594"></div>
+          <div class="tx"><span class="role">Title · cover &amp; half-title</span><h3>Great Vibes</h3><p>Wedding-invitation script, used only on the title.</p></div>
+        </article>
+        <article class="sp w3">
+          <div class="im dark"><img src="assets/type/ogg.jpg" alt="Princess Diana chapter title set in Ogg Text Bold, white and gold over a photograph" width="800" height="281"></div>
+          <div class="tx"><span class="role">Chapter titles · 88 pt</span><h3>Ogg Text Bold</h3><p>Bride names set large across photographs, split into white and gold.</p></div>
+        </article>
+        <article class="sp" style="grid-column:1/-1">
+          <div class="im"><p style="font-family:var(--f-body);font-size:20px;line-height:1.45;color:var(--cocoa);max-width:24ch"><i style="color:var(--champagne)">Bishop Sleeve</i><br>Long, billowy sleeves that gather at the wrist with a fitted cuff, creating a romantic and elegant look.</p></div>
+          <div class="tx"><span class="role">Body &amp; definitions · 14–15 pt</span><h3>Minion</h3><p>All definitions and essays. Shown in a close stand-in.</p></div>
+        </article>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= OUTRO ================= -->
+  <section class="outro">
+    <div class="wrap">
+      <span class="end">The End</span>
+      <h2>Say <em>yes.</em></h2>
+      <div class="outro-row">
+        <button class="btn" type="button" data-goto="1">Read it again from the cover</button>
+        <a class="btn" href="https://aleeshakl.vercel.app/">← All Projects Index</a>
+        <a class="btn" href="#syd">Back to top ↑</a>
+      </div>
+      <p class="credit">Written, edited and designed by Aleesha K. L. · 2025</p>
+    </div>
+  </section>
+
+  <div class="toast" id="syd-toast" role="status" aria-live="polite"></div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/page-flip@2.0.7/dist/js/page-flip.browser.js"></script>
+<script>
+/* Flip book component. Uses StPageFlip (page-flip@2.0.7) when available, plain pager otherwise. */
+(function () {
+  function pad(i) { return (i < 9 ? '0' : '') + (i + 1); }
+  function Flipbook(el, o) {
+    var n = o.count, dir = o.dir;
+    var src = function (i) { return dir + '/pages/' + pad(i) + '.jpg'; };
+    var th = function (i) { return dir + '/thumbs/' + pad(i) + '.jpg'; };
+    var label = o.label || function (i) { return 'Page ' + (i + 1); };
+    var id = el.id || ('fb' + Math.random().toString(36).slice(2, 7));
+    el.classList.add('fb');
+    el.style.setProperty('--fb-ratio2', (2 * o.w / o.h).toFixed(3));
+    el.innerHTML =
+      '<div class="fb-stage"><div class="fb-book"></div><p class="fb-hint">' + (o.hint || 'Drag a corner or tap the page edge to turn') + '</p></div>' +
+      '<div class="fb-bar">' +
+        '<button class="fb-btn fb-prev" type="button" aria-label="Previous page">&larr; Prev</button>' +
+        '<div class="fb-meta"><span class="fb-count" aria-live="polite"></span>' +
+        '<input class="fb-range" id="' + id + '-range" type="range" min="0" max="' + (n - 1) + '" value="0" aria-label="Go to page"></div>' +
+        '<button class="fb-btn fb-next" type="button" aria-label="Next page">Next &rarr;</button>' +
+        '<button class="fb-btn fb-tbtn" type="button" aria-expanded="false" aria-controls="' + id + '-thumbs">All pages</button>' +
+        '<button class="fb-btn fb-fs" type="button">Full screen</button>' +
+      '</div>' +
+      '<div class="fb-thumbs" id="' + id + '-thumbs" hidden></div>';
+    var q = function (s) { return el.querySelector(s); };
+    var book = q('.fb-book'), count = q('.fb-count'), range = q('.fb-range');
+    var prev = q('.fb-prev'), next = q('.fb-next'), tbtn = q('.fb-tbtn'), thumbs = q('.fb-thumbs'), fs = q('.fb-fs');
+    var warmed = {};
+    function warm(c) { for (var i = c - 2; i <= c + 6; i++) { if (i < 0 || i >= n || warmed[i]) continue; warmed[i] = 1; var im = new Image(); im.src = src(i); } }
+    var pf = null, cur = 0, portrait = false;
+
+    function text(i) {
+      if (portrait || i === 0 || i === n - 1) return label(i) + '  ·  ' + (i + 1) + ' / ' + n;
+      var a = i % 2 ? i : i - 1;
+      return label(a) + '  ·  ' + (a + 1) + '–' + (a + 2) + ' / ' + n;
+    }
+    function shift(i) {
+      book.classList.toggle('is-closed-front', !portrait && i === 0);
+      book.classList.toggle('is-closed-back', !portrait && i === n - 1 && (n % 2 === 0));
+    }
+    function upd(i) {
+      cur = i; count.textContent = text(i); range.value = i;
+      prev.disabled = i <= 0; next.disabled = portrait ? i >= n - 1 : i >= n - 1 || (i % 2 === 1 && i + 1 >= n - 1 && n % 2 === 1);
+      shift(i);
+      var b = thumbs.querySelectorAll('button');
+      for (var k = 0; k < b.length; k++) b[k].setAttribute('aria-current', String(k === i || (!portrait && i > 0 && (i % 2 ? k === i + 1 : k === i - 1) && k < n - 1 && k > 0)));
+      if (o.onChange) o.onChange(i);
+    }
+    function go(i) {
+      i = Math.max(0, Math.min(n - 1, i | 0)); warm(i);
+      if (!pf) { fallbackShow(i); return; }
+      var c = pf.getCurrentPageIndex();
+      if (Math.abs(i - c) <= 2) { shift(i); pf.flip(i); } else { pf.turnToPage(i); upd(i); }
+    }
+
+    // pages
+    var pages = [];
+    for (var i = 0; i < n; i++) {
+      var d = document.createElement('div');
+      d.className = 'fb-page';
+      if (o.hard && (i === 0 || i === n - 1)) d.setAttribute('data-density', 'hard');
+      d.innerHTML = '<img src="' + src(i) + '" alt="' + (o.alt ? o.alt(i) : label(i)).replace(/"/g, '&quot;') + '" loading="' + (i < 4 ? 'eager' : 'lazy') + '" decoding="async" width="' + o.w + '" height="' + o.h + '" draggable="false">';
+      pages.push(d); book.appendChild(d);
+    }
+
+    var fbImg;
+    function fallbackShow(i) { cur = i; fbImg.src = src(i); fbImg.alt = label(i); upd(i); }
+    if (window.St && window.St.PageFlip) {
+      pf = new window.St.PageFlip(book, {
+        width: o.w, height: o.h, size: 'stretch',
+        minWidth: o.minW || 240, maxWidth: o.w, minHeight: Math.round((o.minW || 240) * o.h / o.w), maxHeight: o.h,
+        showCover: true, maxShadowOpacity: .45, mobileScrollSupport: true, flippingTime: 850,
+        usePortrait: true, autoSize: true, drawShadow: true, showPageCorners: true
+      });
+      pf.loadFromHTML(pages);
+      portrait = pf.getOrientation() === 'portrait';
+      el.classList.toggle('is-portrait', portrait);
+      pf.on('flip', function (e) { warm(e.data); upd(e.data); });
+      pf.on('changeOrientation', function (e) { portrait = e.data === 'portrait'; el.classList.toggle('is-portrait', portrait); upd(pf.getCurrentPageIndex()); });
+      pf.on('changeState', function (e) {
+        if (e.data === 'user_fold' || e.data === 'flipping') { book.classList.remove('is-closed-front', 'is-closed-back'); }
+        else if (e.data === 'read') shift(pf.getCurrentPageIndex());
+      });
+    } else {
+      book.innerHTML = ''; book.className = 'fb-book fb-fallback';
+      fbImg = document.createElement('img'); book.appendChild(fbImg); portrait = true;
+      fallbackShow(0);
+    }
+    warm(0); upd(0);
+
+    prev.addEventListener('click', function () { if (pf) pf.flipPrev(); else go(cur - 1); });
+    next.addEventListener('click', function () { if (pf) { shift(cur + 1); pf.flipNext(); } else go(cur + 1); });
+    range.addEventListener('input', function () { count.textContent = text(+range.value); });
+    range.addEventListener('change', function () { go(+range.value); });
+    tbtn.addEventListener('click', function () {
+      if (!thumbs.childElementCount) {
+        var h = '';
+        for (var k = 0; k < n; k++) h += '<button type="button" data-i="' + k + '"><img src="' + th(k) + '" alt="" loading="lazy">' + (k + 1) + '</button>';
+        thumbs.innerHTML = h; upd(cur);
+      }
+      thumbs.hidden = !thumbs.hidden; tbtn.setAttribute('aria-expanded', String(!thumbs.hidden));
+      tbtn.textContent = thumbs.hidden ? 'All pages' : 'Hide pages';
+      if (!thumbs.hidden) { var c = thumbs.querySelector('[aria-current="true"]'); if (c) thumbs.scrollLeft = c.offsetLeft - 40; }
+    });
+    thumbs.addEventListener('click', function (e) { var b = e.target.closest('button'); if (b) go(+b.getAttribute('data-i')); });
+    fs.addEventListener('click', function () {
+      try {
+        if (document.fullscreenElement) document.exitFullscreen();
+        else if (el.requestFullscreen) { var p = el.requestFullscreen(); if (p && p.catch) p.catch(function () {}); }
+      } catch (err) {}
+    });
+    document.addEventListener('fullscreenchange', function () {
+      fs.textContent = document.fullscreenElement === el ? 'Exit full screen' : 'Full screen';
+      if (pf) setTimeout(function () { pf.update(); }, 120);
+    });
+    // keyboard when the book is on screen
+    var onScreen = false, opened = false;
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(function (es) {
+        es.forEach(function (en) {
+          onScreen = en.intersectionRatio > 0.35;
+          if (onScreen && !opened && o.autoOpen && pf && cur === 0) {
+            opened = true;
+            setTimeout(function () { if (cur === 0 && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) { shift(1); pf.flipNext(); } }, 700);
+          }
+        });
+      }, { threshold: [0, .35, .6] }).observe(q('.fb-stage'));
+    }
+    document.addEventListener('keydown', function (e) {
+      if ((!onScreen && document.fullscreenElement !== el) || /input|textarea|select/i.test(e.target.tagName) && e.target !== range) return;
+      if (e.target === range) return;
+      if (e.key === 'ArrowRight') { e.preventDefault(); next.click(); }
+      if (e.key === 'ArrowLeft') { e.preventDefault(); prev.click(); }
+    });
+    var api = { go: go, el: el, get current() { return cur; } };
+    el.flipbook = api;
+    return api;
+  }
+  // [data-goto="12"] anywhere on the page: scroll to the book and open that page (1-based)
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest('[data-goto]'); if (!a) return;
+    var book = document.getElementById(a.getAttribute('data-book') || 'book');
+    if (!book || !book.flipbook) return;
+    e.preventDefault();
+    var p = +a.getAttribute('data-goto') - 1;
+    book.scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'center' });
+    setTimeout(function () { book.flipbook.go(p); }, 550);
+  });
+  window.Flipbook = Flipbook;
+})();
+
+</script>
+<script>
+(function () {
+  var root = document.getElementById('syd'); if (!root) return;
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var $ = function (s) { return root.querySelector(s); };
+
+  /* ---- book map: spread number in the PDF -> flip page (1-based, left page of the spread) ---- */
+    var names = { 2: 'Endpaper', 3: 'Half-title', 4: 'Title', 5: 'Contents', 6: 'Contents', 7: 'Foreword', 8: 'Queen Victoria', 9: 'A · B', 10: 'C · D', 11: 'Princess Diana',
+    12: 'E · F', 13: 'G · H', 14: 'I · J', 15: 'Princess Kate', 16: 'K · L', 17: 'M · N', 18: 'Priyanka Chopra Jonas', 19: 'O · P', 20: 'Q · R', 21: 'Amy Jackson',
+    22: 'S · T', 23: 'U · V', 24: 'Keerthy Suresh', 25: 'W · X', 26: 'Y · Z', 27: 'Millie Bobby Brown', 28: 'Bridal accessories', 29: 'The End', 30: 'Endpaper' };
+  function label(i) { var p = i + 1; if (p === 1) return 'Front cover'; if (p === 60) return 'Back cover'; return names[Math.floor(p / 2) + 1]; }
+
+  Flipbook(document.getElementById('book'), {
+    dir: 'assets', count: 60, w: 1100, h: 1210, hard: true, autoOpen: true,
+    label: label,
+    alt: function (i) { return 'Page ' + (i + 1) + ' of Say Yes to the Right Dress'; },
+    hint: 'Drag a corner to turn · arrow keys work too'
+  });
+
+  /* ---- colour tags ---- */
+  var cols = [
+    ['Pearl White', '#F2F1ED', 'Page ground and title type on photographs', 1],
+    ['Champagne', '#C59A7C', 'Most-used term colour; watermark letters', 0],
+    ['Mink Taupe', '#827169', 'Second term colour, the cool counterpoint', 0],
+    ['Cocoa', '#5A2F15', 'Dark term colour and headings', 0],
+    ['Antique Gold', '#BD902F', 'Chapter titles, second half of the name', 0],
+    ['Greige', '#CAC1BA', 'Endpaper pattern ground', 1]
+  ];
+  $('#syd-tags').innerHTML = cols.map(function (c) {
+    return '<button type="button" class="tag"' + (c[3] ? ' data-light' : '') + ' style="--c:' + c[1] + '" data-hex="' + c[1] + '"><span class="sw"></span><span class="tx"><b>' + c[0] + '</b><code>' + c[1] + '</code><span>' + c[2] + '</span></span></button>';
+  }).join('');
+  var toast = $('#syd-toast'), tt;
+  function say(m) { toast.textContent = m; toast.classList.add('on'); clearTimeout(tt); tt = setTimeout(function () { toast.classList.remove('on'); }, 1600); }
+  $('#syd-tags').addEventListener('click', function (e) {
+    var b = e.target.closest('.tag'); if (!b) return; var hex = b.getAttribute('data-hex');
+    try { navigator.clipboard.writeText(hex).then(function () { say('Copied ' + hex); }, function () { say(hex); }); } catch (err) { say(hex); }
+  });
+
+  /* ---- cover tilt ---- */
+  var cover = $('#syd-cover');
+  if (!reduce && window.matchMedia('(hover: hover)').matches) {
+    var hero = $('.hero');
+    hero.addEventListener('pointermove', function (e) {
+      var r = cover.getBoundingClientRect(), x = (e.clientX - (r.left + r.width / 2)) / window.innerWidth, y = (e.clientY - (r.top + r.height / 2)) / window.innerHeight;
+      cover.style.setProperty('--ry', (-16 + x * 30).toFixed(2) + 'deg'); cover.style.setProperty('--rx', (4 - y * 16).toFixed(2) + 'deg');
+    });
+    hero.addEventListener('pointerleave', function () { cover.style.removeProperty('--ry'); cover.style.removeProperty('--rx'); });
+  }
+
+  /* ---- progress + reveals ---- */
+  var bar = $('.progress');
+  function onScroll() { var h = document.documentElement; var p = h.scrollTop / Math.max(1, h.scrollHeight - h.clientHeight); bar.style.transform = 'scaleX(' + Math.min(1, Math.max(0, p)) + ')'; }
+  window.addEventListener('scroll', onScroll, { passive: true }); onScroll();
+  if (!reduce && 'IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (es) { es.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add('in'); en.target.classList.add('is-ready'); io.unobserve(en.target); } }); }, { rootMargin: '0px 0px -8% 0px' });
+    root.querySelectorAll('[data-reveal]').forEach(function (el) { if (el.getBoundingClientRect().top > window.innerHeight) { el.classList.add('pre'); io.observe(el); } else el.classList.add('is-ready'); });
+  } else root.querySelectorAll('[data-reveal]').forEach(function (el) { el.classList.add('is-ready'); });
+})();
+</script>

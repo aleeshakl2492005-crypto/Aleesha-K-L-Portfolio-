@@ -317,10 +317,10 @@ model-viewer { width: 100%; height: 100%; outline: none; --poster-color: transpa
     shadow-intensity="1.2"
     shadow-softness="0.8"
     exposure="1.05"
-    camera-orbit="40deg 75deg 105%"
-    min-camera-orbit="auto auto 20%"
+    camera-orbit="40deg 75deg 62%"
+    min-camera-orbit="auto auto 15%"
     max-camera-orbit="auto auto 300%"
-    field-of-view="32deg"
+    field-of-view="28deg"
     interaction-prompt="auto"
     loading="lazy"
     style="background: radial-gradient(circle at 50% 40%, #2e1a14 0%, #150d0a 85%, #0a0604 100%);"
@@ -377,9 +377,9 @@ model-viewer { width: 100%; height: 100%; outline: none; --poster-color: transpa
 
 <span class="hud tl" id="cs-hud-tl"><i></i>CAM_01 · Persp</span>
 <div class="shading" role="group" aria-label="Viewport shading">
-  <button type="button" data-mode="solid" aria-pressed="true">Workspace</button>
+  <button type="button" data-mode="solid" aria-pressed="false">Workspace</button>
   <button type="button" data-mode="render" aria-pressed="false">Rendered</button>
-  <button type="button" data-mode="3d" aria-pressed="false" title="Inspect 3D Orbit Mesh">✨ 3D Orbit</button>
+  <button type="button" data-mode="3d" aria-pressed="true" title="Inspect 3D Orbit Mesh">✨ 3D Orbit</button>
 </div>
 <span class="hud bl" id="cs-hud-bl">Scene · Roadshow truck</span></div>
 <div class="info"><div>
@@ -465,23 +465,102 @@ model-viewer { width: 100%; height: 100%; outline: none; --poster-color: transpa
   var btnFallback = document.getElementById('btn-fallback-render');
   var selectModel = document.getElementById('select-thira-model');
 
+  function decodeBase64Blob(b64, cb) {
+    try {
+      fetch('data:application/octet-stream;base64,' + b64)
+        .then(function (res) { return res.arrayBuffer(); })
+        .then(function (buf) {
+          var blob = new Blob([buf], { type: 'model/gltf-binary' });
+          cb(URL.createObjectURL(blob));
+        })
+        .catch(function () {
+          fallbackBlob(b64, cb);
+        });
+    } catch (e) {
+      fallbackBlob(b64, cb);
+    }
+  }
+
+  function fallbackBlob(b64, cb) {
+    try {
+      var bin = atob(b64);
+      var bytes = new Uint8Array(bin.length);
+      for (var i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i);
+      var blob = new Blob([bytes.buffer], { type: 'model/gltf-binary' });
+      cb(URL.createObjectURL(blob));
+    } catch (err) {
+      cb(null);
+    }
+  }
+
+  function loadThiraModelData(isStage, cb) {
+    var varName = isStage ? 'THIRA_STAGE_BASE64' : 'THIRA_TRUCK_BASE64';
+    var scriptSrc = isStage ? '../../3d%20space/thira_stage_data.js' : '../../3d%20space/thira_truck_data.js';
+
+    if (window[varName]) {
+      decodeBase64Blob(window[varName], cb);
+      return;
+    }
+
+    var s = document.createElement('script');
+    s.src = scriptSrc;
+    s.onload = function () {
+      if (window[varName]) {
+        decodeBase64Blob(window[varName], cb);
+      } else {
+        cb(null);
+      }
+    };
+    s.onerror = function () {
+      cb(null);
+    };
+    document.head.appendChild(s);
+  }
+
   function init3DModel() {
     if (!mv) return;
-    if (!mv.src && mv.dataset.src) {
-      mv.src = mv.dataset.src;
+    if (window.location.protocol === 'file:') {
+      if (mvProgress) {
+        mvProgress.classList.remove('is-hidden');
+        if (mvFill) mvFill.style.width = '30%';
+        if (mvLabel) mvLabel.textContent = 'Streaming 3D Roadshow Truck...';
+      }
+      loadThiraModelData(false, function (blobUrl) {
+        if (blobUrl) {
+          mv.src = blobUrl;
+        } else if (mv.dataset.src) {
+          mv.src = mv.dataset.src;
+        }
+      });
+    } else {
+      if (!mv.src && mv.dataset.src) {
+        mv.src = mv.dataset.src;
+      }
     }
   }
 
   if (selectModel) {
     selectModel.addEventListener('change', function () {
       if (!mv) return;
-      mv.src = selectModel.value;
+      var isStage = selectModel.value.indexOf('autosave') !== -1;
       if (mvProgress) {
         mvProgress.classList.remove('is-hidden');
-        if (mvFill) mvFill.style.width = '10%';
+        if (mvFill) mvFill.style.width = '20%';
         if (mvLabel) mvLabel.textContent = 'Switching 3D Model...';
       }
       if (mvError) mvError.style.display = 'none';
+
+      if (window.location.protocol === 'file:') {
+        loadThiraModelData(isStage, function (blobUrl) {
+          if (blobUrl) {
+            mv.src = blobUrl;
+          } else {
+            mv.src = selectModel.value;
+          }
+        });
+      } else {
+        mv.src = selectModel.value;
+      }
       if (hudBL) hudBL.textContent = selectModel.options[selectModel.selectedIndex].text;
     });
   }
@@ -498,8 +577,16 @@ model-viewer { width: 100%; height: 100%; outline: none; --poster-color: transpa
       if (hudBL) hudBL.textContent = 'Interactive 3D Mesh · Thira Roadshow (Orbit Active)';
     });
     mv.addEventListener('error', function () {
-      if (mvProgress) mvProgress.classList.add('is-hidden');
-      if (mvError) mvError.style.display = 'flex';
+      // If error occurs and not yet loaded from script data, attempt auto-load
+      var isStage = selectModel && selectModel.value.indexOf('autosave') !== -1;
+      loadThiraModelData(isStage, function (blobUrl) {
+        if (blobUrl && mv.src !== blobUrl) {
+          mv.src = blobUrl;
+        } else {
+          if (mvProgress) mvProgress.classList.add('is-hidden');
+          if (mvError) mvError.style.display = 'flex';
+        }
+      });
     });
   }
 
@@ -530,8 +617,8 @@ model-viewer { width: 100%; height: 100%; outline: none; --poster-color: transpa
   if (btnResetCam) {
     btnResetCam.addEventListener('click', function () {
       if (!mv) return;
-      mv.cameraOrbit = '40deg 75deg 105%';
-      mv.fieldOfView = '32deg';
+      mv.cameraOrbit = '40deg 75deg 62%';
+      mv.fieldOfView = '28deg';
     });
   }
 
@@ -573,7 +660,7 @@ model-viewer { width: 100%; height: 100%; outline: none; --poster-color: transpa
 
   heroBtns.forEach(function (b) { b.addEventListener('click', function () { touched = true; setShade(b.dataset.mode); }); });
   var heroRender = $('.render', hero);
-  function reveal() { setTimeout(function () { if (!touched) setShade('render'); }, reduce ? 0 : 1100); }
+  function reveal() { setTimeout(function () { if (!touched) setShade('3d'); }, reduce ? 0 : 350); }
   if (heroRender.complete) reveal(); else { heroRender.addEventListener('load', reveal); heroRender.addEventListener('error', reveal); }
 
   /* view switcher (optional) */
