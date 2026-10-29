@@ -730,59 +730,139 @@ const PORTFOLIO_DATA = {
 
   beyond: [
     {
-      id: "by-biomimicry",
-      title: "Biomimicry Habitat Modules & Sound Sculptures",
-      category: "sketch",
-      categoryLabel: "Sketches & Process",
-      badge: "Experimental Concept",
-      img: "assets/thumb_desktop_beyond.png",
-      tools: ["Concept Sketching", "Spatial Modeling", "Acoustic Resonators"],
-      desc: "Speculative architecture concept imagining organic living pods inspired by microscopic diatom shells with built-in acoustic resonators.",
-      process: "Explored how natural shell geometry naturally amplifies harmonic wind frequencies to create calming ambient interior soundscapes."
+      id: "by-elle",
+      title: "Elle Magazine Editorial Publication & Spread Design",
+      category: "books",
+      categoryLabel: "Books & Publications",
+      badge: "Editorial Publication",
+      format: "Hardcover Book & Spreads",
+      file: "beyond the brief/Elle Magazine  (1).pdf",
+      fileName: "Elle Magazine  (1).pdf",
+      size: "260 MB",
+      img: "assets/beyond/elle_magazine.jpg",
+      tools: ["Adobe InDesign", "Photoshop", "Typographic Pacing", "Editorial Grid Systems", "CMYK Preflight"],
+      desc: "High-fashion editorial magazine spreads and complete publication design exploring modernist silhouette architecture, avant-garde haute couture, and asymmetric grid tension.",
+      process: "Created bespoke 12-column modular grids allowing flexible placement of dramatic pull quotes, full-bleed fashion photography, and clean serif running headers."
     },
     {
-      id: "by-clay",
-      title: "Tactile 3D Clay Characters & Procedural Shaders",
-      category: "clay",
-      categoryLabel: "3D Clay & Shaders",
-      badge: "3D Clay Exploration",
-      img: "assets/thumb_desktop_about.png",
-      tools: ["Blender 4.2", "Cycles", "Procedural Noise Shaders"],
-      desc: "Whimsical clay character explorations rendered with procedural fingerprints, subtle subsurface scattering, and tactile glaze imperfections.",
-      process: "Developed a custom procedural Blender Cycles shader node graph that accurately simulates physical clay molding marks without hand-sculpting each ridge."
+      id: "by-apple-health",
+      title: "Apple Health App UI/UX Redesign & Jury Presentation",
+      category: "uiux",
+      categoryLabel: "UI/UX & Mobile App",
+      badge: "UI/UX Case Study",
+      format: "Mobile App Presentation",
+      file: "beyond the brief/Apple health app jury.pdf",
+      fileName: "Apple health app jury.pdf",
+      size: "207 MB",
+      img: "assets/beyond/apple_health.jpg",
+      tools: ["Figma", "User Research", "WCAG Contrast", "Vitals Architecture", "Prototyping"],
+      desc: "Comprehensive human-centred mobile interface redesign simplifying complex vitals, heart rate variability, respiratory tracking, and sleep stages into glanceable modular cards.",
+      process: "Conducted user interviews with health enthusiasts and patients, rearchitected information hierarchy, and established accessible WCAG 2.1 AAA contrast tokens."
     },
     {
-      id: "by-calligraphy",
-      title: "Masterclass Calligraphy & Hand-Lettering",
-      category: "calligraphy",
-      categoryLabel: "Masterclass Lettering",
-      badge: "Workshop Creation",
-      img: "assets/thumb_desktop_beyond.png",
-      tools: ["Calligraphy Inks", "Reed Pens", "Narayana Bhattathiri Masterclass"],
-      desc: "Experimental calligraphic explorations created during intensive masterclass with legendary calligrapher Narayana Bhattathiri.",
-      process: "Studied Malayalam traditional script anatomy, exploring the expressive tension between heavy downstrokes and hairline crossbars."
+      id: "by-goodreads",
+      title: "Goodreads Mobile App UI/UX Redesign",
+      category: "uiux",
+      categoryLabel: "UI/UX & Mobile App",
+      badge: "UI/UX Redesign",
+      format: "Figma Case Study",
+      file: "beyond the brief/Goodreads_UIUX_Redesign.pptx (2).pdf",
+      fileName: "Goodreads_UIUX_Redesign.pptx (2).pdf",
+      size: "14 MB",
+      img: "assets/beyond/goodreads.jpg",
+      tools: ["Figma", "Design Systems", "User Flows", "Information Architecture", "Heuristic Evaluation"],
+      desc: "Modern, clean reimagining of the Goodreads reading platform: intuitive book discovery, custom shelves, social reading challenges, and warm editorial typography.",
+      process: "Addressed long-standing navigation clutter by introducing a clean 5-tab bottom navigation, personalized Book Nook recommendation feeds, and streamlined book logging."
     },
     {
-      id: "by-ai",
-      title: "AI for Youth Virtual Symposium (Intel-Powered)",
-      category: "ai",
-      categoryLabel: "AI For Youth",
-      badge: "National Symposium",
-      img: "assets/thumb_desktop_spatial.png",
-      tools: ["Intel AI Tools", "Neural Diffusion", "Prompt Engineering"],
-      desc: "Participated in the national AI for Youth Virtual Symposium (Intel-powered), exploring neural diffusion and parametric design ideation.",
-      process: "Created hybrid human-AI ideation workflows that translate quick 2D thumbnail doodles into rich volumetric spatial moodboards."
+      id: "by-crumbs",
+      title: "Crumbs — Editorial Book Design & Typography",
+      category: "books",
+      categoryLabel: "Books & Publications",
+      badge: "Editorial Art Book",
+      format: "Hardcover Bound Book",
+      file: "beyond the brief/crumbs.pdf",
+      fileName: "crumbs.pdf",
+      size: "28 MB",
+      img: "assets/beyond/crumbs.jpg",
+      tools: ["Adobe InDesign", "Typography Hierarchy", "Paper Stock Selection", "Bookbinding CAD"],
+      desc: "Tactile editorial book exploring culinary fragments, memory, and everyday artifacts through expressive typography, macro textures, and intimate literary essays.",
+      process: "Harmonized custom hand-set display headings with generous page margins, deckle-edge paper considerations, and rhythmic chapter breaks."
     },
     {
-      id: "by-sketch",
-      title: "Sketchbook Chronicles & Raw Concept Ideation",
-      category: "sketch",
-      categoryLabel: "Sketches & Process",
-      badge: "Process Work",
-      img: "assets/thumb_desktop_beyond.png",
-      tools: ["Moleskine Sketchbook", "Micron Pens", "Watercolor Washes"],
-      desc: "Pages from personal sketchbooks: fast perspective thumbnailing, human flow diagrams, and structural event stage calculations.",
-      process: "Every 3D project begins on paper with rapid 30-second perspective iterations to evaluate sightlines before touching 3D software."
+      id: "by-zudio",
+      title: "Zudio App Design Innovation",
+      category: "uiux",
+      categoryLabel: "UI/UX & Mobile App",
+      badge: "E-Commerce UI/UX",
+      format: "Mobile App Prototype",
+      file: "beyond the brief/Zudio App Design Innovation.pptx.pdf",
+      fileName: "Zudio App Design Innovation.pptx.pdf",
+      size: "7.5 MB",
+      img: "assets/beyond/zudio.jpg",
+      tools: ["Figma", "Fast-Fashion UI", "Micro-Interactions", "Checkout Funnels", "Apparel Catalog"],
+      desc: "High-conversion mobile retail app designed for Zudio's Gen-Z demographic: bold typography, visual-first streetwear discovery grids, quick-add bags, and instant UPI checkout.",
+      process: "Mapped youth fast-fashion shopping habits, optimizing time-to-cart by 35% with one-swipe variant selection and dynamic product drop timers."
+    },
+    {
+      id: "by-brand-manual",
+      title: "Brand Identity Manual & Visual Guidelines Book",
+      category: "books",
+      categoryLabel: "Books & Publications",
+      badge: "Brand Identity Manual",
+      format: "Corporate Identity Book",
+      file: "beyond the brief/BRAND MANUAL final.pdf",
+      fileName: "BRAND MANUAL final.pdf",
+      size: "12.5 MB",
+      img: "assets/beyond/brand_manual.jpg",
+      tools: ["InDesign", "Illustrator", "Brand Architecture", "Vector Geometric Grids", "Color Tokenization"],
+      desc: "Comprehensive corporate brand guidelines book: logo geometric construction grids, isolation clear zones, color swatch values (Pantone/CMYK/RGB/Hex), and signage guidelines.",
+      process: "Defined mathematical proportions for the master emblem, established typographic scale hierarchies across digital/print, and specified co-branding standards."
+    },
+    {
+      id: "by-say-yes",
+      title: "Say Yes to the Right Dress — Fashion Styling Lookbook",
+      category: "books",
+      categoryLabel: "Books & Publications",
+      badge: "Styling Lookbook",
+      format: "Softcover Lookbook",
+      file: "beyond the brief/Say yes to the right dress_aleesha.pdf",
+      fileName: "Say yes to the right dress_aleesha.pdf",
+      size: "28.8 MB",
+      img: "assets/beyond/say_yes_dress.jpg",
+      tools: ["Editorial Styling", "InDesign", "Lookbook Production", "Garment Coordination", "Moodboards"],
+      desc: "Curated bridal couture lookbook and fashion styling publication presenting garment silhouettes, delicate lace weaves, fabric swatches, and accessory coordination.",
+      process: "Developed styling narratives matching fabric drape with seasonal venue atmospheres, photographed with directional natural light and paired with clean lookbook layout."
+    },
+    {
+      id: "by-tarot",
+      title: "Illustrated Tarot Cards — Contemporary Folklore Deck & Guidebook",
+      category: "books",
+      categoryLabel: "Books & Publications",
+      badge: "Illustrated Deck & Book",
+      format: "Illustrated Deck + Book",
+      file: "beyond the brief/TAROT CARDS.pdf",
+      fileName: "TAROT CARDS.pdf",
+      size: "19.2 MB",
+      img: "assets/beyond/tarot_cards.jpg",
+      tools: ["Adobe Illustrator", "Vector Line Art", "Gold Foil Print Specs", "Mythological Research"],
+      desc: "Bespoke illustrated 54-card contemporary folklore tarot deck and accompanying guidebook, blending ancient mystical symbolism with intricate symmetric border ornaments.",
+      process: "Hand-illustrated each Major Arcana card face, engineered foil-stamp die plates for the tuckbox packaging, and designed an accompanying pocket guidebook."
+    },
+    {
+      id: "by-studio-photo",
+      title: "Studio Photography Jury Publication & Portfolios",
+      category: "books",
+      categoryLabel: "Books & Publications",
+      badge: "Jury Portfolio Book",
+      format: "Fine Art Catalog",
+      file: "beyond the brief/STUDIO PHOTOGRAPHY JURY.pdf",
+      fileName: "STUDIO PHOTOGRAPHY JURY.pdf",
+      size: "55.2 MB",
+      img: "assets/beyond/studio_photo.jpg",
+      tools: ["Studio Strobe Lighting", "Darkroom Printing", "InDesign Preflight", "Hardcover Binding"],
+      desc: "Fine-art photography jury publication showcasing studio portraiture, monochrome light falloff, honeycomb grid lighting studies, and high-fashion model shoots.",
+      process: "Printed as a limited hardcover portfolio catalog, balancing high-contrast deep blacks with delicate highlight preservation across archival matte paper."
     }
   ]
 };
@@ -1211,6 +1291,42 @@ const SOLARI_PROJECTS_DATA = [
       { src: "beast-games-3/assets/storyboard-3.jpg", title: "Storyboard Frame 3: The Divide Lane Obstacle Run" },
       { src: "beast-games-3/assets/storyboard-4.jpg", title: "Storyboard Frame 4: Final Flag Duel & Elimination" }
     ]
+  },
+  {
+    id: "beyond",
+    alias: ["beyond-the-brief", "09"],
+    num: "09",
+    tabName: "BEYOND THE BRIEF",
+    stripItems: ["Books & Publications", "UI/UX Projects", "Editorial Layouts", "9 PDF Portfolios", "Figma & InDesign"],
+    title: "Beyond the Brief — Editorial Books & UI/UX Projects",
+    subtitle: "A curated collection of 9 self-published editorial books, fashion magazine spreads, brand identity manuals, and mobile app UI/UX redesigns",
+    category: "Books & Publications / UI/UX Design",
+    color: "#fdf2f8",
+    bg: "#fff1f2",
+    accent: "#db2777",
+    timeline: "Design Explorations & Publications",
+    venue: "Self-Published Books & Digital Product Prototypes",
+    dimensions: "9 Full-Length Projects • 6 Books & Publications • 3 UI/UX Apps",
+    client: "Editorial Jury, Client Brands & Concept Prototypes",
+    role: "Editorial Designer, Bookmaker & Lead UI/UX Visualiser",
+    software: ["Adobe InDesign", "Figma", "Adobe Illustrator", "Photoshop", "User Flows"],
+    tags: ["Book Design", "Editorial Spreads", "UI/UX", "Brand Manual", "Mobile App", "Lookbook", "Tarot Deck", "Accessibility"],
+    heroThumb: "assets/beyond/elle_magazine.jpg",
+    brief: "Beyond the Brief showcases Aleesha's diverse creative output spanning self-published editorial publications, fashion jury catalogs, brand identity manuals, and human-centred mobile UI/UX applications. Each project represents a complete design journey—from research and typographic pacing to print preflighting and interactive prototyping.",
+    concept: "Merging tactile editorial storytelling with digital product rigor. Editorial books celebrate typographic proportion, asymmetric grid structures, and rich paper tactile choices, while the UI/UX projects solve real-world usability challenges in health vitals, fast-fashion retail, and book communities.",
+    execution: "Features 6 complete editorial publications (Elle Magazine, Crumbs, Brand Identity Manual, Say Yes to the Right Dress, Illustrated Tarot Cards, Studio Photography Jury) and 3 interactive UI/UX applications (Apple Health App Redesign, Goodreads Mobile App, Zudio App Innovation) available for inline reading and direct download.",
+    materials: [
+      "Tactile Linen Cloth & Embossed Foil Hardcover Binding Specs",
+      "12-Column Modular Editorial Typographic Grid Systems",
+      "Figma Mobile Design System Components & Auto-Layouts",
+      "Pantone Matching System (PMS) & CMYK Print Preflight Standards",
+      "WCAG 2.1 AAA Accessibility Color Contrast Tokens"
+    ],
+    mediaTabs: [
+      { id: "all", label: "📚 All 9 Portfolios", type: "beyond-grid" },
+      { id: "books", label: "📖 Books & Publications (6)", type: "beyond-grid" },
+      { id: "uiux", label: "📱 UI/UX & Apps (3)", type: "beyond-grid" }
+    ]
   }
 ];
 
@@ -1524,6 +1640,101 @@ function initSolariProjects() {
       detailBody.innerHTML = `
         <iframe src="${safeCaseStudyUrl}" class="solari-full-case-iframe" id="solari-full-iframe-${proj.id}" title="${proj.title}" loading="eager"></iframe>
       `;
+
+      return;
+    }
+
+    if (proj.id === 'beyond') {
+      const fsLink = document.getElementById('solari-detail-fullscreen-link');
+      if (fsLink) {
+        fsLink.href = 'beyond the brief/Elle Magazine  (1).pdf';
+        fsLink.title = 'Open Beyond the Brief collection';
+      }
+
+      detailBody.innerHTML = `
+        <div class="solari-case-card" style="--case-color: #fdf2f8;">
+          <div class="solari-case-hero" style="background: linear-gradient(135deg, #fdf2f8 0%, #fce7f3 50%, #fff1f2 100%);">
+            <div class="solari-case-index" style="color:#db2777;">Folder 09 • Books &amp; Publications &amp; UI/UX Projects</div>
+            <h2 class="solari-case-title" style="color:#831843;">Beyond the Brief</h2>
+            <p class="solari-case-subtitle" style="color:#9d174d;">Curated collection of 9 self-published editorial books, fashion lookbooks, brand manuals, and mobile app UI/UX prototypes.</p>
+            <div class="solari-case-meta-row">
+              <span class="solari-meta-badge">📚 6 Books &amp; Publications</span>
+              <span class="solari-meta-badge">📱 3 UI/UX Mobile Apps</span>
+              <span class="solari-meta-badge">🛠️ InDesign, Figma, Illustrator</span>
+              <span class="solari-meta-badge">📄 9 Full PDF Portfolios</span>
+            </div>
+            <div style="margin-top: 16px; display: flex; gap: 10px; flex-wrap: wrap;">
+              <button type="button" class="solari-btn-pill primary" id="solari-launch-beyond-btn" style="cursor:pointer; display:inline-flex; align-items:center; gap:8px; font-size:0.86rem; padding:8px 18px; box-shadow:0 4px 12px rgba(219,39,119,0.25); background:#db2777; color:#fff; border:none; border-radius:20px; font-weight:600;">
+                <span>✦ Open Beyond the Brief Studio Window</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="solari-case-content" style="padding: 24px;">
+            <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:16px;">
+              <div style="font-size:1rem; font-weight:700; color:#0f172a;">All 9 Projects in this Folder</div>
+              <div style="font-size:0.75rem; color:#64748b;">Click "Read PDF" to view directly in the OS PDF Reader</div>
+            </div>
+
+            <div class="beyond-grid">
+              ${PORTFOLIO_DATA.beyond.map(item => `
+                <div class="beyond-card" data-beyond-id="${item.id}" style="cursor:pointer;">
+                  <div class="beyond-img-wrap">
+                    <img src="${item.img}" alt="${item.title}" class="beyond-img" loading="lazy">
+                    <div class="beyond-img-overlay">
+                      <span class="beyond-format-pill">${item.format}</span>
+                      <span class="beyond-size-pill">${item.size}</span>
+                    </div>
+                  </div>
+                  <div class="beyond-info">
+                    <div style="display:flex; align-items:center; justify-content:space-between; gap:6px;">
+                      <span class="beyond-badge">${item.badge}</span>
+                      <span style="font-size:0.68rem; color:#64748b; font-weight:600;">${item.categoryLabel}</span>
+                    </div>
+                    <div class="beyond-title">${item.title}</div>
+                    <div class="beyond-desc">${item.desc}</div>
+                    <div class="playground-tags" style="margin-top:8px;">
+                      ${item.tools.map(t => `<span class="playground-tag">${t}</span>`).join('')}
+                    </div>
+                    <div class="beyond-actions">
+                      <button type="button" class="beyond-action-btn primary btn-solari-read" data-file="${item.file}" data-title="${item.title}" data-size="${item.size}">
+                        <span>📖 Read PDF</span>
+                      </button>
+                      <a href="${encodeURI(item.file)}" download="${item.fileName}" class="beyond-action-btn secondary" onclick="event.stopPropagation();">
+                        <span>⬇ Download</span>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              `).join('')}
+            </div>
+          </div>
+        </div>
+      `;
+
+      // Wire up launch button
+      const launchBtn = detailBody.querySelector('#solari-launch-beyond-btn');
+      if (launchBtn) {
+        launchBtn.addEventListener('click', () => {
+          if (typeof window.openWindow === 'function') {
+            window.openWindow('window-beyond');
+          }
+        });
+      }
+
+      // Wire up card read clicks
+      detailBody.querySelectorAll('.beyond-card').forEach(card => {
+        card.addEventListener('click', (e) => {
+          if (e.target.closest('a')) return;
+          const readBtn = card.querySelector('.btn-solari-read');
+          if (readBtn) {
+            const file = readBtn.getAttribute('data-file');
+            const title = readBtn.getAttribute('data-title');
+            const size = readBtn.getAttribute('data-size');
+            window.openPdfViewer(file, title, size);
+          }
+        });
+      });
 
       return;
     }
@@ -2815,8 +3026,46 @@ function initVisualPlayground() {
 }
 
 // ==========================================================================
-// 9. BEYOND THE BRIEF (EXPERIMENTAL LAB)
+// 9. BEYOND THE BRIEF (EDITORIAL BOOKS & UI/UX LAB)
 // ==========================================================================
+window.openPdfViewer = function(filePath, title, size) {
+  const viewer = document.getElementById('window-pdf-viewer');
+  const safeUrl = encodeURI(filePath);
+  const cleanTitle = title || filePath.split('/').pop();
+
+  if (!viewer) {
+    window.open(safeUrl, '_blank');
+    return;
+  }
+
+  const titleEl = document.getElementById('pdf-viewer-title');
+  const nameEl = document.getElementById('pdf-doc-name');
+  const sizeEl = document.getElementById('pdf-doc-size');
+  const newtabEl = document.getElementById('pdf-btn-newtab');
+  const dlEl = document.getElementById('pdf-btn-download');
+  const iframe = document.getElementById('pdf-viewer-iframe');
+
+  if (titleEl) titleEl.textContent = `Adobe Acrobat Reader — ${cleanTitle}`;
+  if (nameEl) nameEl.textContent = cleanTitle;
+  if (sizeEl) sizeEl.textContent = size ? `(${size})` : '';
+  if (newtabEl) newtabEl.href = safeUrl;
+  if (dlEl) {
+    dlEl.href = safeUrl;
+    dlEl.download = filePath.split('/').pop();
+  }
+
+  if (iframe) {
+    iframe.src = safeUrl;
+  }
+
+  if (window.windowManager) {
+    window.windowManager.open('pdf-viewer');
+    window.windowManager.bringToFront('pdf-viewer');
+  } else if (typeof window.openWindow === 'function') {
+    window.openWindow('window-pdf-viewer');
+  }
+};
+
 function initBeyondTheBrief() {
   const container = document.getElementById('beyond-cards-container');
   const tabs = document.querySelectorAll('[data-by-filter]');
@@ -2836,26 +3085,40 @@ function initBeyondTheBrief() {
       card.className = 'beyond-card';
       card.innerHTML = `
         <div class="beyond-img-wrap">
-          <img src="${item.img}" alt="${item.title}" class="beyond-img">
+          <img src="${item.img}" alt="${item.title}" class="beyond-img" loading="lazy">
+          <div class="beyond-img-overlay">
+            <span class="beyond-format-pill">${item.format}</span>
+            <span class="beyond-size-pill">${item.size}</span>
+          </div>
         </div>
         <div class="beyond-info">
-          <span class="beyond-badge">${item.badge}</span>
+          <div style="display:flex; align-items:center; justify-content:space-between; gap:6px;">
+            <span class="beyond-badge">${item.badge}</span>
+            <span style="font-size:0.68rem; color:#64748b; font-weight:600;">${item.categoryLabel}</span>
+          </div>
           <div class="beyond-title">${item.title}</div>
           <div class="beyond-desc">${item.desc}</div>
           <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:6px; padding:6px 8px; margin-top:8px;">
-            <div style="font-size:0.68rem; font-weight:600; color:#475569; text-transform:uppercase;">Exploratory Process</div>
+            <div style="font-size:0.68rem; font-weight:600; color:#475569; text-transform:uppercase;">Process & Methodology</div>
             <div style="font-size:0.72rem; color:#64748b; line-height:1.4; margin-top:2px;">${item.process}</div>
           </div>
           <div class="playground-tags" style="margin-top:8px;">
             ${item.tools.map(t => `<span class="playground-tag">${t}</span>`).join('')}
           </div>
+          <div class="beyond-actions">
+            <button type="button" class="beyond-action-btn primary btn-read-pdf" data-file="${item.file}" data-title="${item.title}" data-size="${item.size}">
+              <span>📖 Read PDF</span>
+            </button>
+            <a href="${encodeURI(item.file)}" download="${item.fileName}" class="beyond-action-btn secondary btn-dl-pdf" title="Download ${item.fileName}" onclick="event.stopPropagation();">
+              <span>⬇ Download</span>
+            </a>
+          </div>
         </div>
       `;
 
-      card.addEventListener('click', () => {
-        if (window.showToast) {
-          window.showToast(item.title, item.badge + " • " + item.desc);
-        }
+      card.addEventListener('click', (e) => {
+        if (e.target.closest('a')) return;
+        window.openPdfViewer(item.file, item.title, item.size);
       });
 
       container.appendChild(card);

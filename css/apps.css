@@ -2518,4 +2518,84 @@
   margin-bottom: 4px;
 }
 
+.beyond-img-overlay {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  display: flex;
+  gap: 5px;
+  z-index: 2;
+}
+
+.beyond-format-pill {
+  font-size: 0.64rem;
+  font-weight: 700;
+  background: rgba(15, 23, 42, 0.85);
+  color: #ffffff;
+  padding: 2px 7px;
+  border-radius: 4px;
+  backdrop-filter: blur(4px);
+  letter-spacing: 0.02em;
+}
+
+.beyond-size-pill {
+  font-size: 0.64rem;
+  font-weight: 600;
+  background: rgba(219, 39, 119, 0.9);
+  color: #ffffff;
+  padding: 2px 7px;
+  border-radius: 4px;
+  backdrop-filter: blur(4px);
+}
+
+.beyond-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid #f1f5f9;
+}
+
+.beyond-action-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-size: 0.74rem;
+  font-weight: 600;
+  padding: 6px 10px;
+  border-radius: 6px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.18s ease;
+  flex: 1;
+  text-align: center;
+  line-height: 1.2;
+}
+
+.beyond-action-btn.primary {
+  background: #db2777;
+  color: #ffffff;
+  border: none;
+  box-shadow: 0 2px 6px rgba(219, 39, 119, 0.25);
+}
+
+.beyond-action-btn.primary:hover {
+  background: #be185d;
+  transform: translateY(-1px);
+}
+
+.beyond-action-btn.secondary {
+  background: #f8fafc;
+  color: #475569;
+  border: 1px solid #e2e8f0;
+}
+
+.beyond-action-btn.secondary:hover {
+  background: #f1f5f9;
+  color: #0f172a;
+}
+
+
 
