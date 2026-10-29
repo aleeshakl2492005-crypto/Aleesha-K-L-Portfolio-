@@ -1,0 +1,369 @@
+<title>Studio Photography Jury</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Italiana&family=Instrument+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a contact-sheet scroll. White studio cyc, black frames, one amber "modelling light" accent for setup data. */
+:root{
+  --paper:#f6f6f3; --ink:#151514; --muted:#6c6a64; --line:#d9d7d0; --frame:#151514; --lamp:#b4681a; --lamp-soft:rgba(180,104,26,.16);
+  --display:"Italiana","Didot","Bodoni 72",Georgia,serif;
+  --body:"Instrument Sans","Helvetica Neue",Arial,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#121211; --ink:#eeece6; --muted:#9a978e; --line:#2e2d2a; --frame:#000; --lamp:#e39a4c; --lamp-soft:rgba(227,154,76,.18); color-scheme:dark}}
+:root[data-theme="dark"]{--paper:#121211; --ink:#eeece6; --muted:#9a978e; --line:#2e2d2a; --frame:#000; --lamp:#e39a4c; --lamp-soft:rgba(227,154,76,.18); color-scheme:dark}
+
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+body{background:var(--paper);color:var(--ink);font:400 16px/1.6 var(--body);
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));overflow-x:hidden}
+.wrap{max-width:1240px;margin:0 auto}
+img{display:block;max-width:100%;height:auto}
+h1,h2,h3{font-family:var(--display);font-weight:400;text-wrap:balance;margin:0;line-height:1}
+.eyebrow{font:500 11px/1.4 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.lamp{color:var(--lamp)}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--lamp);outline-offset:3px}
+
+/* nav */
+nav.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--paper);border-bottom:1px solid var(--line)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:30;background:var(--paper)}
+nav.top .wrap{display:flex;gap:24px;align-items:center;justify-content:space-between;padding-block:12px;flex-wrap:wrap}
+nav.top .brand{font:500 12px var(--mono);letter-spacing:.14em;text-transform:uppercase}
+nav.top ul{display:flex;gap:20px;list-style:none;margin:0;padding:0;flex-wrap:wrap}
+nav.top ul a{font:500 11px var(--mono);letter-spacing:.12em;text-transform:uppercase;text-decoration:none;color:var(--muted)}
+nav.top ul a:hover{color:var(--ink)}
+
+/* hero */
+.hero{padding-block:72px 40px}
+.hero .grid{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:end}
+.hero h1{font-size:clamp(56px,10vw,148px);letter-spacing:-.01em}
+.hero h1 em{font-style:normal;display:block;padding-left:.6em}
+.hero p.lede{max-width:44ch;font-size:18px;color:var(--muted);margin:28px 0 0}
+.meta{display:grid;grid-template-columns:repeat(3,auto);gap:8px 32px;justify-content:start}
+.meta dt{font:500 10px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.meta dd{margin:0 0 4px;font-size:15px}
+
+/* film strip */
+.strip{margin-top:56px;background:var(--frame);padding:22px 0;position:relative;overflow:hidden;border-radius:2px}
+.strip::before,.strip::after{content:"";position:absolute;left:0;right:0;height:10px;
+  background:repeating-linear-gradient(90deg,transparent 0 10px,#f6f6f3 10px 22px,transparent 22px 32px);opacity:.9}
+.strip::before{top:6px}.strip::after{bottom:6px}
+.strip .frames{display:grid;grid-template-columns:repeat(8,1fr);gap:6px;padding:0 6px}
+.strip .frames figure{margin:0;position:relative;aspect-ratio:4/5;overflow:hidden;background:#222}
+.strip .frames img{width:100%;height:100%;object-fit:cover;filter:grayscale(1)}
+.strip .frames figcaption{position:absolute;left:6px;bottom:4px;font:500 9px var(--mono);letter-spacing:.1em;color:#f6f6f3;text-shadow:0 1px 2px #000}
+.crew{display:flex;flex-wrap:wrap;gap:8px 28px;margin-top:18px}
+.crew span{font:500 12px var(--mono);letter-spacing:.12em;text-transform:uppercase}
+.crew span::before{content:"● ";color:var(--lamp)}
+
+/* section heads */
+section.chapter{padding-block:96px 24px;border-top:1px solid var(--line)}
+.chead{display:grid;grid-template-columns:auto 1fr;gap:12px 40px;align-items:end;margin-bottom:56px}
+.chead .roll{font:500 12px var(--mono);letter-spacing:.14em;color:var(--lamp)}
+.chead h2{font-size:clamp(44px,7vw,96px)}
+.chead p{grid-column:2;max-width:56ch;color:var(--muted);margin:0}
+
+/* lighting grid */
+.lights{display:grid;grid-template-columns:repeat(4,1fr);gap:48px 28px}
+.light{display:flex;flex-direction:column;gap:14px;min-width:0}
+.light .shot{position:relative;aspect-ratio:4/5;overflow:hidden;background:var(--frame);cursor:zoom-in;border:0;padding:0}
+.light .shot img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+.light .shot:hover img{transform:scale(1.03)}
+.light .shot .no{position:absolute;top:8px;left:10px;font:500 10px var(--mono);letter-spacing:.12em;color:#f6f6f3;mix-blend-mode:difference}
+.light h3{font-size:30px}
+.light .row{display:grid;grid-template-columns:1fr 92px;gap:14px;align-items:start}
+.spec{margin:0;display:grid;gap:8px}
+.spec dt{font:500 10px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--lamp)}
+.spec dd{margin:0 0 4px;font-size:14px;line-height:1.5}
+svg.plot{width:92px;height:auto;color:var(--ink)}
+svg.plot text{font:500 7px var(--mono);fill:var(--muted);letter-spacing:.06em}
+.plot-cap{font:500 9px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);text-align:center;margin-top:2px}
+
+/* product */
+.products{display:grid;gap:96px}
+.product{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.6fr);gap:28px;align-items:end}
+.product.flip{grid-template-columns:minmax(0,1.6fr) minmax(0,.8fr)}
+.product.flip .raw{order:2}
+.product .raw,.product .final{display:flex;flex-direction:column;gap:10px;min-width:0}
+.product .raws{display:grid;gap:10px}
+.tag{display:flex;justify-content:space-between;gap:12px;font:500 11px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.tag b{color:var(--ink);font-weight:500}
+.product .final .tag b{color:var(--lamp)}
+.zoom{border:0;padding:0;background:none;cursor:zoom-in;display:block;width:100%}
+.product .final img{width:100%}
+.product.portrait{grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);max-width:900px}
+.product.portrait.flip{grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);margin-left:auto}
+
+/* magazines */
+.mags{display:grid;gap:120px}
+.mag{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr) minmax(0,1.5fr);gap:32px;align-items:start}
+.mag .copy{display:flex;flex-direction:column;gap:18px;min-width:0;position:sticky;top:90px}
+.mag .copy h3{font-size:clamp(40px,4.4vw,60px)}
+.mag .copy .tech{font:500 11px var(--mono);letter-spacing:.14em;text-transform:uppercase;display:inline-flex;gap:8px;align-items:center}
+.mag .copy .tech::before{content:"";width:18px;height:1px;background:var(--lamp)}
+.mag .cover img{box-shadow:0 18px 40px -18px rgba(0,0,0,.45)}
+.mag .covers{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.mag .covers .zoom:first-child{grid-column:1/-1}
+.mag .ex{display:grid;grid-template-columns:1fr 1fr;gap:12px;align-items:start}
+.mag .ex .label{grid-column:1/-1}
+.mag .ex .wide{grid-column:1/-1}
+
+/* editorial */
+.edit{display:grid;gap:120px}
+.story{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:28px;align-items:end}
+.story .text{display:flex;flex-direction:column;gap:18px;min-width:0}
+.story h3{font-size:clamp(40px,5vw,72px)}
+.story p{margin:0;max-width:52ch}
+.story .pair{display:grid;grid-template-columns:1.5fr 1fr;gap:12px;align-items:end;grid-column:1/-1}
+.story.woman{grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:center}
+.story.woman h3{font-size:clamp(36px,4.2vw,60px)}
+blockquote{margin:0;padding-left:18px;border-left:1px solid var(--lamp);color:var(--muted);max-width:50ch}
+
+/* end */
+footer{border-top:1px solid var(--line);padding-block:96px 64px;text-align:left}
+footer h2{font-size:clamp(60px,12vw,170px)}
+footer .crew{margin-top:28px}
+
+/* lightbox */
+#lb{position:fixed;inset:0;z-index:50;background:rgba(10,10,9,.94);display:grid;place-items:center;
+  padding:max(24px,env(safe-area-inset-top,0px)) max(16px,env(safe-area-inset-right,0px)) max(24px,env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px))}
+#lb img{max-height:88vh;max-width:100%;width:auto;object-fit:contain}
+#lb p{color:#cfccc4;font:500 11px var(--mono);letter-spacing:.14em;text-transform:uppercase;margin:12px 0 0;text-align:center}
+#lb button{position:absolute;top:calc(14px + env(safe-area-inset-top,0px));right:calc(16px + env(safe-area-inset-right,0px));background:none;border:1px solid #555;color:#eee;font:500 11px var(--mono);letter-spacing:.14em;padding:8px 12px;cursor:pointer}
+
+@media (max-width:1000px){
+  .lights{grid-template-columns:repeat(2,1fr)}
+  .mag{grid-template-columns:1fr 1fr}
+  .mag .copy{grid-column:1/-1;position:static}
+  .hero .grid{grid-template-columns:1fr}
+}
+@media (max-width:640px){
+  .hero{padding-block:44px 24px}
+  .strip .frames{grid-template-columns:repeat(4,1fr);row-gap:22px}
+  .lights{grid-template-columns:1fr;gap:56px}
+  .chead{grid-template-columns:1fr}.chead p{grid-column:1}
+  .product,.product.flip,.product.portrait,.product.portrait.flip{grid-template-columns:1fr}
+  .product.flip .raw{order:0}
+  .mag{grid-template-columns:1fr}
+  .story,.story.woman{grid-template-columns:1fr}
+  .story .pair{grid-template-columns:1fr}
+  .meta{grid-template-columns:1fr 1fr}
+  section.chapter{padding-block:64px 16px}
+}
+</style>
+
+<nav class="top"><div class="wrap">
+  <span class="brand">Studio Photography — Jury</span>
+  <ul>
+    <li><a href="#light">Light</a></li>
+    <li><a href="#product">Product</a></li>
+    <li><a href="#magazine">Magazine</a></li>
+    <li><a href="#editorial">Editorial</a></li>
+  </ul>
+</div></nav>
+
+<header class="hero"><div class="wrap">
+  <div class="grid">
+    <div>
+      <p class="eyebrow">Studio photography jury · Group project</p>
+      <h1>Studio <em>Photography</em></h1>
+      <p class="lede">An exploration of lighting techniques, from eight classic portrait setups to product campaigns, magazine covers and two editorial stories.</p>
+    </div>
+    <dl class="meta">
+      <div><dt>Light setups</dt><dd>8 portrait</dd></div>
+      <div><dt>Products</dt><dd>4 raw → final</dd></div>
+      <div><dt>Covers</dt><dd>5 magazines</dd></div>
+      <div><dt>Editorials</dt><dd>2 concepts</dd></div>
+      <div><dt>Gear</dt><dd>Softboxes, snoots</dd></div>
+      <div><dt>Team</dt><dd>4 members</dd></div>
+    </dl>
+  </div>
+  <div class="strip" aria-label="Contact sheet of the eight lighting setups">
+    <div class="frames" id="frames"></div>
+  </div>
+</div></header>
+
+<main>
+<section class="chapter" id="light"><div class="wrap">
+  <div class="chead">
+    <span class="roll">ROLL 01</span>
+    <h2>Light Explorations</h2>
+    <p>Eight portrait lighting patterns, each shot in black and white so the shadow shape reads clearly. The plan beside each frame shows where the light sat relative to the subject and camera.</p>
+  </div>
+  <div class="lights" id="lights"></div>
+</div></section>
+
+<section class="chapter" id="product"><div class="wrap">
+  <div class="chead">
+    <span class="roll">ROLL 02</span>
+    <h2>Product Photography</h2>
+    <p>Four products, each shown as the raw studio frame and the finished campaign image after styling, retouching and layout.</p>
+  </div>
+  <div class="products">
+    <article class="product">
+      <div class="raw"><div class="tag"><b>Raw</b><span>Mirinda</span></div><button class="zoom" data-cap="Mirinda · Raw"><img src="img/mirinda-raw.webp" alt="Raw shot of a Mirinda can between orange halves on an orange backdrop" loading="lazy"></button></div>
+      <div class="final"><div class="tag"><b>Final</b><span>Summer splash campaign</span></div><button class="zoom" data-cap="Mirinda · Final"><img src="img/mirinda-final.webp" alt="Final Mirinda ad with orange juice splash and 'Enjoy the summer time' headline" loading="lazy"></button></div>
+    </article>
+    <article class="product portrait flip">
+      <div class="raw"><div class="tag"><b>Raw</b><span>Nothing Phone 3a</span></div><button class="zoom" data-cap="Nothing Phone 3a · Raw"><img src="img/nothing-raw.webp" alt="Raw shot of a white Nothing phone on black" loading="lazy"></button></div>
+      <div class="final"><div class="tag"><b>Final</b><span>Teal gradient poster</span></div><button class="zoom" data-cap="Nothing Phone 3a · Final"><img src="img/nothing-final.webp" alt="Final Nothing Phone 3a poster on a teal gradient" loading="lazy"></button></div>
+    </article>
+    <article class="product">
+      <div class="raw"><div class="tag"><b>Raw</b><span>BBlunt × 2</span></div>
+        <div class="raws">
+          <button class="zoom" data-cap="BBlunt · Raw 1"><img src="img/bblunt-raw-1.webp" alt="Raw BBlunt bottles on a pink surface" loading="lazy"></button>
+          <button class="zoom" data-cap="BBlunt · Raw 2"><img src="img/bblunt-raw-2.webp" alt="Raw BBlunt bottles with foam and bubbles" loading="lazy"></button>
+        </div></div>
+      <div class="final"><div class="tag"><b>Final</b><span>Curly hair range</span></div><button class="zoom" data-cap="BBlunt · Final"><img src="img/bblunt-final.webp" alt="Final BBlunt ad reading 'Meet our curly hair range'" loading="lazy"></button></div>
+    </article>
+    <article class="product portrait flip">
+      <div class="raw"><div class="tag"><b>Raw</b><span>Baba Nana chips</span></div><button class="zoom" data-cap="Baba Nana · Raw"><img src="img/babanana-raw.webp" alt="Raw shot of Baba Nana banana chips on banana leaves" loading="lazy"></button></div>
+      <div class="final"><div class="tag"><b>Final</b><span>Warm backdrop reshoot</span></div><button class="zoom" data-cap="Baba Nana · Final"><img src="img/babanana-final.webp" alt="Final Baba Nana chips packet with bananas on an orange backdrop" loading="lazy"></button></div>
+    </article>
+  </div>
+</div></section>
+
+<section class="chapter" id="magazine"><div class="wrap">
+  <div class="chead">
+    <span class="roll">ROLL 03</span>
+    <h2>Magazine Shoots</h2>
+    <p>Five covers for five kinds of magazine. Each genre was matched to a lighting pattern that suits its mood, then shot with a set of explorations around the cover.</p>
+  </div>
+  <div class="mags" id="mags"></div>
+</div></section>
+
+<section class="chapter" id="editorial"><div class="wrap">
+  <div class="chead">
+    <span class="roll">ROLL 04</span>
+    <h2>Editorial Shoots</h2>
+    <p>Two concept-led stories, one shot on location in a bazaar and one in the studio.</p>
+  </div>
+  <div class="edit">
+    <article class="story">
+      <div class="text">
+        <p class="eyebrow">Editorial 01 · On location</p>
+        <h3>Market Made Muse</h3>
+        <p>This editorial highlights Indian maximalism through rich textures, layered prints, and the vibrant chaos of the bazaar.</p>
+      </div>
+      <div></div>
+      <div class="pair">
+        <button class="zoom" data-cap="Market Made Muse · 1"><img src="img/muse-1.webp" alt="Model in layered prints standing still in a busy market while passers-by blur" loading="lazy"></button>
+        <button class="zoom" data-cap="Market Made Muse · 2"><img src="img/muse-2.webp" alt="Three models in printed outfits posed among market crates" loading="lazy"></button>
+      </div>
+    </article>
+    <article class="story woman">
+      <button class="zoom" data-cap="The Woman Everyone Wants, Yet No One Knows"><img src="img/woman.webp" alt="Black and white portrait of a woman in a wide hat, hands reaching in with lighters" loading="lazy"></button>
+      <div class="text">
+        <p class="eyebrow">Editorial 02 · Studio, low key</p>
+        <h3>The Woman Everyone Wants, Yet No One Knows</h3>
+        <p class="eyebrow lamp">Inspiration</p>
+        <blockquote>Inspired by the famous scene from the film <i>Malèna</i>, performed by Monica Bellucci, the story explores the paradox of desire and anonymity. Surrounded by attention, the woman becomes an object of fascination rather than understanding. Concealed in shadows, she controls what is revealed, turning admiration into distance.</blockquote>
+      </div>
+    </article>
+  </div>
+</div></section>
+</main>
+
+<footer><div class="wrap">
+  <p class="eyebrow">End of roll</p>
+  <h2>Thank you</h2>
+</div></footer>
+
+<div id="lb" hidden role="dialog" aria-modal="true" aria-label="Image viewer">
+  <button type="button" id="lbClose">Close ✕</button>
+  <figure style="margin:0"><img id="lbImg" alt=""><p id="lbCap"></p></figure>
+</div>
+
+<script>
+const LIGHTS=[
+ {id:'short',name:'Short',brief:'Shadowed side of the face faces the camera.',setup:'Softbox placed on the side away from the camera.',purpose:'Slimming effect and added dimension.',plot:{l:[{a:60}],turn:-35},cap:'Far side'},
+ {id:'split',name:'Split',brief:'Face is divided equally into light and shadow.',setup:'Single softbox placed at 90° to the subject. No fill light.',purpose:'Creates dramatic and intense portraits.',plot:{l:[{a:90}]},cap:'90°'},
+ {id:'broad',name:'Broad',brief:'Lit side of the face faces the camera.',setup:'Softbox placed on the same side as the camera.',purpose:'Makes the face appear wider and softer.',plot:{l:[{a:-40}],turn:35},cap:'Camera side'},
+ {id:'butterfly',name:'Butterfly',brief:'Butterfly-shaped shadow forms under the nose.',setup:'Softbox placed directly in front of and above the subject.',purpose:'Enhances cheekbones and facial symmetry.',plot:{l:[{a:0,up:1}]},cap:'Front, above'},
+ {id:'rembrandt',name:'Rembrandt',brief:'Triangle of light appears on the shadow-side cheek.',setup:'Softbox placed at a 45° angle, above head level.',purpose:'Adds depth and artistic drama.',plot:{l:[{a:45,up:1}]},cap:'45°, above'},
+ {id:'loop',name:'Loop',brief:'Small nose shadow forms a loop on the cheek.',setup:'Softbox placed 45° from the camera and slightly above eye level.',purpose:'Natural and flattering lighting for portraits.',plot:{l:[{a:35,up:1}]},cap:'30–45°'},
+ {id:'lowkey',name:'Low-key',brief:'Dark image with strong shadows and highlights.',setup:'Two snoots placed on both sides, no fill light.',purpose:'Creates moody, high-contrast visuals.',plot:{l:[{a:100,snoot:1},{a:-100,snoot:1}]},cap:'2 snoots'},
+ {id:'highkey',name:'High-key',brief:'Bright image with minimal shadows.',setup:'Multiple softboxes with even lighting and a bright background.',purpose:'Clean, fresh, commercial look.',plot:{l:[{a:-38},{a:38},{a:150,bg:1},{a:-150,bg:1}]},cap:'Even + bg'}
+];
+
+const MAGS=[
+ {name:'Fashion',tech:'Butterfly lighting',brief:'Face is evenly lit with soft shadows under the nose and chin.',setup:'Single softbox placed centrally, slightly above eye level, facing the subject.',purpose:'Creates a flattering, clean look while highlighting facial features and styling.',covers:['fashion-cover'],ex:['fashion-ex-1','fashion-ex-2'],alt:'ICONA fashion magazine cover'},
+ {name:'Health',tech:'High-key lighting',brief:'Subject is evenly illuminated with very soft shadows and a bright overall tone.',setup:'Primary soft light placed in front of and slightly above the subject, with fill light to reduce shadows. A light background enhances brightness.',purpose:'Creates a calm, clean, balanced look that feels open, healthy and serene.',covers:['health-cover'],ex:['health-ex-1','health-ex-2'],alt:'YOGA health magazine cover'},
+ {name:'Business',tech:'Split lighting',brief:'Face is divided equally into light and shadow.',setup:'Single light placed at 90° to the subject, perpendicular to the face. No fill light.',purpose:'Creates a dramatic, intense look and strong facial definition.',covers:['business-cover-1','business-cover-2','business-cover-3'],ex:['business-ex-1','business-ex-2'],alt:'BUSINESS magazine cover'},
+ {name:'Lifestyle',tech:'Natural diffused light (soft top light)',brief:'Subject is evenly lit with soft, minimal shadows.',setup:'Natural daylight from above (open sky), diffused by clouds or indirect reflection. No artificial light used.',purpose:'Creates a calm, fresh lifestyle mood while keeping natural skin tones.',covers:['lifestyle-cover'],ex:['lifestyle-ex-1','lifestyle-ex-2'],alt:'Lifestyle magazine cover'},
+ {name:'Teen',tech:'Loop lighting',brief:'Face is softly lit with a slight nose shadow falling onto the cheek.',setup:'Single light placed slightly above eye level at a 30–45° angle to the subject.',purpose:'Adds depth and shape while keeping a natural yet bold look.',covers:['teen-cover'],ex:['teen-ex-1','teen-ex-2'],alt:'Teen magazine cover'}
+];
+
+// top-down lighting plot: subject at centre, camera at bottom
+function plot(p){
+  const cx=60,cy=48,R=36,ns='http://www.w3.org/2000/svg';
+  const turn=p.turn||0;
+  let s=`<svg class="plot" viewBox="0 0 120 112" role="img" aria-label="Top-down lighting plan">`;
+  s+=`<circle cx="${cx}" cy="${cy}" r="${R}" fill="none" stroke="currentColor" stroke-opacity=".15" stroke-dasharray="2 3"/>`;
+  p.l.forEach(L=>{
+    const r=(L.a)*Math.PI/180, x=cx+R*Math.sin(r), y=cy+R*Math.cos(r);
+    const ang=Math.atan2(cy-y,cx-x)*180/Math.PI;
+    if(!L.bg){
+      const spread=L.snoot?6:20, len=R-8;
+      const a1=(ang-spread)*Math.PI/180,a2=(ang+spread)*Math.PI/180;
+      s+=`<path d="M${x} ${y} L${x+len*Math.cos(a1)} ${y+len*Math.sin(a1)} L${x+len*Math.cos(a2)} ${y+len*Math.sin(a2)} Z" fill="var(--lamp)" fill-opacity=".18"/>`;
+    }
+    const w=L.snoot?5:L.bg?8:16,h=L.snoot?7:4;
+    s+=`<rect x="${x-w/2}" y="${y-h/2}" width="${w}" height="${h}" fill="var(--lamp)" fill-opacity="${L.bg?.5:1}" transform="rotate(${ang+90} ${x} ${y})"/>`;
+    if(L.up) s+=`<text x="${x}" y="${y-6}" text-anchor="middle">▲</text>`;
+  });
+  // subject head with nose
+  const tr=(turn)*Math.PI/180, nx=cx+9*Math.sin(tr), ny=cy+9*Math.cos(tr);
+  s+=`<circle cx="${cx}" cy="${cy}" r="6.5" fill="var(--paper)" stroke="currentColor" stroke-width="1.2"/>`;
+  s+=`<line x1="${cx+6.5*Math.sin(tr)}" y1="${cy+6.5*Math.cos(tr)}" x2="${nx}" y2="${ny}" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>`;
+  // camera
+  s+=`<rect x="${cx-6}" y="${cy+R+5}" width="12" height="8" rx="1.5" fill="currentColor"/><rect x="${cx-2.5}" y="${cy+R+1.5}" width="5" height="4" fill="currentColor"/>`;
+  s+=`<text x="${cx}" y="${cy+R+21}" text-anchor="middle">CAM</text></svg>`;
+  return s;
+}
+
+const esc=s=>s.replace(/&/g,'&amp;').replace(/</g,'&lt;');
+document.getElementById('frames').innerHTML=LIGHTS.map((L,i)=>`<figure><img src="img/${L.id}.webp" alt="" loading="eager"><figcaption>${String(i+1).padStart(2,'0')}A ${L.name.toUpperCase()}</figcaption></figure>`).join('');
+document.getElementById('lights').innerHTML=LIGHTS.map((L,i)=>`
+ <article class="light">
+  <button class="shot zoom" data-cap="${L.name} lighting"><img src="img/${L.id}.webp" alt="${L.name} lighting portrait" loading="lazy"><span class="no">${String(i+1).padStart(2,'0')}A</span></button>
+  <h3>${L.name} Lighting</h3>
+  <div class="row">
+   <dl class="spec"><dt>Brief</dt><dd>${esc(L.brief)}</dd><dt>Setup</dt><dd>${esc(L.setup)}</dd><dt>Purpose</dt><dd>${esc(L.purpose)}</dd></dl>
+   <div>${plot(L.plot)}<div class="plot-cap">${L.cap}</div></div>
+  </div>
+ </article>`).join('');
+
+document.getElementById('mags').innerHTML=MAGS.map(M=>{
+  const covers=M.covers.length>1
+   ?`<div class="covers">${M.covers.map((c,i)=>`<button class="zoom" data-cap="${M.name} magazine · Cover ${i+1}"><img src="img/${c}.webp" alt="${M.alt}, version ${i+1}" loading="lazy"></button>`).join('')}</div>`
+   :`<button class="zoom" data-cap="${M.name} magazine · Cover"><img src="img/${M.covers[0]}.webp" alt="${M.alt}" loading="lazy"></button>`;
+  return `<article class="mag">
+   <div class="copy">
+    <p class="eyebrow">${M.name} magazine</p>
+    <h3>${M.name}</h3>
+    <span class="tech">${M.tech}</span>
+    <dl class="spec"><dt>Brief</dt><dd>${esc(M.brief)}</dd><dt>Setup</dt><dd>${esc(M.setup)}</dd><dt>Purpose</dt><dd>${esc(M.purpose)}</dd></dl>
+   </div>
+   <div class="cover"><div class="tag" style="margin-bottom:10px"><b>Cover</b></div>${covers}</div>
+   <div class="ex"><div class="tag label"><b>Explorations</b><span>${M.ex.length} frames</span></div>${M.ex.map((e,i)=>`<button class="zoom" data-cap="${M.name} magazine · Exploration ${i+1}"><img src="img/${e}.webp" alt="${M.name} magazine exploration ${i+1}" loading="lazy"></button>`).join('')}</div>
+  </article>`}).join('');
+
+// lightbox
+const lb=document.getElementById('lb'),lbImg=document.getElementById('lbImg'),lbCap=document.getElementById('lbCap');
+let last=null;
+document.addEventListener('click',e=>{
+  const b=e.target.closest('.zoom'); if(!b) return;
+  const im=b.querySelector('img'); last=b;
+  lbImg.src=im.src; lbImg.alt=im.alt; lbCap.textContent=b.dataset.cap||''; lb.hidden=false; document.getElementById('lbClose').focus();
+});
+function close(){lb.hidden=true; if(last) last.focus();}
+document.getElementById('lbClose').addEventListener('click',close);
+lb.addEventListener('click',e=>{if(e.target===lb) close();});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!lb.hidden) close();});
+</script>

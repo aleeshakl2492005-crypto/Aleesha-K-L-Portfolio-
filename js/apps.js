@@ -753,7 +753,10 @@ const PORTFOLIO_DATA = {
       category: "uiux",
       categoryLabel: "UI/UX & Mobile App",
       badge: "UI/UX Case Study",
-      format: "Mobile App Presentation",
+      format: "Interactive Case Study",
+      hasSite: true,
+      siteUrl: "beyond the brief/Apple Health Redesign/index.html",
+      siteTitle: "Apple Health App Redesign — Interactive UI/UX Case Study",
       file: "beyond the brief/Apple health app jury.pdf",
       fileName: "Apple health app jury.pdf",
       size: "207 MB",
@@ -768,7 +771,10 @@ const PORTFOLIO_DATA = {
       category: "uiux",
       categoryLabel: "UI/UX & Mobile App",
       badge: "UI/UX Redesign",
-      format: "Figma Case Study",
+      format: "Interactive Case Study",
+      hasSite: true,
+      siteUrl: "beyond the brief/Goodreads Redesign/index.html",
+      siteTitle: "Goodreads Mobile App Redesign — Interactive UI/UX Case Study",
       file: "beyond the brief/Goodreads_UIUX_Redesign.pptx (2).pdf",
       fileName: "Goodreads_UIUX_Redesign.pptx (2).pdf",
       size: "14 MB",
@@ -783,7 +789,10 @@ const PORTFOLIO_DATA = {
       category: "uiux",
       categoryLabel: "UI/UX & Mobile App",
       badge: "UX/UI Case Study",
-      format: "Food Rescue Mobile App",
+      format: "Interactive Case Study",
+      hasSite: true,
+      siteUrl: "beyond the brief/Crumbs Food Rescue App/index.html",
+      siteTitle: "Crumbs Food Rescue App — Interactive UI/UX Case Study",
       file: "beyond the brief/crumbs.pdf",
       fileName: "crumbs.pdf",
       size: "28 MB",
@@ -791,21 +800,6 @@ const PORTFOLIO_DATA = {
       tools: ["Figma", "User Research", "Wireframing", "Food Rescue Flows", "Information Architecture"],
       desc: "“Good food deserves a second chance” — Food rescue mobile interface connecting local bakeries, cafes, and grocery stores with consumers to combat food waste.",
       process: "Conducted field research on retail surplus schedules, designed reserve-and-collect time slots, and simplified discounted meal checkout."
-    },
-    {
-      id: "by-zudio",
-      title: "Zudio App Design Innovation",
-      category: "uiux",
-      categoryLabel: "UI/UX & Mobile App",
-      badge: "E-Commerce UI/UX",
-      format: "Mobile App Prototype",
-      file: "beyond the brief/Zudio App Design Innovation.pptx.pdf",
-      fileName: "Zudio App Design Innovation.pptx.pdf",
-      size: "7.5 MB",
-      img: "assets/beyond/zudio.jpg",
-      tools: ["Figma", "Fast-Fashion UI", "Micro-Interactions", "Checkout Funnels", "Apparel Catalog"],
-      desc: "High-conversion mobile retail app designed for Zudio's Gen-Z demographic: bold typography, visual-first streetwear discovery grids, quick-add bags, and instant UPI checkout.",
-      process: "Mapped youth fast-fashion shopping habits, optimizing time-to-cart by 35% with one-swipe variant selection and dynamic product drop timers."
     },
     {
       id: "by-brand-manual",
@@ -867,10 +861,10 @@ const PORTFOLIO_DATA = {
       category: "books",
       categoryLabel: "Books & Publications",
       badge: "Product Photography",
-      format: "Studio Photography Portfolio",
-      file: "beyond the brief/STUDIO PHOTOGRAPHY JURY.pdf",
-      fileName: "STUDIO PHOTOGRAPHY JURY.pdf",
-      size: "55.2 MB",
+      format: "Interactive Exhibition",
+      hasSite: true,
+      siteUrl: "beyond the brief/studio-photography-site/site/index.html",
+      siteTitle: "Studio Photography Jury — Contact Sheet Interactive Exhibition",
       img: "assets/beyond/studio_photo.jpg",
       tools: ["Studio Strobe Lighting", "Light Modifiers", "Product Framing", "Darkroom Printing"],
       desc: "Exploration of directional lighting techniques, studio portraiture, specular highlights, and surface textures across physical products and subjects.",
@@ -1668,11 +1662,11 @@ function initSolariProjects() {
           <div class="solari-case-hero" style="background: linear-gradient(135deg, #fdf2f8 0%, #fce7f3 50%, #fff1f2 100%);">
             <div class="solari-case-index" style="color:#db2777;">Folder 09 • Books &amp; Publications &amp; UI/UX Projects</div>
             <h2 class="solari-case-title" style="color:#831843;">Beyond the Brief</h2>
-            <p class="solari-case-subtitle" style="color:#9d174d;">Curated collection of 9 editorial books, brand manuals, tarot oracle decks, and mobile app UI/UX prototypes — presented with authentic project covers.</p>
+            <p class="solari-case-subtitle" style="color:#9d174d;">Curated collection of 8 editorial books, brand manuals, tarot oracle decks, and mobile app UI/UX prototypes — presented with authentic project covers.</p>
             <div class="solari-case-meta-row">
-              <span class="solari-meta-badge" style="background:#fce7f3; color:#be185d; border-color:#fbcfe8;">✨ 4 Interactive Project Sites</span>
+              <span class="solari-meta-badge" style="background:#fce7f3; color:#be185d; border-color:#fbcfe8;">✨ 8 Interactive Project Sites</span>
               <span class="solari-meta-badge">📚 5 Books &amp; Publications</span>
-              <span class="solari-meta-badge">📱 4 UI/UX Mobile Apps</span>
+              <span class="solari-meta-badge">📱 3 UI/UX Mobile Apps</span>
               <span class="solari-meta-badge">🛠️ InDesign, Figma, Illustrator</span>
             </div>
             <div style="margin-top: 16px; display: flex; gap: 10px; flex-wrap: wrap;">
@@ -1684,7 +1678,7 @@ function initSolariProjects() {
 
           <div class="solari-case-content" style="padding: 24px;">
             <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:16px; flex-wrap:wrap; gap:8px;">
-              <div style="font-size:1rem; font-weight:700; color:#0f172a;">All 9 Projects in this Folder</div>
+              <div style="font-size:1rem; font-weight:700; color:#0f172a;">All 8 Projects in this Folder</div>
               <div style="font-size:0.75rem; color:#64748b;">Click any project cover to view interactive experiences or full documents</div>
             </div>
 
