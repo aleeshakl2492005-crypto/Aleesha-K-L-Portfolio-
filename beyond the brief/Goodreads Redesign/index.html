@@ -189,17 +189,20 @@ table.cmp{width:100%;border-collapse:collapse;min-width:700px;font-size:15px}
 .sx aside h3{font-family:var(--display);font-weight:400;font-size:26px;margin-bottom:10px}
 
 /* participants (flip) */
-.flip{perspective:1200px;min-height:390px;cursor:pointer}
-.flip .in{position:relative;width:100%;height:100%;min-height:390px;transition:transform .7s cubic-bezier(.2,.8,.2,1);transform-style:preserve-3d}
+.flip{perspective:1200px;min-height:440px;cursor:pointer}
+.flip .in{position:relative;width:100%;height:100%;min-height:440px;transition:transform .7s cubic-bezier(.2,.8,.2,1);transform-style:preserve-3d}
 .flip.on .in{transform:rotateY(180deg)}
-.flip .f,.flip .bk{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border:1px solid var(--line);border-radius:var(--radius);padding:22px;display:flex;flex-direction:column;gap:10px;background:#FFFDF9}
+.flip .f,.flip .bk{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border:1px solid var(--line);border-radius:var(--radius);padding:22px 18px;display:flex;flex-direction:column;gap:8px;background:#FFFDF9;box-sizing:border-box;overflow:hidden}
 .flip .bk{transform:rotateY(180deg);background:var(--fg);color:var(--bg)}
-.flip .bk p{font-size:14px;color:#E9DED2}
-.flip .ini{width:60px;height:60px;border-radius:50%;display:grid;place-items:center;font-family:var(--display);font-size:24px;background:var(--paper);border:1px solid var(--fg)}
-.flip h3{font-family:var(--display);font-weight:400;font-size:26px}
-.flip .role{font-size:13px;color:var(--muted)}
-.flip q{font-family:var(--display);font-size:18px;line-height:1.35;quotes:"“" "”"}
-.flip .tap{margin-top:auto;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;opacity:.6}
+.flip .bk .eyebrow{font-size:10px;letter-spacing:.12em;text-transform:uppercase;margin:0 0 2px}
+.flip .bk h3{font-family:var(--display);font-weight:400;font-size:17px;line-height:1.25;color:var(--bg);margin:0 0 6px}
+.flip .bk p{font-size:12.5px;line-height:1.5;color:#E9DED2;margin:0 0 6px}
+.flip .ini{width:48px;height:48px;border-radius:50%;display:grid;place-items:center;font-family:var(--display);font-size:20px;background:var(--paper);border:1px solid var(--fg);flex-shrink:0}
+.flip h3{font-family:var(--display);font-weight:400;font-size:20px;line-height:1.2;margin:2px 0 0}
+.flip .role{font-size:12px;line-height:1.35;color:var(--muted);margin-bottom:2px}
+.flip q{font-family:var(--body);font-size:13px;line-height:1.52;font-style:italic;color:var(--fg);quotes:"“" "”";display:block;margin-top:2px}
+.flip .tap{margin-top:auto;font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);opacity:.75;padding-top:8px}
+.flip .bk .tap{color:var(--sand);opacity:.9}
 @media(min-width:1000px){.g5{grid-template-columns:repeat(5,minmax(0,1fr))}}
 
 /* bookshelf */
@@ -605,7 +608,7 @@ const PP=[["Varsha, 21","Student · Regular reader","Book discovery, reviews & r
  ["Malavika, 32","Working professional · Avid reader","Library management, navigation & social features","I like an app that makes managing my books fun, with scanning, customisable shelves and reading stats. But everything needs to be easy to find.","Quick book scanning, clear information hierarchy, simple navigation, customisable reading shelves, and social reading features."],
  ["Merin","Job-seeking · Not currently reading","Rebuilding reading habits & personalised discovery","I'd come back to reading if an app recommended books based on what I've liked before. I want something simple that helps me get back into the habit.","Personalised recommendations, an easy-to-use interface, gentle reading reminders, and suggestions that make returning to reading feel engaging."]];
 const pe=$('#people');
-PP.forEach(([n,r,k,q,needs])=>{pe.insertAdjacentHTML('beforeend',`<div class="flip" tabindex="0" role="button" aria-label="${n}, show needs"><div class="in"><div class="f"><span class="ini">${n[0]}</span><h3>${n}</h3><span class="role">${r}</span><q>${q}</q><span class="tap">Tap for needs →</span></div><div class="bk"><p class="eyebrow" style="color:var(--sand)">Key insight</p><h3 style="font-size:22px">${k}</h3><p class="eyebrow" style="color:var(--sand);margin-top:10px">Needs</p><p>${needs}</p><span class="tap">← Back</span></div></div></div>`);});
+PP.forEach(([n,r,k,q,needs])=>{pe.insertAdjacentHTML('beforeend',`<div class="flip" tabindex="0" role="button" aria-label="${n}, show needs"><div class="in"><div class="f"><span class="ini">${n[0]}</span><h3>${n}</h3><span class="role">${r}</span><q>${q}</q><span class="tap">Tap for needs →</span></div><div class="bk"><p class="eyebrow" style="color:var(--sand)">Key insight</p><h3>${k}</h3><p class="eyebrow" style="color:var(--sand);margin-top:10px">Needs</p><p>${needs}</p><span class="tap">← Back</span></div></div></div>`);});
 pe.addEventListener('click',e=>{const f=e.target.closest('.flip');if(f)f.classList.toggle('on')});
 pe.addEventListener('keydown',e=>{const f=e.target.closest('.flip');if(f&&(e.key==='Enter'||e.key===' ')){e.preventDefault();f.classList.toggle('on')}});
 
