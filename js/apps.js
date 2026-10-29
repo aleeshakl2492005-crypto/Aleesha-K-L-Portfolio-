@@ -736,6 +736,9 @@ const PORTFOLIO_DATA = {
       categoryLabel: "Books & Publications",
       badge: "Editorial Publication",
       format: "Hardcover Book & Spreads",
+      hasSite: true,
+      siteUrl: "beyond the brief/book-projects/elle-29th-anniversary/index.html",
+      siteTitle: "ELLE 29th Anniversary Concept Issue — Interactive Publication",
       file: "beyond the brief/Elle Magazine  (1).pdf",
       fileName: "Elle Magazine  (1).pdf",
       size: "260 MB",
@@ -806,11 +809,14 @@ const PORTFOLIO_DATA = {
     },
     {
       id: "by-brand-manual",
-      title: "Brand Identity Manual & Visual Guidelines Book",
+      title: "NIFT Graduation Show 2026 Brand Guidelines & Identity Manual",
       category: "books",
       categoryLabel: "Books & Publications",
-      badge: "Brand Identity Manual",
+      badge: "Brand Guidelines Manual",
       format: "Corporate Identity Book",
+      hasSite: true,
+      siteUrl: "beyond the brief/book-projects/nift-graduation-show-2026/index.html",
+      siteTitle: "NIFT Graduation Show 2026 — Interactive Brand Guidelines",
       file: "beyond the brief/BRAND MANUAL final.pdf",
       fileName: "BRAND MANUAL final.pdf",
       size: "12.5 MB",
@@ -821,11 +827,14 @@ const PORTFOLIO_DATA = {
     },
     {
       id: "by-say-yes",
-      title: "Say Yes to the Right Dress — Fashion Styling Lookbook",
+      title: "Say Yes to the Right Dress — A–Z Bridal Fashion Glossary Book",
       category: "books",
       categoryLabel: "Books & Publications",
-      badge: "Styling Lookbook",
+      badge: "Bridal Fashion Glossary",
       format: "Softcover Lookbook",
+      hasSite: true,
+      siteUrl: "beyond the brief/book-projects/say-yes-to-the-right-dress/index.html",
+      siteTitle: "Say Yes to the Right Dress — Interactive Bridal Glossary",
       file: "beyond the brief/Say yes to the right dress_aleesha.pdf",
       fileName: "Say yes to the right dress_aleesha.pdf",
       size: "28.8 MB",
@@ -836,18 +845,21 @@ const PORTFOLIO_DATA = {
     },
     {
       id: "by-tarot",
-      title: "Illustrated Tarot Cards — Contemporary Folklore Deck & Guidebook",
+      title: "Flames of Theyyam — Illustrated Ritual Oracle Deck & Guidebook",
       category: "books",
       categoryLabel: "Books & Publications",
-      badge: "Illustrated Deck & Book",
-      format: "Illustrated Deck + Book",
+      badge: "Illustrated Oracle Deck",
+      format: "12-Card Deck + Box",
+      hasSite: true,
+      siteUrl: "beyond the brief/flames-of-theyyam/index.html",
+      siteTitle: "Flames of Theyyam — 12-Card Ritual Oracle Deck Case Study",
       file: "beyond the brief/TAROT CARDS.pdf",
       fileName: "TAROT CARDS.pdf",
       size: "19.2 MB",
       img: "assets/beyond/tarot_cards.jpg",
-      tools: ["Adobe Illustrator", "Vector Line Art", "Gold Foil Print Specs", "Mythological Research"],
-      desc: "Bespoke illustrated 54-card contemporary folklore tarot deck and accompanying guidebook, blending ancient mystical symbolism with intricate symmetric border ornaments.",
-      process: "Hand-illustrated each Major Arcana card face, engineered foil-stamp die plates for the tuckbox packaging, and designed an accompanying pocket guidebook."
+      tools: ["Adobe Illustrator", "Vector Line Art", "Packaging Architecture", "Mythological Research", "Foil Stamp"],
+      desc: "Bespoke 12-card oracle deck and packaging inspired by the sacred Theyyam ritual of North Kerala: torchlit aesthetics, intricate face-paint motifs, and mystical deity folklore.",
+      process: "Hand-illustrated each deity card face, engineered foil-stamp die plates for the tuckbox packaging, and designed an accompanying pocket guidebook."
     },
     {
       id: "by-studio-photo",
@@ -1656,8 +1668,9 @@ function initSolariProjects() {
           <div class="solari-case-hero" style="background: linear-gradient(135deg, #fdf2f8 0%, #fce7f3 50%, #fff1f2 100%);">
             <div class="solari-case-index" style="color:#db2777;">Folder 09 • Books &amp; Publications &amp; UI/UX Projects</div>
             <h2 class="solari-case-title" style="color:#831843;">Beyond the Brief</h2>
-            <p class="solari-case-subtitle" style="color:#9d174d;">Curated collection of 9 self-published editorial books, fashion lookbooks, brand manuals, and mobile app UI/UX prototypes.</p>
+            <p class="solari-case-subtitle" style="color:#9d174d;">Curated collection of 9 self-published editorial books, fashion lookbooks, brand manuals, and mobile app UI/UX prototypes — now featuring 4 interactive project websites.</p>
             <div class="solari-case-meta-row">
+              <span class="solari-meta-badge" style="background:#fce7f3; color:#be185d; border-color:#fbcfe8;">✨ 4 Interactive Project Sites</span>
               <span class="solari-meta-badge">📚 6 Books &amp; Publications</span>
               <span class="solari-meta-badge">📱 3 UI/UX Mobile Apps</span>
               <span class="solari-meta-badge">🛠️ InDesign, Figma, Illustrator</span>
@@ -1671,9 +1684,9 @@ function initSolariProjects() {
           </div>
 
           <div class="solari-case-content" style="padding: 24px;">
-            <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:16px;">
+            <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:16px; flex-wrap:wrap; gap:8px;">
               <div style="font-size:1rem; font-weight:700; color:#0f172a;">All 9 Projects in this Folder</div>
-              <div style="font-size:0.75rem; color:#64748b;">Click "Read PDF" to view directly in the OS PDF Reader</div>
+              <div style="font-size:0.75rem; color:#64748b;">Click "View Live Site" for interactive book experiences or "Read PDF" for full books</div>
             </div>
 
             <div class="beyond-grid">
@@ -1682,6 +1695,7 @@ function initSolariProjects() {
                   <div class="beyond-img-wrap">
                     <img src="${item.img}" alt="${item.title}" class="beyond-img" loading="lazy">
                     <div class="beyond-img-overlay">
+                      ${item.hasSite ? `<span class="beyond-site-pill">✨ Interactive Book Site</span>` : ''}
                       <span class="beyond-format-pill">${item.format}</span>
                       <span class="beyond-size-pill">${item.size}</span>
                     </div>
@@ -1697,6 +1711,11 @@ function initSolariProjects() {
                       ${item.tools.map(t => `<span class="playground-tag">${t}</span>`).join('')}
                     </div>
                     <div class="beyond-actions">
+                      ${item.hasSite ? `
+                        <button type="button" class="beyond-action-btn site-btn btn-solari-site" data-site="${item.siteUrl}" data-title="${item.title}" data-file="${item.file}" data-size="${item.size}">
+                          <span>✨ View Live Site</span>
+                        </button>
+                      ` : ''}
                       <button type="button" class="beyond-action-btn primary btn-solari-read" data-file="${item.file}" data-title="${item.title}" data-size="${item.size}">
                         <span>📖 Read PDF</span>
                       </button>
@@ -1722,16 +1741,43 @@ function initSolariProjects() {
         });
       }
 
-      // Wire up card read clicks
+      // Wire up live site buttons
+      detailBody.querySelectorAll('.btn-solari-site').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const site = btn.getAttribute('data-site');
+          const title = btn.getAttribute('data-title');
+          const file = btn.getAttribute('data-file');
+          const size = btn.getAttribute('data-size');
+          if (typeof window.openBeyondSite === 'function') {
+            window.openBeyondSite(site, title, file, size);
+          }
+        });
+      });
+
+      // Wire up read PDF buttons
+      detailBody.querySelectorAll('.btn-solari-read').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const file = btn.getAttribute('data-file');
+          const title = btn.getAttribute('data-title');
+          const size = btn.getAttribute('data-size');
+          window.openPdfViewer(file, title, size);
+        });
+      });
+
+      // Wire up card clicks
       detailBody.querySelectorAll('.beyond-card').forEach(card => {
         card.addEventListener('click', (e) => {
-          if (e.target.closest('a')) return;
-          const readBtn = card.querySelector('.btn-solari-read');
-          if (readBtn) {
-            const file = readBtn.getAttribute('data-file');
-            const title = readBtn.getAttribute('data-title');
-            const size = readBtn.getAttribute('data-size');
-            window.openPdfViewer(file, title, size);
+          if (e.target.closest('a') || e.target.closest('button')) return;
+          const beyondId = card.getAttribute('data-beyond-id');
+          const item = PORTFOLIO_DATA.beyond.find(x => x.id === beyondId);
+          if (item) {
+            if (item.hasSite && typeof window.openBeyondSite === 'function') {
+              window.openBeyondSite(item.siteUrl, item.title, item.file, item.size);
+            } else {
+              window.openPdfViewer(item.file, item.title, item.size);
+            }
           }
         });
       });
@@ -3166,9 +3212,55 @@ window.openPdfViewer = function(filePath, title, size) {
   }
 };
 
+window.openBeyondSite = function(siteUrl, title, pdfFile, pdfSize) {
+  const beyondSiteView = document.getElementById('beyond-site-view');
+  const iframe = document.getElementById('beyond-site-iframe');
+  const titleEl = document.getElementById('beyond-site-title');
+  const newtabEl = document.getElementById('beyond-site-btn-newtab');
+  const pdfBtn = document.getElementById('beyond-site-btn-pdf');
+
+  if (titleEl) titleEl.textContent = title || 'Interactive Book Project';
+  if (newtabEl) newtabEl.href = siteUrl;
+  if (pdfBtn) {
+    pdfBtn.onclick = () => {
+      if (pdfFile && typeof window.openPdfViewer === 'function') {
+        window.openPdfViewer(pdfFile, title, pdfSize);
+      }
+    };
+  }
+
+  if (iframe) {
+    iframe.src = siteUrl;
+  }
+
+  if (beyondSiteView) {
+    beyondSiteView.style.display = 'flex';
+  }
+
+  // Open or bring Beyond window to front
+  if (window.windowManager) {
+    window.windowManager.open('beyond');
+    window.windowManager.bringToFront('beyond');
+  } else if (typeof window.openWindow === 'function') {
+    window.openWindow('window-beyond');
+  }
+};
+
 function initBeyondTheBrief() {
   const container = document.getElementById('beyond-cards-container');
   const tabs = document.querySelectorAll('[data-by-filter]');
+  const backBtn = document.getElementById('beyond-btn-back');
+  const beyondSiteView = document.getElementById('beyond-site-view');
+  const iframe = document.getElementById('beyond-site-iframe');
+
+  if (backBtn && beyondSiteView) {
+    backBtn.addEventListener('click', () => {
+      beyondSiteView.style.display = 'none';
+      if (iframe) {
+        iframe.src = 'about:blank';
+      }
+    });
+  }
 
   let currentFilter = 'all';
 
@@ -3177,16 +3269,20 @@ function initBeyondTheBrief() {
     container.innerHTML = '';
 
     const filtered = PORTFOLIO_DATA.beyond.filter(item => {
-      return currentFilter === 'all' || item.category === currentFilter;
+      if (currentFilter === 'all') return true;
+      if (currentFilter === 'interactive') return item.hasSite === true;
+      return item.category === currentFilter;
     });
 
     filtered.forEach(item => {
       const card = document.createElement('div');
       card.className = 'beyond-card';
+      card.setAttribute('data-beyond-id', item.id);
       card.innerHTML = `
         <div class="beyond-img-wrap">
           <img src="${item.img}" alt="${item.title}" class="beyond-img" loading="lazy">
           <div class="beyond-img-overlay">
+            ${item.hasSite ? `<span class="beyond-site-pill">✨ Interactive Book Site</span>` : ''}
             <span class="beyond-format-pill">${item.format}</span>
             <span class="beyond-size-pill">${item.size}</span>
           </div>
@@ -3206,6 +3302,11 @@ function initBeyondTheBrief() {
             ${item.tools.map(t => `<span class="playground-tag">${t}</span>`).join('')}
           </div>
           <div class="beyond-actions">
+            ${item.hasSite ? `
+              <button type="button" class="beyond-action-btn site-btn btn-open-site" data-site="${item.siteUrl}" data-title="${item.title}">
+                <span>✨ View Live Site</span>
+              </button>
+            ` : ''}
             <button type="button" class="beyond-action-btn primary btn-read-pdf" data-file="${item.file}" data-title="${item.title}" data-size="${item.size}">
               <span>📖 Read PDF</span>
             </button>
@@ -3216,9 +3317,31 @@ function initBeyondTheBrief() {
         </div>
       `;
 
+      if (item.hasSite) {
+        const siteBtn = card.querySelector('.btn-open-site');
+        if (siteBtn) {
+          siteBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            window.openBeyondSite(item.siteUrl, item.title, item.file, item.size);
+          });
+        }
+      }
+
+      const readBtn = card.querySelector('.btn-read-pdf');
+      if (readBtn) {
+        readBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          window.openPdfViewer(item.file, item.title, item.size);
+        });
+      }
+
       card.addEventListener('click', (e) => {
-        if (e.target.closest('a')) return;
-        window.openPdfViewer(item.file, item.title, item.size);
+        if (e.target.closest('a') || e.target.closest('button')) return;
+        if (item.hasSite) {
+          window.openBeyondSite(item.siteUrl, item.title, item.file, item.size);
+        } else {
+          window.openPdfViewer(item.file, item.title, item.size);
+        }
       });
 
       container.appendChild(card);

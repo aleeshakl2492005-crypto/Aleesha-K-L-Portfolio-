@@ -1587,6 +1587,7 @@
           <div class="beyond-toolbar">
             <div class="photo-tabs">
               <button class="photo-tab-btn active" data-by-filter="all">All Projects (9)</button>
+              <button class="photo-tab-btn" data-by-filter="interactive">✨ Interactive Sites (4)</button>
               <button class="photo-tab-btn" data-by-filter="books">Books &amp; Publications (6)</button>
               <button class="photo-tab-btn" data-by-filter="uiux">UI/UX &amp; Apps (3)</button>
             </div>
@@ -1596,6 +1597,30 @@
           <div class="beyond-grid-container">
             <div class="beyond-grid" id="beyond-cards-container">
               <!-- Rendered dynamically by apps.js -->
+            </div>
+          </div>
+
+          <!-- Detail Live Site View (active when an interactive book site is opened) -->
+          <div class="beyond-site-view" id="beyond-site-view" style="display:none; flex-direction:column; width:100%; height:100%; position:absolute; inset:0; background:#fff; z-index:20;">
+            <div class="beyond-site-toolbar" style="height:46px; background:#1e293b; border-bottom:1px solid rgba(255,255,255,0.1); display:flex; align-items:center; justify-content:space-between; padding:0 14px; color:#f8fafc; font-size:0.8rem; flex-shrink:0;">
+              <div style="display:flex; align-items:center; gap:10px;">
+                <button type="button" id="beyond-btn-back" class="solari-btn-pill" style="cursor:pointer; display:inline-flex; align-items:center; gap:6px; background:rgba(255,255,255,0.12); color:#fff; border:1px solid rgba(255,255,255,0.22); border-radius:6px; padding:5px 12px; font-size:0.75rem; font-weight:600;">
+                  ← Back to Beyond Grid
+                </button>
+                <span id="beyond-site-badge" style="background:linear-gradient(135deg, #db2777, #7c3aed); color:#fff; font-size:0.7rem; font-weight:700; padding:2px 8px; border-radius:4px; letter-spacing:0.02em;">LIVE BOOK SITE</span>
+                <span id="beyond-site-title" style="font-weight:600; color:#fff; max-width:420px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">Title</span>
+              </div>
+              <div style="display:flex; align-items:center; gap:8px;">
+                <button type="button" id="beyond-site-btn-pdf" class="solari-btn-pill" style="cursor:pointer; font-size:0.75rem; padding:5px 12px; background:rgba(225,29,72,0.15); color:#fda4af; border:1px solid rgba(225,29,72,0.4); border-radius:6px; display:inline-flex; align-items:center; gap:5px; font-weight:600;">
+                  📄 View PDF
+                </button>
+                <a id="beyond-site-btn-newtab" href="#" target="_blank" rel="noopener noreferrer" class="solari-btn-pill" style="text-decoration:none; color:#cbd5e1; font-size:0.75rem; padding:5px 12px; border:1px solid rgba(255,255,255,0.2); border-radius:6px; display:inline-flex; align-items:center; gap:5px;">
+                  Open in Tab ↗
+                </a>
+              </div>
+            </div>
+            <div style="flex:1; width:100%; height:100%; position:relative; background:#f8fafc;">
+              <iframe id="beyond-site-iframe" src="" style="width:100%; height:100%; border:none; display:block;" loading="lazy"></iframe>
             </div>
           </div>
 
@@ -2093,7 +2118,7 @@
   <!-- Core Script Modules -->
   <script src="js/audio.js"></script>
   <script src="js/window-manager.js?v=33"></script>
-  <script src="js/apps.js?v=35"></script>
+  <script src="js/apps.js?v=36"></script>
   <script src="js/main.js?v=33"></script>
   <script src="js/welcome.js?v=33"></script>
   <script src="js/owl-companion.js?v=33"></script>
