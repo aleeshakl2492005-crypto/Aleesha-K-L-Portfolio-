@@ -779,18 +779,18 @@ const PORTFOLIO_DATA = {
     },
     {
       id: "by-crumbs",
-      title: "Crumbs — Editorial Book Design & Typography",
-      category: "books",
-      categoryLabel: "Books & Publications",
-      badge: "Editorial Art Book",
-      format: "Hardcover Bound Book",
+      title: "Crumbs — Food Rescue App UX/UI Case Study",
+      category: "uiux",
+      categoryLabel: "UI/UX & Mobile App",
+      badge: "UX/UI Case Study",
+      format: "Food Rescue Mobile App",
       file: "beyond the brief/crumbs.pdf",
       fileName: "crumbs.pdf",
       size: "28 MB",
       img: "assets/beyond/crumbs.jpg",
-      tools: ["Adobe InDesign", "Typography Hierarchy", "Paper Stock Selection", "Bookbinding CAD"],
-      desc: "Tactile editorial book exploring culinary fragments, memory, and everyday artifacts through expressive typography, macro textures, and intimate literary essays.",
-      process: "Harmonized custom hand-set display headings with generous page margins, deckle-edge paper considerations, and rhythmic chapter breaks."
+      tools: ["Figma", "User Research", "Wireframing", "Food Rescue Flows", "Information Architecture"],
+      desc: "“Good food deserves a second chance” — Food rescue mobile interface connecting local bakeries, cafes, and grocery stores with consumers to combat food waste.",
+      process: "Conducted field research on retail surplus schedules, designed reserve-and-collect time slots, and simplified discounted meal checkout."
     },
     {
       id: "by-zudio",
@@ -863,18 +863,18 @@ const PORTFOLIO_DATA = {
     },
     {
       id: "by-studio-photo",
-      title: "Studio Photography Jury Publication & Portfolios",
+      title: "Product Photography — Studio Lighting Techniques Portfolio",
       category: "books",
       categoryLabel: "Books & Publications",
-      badge: "Jury Portfolio Book",
-      format: "Fine Art Catalog",
+      badge: "Product Photography",
+      format: "Studio Photography Portfolio",
       file: "beyond the brief/STUDIO PHOTOGRAPHY JURY.pdf",
       fileName: "STUDIO PHOTOGRAPHY JURY.pdf",
       size: "55.2 MB",
       img: "assets/beyond/studio_photo.jpg",
-      tools: ["Studio Strobe Lighting", "Darkroom Printing", "InDesign Preflight", "Hardcover Binding"],
-      desc: "Fine-art photography jury publication showcasing studio portraiture, monochrome light falloff, honeycomb grid lighting studies, and high-fashion model shoots.",
-      process: "Printed as a limited hardcover portfolio catalog, balancing high-contrast deep blacks with delicate highlight preservation across archival matte paper."
+      tools: ["Studio Strobe Lighting", "Light Modifiers", "Product Framing", "Darkroom Printing"],
+      desc: "Exploration of directional lighting techniques, studio portraiture, specular highlights, and surface textures across physical products and subjects.",
+      process: "Constructed precise strobe and reflector setups to map lighting falloff, preserve fine material textures, and capture high-fidelity commercial shots."
     }
   ]
 };
@@ -1668,13 +1668,12 @@ function initSolariProjects() {
           <div class="solari-case-hero" style="background: linear-gradient(135deg, #fdf2f8 0%, #fce7f3 50%, #fff1f2 100%);">
             <div class="solari-case-index" style="color:#db2777;">Folder 09 • Books &amp; Publications &amp; UI/UX Projects</div>
             <h2 class="solari-case-title" style="color:#831843;">Beyond the Brief</h2>
-            <p class="solari-case-subtitle" style="color:#9d174d;">Curated collection of 9 self-published editorial books, fashion lookbooks, brand manuals, and mobile app UI/UX prototypes — now featuring 4 interactive project websites.</p>
+            <p class="solari-case-subtitle" style="color:#9d174d;">Curated collection of 9 editorial books, brand manuals, tarot oracle decks, and mobile app UI/UX prototypes — presented with authentic project covers.</p>
             <div class="solari-case-meta-row">
               <span class="solari-meta-badge" style="background:#fce7f3; color:#be185d; border-color:#fbcfe8;">✨ 4 Interactive Project Sites</span>
-              <span class="solari-meta-badge">📚 6 Books &amp; Publications</span>
-              <span class="solari-meta-badge">📱 3 UI/UX Mobile Apps</span>
+              <span class="solari-meta-badge">📚 5 Books &amp; Publications</span>
+              <span class="solari-meta-badge">📱 4 UI/UX Mobile Apps</span>
               <span class="solari-meta-badge">🛠️ InDesign, Figma, Illustrator</span>
-              <span class="solari-meta-badge">📄 9 Full PDF Portfolios</span>
             </div>
             <div style="margin-top: 16px; display: flex; gap: 10px; flex-wrap: wrap;">
               <button type="button" class="solari-btn-pill primary" id="solari-launch-beyond-btn" style="cursor:pointer; display:inline-flex; align-items:center; gap:8px; font-size:0.86rem; padding:8px 18px; box-shadow:0 4px 12px rgba(219,39,119,0.25); background:#db2777; color:#fff; border:none; border-radius:20px; font-weight:600;">
@@ -1686,7 +1685,7 @@ function initSolariProjects() {
           <div class="solari-case-content" style="padding: 24px;">
             <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:16px; flex-wrap:wrap; gap:8px;">
               <div style="font-size:1rem; font-weight:700; color:#0f172a;">All 9 Projects in this Folder</div>
-              <div style="font-size:0.75rem; color:#64748b;">Click "View Live Site" for interactive book experiences or "Read PDF" for full books</div>
+              <div style="font-size:0.75rem; color:#64748b;">Click any project cover to view interactive experiences or full documents</div>
             </div>
 
             <div class="beyond-grid">
@@ -1694,10 +1693,13 @@ function initSolariProjects() {
                 <div class="beyond-card" data-beyond-id="${item.id}" style="cursor:pointer;">
                   <div class="beyond-img-wrap">
                     <img src="${item.img}" alt="${item.title}" class="beyond-img" loading="lazy">
+                    <div class="beyond-spine-shadow"></div>
                     <div class="beyond-img-overlay">
-                      ${item.hasSite ? `<span class="beyond-site-pill">✨ Interactive Book Site</span>` : ''}
+                      ${item.hasSite ? `<span class="beyond-site-pill">✨ Interactive</span>` : ''}
                       <span class="beyond-format-pill">${item.format}</span>
-                      <span class="beyond-size-pill">${item.size}</span>
+                    </div>
+                    <div class="beyond-cover-hover">
+                      <span>${item.hasSite ? '✦ Explore Experience ↗' : '✦ View Document ↗'}</span>
                     </div>
                   </div>
                   <div class="beyond-info">
@@ -1707,21 +1709,8 @@ function initSolariProjects() {
                     </div>
                     <div class="beyond-title">${item.title}</div>
                     <div class="beyond-desc">${item.desc}</div>
-                    <div class="playground-tags" style="margin-top:8px;">
-                      ${item.tools.map(t => `<span class="playground-tag">${t}</span>`).join('')}
-                    </div>
-                    <div class="beyond-actions">
-                      ${item.hasSite ? `
-                        <button type="button" class="beyond-action-btn site-btn btn-solari-site" data-site="${item.siteUrl}" data-title="${item.title}" data-file="${item.file}" data-size="${item.size}">
-                          <span>✨ View Live Site</span>
-                        </button>
-                      ` : ''}
-                      <button type="button" class="beyond-action-btn primary btn-solari-read" data-file="${item.file}" data-title="${item.title}" data-size="${item.size}">
-                        <span>📖 Read PDF</span>
-                      </button>
-                      <a href="${encodeURI(item.file)}" download="${item.fileName}" class="beyond-action-btn secondary" onclick="event.stopPropagation();">
-                        <span>⬇ Download</span>
-                      </a>
+                    <div class="playground-tags" style="margin-top:6px;">
+                      ${item.tools.slice(0, 3).map(t => `<span class="playground-tag">${t}</span>`).join('')}
                     </div>
                   </div>
                 </div>
@@ -1741,35 +1730,9 @@ function initSolariProjects() {
         });
       }
 
-      // Wire up live site buttons
-      detailBody.querySelectorAll('.btn-solari-site').forEach(btn => {
-        btn.addEventListener('click', (e) => {
-          e.stopPropagation();
-          const site = btn.getAttribute('data-site');
-          const title = btn.getAttribute('data-title');
-          const file = btn.getAttribute('data-file');
-          const size = btn.getAttribute('data-size');
-          if (typeof window.openBeyondSite === 'function') {
-            window.openBeyondSite(site, title, file, size);
-          }
-        });
-      });
-
-      // Wire up read PDF buttons
-      detailBody.querySelectorAll('.btn-solari-read').forEach(btn => {
-        btn.addEventListener('click', (e) => {
-          e.stopPropagation();
-          const file = btn.getAttribute('data-file');
-          const title = btn.getAttribute('data-title');
-          const size = btn.getAttribute('data-size');
-          window.openPdfViewer(file, title, size);
-        });
-      });
-
-      // Wire up card clicks
+      // Wire up card clicks (1-click direct open)
       detailBody.querySelectorAll('.beyond-card').forEach(card => {
-        card.addEventListener('click', (e) => {
-          if (e.target.closest('a') || e.target.closest('button')) return;
+        card.addEventListener('click', () => {
           const beyondId = card.getAttribute('data-beyond-id');
           const item = PORTFOLIO_DATA.beyond.find(x => x.id === beyondId);
           if (item) {
@@ -3281,10 +3244,13 @@ function initBeyondTheBrief() {
       card.innerHTML = `
         <div class="beyond-img-wrap">
           <img src="${item.img}" alt="${item.title}" class="beyond-img" loading="lazy">
+          <div class="beyond-spine-shadow"></div>
           <div class="beyond-img-overlay">
-            ${item.hasSite ? `<span class="beyond-site-pill">✨ Interactive Book Site</span>` : ''}
+            ${item.hasSite ? `<span class="beyond-site-pill">✨ Interactive Experience</span>` : ''}
             <span class="beyond-format-pill">${item.format}</span>
-            <span class="beyond-size-pill">${item.size}</span>
+          </div>
+          <div class="beyond-cover-hover">
+            <span>${item.hasSite ? '✦ Explore Experience ↗' : '✦ View Document ↗'}</span>
           </div>
         </div>
         <div class="beyond-info">
@@ -3299,44 +3265,12 @@ function initBeyondTheBrief() {
             <div style="font-size:0.72rem; color:#64748b; line-height:1.4; margin-top:2px;">${item.process}</div>
           </div>
           <div class="playground-tags" style="margin-top:8px;">
-            ${item.tools.map(t => `<span class="playground-tag">${t}</span>`).join('')}
-          </div>
-          <div class="beyond-actions">
-            ${item.hasSite ? `
-              <button type="button" class="beyond-action-btn site-btn btn-open-site" data-site="${item.siteUrl}" data-title="${item.title}">
-                <span>✨ View Live Site</span>
-              </button>
-            ` : ''}
-            <button type="button" class="beyond-action-btn primary btn-read-pdf" data-file="${item.file}" data-title="${item.title}" data-size="${item.size}">
-              <span>📖 Read PDF</span>
-            </button>
-            <a href="${encodeURI(item.file)}" download="${item.fileName}" class="beyond-action-btn secondary btn-dl-pdf" title="Download ${item.fileName}" onclick="event.stopPropagation();">
-              <span>⬇ Download</span>
-            </a>
+            ${item.tools.slice(0, 4).map(t => `<span class="playground-tag">${t}</span>`).join('')}
           </div>
         </div>
       `;
 
-      if (item.hasSite) {
-        const siteBtn = card.querySelector('.btn-open-site');
-        if (siteBtn) {
-          siteBtn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            window.openBeyondSite(item.siteUrl, item.title, item.file, item.size);
-          });
-        }
-      }
-
-      const readBtn = card.querySelector('.btn-read-pdf');
-      if (readBtn) {
-        readBtn.addEventListener('click', (e) => {
-          e.stopPropagation();
-          window.openPdfViewer(item.file, item.title, item.size);
-        });
-      }
-
-      card.addEventListener('click', (e) => {
-        if (e.target.closest('a') || e.target.closest('button')) return;
+      card.addEventListener('click', () => {
         if (item.hasSite) {
           window.openBeyondSite(item.siteUrl, item.title, item.file, item.size);
         } else {
