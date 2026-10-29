@@ -857,18 +857,18 @@ const PORTFOLIO_DATA = {
     },
     {
       id: "by-studio-photo",
-      title: "Product Photography — Studio Lighting Techniques Portfolio",
-      category: "books",
-      categoryLabel: "Books & Publications",
-      badge: "Product Photography",
-      format: "Interactive Exhibition",
+      title: "Studio Photography Jury — Lighting Techniques & Commercial Shoots",
+      category: "photography",
+      categoryLabel: "Editorial & Commercial Photography",
+      badge: "Photography Exhibition",
+      format: "Interactive Contact Sheet",
       hasSite: true,
       siteUrl: "beyond the brief/studio-photography-site/site/index.html",
       siteTitle: "Studio Photography Jury — Contact Sheet Interactive Exhibition",
-      img: "assets/beyond/studio_photo.jpg",
+      img: "beyond the brief/studio-photography-site/site/img/fashion-cover.webp",
       tools: ["Studio Strobe Lighting", "Light Modifiers", "Product Framing", "Darkroom Printing"],
-      desc: "Exploration of directional lighting techniques, studio portraiture, specular highlights, and surface textures across physical products and subjects.",
-      process: "Constructed precise strobe and reflector setups to map lighting falloff, preserve fine material textures, and capture high-fidelity commercial shots."
+      desc: "Editorial and commercial studio lighting exhibition: lighting diagrams, contact sheets, raw-to-final retouches (Bblunt, Mirinda, Nothing, Babanana), and magazine cover spreads.",
+      process: "Constructed Rembrandt, loop, broad, and split lighting rigs across editorial fashion shoots and commercial FMCG setups with high-fidelity specular highlights."
     }
   ]
 };
@@ -1660,13 +1660,14 @@ function initSolariProjects() {
       detailBody.innerHTML = `
         <div class="solari-case-card" style="--case-color: #fdf2f8;">
           <div class="solari-case-hero" style="background: linear-gradient(135deg, #fdf2f8 0%, #fce7f3 50%, #fff1f2 100%);">
-            <div class="solari-case-index" style="color:#db2777;">Folder 09 • Books &amp; Publications &amp; UI/UX Projects</div>
+            <div class="solari-case-index" style="color:#db2777;">Folder 09 • Books, UI/UX Apps &amp; Photography Exhibition</div>
             <h2 class="solari-case-title" style="color:#831843;">Beyond the Brief</h2>
-            <p class="solari-case-subtitle" style="color:#9d174d;">Curated collection of 8 editorial books, brand manuals, tarot oracle decks, and mobile app UI/UX prototypes — presented with authentic project covers.</p>
+            <p class="solari-case-subtitle" style="color:#9d174d;">Curated collection of 8 interactive case studies spanning editorial books, brand manuals, tarot oracle decks, mobile apps, and studio lighting photography — presented with authentic project covers.</p>
             <div class="solari-case-meta-row">
-              <span class="solari-meta-badge" style="background:#fce7f3; color:#be185d; border-color:#fbcfe8;">✨ 8 Interactive Project Sites</span>
-              <span class="solari-meta-badge">📚 5 Books &amp; Publications</span>
-              <span class="solari-meta-badge">📱 3 UI/UX Mobile Apps</span>
+              <span class="solari-meta-badge" style="background:#fce7f3; color:#be185d; border-color:#fbcfe8;">✨ 8 Interactive Sites</span>
+              <span class="solari-meta-badge">📚 4 Books</span>
+              <span class="solari-meta-badge">📱 3 UI/UX Apps</span>
+              <span class="solari-meta-badge">📸 1 Photography Exhibition</span>
               <span class="solari-meta-badge">🛠️ InDesign, Figma, Illustrator</span>
             </div>
             <div style="margin-top: 16px; display: flex; gap: 10px; flex-wrap: wrap;">
@@ -3065,6 +3066,15 @@ function initPhotography() {
       closePhotoLightbox();
     }
   });
+
+  const studioJuryBtn = document.getElementById('btn-open-studio-jury');
+  if (studioJuryBtn) {
+    studioJuryBtn.addEventListener('click', () => {
+      if (typeof window.openBeyondSite === 'function') {
+        window.openBeyondSite('beyond the brief/studio-photography-site/site/index.html', 'Studio Photography Jury — Contact Sheet Interactive Exhibition');
+      }
+    });
+  }
 
   renderPhotos();
 }
