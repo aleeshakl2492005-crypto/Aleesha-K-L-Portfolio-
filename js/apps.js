@@ -1,4 +1,4 @@
-/* ==========================================================================
+﻿/* ==========================================================================
    ALEESHA OS - APPS & PORTFOLIO DATA CONTROLLER
    Contains resume data, project case studies, terminal CLI commands,
    3D studio viewport logic, Groove music synthesizer, and mail client.
@@ -2952,15 +2952,34 @@ function init3DStudio() {
       gltfLoader = new THREE.GLTFLoader();
     }
 
-    // 8. Animation loop
+    // 8. Animation loop (Runs strictly when 3D Studio window is active to conserve mobile GPU/CPU)
+    let isStudioActive = false;
     function animate() {
+      if (!isStudioActive) {
+        animationFrameId = null;
+        return;
+      }
       animationFrameId = requestAnimationFrame(animate);
       if (controls) controls.update();
       if (renderer && scene && camera) {
         renderer.render(scene, camera);
       }
     }
-    animate();
+
+    window.start3DStudioLoop = function() {
+      if (!isStudioActive) {
+        isStudioActive = true;
+        if (!animationFrameId) animate();
+      }
+    };
+
+    window.stop3DStudioLoop = function() {
+      isStudioActive = false;
+      if (animationFrameId) {
+        cancelAnimationFrame(animationFrameId);
+        animationFrameId = null;
+      }
+    };
 
     return true;
   }
@@ -3934,8 +3953,20 @@ function initPhotography() {
     });
 
     container.appendChild(marqueeWrap);
-    startMarqueeLoop();
+    // Only auto-start if photography window is currently visible
+    const photoWin = document.getElementById('window-photography');
+    if (photoWin && photoWin.classList.contains('visible') && !photoWin.classList.contains('minimized')) {
+      startMarqueeLoop();
+    }
   }
+
+  window.startPhotographyMotion = function() {
+    startMarqueeLoop();
+  };
+
+  window.stopPhotographyMotion = function() {
+    stopMarqueeLoop();
+  };
 
   function openLightbox(photo) {
     if (!lightbox) return;

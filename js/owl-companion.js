@@ -1,4 +1,4 @@
-/* ==========================================================================
+﻿/* ==========================================================================
    ALEESHA OS - 3D PIXEL OWL DESKTOP COMPANION
    Inspired by MyOS / Neko cursor companions:
    - Sits, walks, flies, and sleeps following cursor movement
@@ -304,7 +304,7 @@ class OwlCompanion {
   }
 
   update() {
-    if (!this.isEnabled) return;
+    if (!this.isEnabled || window.innerWidth <= 768) return;
 
     const now = Date.now();
     const idleTime = now - this.lastMouseMoveTime;

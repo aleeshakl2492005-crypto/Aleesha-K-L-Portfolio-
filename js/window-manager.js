@@ -1,4 +1,4 @@
-/* ==========================================================================
+﻿/* ==========================================================================
    ALEESHA OS - WINDOW MANAGEMENT SYSTEM
    Full multi-window capabilities: drag, maximize, minimize, close,
    z-index stack, and taskbar synchronization.
@@ -250,8 +250,12 @@ class WindowManager {
       if (companion) companion.style.display = 'none';
     }
 
-    if (id === 'studio3d' && window.resizeStudio3D) {
-      setTimeout(() => window.resizeStudio3D(), 60);
+    if (id === 'photography' && typeof window.startPhotographyMotion === 'function') {
+      window.startPhotographyMotion();
+    }
+    if (id === 'studio3d') {
+      if (typeof window.start3DStudioLoop === 'function') window.start3DStudioLoop();
+      if (window.resizeStudio3D) setTimeout(() => window.resizeStudio3D(), 60);
     }
   }
 
@@ -274,8 +278,12 @@ class WindowManager {
 
     this.updateTaskbar(id);
 
-    if (id === 'studio3d' && window.resizeStudio3D) {
-      setTimeout(() => window.resizeStudio3D(), 60);
+    if (id === 'photography' && typeof window.startPhotographyMotion === 'function') {
+      window.startPhotographyMotion();
+    }
+    if (id === 'studio3d') {
+      if (typeof window.start3DStudioLoop === 'function') window.start3DStudioLoop();
+      if (window.resizeStudio3D) setTimeout(() => window.resizeStudio3D(), 60);
     }
   }
 
@@ -302,6 +310,12 @@ class WindowManager {
     if (id === 'playground') {
       const companion = document.getElementById('desktop-owl-companion');
       if (companion) companion.style.display = '';
+    }
+    if (id === 'photography' && typeof window.stopPhotographyMotion === 'function') {
+      window.stopPhotographyMotion();
+    }
+    if (id === 'studio3d' && typeof window.stop3DStudioLoop === 'function') {
+      window.stop3DStudioLoop();
     }
 
     this.updateTaskbar(id);
@@ -334,6 +348,12 @@ class WindowManager {
     if (id === 'playground') {
       const companion = document.getElementById('desktop-owl-companion');
       if (companion) companion.style.display = '';
+    }
+    if (id === 'photography' && typeof window.stopPhotographyMotion === 'function') {
+      window.stopPhotographyMotion();
+    }
+    if (id === 'studio3d' && typeof window.stop3DStudioLoop === 'function') {
+      window.stop3DStudioLoop();
     }
 
     this.pauseVideosInside(data.el);

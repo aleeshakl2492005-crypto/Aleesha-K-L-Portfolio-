@@ -1,4 +1,4 @@
-/* ==========================================================================
+﻿/* ==========================================================================
    ALEESHA OS - WINDOWS DESKTOP & UI ENVIRONMENT
    Fluent Glassmorphism, Windows 11/10 hybrid aesthetics, Taskbar,
    Start Menu, Window System & Tray Widgets
@@ -611,20 +611,20 @@ body, html {
 
 @media (max-width: 640px) {
   .desktop-character-3d {
-    margin-bottom: 24px;
+    margin-bottom: 8px;
   }
   .desktop-character-3d .character-img {
-    height: min(54vh, 410px);
-    max-width: min(64vw, 260px);
+    height: min(65vh, 490px);
+    max-width: min(76vw, 305px);
     object-fit: contain;
   }
   .character-reflection {
-    height: 20%;
-    bottom: -10%;
+    height: 18%;
+    bottom: -8%;
   }
   .character-shadow {
-    width: min(200px, 50vw);
-    height: 14px;
+    width: min(240px, 58vw);
+    height: 15px;
     bottom: 2px;
   }
 
@@ -712,11 +712,11 @@ body, html {
   .mockup-icon[data-pos="photography"] { right: 4px; }
   .mockup-icon[data-pos="playground"]  { right: 4px; }
   .desktop-character-3d {
-    margin-bottom: 20px;
+    margin-bottom: 6px;
   }
   .desktop-character-3d .character-img {
-    height: min(48vh, 340px);
-    max-width: min(60vw, 220px);
+    height: min(60vh, 440px);
+    max-width: min(72vw, 270px);
     object-fit: contain;
   }
 }
@@ -1832,6 +1832,23 @@ body, html {
   }
   .desktop-character-3d.is-laughing .character-img-default {
     opacity: 1 !important;
+  }
+
+  /* Eliminate full-screen blending overlay on mobile GPUs for silky-smooth 60fps */
+  .laptop-screen-glass {
+    display: none !important;
+  }
+
+  /* GPU-friendly mobile glassmorphism */
+  #taskbar {
+    background: rgba(255, 255, 255, 0.94) !important;
+    backdrop-filter: blur(8px) !important;
+    -webkit-backdrop-filter: blur(8px) !important;
+  }
+  .desktop-floating-dock {
+    background: rgba(26, 30, 42, 0.84) !important;
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
   }
 }
 

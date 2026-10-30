@@ -1,4 +1,4 @@
-/* ==========================================================================
+﻿/* ==========================================================================
    ALEESHA OS - MAIN SYSTEM INITIALIZER
    Taskbar clock, Start Menu, System Tray flyouts, Desktop icon launcher,
    Global notifications & wallpaper personalization.
@@ -406,6 +406,12 @@ document.addEventListener('DOMContentLoaded', () => {
     function physicsLoop() {
       requestAnimationFrame(physicsLoop);
       if (isBouncing) return;
+
+      // Mobile optimization: eliminate continuous cursor tracking computations on phones for smooth 60fps
+      if (window.innerWidth <= 768) {
+        if (charEl.style.transform !== '') charEl.style.transform = '';
+        return;
+      }
 
       // 1. Pure sideways horizontal movement (left and right only: ±20px)
       const targetShiftX = targetNormX * 20.0;
