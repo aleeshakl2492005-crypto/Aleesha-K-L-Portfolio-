@@ -24,7 +24,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Patrick+Hand&family=Fredoka:wght@600;700;800;900&family=Outfit:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Press+Start+2P&family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
 
   <!-- Core Stylesheets -->
-  <link rel="stylesheet" href="css/styles.css?v=44">
+  <link rel="stylesheet" href="css/styles.css?v=45">
   <link rel="stylesheet" href="css/boot-welcome.css?v=34">
   <link rel="stylesheet" href="css/apps.css?v=58">
 </head>
@@ -134,15 +134,22 @@
     <div class="desktop-3d-scene" id="desktop-3d-scene">
       <div id="desktop-character" class="desktop-character-3d" title="Aleesha — 3D Visual & Experience Designer">
         <div class="character-breathing-wrap">
-          <img src="assets/wallpaper avatar.png" alt="Aleesha 3D" draggable="false"
-            class="character-img character-img-default" id="character-main-img">
+          <picture class="character-picture-wrap">
+            <source media="(max-width: 768px)" srcset="assets/avatar-full.png">
+            <source media="(min-width: 769px)" srcset="assets/wallpaper%20avatar.png">
+            <img src="assets/wallpaper avatar.png" alt="Aleesha 3D" draggable="false"
+              class="character-img character-img-default" id="character-main-img">
+          </picture>
           <img src="assets/laughing avatar.png" alt="Aleesha Laughing" draggable="false"
             class="character-img character-img-laugh" id="character-laugh-img">
         </div>
         <div class="character-reflection">
-          <img src="assets/wallpaper avatar.png" alt="Reflection" draggable="false"
-            class="character-reflection-img character-reflection-default-img" id="character-reflection-img">
-
+          <picture class="character-reflection-picture-wrap">
+            <source media="(max-width: 768px)" srcset="assets/avatar-full.png">
+            <source media="(min-width: 769px)" srcset="assets/wallpaper%20avatar.png">
+            <img src="assets/wallpaper avatar.png" alt="Reflection" draggable="false"
+              class="character-reflection-img character-reflection-default-img" id="character-reflection-img">
+          </picture>
         </div>
         <div class="character-shadow"></div>
       </div>
@@ -2658,7 +2665,7 @@
   <script src="js/audio.js"></script>
   <script src="js/window-manager.js?v=38"></script>
   <script src="js/apps.js?v=55"></script>
-  <script src="js/main.js?v=46"></script>
+  <script src="js/main.js?v=47"></script>
   <script src="js/welcome.js?v=33"></script>
   <script src="js/owl-companion.js?v=33"></script>
 </body>

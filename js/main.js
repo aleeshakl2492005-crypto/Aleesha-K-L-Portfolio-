@@ -1,4 +1,4 @@
-﻿/* ==========================================================================
+/* ==========================================================================
    ALEESHA OS - MAIN SYSTEM INITIALIZER
    Taskbar clock, Start Menu, System Tray flyouts, Desktop icon launcher,
    Global notifications & wallpaper personalization.
@@ -482,6 +482,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Start continuous 60fps/120fps physics loop
     requestAnimationFrame(physicsLoop);
+
+    // Responsive avatar switcher: full body standing avatar on mobile, desktop bust avatar on laptop/PC
+    function updateAvatarResponsiveSrc() {
+      const isMobile = window.innerWidth <= 768;
+      const targetSrc = isMobile ? 'assets/avatar-full.png' : 'assets/wallpaper avatar.png';
+      if (mainImgEl && mainImgEl.getAttribute('src') !== targetSrc) {
+        mainImgEl.setAttribute('src', targetSrc);
+      }
+      const reflImg = document.getElementById('character-reflection-img');
+      if (reflImg && reflImg.getAttribute('src') !== targetSrc) {
+        reflImg.setAttribute('src', targetSrc);
+      }
+    }
+    window.addEventListener('resize', updateAvatarResponsiveSrc);
+    updateAvatarResponsiveSrc();
   }
 
   // ------------------------------------------------------------------------

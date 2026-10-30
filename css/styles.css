@@ -604,18 +604,28 @@ body, html {
   .dock-btn { width: 38px; height: 38px; }
 }
 
+.character-picture-wrap,
+.character-reflection-picture-wrap {
+  display: contents;
+}
+
 @media (max-width: 640px) {
+  .desktop-character-3d {
+    margin-bottom: 24px;
+  }
   .desktop-character-3d .character-img {
-    height: min(44vh, 310px);
-    max-width: 68vw;
+    height: min(54vh, 410px);
+    max-width: min(64vw, 260px);
+    object-fit: contain;
   }
   .character-reflection {
-    height: 28%;
-    bottom: -16%;
+    height: 20%;
+    bottom: -10%;
   }
   .character-shadow {
-    width: min(260px, 60vw);
-    height: 16px;
+    width: min(200px, 50vw);
+    height: 14px;
+    bottom: 2px;
   }
 
   /* Frosted Glass Windows 11 Dock */
@@ -701,10 +711,13 @@ body, html {
   .mockup-icon[data-pos="spatial"]     { right: 4px; }
   .mockup-icon[data-pos="photography"] { right: 4px; }
   .mockup-icon[data-pos="playground"]  { right: 4px; }
-  .mockup-icon[data-pos="beyond"]      { right: 4px; }
+  .desktop-character-3d {
+    margin-bottom: 20px;
+  }
   .desktop-character-3d .character-img {
-    height: min(38vh, 270px);
-    max-width: 60vw;
+    height: min(48vh, 340px);
+    max-width: min(60vw, 220px);
+    object-fit: contain;
   }
 }
 
@@ -1811,6 +1824,14 @@ body, html {
   /* Hide Desktop Owl Cursor Companion on mobile touch devices */
   .desktop-owl-companion {
     display: none !important;
+  }
+
+  /* On mobile touch devices keep full-body standing avatar intact */
+  .desktop-character-3d.is-laughing .character-img-laugh {
+    display: none !important;
+  }
+  .desktop-character-3d.is-laughing .character-img-default {
+    opacity: 1 !important;
   }
 }
 
