@@ -209,9 +209,9 @@ class WindowManager {
     data.el.style.display = 'flex';
     // Position if not already placed
     if (!data.el.style.left || data.el.style.left === 'auto') {
-      if (id === 'playground' || id === 'about' || id === 'resume' || id === 'photography') {
-        const defaultW = id === 'about' ? 1260 : (id === 'photography' ? 980 : (id === 'resume' ? 880 : 960));
-        const defaultH = id === 'about' ? 760 : (id === 'photography' ? 640 : (id === 'resume' ? 620 : 640));
+      if (id === 'projects' || id === 'playground' || id === 'about' || id === 'resume' || id === 'photography') {
+        const defaultW = id === 'about' ? 1260 : (id === 'projects' ? 1240 : (id === 'photography' ? 980 : (id === 'resume' ? 880 : 960)));
+        const defaultH = id === 'about' ? 760 : (id === 'projects' ? 780 : (id === 'photography' ? 640 : (id === 'resume' ? 620 : 640)));
         const winW = Math.min(window.innerWidth - 30, defaultW);
         const winH = Math.min(window.innerHeight - 70, defaultH);
         const posX = Math.max(10, Math.round((window.innerWidth - winW) / 2));
