@@ -26,7 +26,7 @@
   <!-- Core Stylesheets -->
   <link rel="stylesheet" href="css/styles.css?v=43">
   <link rel="stylesheet" href="css/boot-welcome.css?v=33">
-  <link rel="stylesheet" href="css/apps.css?v=51">
+  <link rel="stylesheet" href="css/apps.css?v=52">
 </head>
 
 <body>
@@ -1986,31 +1986,63 @@
         </div>
       </div>
 
-      <div class="window-content">
-        <div class="photo-gallery-wrap">
-          <div class="photo-toolbar">
-            <div style="display:flex; align-items:center; gap:8px;">
-              <span style="font-weight:600; color:#0f172a; font-size:0.85rem;">Photography</span>
-              <span style="font-size:0.75rem; color:#64748b; background:#e2e8f0; padding:2px 8px; border-radius:999px; font-weight:600;">36 Pictures</span>
+      <div class="window-content" style="background: #191919; display: flex; flex-direction: column; overflow: hidden;">
+        <div class="win-photo-explorer-wrap">
+          <!-- Windows Explorer Ribbon / Address Bar -->
+          <div class="win-explorer-addressbar">
+            <div class="win-exp-nav-btns">
+              <button class="win-nav-icon" title="Back" type="button">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 18-6-6 6-6"/></svg>
+              </button>
+              <button class="win-nav-icon" title="Forward" type="button">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>
+              </button>
+              <button class="win-nav-icon" title="Up" type="button">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m18 15-6-6-6 6"/></svg>
+              </button>
             </div>
-            <div style="display:flex; align-items:center; gap:12px;">
-              <button type="button" id="btn-open-studio-jury" style="cursor:pointer; display:inline-flex; align-items:center; gap:5px; background:linear-gradient(135deg, #0f172a, #1e293b); color:#f8fafc; border:1px solid #334155; border-radius:6px; padding:3px 10px; font-size:0.72rem; font-weight:600;">
+            
+            <div class="win-exp-path-box">
+              <span class="win-path-segment"><svg width="14" height="14" viewBox="0 0 24 24" fill="#0284c7"><path d="M10 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-8l-2-2z"/></svg> Pictures</span>
+              <span class="win-path-sep">›</span>
+              <span class="win-path-segment current">photography 100</span>
+            </div>
+
+            <div class="win-exp-actions">
+              <button type="button" id="btn-open-studio-jury" class="win-exp-action-btn">
                 <span>✦ Studio Jury Site ↗</span>
               </button>
-              <div style="font-size:0.75rem; color:#64748b;">Click any picture to expand</div>
+              <div class="win-exp-search">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#94a3b8" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                <input type="text" id="photo-search-input" placeholder="Search photography 100" autocomplete="off" spellcheck="false">
+              </div>
             </div>
           </div>
 
-          <div class="photo-grid-container">
-            <div class="photo-grid" id="photo-cards-container">
-              <!-- Rendered dynamically by apps.js with pure pictures and NO captions -->
+          <!-- Windows Dark Grid Container -->
+          <div class="win-photo-grid-scroll">
+            <div class="win-photo-grid" id="photo-cards-container">
+              <!-- Rendered dynamically as Windows thumbnail cards with filename labels -->
+            </div>
+          </div>
+
+          <!-- Windows Explorer Status Bar -->
+          <div class="win-explorer-statusbar">
+            <div class="win-status-left">
+              <span id="win-photo-count">80 items</span>
+              <span class="win-status-divider">|</span>
+              <span id="win-photo-selected">1 item selected</span>
+            </div>
+            <div class="win-status-right">
+              <span class="win-view-mode-icon active" title="Large icons">☷</span>
+              <span class="win-view-mode-icon" title="Details">☰</span>
             </div>
           </div>
 
           <!-- Lightbox Modal inside Photos App (Pure Image, Zero Captions) -->
           <div class="photo-lightbox" id="photo-lightbox">
             <div class="lightbox-topbar">
-              <div></div>
+              <div class="lightbox-file-title" id="lightbox-file-title">Photo Preview</div>
               <button class="lightbox-close-btn" id="lightbox-close-btn" title="Close Preview">✕ Close</button>
             </div>
             <div class="lightbox-body-clean" id="lightbox-body">
@@ -2622,8 +2654,8 @@
 
   <!-- Core Script Modules -->
   <script src="js/audio.js"></script>
-  <script src="js/window-manager.js?v=35"></script>
-  <script src="js/apps.js?v=47"></script>
+  <script src="js/window-manager.js?v=36"></script>
+  <script src="js/apps.js?v=48"></script>
   <script src="js/main.js?v=46"></script>
   <script src="js/welcome.js?v=33"></script>
   <script src="js/owl-companion.js?v=33"></script>
