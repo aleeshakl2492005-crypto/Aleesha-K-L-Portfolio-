@@ -23,7 +23,7 @@ const PORTFOLIO_DATA = {
     education: {
       degree: "Bachelor of Design (B.Des), Fashion Communication",
       school: "NIFT Kannur",
-      years: "2023 â€“ 2027",
+      years: "2023 Ã¢â‚¬â€œ 2027",
       cgpa: "8.6 / 10",
       status: "Currently in 4th year | Minor: Masters of Design"
     },
@@ -33,7 +33,7 @@ const PORTFOLIO_DATA = {
   projects: [
     {
       id: "radio-mango",
-      title: "Radio Mango Ã— Spadikam Onam",
+      title: "Radio Mango Ãƒâ€” Spadikam Onam",
       subtitle: "Bharath Benz Truck 3D Event & Set Design",
       category: "3D Spatial",
       badge: "3D Event & Set Design",
@@ -54,18 +54,18 @@ const PORTFOLIO_DATA = {
     {
       id: "emak-awards",
       title: "EMAK Silent Hero Awards",
-      subtitle: "Grand Stage Design â€” Hyatt Regency, Thrissur",
+      subtitle: "Grand Stage Design Ã¢â‚¬â€ Hyatt Regency, Thrissur",
       category: "3D Spatial",
       badge: "3D Stage Design",
       isMajor: true,
       img: "assets/ChatGPT Image Aug 13, 2026, 06_14_26 PM.png",
       tools: ["Blender", "Stage Architecture", "Photorealistic Renders", "Sightline Optimization"],
       year: "2026",
-      desc: "Architected a monumental 3D stage concept for a 60 Ã— 30 ft stage within a 100 Ã— 80 ft grand hall at Hyatt Regency, Thrissur.",
+      desc: "Architected a monumental 3D stage concept for a 60 Ãƒâ€” 30 ft stage within a 100 Ãƒâ€” 80 ft grand hall at Hyatt Regency, Thrissur.",
       challenge: "Balancing unobstructed sightlines for over 600 VIP attendees, large LED backdrop projection, and award podium ergonomics.",
       solution: "Utilized cinematic scale grading, stepped multi-tier LED panels, and balanced ambient lighting to craft an awe-inspiring awards experience.",
       deliverables: [
-        "Parametric stage models with 60 Ã— 30 ft footprint",
+        "Parametric stage models with 60 Ãƒâ€” 30 ft footprint",
         "High-definition photorealistic 3D presentation visualisations",
         "Sightline cone analysis diagrams for venue seating"
       ],
@@ -73,7 +73,7 @@ const PORTFOLIO_DATA = {
     },
     {
       id: "neithi-stall",
-      title: "Neithi â€” 3D Exhibition Stall Design",
+      title: "Neithi Ã¢â‚¬â€ 3D Exhibition Stall Design",
       subtitle: "Contemporary Craft & Brand Pavilion",
       category: "3D Spatial",
       badge: "3D Spatial Design",
@@ -113,7 +113,7 @@ const PORTFOLIO_DATA = {
     },
     {
       id: "chendamangalam",
-      title: "CRD Documentation â€” DIATE Publication",
+      title: "CRD Documentation Ã¢â‚¬â€ DIATE Publication",
       subtitle: "Editorial Publication & Digital Preservation",
       category: "Editorial",
       badge: "InDesign & Web",
@@ -132,7 +132,7 @@ const PORTFOLIO_DATA = {
     },
     {
       id: "playing-cards",
-      title: "Playing Cards â€” Illustrated Graphic Deck",
+      title: "Playing Cards Ã¢â‚¬â€ Illustrated Graphic Deck",
       subtitle: "Contemporary Folklore & Visual Storytelling",
       category: "Editorial & Visual",
       badge: "Visual Design",
@@ -151,7 +151,7 @@ const PORTFOLIO_DATA = {
     },
     {
       id: "madham",
-      title: "MADHAM â€” Spatial Brand Architecture",
+      title: "MADHAM Ã¢â‚¬â€ Spatial Brand Architecture",
       subtitle: "Contemporary Brand Activation & Pavilion Design",
       category: "3D Spatial",
       badge: "Spatial Experience",
@@ -190,6 +190,114 @@ const PORTFOLIO_DATA = {
   ],
 
   photography: [
+    {
+        "img":  "photography/anarkali.webp",
+        "name":  "anarkali.webp",
+        "id":  "anarkali",
+        "thumb":  "photography/thumbs/anarkali.jpg"
+    },
+    {
+        "img":  "photography/DSC04887.webp",
+        "name":  "DSC04887.webp",
+        "id":  "DSC04887",
+        "thumb":  "photography/thumbs/DSC04887.jpg"
+    },
+    {
+        "img":  "photography/DSC04915_1.webp",
+        "name":  "DSC04915_1.webp",
+        "id":  "DSC04915_1",
+        "thumb":  "photography/thumbs/DSC04915_1.jpg"
+    },
+    {
+        "img":  "photography/DSC04968.webp",
+        "name":  "DSC04968.webp",
+        "id":  "DSC04968",
+        "thumb":  "photography/thumbs/DSC04968.jpg"
+    },
+    {
+        "img":  "photography/DSC04978 (1).webp",
+        "name":  "DSC04978 (1).webp",
+        "id":  "DSC04978",
+        "thumb":  "photography/thumbs/DSC04978 (1).jpg"
+    },
+    {
+        "img":  "photography/lessy.webp",
+        "name":  "lessy.webp",
+        "id":  "lessy",
+        "thumb":  "photography/thumbs/lessy.jpg"
+    },
+    {
+        "img":  "photography/mini.webp",
+        "name":  "mini.webp",
+        "id":  "mini",
+        "thumb":  "photography/thumbs/mini.jpg"
+    },
+    {
+        "img":  "photography/mohan p c.webp",
+        "name":  "mohan p c.webp",
+        "id":  "mohan_p_c",
+        "thumb":  "photography/thumbs/mohan p c.jpg"
+    },
+    {
+        "img":  "photography/EDITORIAL.png",
+        "name":  "EDITORIAL.png",
+        "id":  "EDITORIAL",
+        "thumb":  "photography/thumbs/EDITORIAL.jpg"
+    },
+    {
+        "img":  "photography/fashionshoot_.png",
+        "name":  "fashionshoot_.png",
+        "id":  "fashionshoot_",
+        "thumb":  "photography/thumbs/fashionshoot_.jpg"
+    },
+    {
+        "img":  "photography/Bblunt.finalpng.png",
+        "name":  "Bblunt.finalpng.png",
+        "id":  "Bblunt",
+        "thumb":  "photography/thumbs/Bblunt.finalpng.jpg"
+    },
+    {
+        "img":  "photography/Photo Background Teen Magazine Cover (1).png",
+        "name":  "Photo Background Teen Magazine Cover (1).png",
+        "id":  "Teen_Magazine",
+        "thumb":  "photography/thumbs/Photo Background Teen Magazine Cover (1).jpg"
+    },
+    {
+        "img":  "photography/Picnic.png",
+        "name":  "Picnic.png",
+        "id":  "Picnic",
+        "thumb":  "photography/thumbs/Picnic.jpg"
+    },
+    {
+        "img":  "photography/mirandaFINAL.png",
+        "name":  "mirandaFINAL.png",
+        "id":  "miranda",
+        "thumb":  "photography/thumbs/mirandaFINAL.jpg"
+    },
+    {
+        "img":  "photography/babanana.png",
+        "name":  "babanana.png",
+        "id":  "babanana",
+        "thumb":  "photography/thumbs/babanana.jpg"
+    },
+    {
+        "img":  "photography/final.png",
+        "name":  "final.png",
+        "id":  "final",
+        "thumb":  "photography/thumbs/final.jpg"
+    },
+    {
+        "img":  "photography/nothing.finalpng.png",
+        "name":  "nothing.finalpng.png",
+        "id":  "nothing",
+        "thumb":  "photography/thumbs/nothing.finalpng.jpg"
+    },
+    {
+        "img":  "photography/BABA NANA.jpg",
+        "name":  "BABA NANA.jpg",
+        "id":  "BABA_NANA",
+        "thumb":  "photography/thumbs/BABA NANA.jpg"
+    },
     {
         "id":  "_DSC0013",
         "name":  "_DSC0013.JPG",
@@ -709,7 +817,7 @@ const PORTFOLIO_DATA = {
     },
     {
       id: "pg-cards",
-      title: "Illustrated Playing Cards â€” Contemporary Folklore Deck",
+      title: "Illustrated Playing Cards Ã¢â‚¬â€ Contemporary Folklore Deck",
       category: "graphic",
       categoryLabel: "Graphic Design",
       img: "assets/thumb_desktop_playground.png",
@@ -750,7 +858,7 @@ const PORTFOLIO_DATA = {
       format: "Hardcover Book & Spreads",
       hasSite: true,
       siteUrl: "beyond the brief/book-projects/elle-29th-anniversary/index.html",
-      siteTitle: "ELLE 29th Anniversary Concept Issue â€” Interactive Publication",
+      siteTitle: "ELLE 29th Anniversary Concept Issue Ã¢â‚¬â€ Interactive Publication",
       file: "beyond the brief/Elle Magazine  (1).pdf",
       fileName: "Elle Magazine  (1).pdf",
       size: "260 MB",
@@ -768,7 +876,7 @@ const PORTFOLIO_DATA = {
       format: "Interactive Case Study",
       hasSite: true,
       siteUrl: "beyond the brief/Apple Health Redesign/index.html",
-      siteTitle: "Apple Health App Redesign â€” Interactive UI/UX Case Study",
+      siteTitle: "Apple Health App Redesign Ã¢â‚¬â€ Interactive UI/UX Case Study",
       file: "beyond the brief/Apple health app jury.pdf",
       fileName: "Apple health app jury.pdf",
       size: "207 MB",
@@ -786,7 +894,7 @@ const PORTFOLIO_DATA = {
       format: "Interactive Case Study",
       hasSite: true,
       siteUrl: "beyond the brief/Goodreads Redesign/index.html",
-      siteTitle: "Goodreads Mobile App Redesign â€” Interactive UI/UX Case Study",
+      siteTitle: "Goodreads Mobile App Redesign Ã¢â‚¬â€ Interactive UI/UX Case Study",
       file: "beyond the brief/Goodreads_UIUX_Redesign.pptx (2).pdf",
       fileName: "Goodreads_UIUX_Redesign.pptx (2).pdf",
       size: "14 MB",
@@ -797,20 +905,20 @@ const PORTFOLIO_DATA = {
     },
     {
       id: "by-crumbs",
-      title: "Crumbs â€” Food Rescue App UX/UI Case Study",
+      title: "Crumbs Ã¢â‚¬â€ Food Rescue App UX/UI Case Study",
       category: "uiux",
       categoryLabel: "UI/UX & Mobile App",
       badge: "UX/UI Case Study",
       format: "Interactive Case Study",
       hasSite: true,
       siteUrl: "beyond the brief/Crumbs Food Rescue App/index.html",
-      siteTitle: "Crumbs Food Rescue App â€” Interactive UI/UX Case Study",
+      siteTitle: "Crumbs Food Rescue App Ã¢â‚¬â€ Interactive UI/UX Case Study",
       file: "beyond the brief/crumbs.pdf",
       fileName: "crumbs.pdf",
       size: "28 MB",
       img: "assets/beyond/crumbs.jpg",
       tools: ["Figma", "User Research", "Wireframing", "Food Rescue Flows", "Information Architecture"],
-      desc: "â€œGood food deserves a second chanceâ€ â€” Food rescue mobile interface connecting local bakeries, cafes, and grocery stores with consumers to combat food waste.",
+      desc: "Ã¢â‚¬Å“Good food deserves a second chanceÃ¢â‚¬Â Ã¢â‚¬â€ Food rescue mobile interface connecting local bakeries, cafes, and grocery stores with consumers to combat food waste.",
       process: "Conducted field research on retail surplus schedules, designed reserve-and-collect time slots, and simplified discounted meal checkout."
     },
     {
@@ -822,7 +930,7 @@ const PORTFOLIO_DATA = {
       format: "Corporate Identity Book",
       hasSite: true,
       siteUrl: "beyond the brief/book-projects/nift-graduation-show-2026/index.html",
-      siteTitle: "NIFT Graduation Show 2026 â€” Interactive Brand Guidelines",
+      siteTitle: "NIFT Graduation Show 2026 Ã¢â‚¬â€ Interactive Brand Guidelines",
       file: "beyond the brief/BRAND MANUAL final.pdf",
       fileName: "BRAND MANUAL final.pdf",
       size: "12.5 MB",
@@ -833,14 +941,14 @@ const PORTFOLIO_DATA = {
     },
     {
       id: "by-say-yes",
-      title: "Say Yes to the Right Dress â€” Aâ€“Z Bridal Fashion Glossary Book",
+      title: "Say Yes to the Right Dress Ã¢â‚¬â€ AÃ¢â‚¬â€œZ Bridal Fashion Glossary Book",
       category: "books",
       categoryLabel: "Books & Publications",
       badge: "Bridal Fashion Glossary",
       format: "Softcover Lookbook",
       hasSite: true,
       siteUrl: "beyond the brief/book-projects/say-yes-to-the-right-dress/index.html",
-      siteTitle: "Say Yes to the Right Dress â€” Interactive Bridal Glossary",
+      siteTitle: "Say Yes to the Right Dress Ã¢â‚¬â€ Interactive Bridal Glossary",
       file: "beyond the brief/Say yes to the right dress_aleesha.pdf",
       fileName: "Say yes to the right dress_aleesha.pdf",
       size: "28.8 MB",
@@ -851,14 +959,14 @@ const PORTFOLIO_DATA = {
     },
     {
       id: "by-tarot",
-      title: "Flames of Theyyam â€” Illustrated Ritual Oracle Deck & Guidebook",
+      title: "Flames of Theyyam Ã¢â‚¬â€ Illustrated Ritual Oracle Deck & Guidebook",
       category: "books",
       categoryLabel: "Books & Publications",
       badge: "Illustrated Oracle Deck",
       format: "12-Card Deck + Box",
       hasSite: true,
       siteUrl: "beyond the brief/flames-of-theyyam/index.html",
-      siteTitle: "Flames of Theyyam â€” 12-Card Ritual Oracle Deck Case Study",
+      siteTitle: "Flames of Theyyam Ã¢â‚¬â€ 12-Card Ritual Oracle Deck Case Study",
       file: "beyond the brief/TAROT CARDS.pdf",
       fileName: "TAROT CARDS.pdf",
       size: "19.2 MB",
@@ -869,14 +977,14 @@ const PORTFOLIO_DATA = {
     },
     {
       id: "by-studio-photo",
-      title: "Studio Photography Jury â€” Lighting Techniques & Commercial Shoots",
+      title: "Studio Photography Jury Ã¢â‚¬â€ Lighting Techniques & Commercial Shoots",
       category: "photography",
       categoryLabel: "Editorial & Commercial Photography",
       badge: "Photography Exhibition",
       format: "Interactive Contact Sheet",
       hasSite: true,
       siteUrl: "beyond the brief/studio-photography-site/site/index.html",
-      siteTitle: "Studio Photography Jury â€” Contact Sheet Interactive Exhibition",
+      siteTitle: "Studio Photography Jury Ã¢â‚¬â€ Contact Sheet Interactive Exhibition",
       img: "beyond the brief/studio-photography-site/site/img/fashion-cover.webp",
       tools: ["Studio Strobe Lighting", "Light Modifiers", "Product Framing", "Darkroom Printing"],
       desc: "Editorial and commercial studio lighting exhibition: lighting diagrams, contact sheets, raw-to-final retouches (Bblunt, Mirinda, Nothing, Babanana), and magazine cover spreads.",
@@ -906,14 +1014,14 @@ const SOLARI_PROJECTS_DATA = [
     accent: "#7c3aed",
     timeline: "1 Week (Rapid Turnaround)",
     venue: "Grand Ballroom, Hyatt Regency Thrissur",
-    dimensions: "Stage: 60ft Ã— 30ft | Venue: 100ft Ã— 80ft | Seating: 600+ VIPs",
+    dimensions: "Stage: 60ft Ãƒâ€” 30ft | Venue: 100ft Ãƒâ€” 80ft | Seating: 600+ VIPs",
     client: "EMAK (Event Management Association of Kerala)",
     role: "Lead 3D Spatial & Stage Visualiser (Internship Project)",
     software: ["Autodesk Fusion 360", "SketchUp", "Adobe Photoshop"],
     tags: ["Awards Ceremony", "Cultural Motifs", "LED Scenography", "Sightline Engineering"],
     heroThumb: "rainmaker-case-studies/emak/assets/hero.jpg",
     caseStudyUrl: "rainmaker-case-studies/emak/index.html",
-    brief: "The brief was to create a grand, elegant, and visually engaging stage suitable for an award ceremony. The design had to complement the scale and ambience of the indoor venue while providing a strong focal point for presentations and award distribution. It needed to accommodate a large LED backdrop, multi-tier presenter podiums, and seamless backstage access for awardees while maintaining strict 600+ attendee sightline clearances across the 100 Ã— 80 ft grand hall.",
+    brief: "The brief was to create a grand, elegant, and visually engaging stage suitable for an award ceremony. The design had to complement the scale and ambience of the indoor venue while providing a strong focal point for presentations and award distribution. It needed to accommodate a large LED backdrop, multi-tier presenter podiums, and seamless backstage access for awardees while maintaining strict 600+ attendee sightline clearances across the 100 Ãƒâ€” 80 ft grand hall.",
     concept: "Inspired by the cultural richness of Thrissur. Elements such as elephants, vallam (snake boats), and Thrissur Pooram were combined with traditional motifs, geometric patterns, and a regal deep purple palette to create a contemporary yet culturally rooted awards-show experience. Multi-tier LED screens frame the stage, while high-gloss acrylic flooring reflects atmospheric cove lighting, establishing an elevated, prestigious aura.",
     execution: "Engineered parametric CAD frameworks to balance vertical clearance with ballroom chandeliers. Custom 3D decorative elephant silhouettes were modeled with backlighting to flank the central presentation screen. The award podium was ergonomically positioned to preserve unobstructed sightlines for both live attendees and broadcast camera angles.",
     materials: [
@@ -925,10 +1033,10 @@ const SOLARI_PROJECTS_DATA = [
       "Truss-Mounted Automated Spotlights"
     ],
     mediaTabs: [
-      { id: "renders", label: "ðŸ–¼ï¸ 3D Visualisation Renders (5 Views)", type: "gallery" }
+      { id: "renders", label: "Ã°Å¸â€“Â¼Ã¯Â¸Â 3D Visualisation Renders (5 Views)", type: "gallery" }
     ],
     renders: [
-      { src: "assets/ChatGPT Image Aug 13, 2026, 11_32_08 AM.png", title: "EMAK Main Stage Perspective â€” Full Venue View" },
+      { src: "assets/ChatGPT Image Aug 13, 2026, 11_32_08 AM.png", title: "EMAK Main Stage Perspective Ã¢â‚¬â€ Full Venue View" },
       { src: "assets/ChatGPT Image Aug 13, 2026, 11_34_15 AM.png", title: "Stage Lighting & 3/4 Perspective Scenography" },
       { src: "assets/ChatGPT Image Aug 13, 2026, 11_39_51 AM.png", title: "Podium & Presenter Sightline View" },
       { src: "assets/ChatGPT Image Aug 13, 2026, 11_42_01 AM.png", title: "Atmospheric Illumination & Chandelier Lighting" },
@@ -940,7 +1048,7 @@ const SOLARI_PROJECTS_DATA = [
     alias: ["neithi-stall"],
     num: "02",
     tabName: "NEITHI STALL",
-    stripItems: ["âœ¨ 3D GLB Orbit View", "Interactive Discovery", "Spin The Bottle", "3D Walkthrough", "2 Weeks"],
+    stripItems: ["Ã¢Å“Â¨ 3D GLB Orbit View", "Interactive Discovery", "Spin The Bottle", "3D Walkthrough", "2 Weeks"],
     title: "Neithi Exhibition Stall Design",
     subtitle: "Contemporary Commercial Brand Pavilion with Interactive Discovery & 3D Walkthrough Animation",
     category: "Commercial Exhibition / Spatial Merchandising",
@@ -949,7 +1057,7 @@ const SOLARI_PROJECTS_DATA = [
     accent: "#059669",
     timeline: "2 Weeks (Complete Modeling, Lighting & Animation Walkthrough)",
     venue: "Trade Expo Centre / Commercial Pavilion",
-    dimensions: "6m Ã— 4m Booth Perimeter (24 sqm footprint)",
+    dimensions: "6m Ãƒâ€” 4m Booth Perimeter (24 sqm footprint)",
     client: "Neithi Natural Hair & Skincare Brand",
     role: "3D Spatial Designer, Merchandiser & 3D Animator",
     software: ["Autodesk Fusion 360", "Blender", "Adobe Illustrator", "Premiere Pro"],
@@ -970,8 +1078,8 @@ const SOLARI_PROJECTS_DATA = [
       "Living Botanical Greenery Planters"
     ],
     mediaTabs: [
-      { id: "video", label: "ðŸŽ¬ 3D Walkthrough Animation", type: "video" },
-      { id: "renders", label: "ðŸ–¼ï¸ 3D Stall Renders (5 Views)", type: "gallery" }
+      { id: "video", label: "Ã°Å¸Å½Â¬ 3D Walkthrough Animation", type: "video" },
+      { id: "renders", label: "Ã°Å¸â€“Â¼Ã¯Â¸Â 3D Stall Renders (5 Views)", type: "gallery" }
     ],
     renders: [
       { src: "assets/ChatGPT Image Aug 14, 2026, 01_08_56 AM.png", title: "Neithi Pavilion Isometric View & Main Entrance" },
@@ -986,7 +1094,7 @@ const SOLARI_PROJECTS_DATA = [
     alias: ["radio-mango", "thira"],
     num: "03",
     tabName: "RADIO MANGO THIRA",
-    stripItems: ["âœ¨ 3D Orbit Models", "Cinema Spadikam", "Pulikali Imagery", "Video Reel", "1 Week"],
+    stripItems: ["Ã¢Å“Â¨ 3D Orbit Models", "Cinema Spadikam", "Pulikali Imagery", "Video Reel", "1 Week"],
     title: "Radio Mango Thira 2026",
     subtitle: "Experiential Mobile Stage Architecture on a Heavy Commercial Vehicle Chassis",
     category: "Experiential Mobile Architecture / Roadshow",
@@ -995,7 +1103,7 @@ const SOLARI_PROJECTS_DATA = [
     accent: "#0284c7",
     timeline: "1 Week (Dual Concepts, CAD Engineering & Animation Reel)",
     venue: "Kerala Statewide Street Roadshow",
-    dimensions: "Bharath Benz Heavy Vehicle Chassis (Deploys to 22ft Ã— 12ft Stage)",
+    dimensions: "Bharath Benz Heavy Vehicle Chassis (Deploys to 22ft Ãƒâ€” 12ft Stage)",
     client: "Radio Mango 91.9 FM (Malayala Manorama)",
     role: "Lead 3D Experiential & Vehicular Stage Designer",
     software: ["Autodesk Fusion 360", "SketchUp", "Adobe Illustrator", "Photoshop"],
@@ -1004,9 +1112,9 @@ const SOLARI_PROJECTS_DATA = [
     caseStudyUrl: "rainmaker-case-studies/thira/index.html",
     video: "rainmaker-case-studies/thira/assets/roadshow-20days.mp4",
     videoCaption: "Radio Mango Thira 2026 Onam Roadshow Video Reel & Dynamic Visuals",
-    brief: "An Onam-themed promotional roadshow designed to bring the energy and vibrancy of Keralaâ€™s celebrations directly to public streets across multiple districts. The promotional truck had to function as a high-impact moving visual experience and a fold-out live performance stage, incorporating tiger-inspired elements, traditional Kerala motifs, high-wattage sound rigs, dynamic lighting, and bold Radio Mango branding.",
+    brief: "An Onam-themed promotional roadshow designed to bring the energy and vibrancy of KeralaÃ¢â‚¬â„¢s celebrations directly to public streets across multiple districts. The promotional truck had to function as a high-impact moving visual experience and a fold-out live performance stage, incorporating tiger-inspired elements, traditional Kerala motifs, high-wattage sound rigs, dynamic lighting, and bold Radio Mango branding.",
     concept: "Developed two comprehensive design directions for the client: Concept 01 reimagines the iconic Spadikam movie truck ('Chacko Mash truck') as an Onam-themed roadshow vehicle with bold Pulikali graphics, vibrant Onam colors, and integrated performance platforms. Concept 02 synthesizes traditional Kerala temple architecture (sloping gabled roofs, carved wooden pillars, Kathakali crown elements) with dynamic concert lighting.",
-    execution: "Engineered fold-down hydraulic side walls that expand the truck deck into a 22ft Ã— 12ft live performance stage in under 15 minutes. Integrated rooftop acoustic line arrays, weather-sealed LED panels, and under-chassis neon ground effects. Detailed fabrication specs were produced for the steel subframe, ensuring vehicular road-safety clearances while traveling at highway speeds.",
+    execution: "Engineered fold-down hydraulic side walls that expand the truck deck into a 22ft Ãƒâ€” 12ft live performance stage in under 15 minutes. Integrated rooftop acoustic line arrays, weather-sealed LED panels, and under-chassis neon ground effects. Detailed fabrication specs were produced for the steel subframe, ensuring vehicular road-safety clearances while traveling at highway speeds.",
     materials: [
       "Reinforced Tubular Steel Stage Trussing",
       "Weather-Sealed Outdoor P4 LED Screens",
@@ -1016,31 +1124,31 @@ const SOLARI_PROJECTS_DATA = [
       "Reflective Vinyl Fleet Graphics"
     ],
     mediaTabs: [
-      { id: "concept1", label: "Concept 01 â€” Spadikam Movie Truck (10 Renders)", type: "gallery", itemsKey: "concept1Renders" },
-      { id: "concept2", label: "Concept 02 â€” Pulikali & Architecture (9 Renders)", type: "gallery", itemsKey: "concept2Renders" },
-      { id: "video", label: "ðŸŽ¬ Roadshow Video Reel", type: "video" }
+      { id: "concept1", label: "Concept 01 Ã¢â‚¬â€ Spadikam Movie Truck (10 Renders)", type: "gallery", itemsKey: "concept1Renders" },
+      { id: "concept2", label: "Concept 02 Ã¢â‚¬â€ Pulikali & Architecture (9 Renders)", type: "gallery", itemsKey: "concept2Renders" },
+      { id: "video", label: "Ã°Å¸Å½Â¬ Roadshow Video Reel", type: "video" }
     ],
     concept1Renders: [
-      { src: "assets/thira 1.1.png", title: "Concept 01 â€” Front Quarter View of Spadikam Roadshow Truck" },
-      { src: "assets/thira 1.3.png", title: "Concept 01 â€” Stage Side Panel Deployed" },
-      { src: "assets/thira 1.4.png", title: "Concept 01 â€” Rear Elevation & Radio Mango Branding" },
-      { src: "assets/thira 1.5.png", title: "Concept 01 â€” Performance Platform & DJ Booth" },
-      { src: "assets/thira 1.6.png", title: "Concept 01 â€” Street Perspective with Audience" },
-      { src: "assets/thira 1.7.png", title: "Concept 01 â€” Night Illumination & Strobe Rigs" },
-      { src: "assets/thira 1.8.png", title: "Concept 01 â€” Roof-Mounted Speaker & Truss Layout" },
-      { src: "assets/thira 1.9.png", title: "Concept 01 â€” Pulikali Tiger Graphic Detailing" },
-      { src: "assets/thira 1.10.png", title: "Concept 01 â€” Aerial Overview of Staging Geometry" }
+      { src: "assets/thira 1.1.png", title: "Concept 01 Ã¢â‚¬â€ Front Quarter View of Spadikam Roadshow Truck" },
+      { src: "assets/thira 1.3.png", title: "Concept 01 Ã¢â‚¬â€ Stage Side Panel Deployed" },
+      { src: "assets/thira 1.4.png", title: "Concept 01 Ã¢â‚¬â€ Rear Elevation & Radio Mango Branding" },
+      { src: "assets/thira 1.5.png", title: "Concept 01 Ã¢â‚¬â€ Performance Platform & DJ Booth" },
+      { src: "assets/thira 1.6.png", title: "Concept 01 Ã¢â‚¬â€ Street Perspective with Audience" },
+      { src: "assets/thira 1.7.png", title: "Concept 01 Ã¢â‚¬â€ Night Illumination & Strobe Rigs" },
+      { src: "assets/thira 1.8.png", title: "Concept 01 Ã¢â‚¬â€ Roof-Mounted Speaker & Truss Layout" },
+      { src: "assets/thira 1.9.png", title: "Concept 01 Ã¢â‚¬â€ Pulikali Tiger Graphic Detailing" },
+      { src: "assets/thira 1.10.png", title: "Concept 01 Ã¢â‚¬â€ Aerial Overview of Staging Geometry" }
     ],
     concept2Renders: [
-      { src: "assets/Thira 2.1.png", title: "Concept 02 â€” Kerala Traditional Roof & Kathakali Crown Motif" },
-      { src: "assets/Thira 2.2.png", title: "Concept 02 â€” Stage Wings & Wooden Eaves" },
-      { src: "assets/Thira 2.3.png", title: "Concept 02 â€” Side Elevation in Transit Mode" },
-      { src: "assets/Thira 2.4.png", title: "Concept 02 â€” Full Open Stage Performance Mode" },
-      { src: "assets/Thira 2.5.png", title: "Concept 02 â€” Intricate Wooden Carvings & Brass Bell Trim" },
-      { src: "assets/Thira 2.6.png", title: "Concept 02 â€” Night Performance Lighting Simulation" },
-      { src: "assets/Thira 2.7.png", title: "Concept 02 â€” DJ Staging & Sound Reinforcement" },
-      { src: "assets/Thira 2.8.png", title: "Concept 02 â€” 3D Cutaway of Mechanical Fold-Out System" },
-      { src: "assets/Thira 2.9.png", title: "Concept 02 â€” Roadshow Showcase View" }
+      { src: "assets/Thira 2.1.png", title: "Concept 02 Ã¢â‚¬â€ Kerala Traditional Roof & Kathakali Crown Motif" },
+      { src: "assets/Thira 2.2.png", title: "Concept 02 Ã¢â‚¬â€ Stage Wings & Wooden Eaves" },
+      { src: "assets/Thira 2.3.png", title: "Concept 02 Ã¢â‚¬â€ Side Elevation in Transit Mode" },
+      { src: "assets/Thira 2.4.png", title: "Concept 02 Ã¢â‚¬â€ Full Open Stage Performance Mode" },
+      { src: "assets/Thira 2.5.png", title: "Concept 02 Ã¢â‚¬â€ Intricate Wooden Carvings & Brass Bell Trim" },
+      { src: "assets/Thira 2.6.png", title: "Concept 02 Ã¢â‚¬â€ Night Performance Lighting Simulation" },
+      { src: "assets/Thira 2.7.png", title: "Concept 02 Ã¢â‚¬â€ DJ Staging & Sound Reinforcement" },
+      { src: "assets/Thira 2.8.png", title: "Concept 02 Ã¢â‚¬â€ 3D Cutaway of Mechanical Fold-Out System" },
+      { src: "assets/Thira 2.9.png", title: "Concept 02 Ã¢â‚¬â€ Roadshow Showcase View" }
     ]
   },
   {
@@ -1057,7 +1165,7 @@ const SOLARI_PROJECTS_DATA = [
     accent: "#ca8a04",
     timeline: "1 Week (Volumetric CAD, Temple Research & Lighting)",
     venue: "Indoor Convention Centre / Grand Auditorium",
-    dimensions: "40ft Ã— 25ft Mandap Footprint (Layered 3-tier elevation)",
+    dimensions: "40ft Ãƒâ€” 25ft Mandap Footprint (Layered 3-tier elevation)",
     client: "Private Wedding Commission / Luxury Event Production",
     role: "3D Wedding Stage Architect & Spatial Visualiser",
     software: ["Autodesk Fusion 360", "SketchUp", "Adobe Photoshop"],
@@ -1076,10 +1184,10 @@ const SOLARI_PROJECTS_DATA = [
       "Fresh Yellow Marigold, White Jasmine & Lotus Florals"
     ],
     mediaTabs: [
-      { id: "renders", label: "ðŸ–¼ï¸ Mandap Visualisation Renders (5 Views)", type: "gallery" }
+      { id: "renders", label: "Ã°Å¸â€“Â¼Ã¯Â¸Â Mandap Visualisation Renders (5 Views)", type: "gallery" }
     ],
     renders: [
-      { src: "assets/ChatGPT Image Aug 14, 2026, 01_30_49 AM.png", title: "Mandap Frontal Perspective â€” Grand Temple Gopuram Roof" },
+      { src: "assets/ChatGPT Image Aug 14, 2026, 01_30_49 AM.png", title: "Mandap Frontal Perspective Ã¢â‚¬â€ Grand Temple Gopuram Roof" },
       { src: "assets/ChatGPT Image Aug 14, 2026, 01_36_55 AM.png", title: "Pillar Detailing & Tulasi Thara Sacred Centrepiece" },
       { src: "assets/ChatGPT Image Aug 14, 2026, 01_39_43 AM.png", title: "Mural Artwork Backdrop & Warm Golden Illumination" },
       { src: "assets/ChatGPT Image Aug 14, 2026, 01_46_14 AM.png", title: "Ceremonial Seating & Floral Canopy Details" },
@@ -1091,24 +1199,24 @@ const SOLARI_PROJECTS_DATA = [
     alias: ["anime-birthday", "anime-party"],
     num: "05",
     tabName: "ANIME BIRTHDAY PARTY",
-    stripItems: ["Naruto & PokÃ©mon", "Layered Backdrops", "Neon Illumination", "Character Visuals", "1 Week"],
+    stripItems: ["Naruto & PokÃƒÂ©mon", "Layered Backdrops", "Neon Illumination", "Character Visuals", "1 Week"],
     title: "Anime Themed Birthday Celebration",
-    subtitle: "Immersive Entertainment Realm Blending Naruto, PokÃ©mon & Cyberpunk Lighting Design",
+    subtitle: "Immersive Entertainment Realm Blending Naruto, PokÃƒÂ©mon & Cyberpunk Lighting Design",
     category: "Experiential Event / Spatial Lighting Design",
     color: "#fbcfe8",
     bg: "#fff1f2",
     accent: "#db2777",
     timeline: "1 Week (Themed Concepts, Character Assets & 3D Stage)",
     venue: "Indoor Banquet Hall & Entertainment Pavilion",
-    dimensions: "Stage: 32ft Ã— 18ft | Activity & Photobooth Zone: 400 sqm",
+    dimensions: "Stage: 32ft Ãƒâ€” 18ft | Activity & Photobooth Zone: 400 sqm",
     client: "Private Celebration Commission",
     role: "3D Themed Stage & Spatial Lighting Designer",
     software: ["Autodesk Fusion 360", "SketchUp", "Adobe Photoshop", "Adobe Illustrator"],
-    tags: ["Anime Stage", "Naruto & PokÃ©mon", "Neon Flex Scenography", "Interactive Photo Ops", "Lighting Design"],
+    tags: ["Anime Stage", "Naruto & PokÃƒÂ©mon", "Neon Flex Scenography", "Interactive Photo Ops", "Lighting Design"],
     heroThumb: "rainmaker-case-studies/anime/assets/hero.jpg",
     caseStudyUrl: "rainmaker-case-studies/anime/index.html",
     brief: "To create an energetic, highly imaginative birthday celebration realm based on a contemporary anime theme for Vedanth ('Okayeri Vedanth'). Designed for Rainmaker Signature Experiences, translating beloved animation aesthetics into a tangible physical space with Torii gate arches, character entry tunnels, themed dining, and immersive stage scenography.",
-    concept: "Inspired by iconic anime universes including Naruto, One Piece, PokÃ©mon, Demon Slayer, and Studio Ghibli. Vibrant Japanese torii structures, cherry blossom trees, Japanese typography, and life-size character cutouts (Luffy, Pikachu, Totoro, Zenitsu, Umbreon) brought the celebration to life.",
+    concept: "Inspired by iconic anime universes including Naruto, One Piece, PokÃƒÂ©mon, Demon Slayer, and Studio Ghibli. Vibrant Japanese torii structures, cherry blossom trees, Japanese typography, and life-size character cutouts (Luffy, Pikachu, Totoro, Zenitsu, Umbreon) brought the celebration to life.",
     execution: "Engineered a monumental circular sunburst stage flanked by double-tier Torii gate pillars draped in pink cherry blossoms, accompanied by an outdoor Torii welcome portal, an arched anime character tunnel walkway, and bespoke manga-cube centerpieces on vibrant orange velvet dining setups.",
     materials: [
       "Custom Japanese Torii Wooden Gate Portals with Cobalt Curved Roofs",
@@ -1119,15 +1227,15 @@ const SOLARI_PROJECTS_DATA = [
       "Staged Atmospheric Outdoor Spotlights & Wash Fixtures"
     ],
     mediaTabs: [
-      { id: "renders", label: "ðŸŽ¨ 3D Stage Visualisations & Execution Photos (6 Views)", type: "gallery" }
+      { id: "renders", label: "Ã°Å¸Å½Â¨ 3D Stage Visualisations & Execution Photos (6 Views)", type: "gallery" }
     ],
     renders: [
-      { src: "assets/anime 3d 1.png", title: "3D Spatial Visualisation â€” Isometric Perspective & Stage Scenography" },
-      { src: "assets/anime 3d.png", title: "3D Spatial Visualisation â€” Frontal Elevation & Scenography Design" },
-      { src: "assets/anime 4.jpeg", title: "Event Execution Photography â€” Grand Stage Setup & Character Installations" },
-      { src: "assets/anime 1.jpeg", title: "Event Execution Photography â€” Torii Welcome Gate with Curved Roof & Lanterns" },
-      { src: "assets/anime 3.jpeg", title: "Walkway Character Archway Tunnel â€” Luffy, Umbreon, Zenitsu & Appa" },
-      { src: "assets/anime 2.jpeg", title: "Themed Dining Experience â€” Manga Art Cube Centerpiece & Stage Vista" }
+      { src: "assets/anime 3d 1.png", title: "3D Spatial Visualisation Ã¢â‚¬â€ Isometric Perspective & Stage Scenography" },
+      { src: "assets/anime 3d.png", title: "3D Spatial Visualisation Ã¢â‚¬â€ Frontal Elevation & Scenography Design" },
+      { src: "assets/anime 4.jpeg", title: "Event Execution Photography Ã¢â‚¬â€ Grand Stage Setup & Character Installations" },
+      { src: "assets/anime 1.jpeg", title: "Event Execution Photography Ã¢â‚¬â€ Torii Welcome Gate with Curved Roof & Lanterns" },
+      { src: "assets/anime 3.jpeg", title: "Walkway Character Archway Tunnel Ã¢â‚¬â€ Luffy, Umbreon, Zenitsu & Appa" },
+      { src: "assets/anime 2.jpeg", title: "Themed Dining Experience Ã¢â‚¬â€ Manga Art Cube Centerpiece & Stage Vista" }
     ]
   },
   {
@@ -1136,7 +1244,7 @@ const SOLARI_PROJECTS_DATA = [
     num: "06",
     tabName: "SARAH COHEN'S STORE",
     stripItems: ["Indo-Jewish Heritage", "Retail Interior", "Scale Model & Drawings", "728 sq.ft", "Store Redesign"],
-    title: "Sarah Cohen's Store â€” Indo-Jewish Embroidery Shop, Reimagined",
+    title: "Sarah Cohen's Store Ã¢â‚¬â€ Indo-Jewish Embroidery Shop, Reimagined",
     subtitle: "Heritage Retail Interior, Spatial Planning, Architectural Drawings, Handcrafted Scale Model & 3D Visualization",
     category: "Retail Interior & Cultural Heritage Design",
     color: "#0e4285",
@@ -1144,7 +1252,7 @@ const SOLARI_PROJECTS_DATA = [
     accent: "#eaa21c",
     timeline: "Retail Interior Studio Project",
     venue: "Jew Town, Mattancherry, Kochi, Kerala",
-    dimensions: "Total: 728 sq.ft | Main Shop: 20ft Ã— 30ft | Rear Workrooms: 16ft Ã— 8ft",
+    dimensions: "Total: 728 sq.ft | Main Shop: 20ft Ãƒâ€” 30ft | Rear Workrooms: 16ft Ãƒâ€” 8ft",
     client: "Heritage Preservation & Memorial Retail Project",
     role: "Retail Interior Designer, Spatial Planner & Architectural Modeler",
     software: ["Autodesk Fusion 360", "AutoCAD", "Physical Model Crafting", "Adobe Photoshop", "Adobe Illustrator"],
@@ -1152,7 +1260,7 @@ const SOLARI_PROJECTS_DATA = [
     heroThumb: "sarah-cohen-store/assets/render-front.jpg",
     caseStudyUrl: "sarah-cohen-store/index.html",
     brief: "Sarah Cohen was one of the last surviving members of the Paradesi Jewish community in Kochi, renowned for keeping historic traditions alive through delicate hand embroidery and warm hospitality. The brief was to reimagine her humble shop inside her Jew Town home: preserve the intimate historic warmth while expanding floor space, introducing dedicated workrooms for artisans, and establishing organized retail display zones.",
-    concept: "Drawing from the deep textile heritage of Indo-Jewish embroideryâ€”blending Hebrew calligraphy, Stars of David, and menorahs with Kerala flora and vernacular architecture. The store pairs natural cream stone facades, arched central street portals, and warm mahogany cabinetry with Jew Town sky blue accents.",
+    concept: "Drawing from the deep textile heritage of Indo-Jewish embroideryÃ¢â‚¬â€blending Hebrew calligraphy, Stars of David, and menorahs with Kerala flora and vernacular architecture. The store pairs natural cream stone facades, arched central street portals, and warm mahogany cabinetry with Jew Town sky blue accents.",
     execution: "Developed a complete 8-sheet architectural drawing set (scale 1:40, 1:30, 1:10) covering store layout, furniture, walls, floor finishes, ceiling, lighting and power. Handcrafted a precision physical scale model and rendered high-fidelity 3D exterior and interior visualisations.",
     materials: [
       "Textured Kerala Cream Lime-Plaster Stone Facade",
@@ -1163,25 +1271,25 @@ const SOLARI_PROJECTS_DATA = [
       "Custom Brass Signboard & Star of David Motifs"
     ],
     mediaTabs: [
-      { id: "renders", label: "ðŸ–¼ï¸ 3D Renders & Store Visualisations (6 Views)", type: "gallery" },
-      { id: "studio", label: "ðŸŽ® Interactive 3D Studio Experience", type: "iframe" },
-      { id: "model", label: "ðŸ“ Handcrafted Scale Model (5 Views)", type: "gallery" },
-      { id: "drawings", label: "ðŸ“‹ Architectural Drawing Sheets (8 Sheets)", type: "gallery" }
+      { id: "renders", label: "Ã°Å¸â€“Â¼Ã¯Â¸Â 3D Renders & Store Visualisations (6 Views)", type: "gallery" },
+      { id: "studio", label: "Ã°Å¸Å½Â® Interactive 3D Studio Experience", type: "iframe" },
+      { id: "model", label: "Ã°Å¸â€œÂ Handcrafted Scale Model (5 Views)", type: "gallery" },
+      { id: "drawings", label: "Ã°Å¸â€œâ€¹ Architectural Drawing Sheets (8 Sheets)", type: "gallery" }
     ],
     renders: [
-      { src: "sarah-cohen-store/assets/render-front.jpg", title: "Reimagined Shopfront Facade â€” Textured Stone, Central Arch & Displays" },
-      { src: "sarah-cohen-store/assets/render-interior-1.jpg", title: "Main Retail Floor â€” Mahogany Shelving, Cloth Displays & Checking Counter" },
+      { src: "sarah-cohen-store/assets/render-front.jpg", title: "Reimagined Shopfront Facade Ã¢â‚¬â€ Textured Stone, Central Arch & Displays" },
+      { src: "sarah-cohen-store/assets/render-interior-1.jpg", title: "Main Retail Floor Ã¢â‚¬â€ Mahogany Shelving, Cloth Displays & Checking Counter" },
       { src: "sarah-cohen-store/assets/render-interior-2.jpg", title: "Artisan Embroidery & Stitching Workroom Vista" },
-      { src: "sarah-cohen-store/assets/render-top.jpg", title: "Axonometric Top-Down Cutaway â€” Spatial Flow & Zones" },
+      { src: "sarah-cohen-store/assets/render-top.jpg", title: "Axonometric Top-Down Cutaway Ã¢â‚¬â€ Spatial Flow & Zones" },
       { src: "sarah-cohen-store/assets/render-collage-front.jpg", title: "Design Moodboard & Facade Elevation Study" },
       { src: "sarah-cohen-store/assets/render-collage-store.jpg", title: "Retail Interior Moodboard & Material Palette" }
     ],
     modelRenders: [
-      { src: "sarah-cohen-store/assets/model-final.jpg", title: "Physical Scale Model â€” Complete Handcrafted Miniature Store" },
-      { src: "sarah-cohen-store/assets/model-front.jpg", title: "Scale Model Front Elevation â€” Street Perspective & Windows" },
-      { src: "sarah-cohen-store/assets/model-top.jpg", title: "Scale Model Top-Down View â€” Internal Layout & Partitioning" },
+      { src: "sarah-cohen-store/assets/model-final.jpg", title: "Physical Scale Model Ã¢â‚¬â€ Complete Handcrafted Miniature Store" },
+      { src: "sarah-cohen-store/assets/model-front.jpg", title: "Scale Model Front Elevation Ã¢â‚¬â€ Street Perspective & Windows" },
+      { src: "sarah-cohen-store/assets/model-top.jpg", title: "Scale Model Top-Down View Ã¢â‚¬â€ Internal Layout & Partitioning" },
       { src: "sarah-cohen-store/assets/model-angle.jpg", title: "Scale Model Isometric Perspective" },
-      { src: "sarah-cohen-store/assets/model-detail.jpg", title: "Scale Model Micro-Detail â€” Furniture & Fixtures" }
+      { src: "sarah-cohen-store/assets/model-detail.jpg", title: "Scale Model Micro-Detail Ã¢â‚¬â€ Furniture & Fixtures" }
     ],
     drawingsRenders: [
       { src: "sarah-cohen-store/assets/sheet-1.png", title: "Sheet 1: Store Layout Plan (Scale 1:40)" },
@@ -1200,7 +1308,7 @@ const SOLARI_PROJECTS_DATA = [
     num: "07",
     tabName: "LUMINA CENTRE",
     stripItems: ["3D Architecture", "Phases of the Moon", "Riverfront Terrace", "Fusion 360", "Moonlit Scenography"],
-    title: "Lumina Convention Centre â€” Architectural Spatial Design",
+    title: "Lumina Convention Centre Ã¢â‚¬â€ Architectural Spatial Design",
     subtitle: "Contemporary Waterfront Convention Centre & Amphitheatre Inspired by the Phases of the Moon",
     category: "3D Architecture / Public Civic Architecture",
     color: "#0f172a",
@@ -1215,7 +1323,7 @@ const SOLARI_PROJECTS_DATA = [
     tags: ["Convention Centre", "Waterfront Architecture", "Fusion 360", "Moonlit Scenography", "Landscape Design"],
     heroThumb: "Lumina Convention Centre/assets/hero-render.jpg",
     caseStudyUrl: "Lumina Convention Centre/index.html",
-    brief: "To design an iconic riverfront convention centre capable of fluidly transforming for diverse civic eventsâ€”from intimate diplomatic summits and corporate symposiums to large-scale exhibitions, concerts, and waterfront wedding celebrations. The architecture had to integrate seamlessly with riverfront walking gardens and terraces.",
+    brief: "To design an iconic riverfront convention centre capable of fluidly transforming for diverse civic eventsÃ¢â‚¬â€from intimate diplomatic summits and corporate symposiums to large-scale exhibitions, concerts, and waterfront wedding celebrations. The architecture had to integrate seamlessly with riverfront walking gardens and terraces.",
     concept: "Inspired by the moon and its phases. Just as the moon transitions from crescent to full, the architecture adapts its spatial volume. The iconic entrance features a massive perforated glowing sphere nestled between sweeping shell-like crescent walls, while fanned roof petals echo lunar cycles.",
     execution: "Developed complex parametric surface geometries in Autodesk Fusion 360, modeling the faceted glass canopies, crescent shell walls, and the perforated moon sphere. Engineered the interior circulation around a central radial lobby connecting the dining drum, auditorium, riverside hall, and landscaped amphitheatre.",
     materials: [
@@ -1227,26 +1335,26 @@ const SOLARI_PROJECTS_DATA = [
       "Concealed Moonlight-Hue 4000K & Warm 2700K Architectural Lighting"
     ],
     mediaTabs: [
-      { id: "renders", label: "ðŸ–¼ï¸ 3D Renders & Perspectives (7 Views)", type: "gallery" },
-      { id: "studio", label: "ðŸŽ® Interactive 3D Studio Experience", type: "iframe" },
-      { id: "cad", label: "ðŸ“ CAD Models & Solid Blockouts (6 Views)", type: "gallery" }
+      { id: "renders", label: "Ã°Å¸â€“Â¼Ã¯Â¸Â 3D Renders & Perspectives (7 Views)", type: "gallery" },
+      { id: "studio", label: "Ã°Å¸Å½Â® Interactive 3D Studio Experience", type: "iframe" },
+      { id: "cad", label: "Ã°Å¸â€œÂ CAD Models & Solid Blockouts (6 Views)", type: "gallery" }
     ],
     renders: [
-      { src: "Lumina Convention Centre/assets/hero-render.jpg", title: "Main Entrance at Dusk â€” Lit Perforated Sphere & Curved Shell Plinth" },
-      { src: "Lumina Convention Centre/assets/aerial-island.jpg", title: "Waterfront Aerial Island Perspective â€” Terrace, Sunken Lounge & Jetty Pavilion" },
-      { src: "Lumina Convention Centre/assets/aerial-front.jpg", title: "Top-Down Roof View â€” Faceted Glass Wings & Spiraling Roof Petals" },
-      { src: "Lumina Convention Centre/assets/garden.jpg", title: "Outdoor Terrace & Stage â€” Arched Petal Canopy, Brass Arc Lamps & Sunken Lounge" },
-      { src: "Lumina Convention Centre/assets/lobby.jpg", title: "Central Arrival Lobby â€” Curved Walnut Wall, Travertine Desk & Bamboo Art" },
+      { src: "Lumina Convention Centre/assets/hero-render.jpg", title: "Main Entrance at Dusk Ã¢â‚¬â€ Lit Perforated Sphere & Curved Shell Plinth" },
+      { src: "Lumina Convention Centre/assets/aerial-island.jpg", title: "Waterfront Aerial Island Perspective Ã¢â‚¬â€ Terrace, Sunken Lounge & Jetty Pavilion" },
+      { src: "Lumina Convention Centre/assets/aerial-front.jpg", title: "Top-Down Roof View Ã¢â‚¬â€ Faceted Glass Wings & Spiraling Roof Petals" },
+      { src: "Lumina Convention Centre/assets/garden.jpg", title: "Outdoor Terrace & Stage Ã¢â‚¬â€ Arched Petal Canopy, Brass Arc Lamps & Sunken Lounge" },
+      { src: "Lumina Convention Centre/assets/lobby.jpg", title: "Central Arrival Lobby Ã¢â‚¬â€ Curved Walnut Wall, Travertine Desk & Bamboo Art" },
       { src: "Lumina Convention Centre/assets/dining.jpg", title: "Circular Waterfront Dining Pavilion & Skyline Vista" },
-      { src: "Lumina Convention Centre/assets/auditorium-render.jpg", title: "Grand Auditorium â€” Acoustic Timber Ribs & Tiered Audience Seating" }
+      { src: "Lumina Convention Centre/assets/auditorium-render.jpg", title: "Grand Auditorium Ã¢â‚¬â€ Acoustic Timber Ribs & Tiered Audience Seating" }
     ],
     cadRenders: [
-      { src: "Lumina Convention Centre/assets/hero-solid.jpg", title: "Solid Shaded Model â€” Main Entrance Sphere & Crescent Shell Geometry" },
-      { src: "Lumina Convention Centre/assets/layout-plan.png", title: "Architectural Layout Plan â€” Spiral Circulation & Zonal Distribution" },
-      { src: "Lumina Convention Centre/assets/model-blockout.jpg", title: "Fusion 360 Spatial Blockout â€” Shell Volumes & Plinth Elevation" },
-      { src: "Lumina Convention Centre/assets/model-terrace.jpg", title: "CAD Model â€” Terrace Arches & Sunken Amphitheatre Lounge" },
-      { src: "Lumina Convention Centre/assets/model-garden.jpg", title: "CAD Model â€” Riverfront Landscaped Pathways & Greenery" },
-      { src: "Lumina Convention Centre/assets/auditorium-solid.jpg", title: "CAD Model â€” Auditorium Shell & Sightline Clearance" }
+      { src: "Lumina Convention Centre/assets/hero-solid.jpg", title: "Solid Shaded Model Ã¢â‚¬â€ Main Entrance Sphere & Crescent Shell Geometry" },
+      { src: "Lumina Convention Centre/assets/layout-plan.png", title: "Architectural Layout Plan Ã¢â‚¬â€ Spiral Circulation & Zonal Distribution" },
+      { src: "Lumina Convention Centre/assets/model-blockout.jpg", title: "Fusion 360 Spatial Blockout Ã¢â‚¬â€ Shell Volumes & Plinth Elevation" },
+      { src: "Lumina Convention Centre/assets/model-terrace.jpg", title: "CAD Model Ã¢â‚¬â€ Terrace Arches & Sunken Amphitheatre Lounge" },
+      { src: "Lumina Convention Centre/assets/model-garden.jpg", title: "CAD Model Ã¢â‚¬â€ Riverfront Landscaped Pathways & Greenery" },
+      { src: "Lumina Convention Centre/assets/auditorium-solid.jpg", title: "CAD Model Ã¢â‚¬â€ Auditorium Shell & Sightline Clearance" }
     ]
   },
   {
@@ -1254,8 +1362,8 @@ const SOLARI_PROJECTS_DATA = [
     alias: ["beast-games-3", "beastgames", "08"],
     num: "08",
     tabName: "BEAST GAMES 3",
-    stripItems: ["Reality Show Set", "Neon Arena & Tunnels", "195 Nations", "60â€² Ã— 72â€² Set", "Fusion 360"],
-    title: "Beast Games 3: Last Flag Standing â€” Reality Show Set Design",
+    stripItems: ["Reality Show Set", "Neon Arena & Tunnels", "195 Nations", "60Ã¢â‚¬Â² Ãƒâ€” 72Ã¢â‚¬Â² Set", "Fusion 360"],
+    title: "Beast Games 3: Last Flag Standing Ã¢â‚¬â€ Reality Show Set Design",
     subtitle: "Monumental 3D Television Set, Neon Arenas, Flag Heist Dome & The Divide Competition Courses",
     category: "3D Set Design / Entertainment Scenography",
     color: "#701a75",
@@ -1263,7 +1371,7 @@ const SOLARI_PROJECTS_DATA = [
     accent: "#ff4fc3",
     timeline: "3D Set Modeling & Broadcast Lighting Concept",
     venue: "Monumental Soundstage / Arena Studio",
-    dimensions: "Site: 60ft Ã— 72ft Arena | 195 Contestants (1 Per Nation)",
+    dimensions: "Site: 60ft Ãƒâ€” 72ft Arena | 195 Contestants (1 Per Nation)",
     client: "Beast Games Concept Studio",
     role: "3D Set Designer, Spatial Planner & Lighting Visualiser",
     software: ["Autodesk Fusion 360", "Blender", "Adobe Photoshop", "Adobe Illustrator"],
@@ -1282,26 +1390,26 @@ const SOLARI_PROJECTS_DATA = [
       "Automated Overhead Moving-Head Broadcast Spotlights"
     ],
     mediaTabs: [
-      { id: "renders", label: "ðŸ–¼ï¸ 3D Renders & Arena Shots (6 Views)", type: "gallery" },
-      { id: "studio", label: "ðŸŽ® Interactive 3D Studio Experience", type: "iframe" },
-      { id: "cad", label: "ðŸ“ Solid CAD Blockouts & Clay Models (6 Views)", type: "gallery" },
-      { id: "storyboard", label: "ðŸŽ¬ Production Storyboards (4 Frames)", type: "gallery" }
+      { id: "renders", label: "Ã°Å¸â€“Â¼Ã¯Â¸Â 3D Renders & Arena Shots (6 Views)", type: "gallery" },
+      { id: "studio", label: "Ã°Å¸Å½Â® Interactive 3D Studio Experience", type: "iframe" },
+      { id: "cad", label: "Ã°Å¸â€œÂ Solid CAD Blockouts & Clay Models (6 Views)", type: "gallery" },
+      { id: "storyboard", label: "Ã°Å¸Å½Â¬ Production Storyboards (4 Frames)", type: "gallery" }
     ],
     renders: [
-      { src: "beast-games-3/assets/hero-render.jpg", title: "Main Arena Set â€” Glowing Prize Tower, Logo Gate & Dual Neon Portals" },
-      { src: "beast-games-3/assets/set-render.jpg", title: "Full Arena Stadium Perspective â€” Arena Ring & Camera Sightlines" },
-      { src: "beast-games-3/assets/heist-render.jpg", title: "Flag Heist Arena â€” Geodesic Neon Dome & Elimination Pit" },
-      { src: "beast-games-3/assets/heist-close.jpg", title: "Flag Heist Close Perspective â€” Central Podium & Neon Grid" },
-      { src: "beast-games-3/assets/divide-render.jpg", title: "The Divide Competition Course â€” Cyan & Magenta Obstacle Lanes" },
-      { src: "beast-games-3/assets/arena-render.jpg", title: "Grand Arena Wide Shot â€” Atmospheric Night Lighting" }
+      { src: "beast-games-3/assets/hero-render.jpg", title: "Main Arena Set Ã¢â‚¬â€ Glowing Prize Tower, Logo Gate & Dual Neon Portals" },
+      { src: "beast-games-3/assets/set-render.jpg", title: "Full Arena Stadium Perspective Ã¢â‚¬â€ Arena Ring & Camera Sightlines" },
+      { src: "beast-games-3/assets/heist-render.jpg", title: "Flag Heist Arena Ã¢â‚¬â€ Geodesic Neon Dome & Elimination Pit" },
+      { src: "beast-games-3/assets/heist-close.jpg", title: "Flag Heist Close Perspective Ã¢â‚¬â€ Central Podium & Neon Grid" },
+      { src: "beast-games-3/assets/divide-render.jpg", title: "The Divide Competition Course Ã¢â‚¬â€ Cyan & Magenta Obstacle Lanes" },
+      { src: "beast-games-3/assets/arena-render.jpg", title: "Grand Arena Wide Shot Ã¢â‚¬â€ Atmospheric Night Lighting" }
     ],
     cadRenders: [
-      { src: "beast-games-3/assets/hero-solid.jpg", title: "Fusion 360 Solid Model â€” Prize Tower, Main Gate & Ring" },
-      { src: "beast-games-3/assets/set-solid.jpg", title: "Solid-Shaded CAD Set â€” Scale, Circulation & Sightline Geometry" },
-      { src: "beast-games-3/assets/heist-solid.jpg", title: "Heist Dome Solid Model â€” Structural Geodesic Framing" },
-      { src: "beast-games-3/assets/divide-solid.jpg", title: "The Divide Solid CAD Model â€” Lane Clearances & Barriers" },
-      { src: "beast-games-3/assets/clay-city.jpg", title: "Clay Model View â€” Beast City Contestant Quarters" },
-      { src: "beast-games-3/assets/layout-plan.jpg", title: "Master Set Layout Plan â€” Zonal Districting (60â€² Ã— 72â€²)" }
+      { src: "beast-games-3/assets/hero-solid.jpg", title: "Fusion 360 Solid Model Ã¢â‚¬â€ Prize Tower, Main Gate & Ring" },
+      { src: "beast-games-3/assets/set-solid.jpg", title: "Solid-Shaded CAD Set Ã¢â‚¬â€ Scale, Circulation & Sightline Geometry" },
+      { src: "beast-games-3/assets/heist-solid.jpg", title: "Heist Dome Solid Model Ã¢â‚¬â€ Structural Geodesic Framing" },
+      { src: "beast-games-3/assets/divide-solid.jpg", title: "The Divide Solid CAD Model Ã¢â‚¬â€ Lane Clearances & Barriers" },
+      { src: "beast-games-3/assets/clay-city.jpg", title: "Clay Model View Ã¢â‚¬â€ Beast City Contestant Quarters" },
+      { src: "beast-games-3/assets/layout-plan.jpg", title: "Master Set Layout Plan Ã¢â‚¬â€ Zonal Districting (60Ã¢â‚¬Â² Ãƒâ€” 72Ã¢â‚¬Â²)" }
     ],
     storyboardRenders: [
       { src: "beast-games-3/assets/storyboard-1.jpg", title: "Storyboard Frame 1: Contestant Arrival & Grand Opening" },
@@ -1316,7 +1424,7 @@ const SOLARI_PROJECTS_DATA = [
     num: "09",
     tabName: "BEYOND THE BRIEF",
     stripItems: ["Books & Publications", "UI/UX Projects", "Editorial Layouts", "9 PDF Portfolios", "Figma & InDesign"],
-    title: "Beyond the Brief â€” Editorial Books & UI/UX Projects",
+    title: "Beyond the Brief Ã¢â‚¬â€ Editorial Books & UI/UX Projects",
     subtitle: "A curated collection of 9 self-published editorial books, fashion magazine spreads, brand identity manuals, and mobile app UI/UX redesigns",
     category: "Books & Publications / UI/UX Design",
     color: "#fdf2f8",
@@ -1324,13 +1432,13 @@ const SOLARI_PROJECTS_DATA = [
     accent: "#db2777",
     timeline: "Design Explorations & Publications",
     venue: "Self-Published Books & Digital Product Prototypes",
-    dimensions: "9 Full-Length Projects â€¢ 6 Books & Publications â€¢ 3 UI/UX Apps",
+    dimensions: "9 Full-Length Projects Ã¢â‚¬Â¢ 6 Books & Publications Ã¢â‚¬Â¢ 3 UI/UX Apps",
     client: "Editorial Jury, Client Brands & Concept Prototypes",
     role: "Editorial Designer, Bookmaker & Lead UI/UX Visualiser",
     software: ["Adobe InDesign", "Figma", "Adobe Illustrator", "Photoshop", "User Flows"],
     tags: ["Book Design", "Editorial Spreads", "UI/UX", "Brand Manual", "Mobile App", "Lookbook", "Tarot Deck", "Accessibility"],
     heroThumb: "assets/beyond/elle_magazine.jpg",
-    brief: "Beyond the Brief showcases Aleesha's diverse creative output spanning self-published editorial publications, fashion jury catalogs, brand identity manuals, and human-centred mobile UI/UX applications. Each project represents a complete design journeyâ€”from research and typographic pacing to print preflighting and interactive prototyping.",
+    brief: "Beyond the Brief showcases Aleesha's diverse creative output spanning self-published editorial publications, fashion jury catalogs, brand identity manuals, and human-centred mobile UI/UX applications. Each project represents a complete design journeyÃ¢â‚¬â€from research and typographic pacing to print preflighting and interactive prototyping.",
     concept: "Merging tactile editorial storytelling with digital product rigor. Editorial books celebrate typographic proportion, asymmetric grid structures, and rich paper tactile choices, while the UI/UX projects solve real-world usability challenges in health vitals, fast-fashion retail, and book communities.",
     execution: "Features 6 complete editorial publications (Elle Magazine, Crumbs, Brand Identity Manual, Say Yes to the Right Dress, Illustrated Tarot Cards, Studio Photography Jury) and 3 interactive UI/UX applications (Apple Health App Redesign, Goodreads Mobile App, Zudio App Innovation) available for inline reading and direct download.",
     materials: [
@@ -1341,9 +1449,9 @@ const SOLARI_PROJECTS_DATA = [
       "WCAG 2.1 AAA Accessibility Color Contrast Tokens"
     ],
     mediaTabs: [
-      { id: "all", label: "ðŸ“š All 9 Portfolios", type: "beyond-grid" },
-      { id: "books", label: "ðŸ“– Books & Publications (6)", type: "beyond-grid" },
-      { id: "uiux", label: "ðŸ“± UI/UX & Apps (3)", type: "beyond-grid" }
+      { id: "all", label: "Ã°Å¸â€œÅ¡ All 9 Portfolios", type: "beyond-grid" },
+      { id: "books", label: "Ã°Å¸â€œâ€“ Books & Publications (6)", type: "beyond-grid" },
+      { id: "uiux", label: "Ã°Å¸â€œÂ± UI/UX & Apps (3)", type: "beyond-grid" }
     ]
   }
 ];
@@ -1651,14 +1759,14 @@ function initSolariProjects() {
   // 4. Perched mascot speech click interactive easter egg
   const speechBubble = document.querySelector('.solari-mascot-speech');
   const speeches = [
-    "Pick a project! âœ¦",
-    "Check out EMAK Awards! âœ¦",
-    "Radio Mango truck has wheels! âœ¦",
-    "Look at the Mandap temple gables! âœ¦",
-    "Anime party has neon lights! âœ¦",
-    "Sarah Cohen store has handcrafted embroidery! âœ¦",
-    "Lumina Centre glows like the moon! âœ¦",
-    "Beast Games arena has 195 nations! âœ¦"
+    "Pick a project! Ã¢Å“Â¦",
+    "Check out EMAK Awards! Ã¢Å“Â¦",
+    "Radio Mango truck has wheels! Ã¢Å“Â¦",
+    "Look at the Mandap temple gables! Ã¢Å“Â¦",
+    "Anime party has neon lights! Ã¢Å“Â¦",
+    "Sarah Cohen store has handcrafted embroidery! Ã¢Å“Â¦",
+    "Lumina Centre glows like the moon! Ã¢Å“Â¦",
+    "Beast Games arena has 195 nations! Ã¢Å“Â¦"
   ];
   let speechIdx = 0;
   if (speechBubble) {
@@ -1754,7 +1862,7 @@ function initSolariProjects() {
     }
     const winTitle = document.querySelector('#window-projects .window-title-text');
     if (winTitle) {
-      winTitle.textContent = `${proj.num} ${proj.tabName} â€” Projects & Works`;
+      winTitle.textContent = `${proj.num} ${proj.tabName} Ã¢â‚¬â€ Projects & Works`;
     }
 
     // Update active nav pill
@@ -1810,17 +1918,17 @@ function initSolariProjects() {
           <div class="solari-beyond-subnav">
             <div class="solari-beyond-subnav-left">
               <span class="solari-meta-badge" style="background:#fce7f3; color:#be185d; border-color:#fbcfe8; font-weight:800; font-size:0.75rem;">
-                FOLDER 09 â€¢ BEYOND THE BRIEF
+                FOLDER 09 Ã¢â‚¬Â¢ BEYOND THE BRIEF
               </span>
               <span class="solari-beyond-subnav-title">8 Interactive Projects &amp; Curated Publications</span>
             </div>
             <div class="solari-beyond-subnav-right">
               <div class="deck-view-switcher">
-                <button type="button" class="deck-switch-btn active" id="btn-view-deck" title="Interactive Card Deck">ðŸƒ 3D Card Stack</button>
-                <button type="button" class="deck-switch-btn" id="btn-view-grid" title="Grid of All Projects">âŠž Grid View</button>
+                <button type="button" class="deck-switch-btn active" id="btn-view-deck" title="Interactive Card Deck">Ã°Å¸Æ’Â 3D Card Stack</button>
+                <button type="button" class="deck-switch-btn" id="btn-view-grid" title="Grid of All Projects">Ã¢Å Å¾ Grid View</button>
               </div>
               <button type="button" class="solari-btn-pill primary" id="solari-launch-beyond-btn" style="cursor:pointer; display:inline-flex; align-items:center; gap:6px; font-size:0.75rem; padding:6px 14px; background:linear-gradient(135deg, #f472b6, #c084fc); color:#fff; border:none; border-radius:20px; font-weight:700; box-shadow:0 3px 10px rgba(192, 132, 252, 0.35);">
-                <span>âœ¦ Open Studio Window â†—</span>
+                <span>Ã¢Å“Â¦ Open Studio Window Ã¢â€ â€”</span>
               </button>
             </div>
           </div>
@@ -1831,13 +1939,13 @@ function initSolariProjects() {
               <!-- Left: Headline & Pinned Sticky Notes -->
               <div class="shabnam-deck-left">
                 <div class="shabnam-deck-tag">
-                  <span>âœ¦</span>
-                  <span>CURATED EXPERIENCES Â· BEYOND THE BRIEF</span>
+                  <span>Ã¢Å“Â¦</span>
+                  <span>CURATED EXPERIENCES Ã‚Â· BEYOND THE BRIEF</span>
                 </div>
                 <h2 class="shabnam-deck-heading">Aleesha K. L.</h2>
                 <p class="shabnam-deck-lede">
                   I design <span class="shabnam-highlighter">tactile editorial publications</span>, human-centred mobile interfaces, and ritual tarot oracle decks.
-                  <span style="display:block; margin-top:6px; font-size:0.86rem; color:#4a3856;"><strong>â‡„ Drag card to browse â€¢ Click to flip &amp; open live experience.</strong></span>
+                  <span style="display:block; margin-top:6px; font-size:0.86rem; color:#4a3856;"><strong>Ã¢â€¡â€ž Drag card to browse Ã¢â‚¬Â¢ Click to flip &amp; open live experience.</strong></span>
                 </p>
 
                 <div class="shabnam-stickies">
@@ -1872,7 +1980,7 @@ function initSolariProjects() {
 
                 <!-- Controls Below Cards -->
                 <div class="shabnam-deck-controls">
-                  <div class="shabnam-deck-hint">â‡„ Drag card left / right to browse â€¢ Click to flip &amp; open site</div>
+                  <div class="shabnam-deck-hint">Ã¢â€¡â€ž Drag card left / right to browse Ã¢â‚¬Â¢ Click to flip &amp; open site</div>
                   <div class="shabnam-deck-pills-row">
                     <button type="button" class="deck-ctrl-btn" id="deck-ctrl-prev" aria-label="Previous card">
                       <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"></polyline></svg>
@@ -1893,20 +2001,20 @@ function initSolariProjects() {
             <div class="solari-beyond-case-bar">
               <div style="display:flex; align-items:center; gap:10px;">
                 <button type="button" class="solari-btn-pill" id="btn-solari-back-deck" style="cursor:pointer; display:inline-flex; align-items:center; gap:6px; background:rgba(255,255,255,0.14); color:#fff; border:1px solid rgba(255,255,255,0.25); border-radius:6px; padding:6px 14px; font-size:0.78rem; font-weight:700;">
-                  â† Back to Card Deck
+                  Ã¢â€ Â Back to Card Deck
                 </button>
                 <span class="solari-meta-badge" id="solari-beyond-active-badge" style="background:linear-gradient(135deg, #f472b6, #c084fc); color:#fff; border:none; font-size:0.7rem; padding:3px 10px; font-weight:800; border-radius:4px;">LIVE CASE STUDY</span>
                 <span id="solari-beyond-active-title" style="font-weight:700; color:#fff; font-size:0.88rem; max-width:380px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">Title</span>
               </div>
               <div style="display:flex; align-items:center; gap:8px;">
                 <button type="button" class="solari-btn-pill" id="btn-solari-pdf-view" style="display:none; cursor:pointer; background:rgba(225,29,72,0.2); color:#fda4af; border:1px solid rgba(225,29,72,0.4); border-radius:6px; padding:5px 12px; font-size:0.75rem; font-weight:700;">
-                  ðŸ“„ View PDF
+                  Ã°Å¸â€œâ€ž View PDF
                 </button>
                 <button type="button" class="solari-btn-pill" id="btn-solari-popout-window" style="cursor:pointer; background:rgba(255,255,255,0.12); color:#fff; border:1px solid rgba(255,255,255,0.25); border-radius:6px; padding:5px 12px; font-size:0.75rem; font-weight:600;">
-                  Open Studio Window â†—
+                  Open Studio Window Ã¢â€ â€”
                 </button>
                 <a href="#" target="_blank" class="solari-btn-pill primary" id="btn-solari-newtab-link" style="text-decoration:none; display:inline-flex; align-items:center; background:linear-gradient(135deg, #f472b6, #c084fc); color:#fff; border-radius:6px; padding:5px 12px; font-size:0.75rem; font-weight:700;">
-                  New Tab â†—
+                  New Tab Ã¢â€ â€”
                 </a>
               </div>
             </div>
@@ -1923,11 +2031,11 @@ function initSolariProjects() {
                   <img src="${item.img}" alt="${item.title}" class="beyond-img" loading="lazy">
                   <div class="beyond-spine-shadow"></div>
                   <div class="beyond-img-overlay">
-                    ${item.hasSite ? `<span class="beyond-site-pill">âœ¨ Interactive</span>` : ''}
+                    ${item.hasSite ? `<span class="beyond-site-pill">Ã¢Å“Â¨ Interactive</span>` : ''}
                     <span class="beyond-format-pill">${item.format}</span>
                   </div>
                   <div class="beyond-cover-hover">
-                    <span>âœ¦ Explore Experience â†—</span>
+                    <span>Ã¢Å“Â¦ Explore Experience Ã¢â€ â€”</span>
                   </div>
                 </div>
                 <div class="beyond-info">
@@ -2062,7 +2170,7 @@ function initSolariProjects() {
                 <img src="${current.img}" alt="${current.title}" class="deck-card-img">
                 <div class="deck-card-img-overlay">
                   <span class="deck-card-img-badge">${current.badge}</span>
-                  <span style="font-size:0.68rem; color:#fff; font-weight:700; text-shadow:0 1px 3px rgba(0,0,0,0.8);">âœ¨ Click to Flip â†—</span>
+                  <span style="font-size:0.68rem; color:#fff; font-weight:700; text-shadow:0 1px 3px rgba(0,0,0,0.8);">Ã¢Å“Â¨ Click to Flip Ã¢â€ â€”</span>
                 </div>
               </div>
               <div class="deck-card-info">
@@ -2071,17 +2179,17 @@ function initSolariProjects() {
                   <span class="deck-card-tag">${current.categoryLabel}</span>
                 </div>
                 <div class="deck-card-title">${current.title}</div>
-                <div class="deck-card-sub">${current.format} Â· ${current.tools.slice(0, 3).join(' Â· ')}</div>
+                <div class="deck-card-sub">${current.format} Ã‚Â· ${current.tools.slice(0, 3).join(' Ã‚Â· ')}</div>
                 <div class="deck-card-cta">
-                  <span>âœ¦ Click to Flip &amp; Open Site</span>
-                  <span class="arrow">â†’</span>
+                  <span>Ã¢Å“Â¦ Click to Flip &amp; Open Site</span>
+                  <span class="arrow">Ã¢â€ â€™</span>
                 </div>
               </div>
             </div>
 
             <!-- Back Face (Revealed on 3D Flip) -->
             <div class="deck-card-face deck-card-back">
-              <div class="deck-back-spark">âœ¦</div>
+              <div class="deck-back-spark">Ã¢Å“Â¦</div>
               <div class="deck-back-eyebrow">FLIPPING &amp; LAUNCHING</div>
               <div class="deck-back-title">${current.title}</div>
               <div class="deck-back-format">${current.format}</div>
@@ -2262,14 +2370,14 @@ function initSolariProjects() {
       <div class="solari-case-card" style="--case-color: ${proj.color};">
         <!-- Hero Banner with Solari Color Blocking -->
         <div class="solari-case-hero">
-          <div class="solari-case-index">Project ${proj.num} â€¢ ${proj.category}</div>
+          <div class="solari-case-index">Project ${proj.num} Ã¢â‚¬Â¢ ${proj.category}</div>
           <h2 class="solari-case-title">${proj.title}</h2>
           <p class="solari-case-subtitle">${proj.subtitle}</p>
           <div class="solari-case-meta-row">
-            <span class="solari-meta-badge">â±ï¸ Timeline: ${proj.timeline}</span>
-            <span class="solari-meta-badge">ðŸ›ï¸ Venue: ${proj.venue}</span>
-            <span class="solari-meta-badge">ðŸ› ï¸ Tools: ${proj.software.join(', ')}</span>
-            <span class="solari-meta-badge">ðŸ¤ Role: ${proj.role}</span>
+            <span class="solari-meta-badge">Ã¢ÂÂ±Ã¯Â¸Â Timeline: ${proj.timeline}</span>
+            <span class="solari-meta-badge">Ã°Å¸Ââ€ºÃ¯Â¸Â Venue: ${proj.venue}</span>
+            <span class="solari-meta-badge">Ã°Å¸â€ºÂ Ã¯Â¸Â Tools: ${proj.software.join(', ')}</span>
+            <span class="solari-meta-badge">Ã°Å¸Â¤Â Role: ${proj.role}</span>
           </div>
           ${proj.caseStudyUrl ? `
             <div style="margin-top: 16px; display: flex; gap: 10px; flex-wrap: wrap;">
@@ -2348,7 +2456,7 @@ function initSolariProjects() {
                   </div>
                   <div class="solari-spec-row">
                     <span class="solari-spec-label">Primary Software</span>
-                    <span class="solari-spec-value">${proj.software.join(' â€¢ ')}</span>
+                    <span class="solari-spec-value">${proj.software.join(' Ã¢â‚¬Â¢ ')}</span>
                   </div>
                   <div class="solari-spec-row">
                     <span class="solari-spec-label">Source Document</span>
@@ -2499,8 +2607,8 @@ function initSolariProjects() {
             <iframe src="${proj.caseStudyUrl}" style="width:100%; height:100%; border:none;" title="${proj.title} 3D Studio" loading="lazy"></iframe>
           </div>
           <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:28px; padding:0 4px; flex-wrap:wrap; gap:8px;">
-            <span style="font-size:0.8rem; color:#64748b; font-weight:600;">âœ¨ Interactive 3D Studio: You can interact with viewports, camera labels, shading toggles, and sheets inside this frame!</span>
-            <a href="${proj.caseStudyUrl}" target="_blank" rel="noopener noreferrer" style="font-size:0.82rem; font-weight:800; color:#1c1917; text-decoration:underline;">Open in standalone full screen tab â†—</a>
+            <span style="font-size:0.8rem; color:#64748b; font-weight:600;">Ã¢Å“Â¨ Interactive 3D Studio: You can interact with viewports, camera labels, shading toggles, and sheets inside this frame!</span>
+            <a href="${proj.caseStudyUrl}" target="_blank" rel="noopener noreferrer" style="font-size:0.82rem; font-weight:800; color:#1c1917; text-decoration:underline;">Open in standalone full screen tab Ã¢â€ â€”</a>
           </div>
         </div>
       `;
@@ -2651,7 +2759,7 @@ function init3DStudio() {
   const SPATIAL_MODELS = {
     truck: {
       id: "truck",
-      name: "Radio Mango Ã— Bharath Benz Stage Truck",
+      name: "Radio Mango Ãƒâ€” Bharath Benz Stage Truck",
       file: "3d%20space/thira%20truck%20.glb",
       fileName: "thira truck .glb",
       dataFile: "3d space/thira_truck_data.js",
@@ -3126,7 +3234,7 @@ function init3DStudio() {
     autoRotateBtn.addEventListener('click', () => {
       isAutoRotate = !isAutoRotate;
       if (controls) controls.autoRotate = isAutoRotate;
-      autoRotateBtn.textContent = isAutoRotate ? 'ðŸ”„ Turn: ON' : 'â¸ Turn: OFF';
+      autoRotateBtn.textContent = isAutoRotate ? 'Ã°Å¸â€â€ž Turn: ON' : 'Ã¢ÂÂ¸ Turn: OFF';
       autoRotateBtn.classList.toggle('active', isAutoRotate);
     });
   }
@@ -3180,14 +3288,14 @@ function initTerminal() {
       printLine("  clear        - Clear the terminal console");
     },
     about: () => {
-      printLine("ALEESHA K. L. â€” 3D Visual & Experience Designer", "accent");
+      printLine("ALEESHA K. L. Ã¢â‚¬â€ 3D Visual & Experience Designer", "accent");
       printLine("Pursuing B.Des in Fashion Communication at NIFT Kannur (CGPA: 8.6/10).");
       printLine("Specializes in Blender 3D stage visualisations, exhibition stalls, UI/UX, and spatial narratives.");
     },
     projects: () => {
       printLine("FEATURED PROJECTS:", "accent");
       PORTFOLIO_DATA.projects.forEach((p, idx) => {
-        printLine(`  [${idx + 1}] ${p.title} (${p.category}) â€” ${p.tools.join(', ')}`, "success");
+        printLine(`  [${idx + 1}] ${p.title} (${p.category}) Ã¢â‚¬â€ ${p.tools.join(', ')}`, "success");
       });
     },
     skills: () => {
@@ -3384,7 +3492,7 @@ function initMailClient() {
           statusMsg.style.background = '#fef2f2';
           statusMsg.style.color = '#b91c1c';
           statusMsg.style.border = '1px solid #fecaca';
-          statusMsg.innerHTML = 'âš ï¸ Please enter your name.';
+          statusMsg.innerHTML = 'Ã¢Å¡Â Ã¯Â¸Â Please enter your name.';
         }
         if (window.showToast) window.showToast('Name Required', 'Please enter your name.');
         if (nameInput) nameInput.focus();
@@ -3396,7 +3504,7 @@ function initMailClient() {
           statusMsg.style.background = '#fef2f2';
           statusMsg.style.color = '#b91c1c';
           statusMsg.style.border = '1px solid #fecaca';
-          statusMsg.innerHTML = 'âš ï¸ Please enter a valid email address so Aleesha can reply to you.';
+          statusMsg.innerHTML = 'Ã¢Å¡Â Ã¯Â¸Â Please enter a valid email address so Aleesha can reply to you.';
         }
         if (window.showToast) window.showToast('Valid Email Required', 'Please enter a valid reply email address.');
         if (emailInput) emailInput.focus();
@@ -3408,7 +3516,7 @@ function initMailClient() {
           statusMsg.style.background = '#fef2f2';
           statusMsg.style.color = '#b91c1c';
           statusMsg.style.border = '1px solid #fecaca';
-          statusMsg.innerHTML = 'âš ï¸ Please enter your message brief.';
+          statusMsg.innerHTML = 'Ã¢Å¡Â Ã¯Â¸Â Please enter your message brief.';
         }
         if (window.showToast) window.showToast('Message Required', 'Please enter your message brief.');
         if (msgInput) msgInput.focus();
@@ -3419,7 +3527,7 @@ function initMailClient() {
       const originalBtnHTML = sendBtn.innerHTML;
       sendBtn.disabled = true;
       sendBtn.style.opacity = '0.75';
-      sendBtn.innerHTML = `<span>Sending to Aleesha... âœ‰ï¸</span>`;
+      sendBtn.innerHTML = `<span>Sending to Aleesha... Ã¢Å“â€°Ã¯Â¸Â</span>`;
 
       if (statusMsg) {
         statusMsg.style.display = 'block';
@@ -3456,13 +3564,13 @@ function initMailClient() {
           statusMsg.style.color = '#15803d';
           statusMsg.style.border = '1px solid #bbf7d0';
           statusMsg.innerHTML = `
-            <strong>âœ“ Message Sent Successfully!</strong><br>
+            <strong>Ã¢Å“â€œ Message Sent Successfully!</strong><br>
             Your email has been delivered directly to <strong>aleeshakl2495@gmail.com</strong>. Aleesha will receive it in her inbox and reply to you at <strong>${email}</strong> shortly.
           `;
         }
 
         if (window.showToast) {
-          window.showToast("Email Sent to Aleesha! ðŸŽ‰", "Your message was delivered to aleeshakl2495@gmail.com");
+          window.showToast("Email Sent to Aleesha! Ã°Å¸Å½â€°", "Your message was delivered to aleeshakl2495@gmail.com");
         }
 
         if (nameInput) nameInput.value = '';
@@ -3470,7 +3578,7 @@ function initMailClient() {
         if (msgInput) msgInput.value = '';
         updateGmailLink();
 
-        sendBtn.innerHTML = `<span>âœ“ Sent Successfully!</span>`;
+        sendBtn.innerHTML = `<span>Ã¢Å“â€œ Sent Successfully!</span>`;
         setTimeout(() => {
           sendBtn.disabled = false;
           sendBtn.style.opacity = '1';
@@ -3513,7 +3621,7 @@ function initRecycleBin() {
     emptyBtn.addEventListener('click', () => {
       binGrid.innerHTML = `
         <div style="grid-column: 1/-1; text-align: center; color: #94a3b8; padding: 40px;">
-          <p style="font-size: 1.2rem; margin-bottom: 6px;">ðŸ—‘ï¸ Recycle Bin is Empty</p>
+          <p style="font-size: 1.2rem; margin-bottom: 6px;">Ã°Å¸â€”â€˜Ã¯Â¸Â Recycle Bin is Empty</p>
           <p style="font-size: 0.8rem;">All boring templates and bad design habits have been permanently deleted!</p>
         </div>
       `;
@@ -3616,7 +3724,7 @@ function initPhotography() {
     }
     const titleEl = document.getElementById('lightbox-file-title');
     if (titleEl) {
-      titleEl.innerHTML = `<span style="color:#0284c7;">📁</span> ${photo.name}`;
+      titleEl.innerHTML = `<span style="color:#0284c7;">ðŸ“</span> ${photo.name}`;
     }
     lightbox.classList.add('open');
   }
@@ -3654,7 +3762,7 @@ function initPhotography() {
   if (studioJuryBtn) {
     studioJuryBtn.addEventListener('click', () => {
       if (typeof window.openBeyondSite === 'function') {
-        window.openBeyondSite('beyond the brief/studio-photography-site/site/index.html', 'Studio Photography Jury — Contact Sheet Interactive Exhibition');
+        window.openBeyondSite('beyond the brief/studio-photography-site/site/index.html', 'Studio Photography Jury â€” Contact Sheet Interactive Exhibition');
       }
     });
   }
@@ -3741,7 +3849,7 @@ window.openPdfViewer = function(filePath, title, size) {
   const dlEl = document.getElementById('pdf-btn-download');
   const iframe = document.getElementById('pdf-viewer-iframe');
 
-  if (titleEl) titleEl.textContent = `Adobe Acrobat Reader â€” ${cleanTitle}`;
+  if (titleEl) titleEl.textContent = `Adobe Acrobat Reader Ã¢â‚¬â€ ${cleanTitle}`;
   if (nameEl) nameEl.textContent = cleanTitle;
   if (sizeEl) sizeEl.textContent = size ? `(${size})` : '';
   if (newtabEl) newtabEl.href = safeUrl;
@@ -3833,13 +3941,13 @@ function initBeyondTheBrief() {
         <!-- Left: Headline & Pinned Sticky Notes -->
         <div class="shabnam-deck-left">
           <div class="shabnam-deck-tag">
-            <span>âœ¦</span>
-            <span>CURATED EXPERIENCES Â· BEYOND THE BRIEF</span>
+            <span>Ã¢Å“Â¦</span>
+            <span>CURATED EXPERIENCES Ã‚Â· BEYOND THE BRIEF</span>
           </div>
           <h2 class="shabnam-deck-heading">Aleesha K. L.</h2>
           <p class="shabnam-deck-lede">
             I design <span class="shabnam-highlighter">tactile editorial publications</span>, human-centred mobile interfaces, and ritual tarot oracle decks.
-            <span style="display:block; margin-top:6px; font-size:0.86rem; color:#4a3856;"><strong>â‡„ Drag card to browse â€¢ Click to flip &amp; open live experience.</strong></span>
+            <span style="display:block; margin-top:6px; font-size:0.86rem; color:#4a3856;"><strong>Ã¢â€¡â€ž Drag card to browse Ã¢â‚¬Â¢ Click to flip &amp; open live experience.</strong></span>
           </p>
 
           <div class="shabnam-stickies">
@@ -3911,7 +4019,7 @@ function initBeyondTheBrief() {
                   <img src="${current.img}" alt="${current.title}" class="deck-card-img">
                   <div class="deck-card-img-overlay">
                     <span class="deck-card-img-badge">${current.badge}</span>
-                    <span style="font-size:0.68rem; color:#fff; font-weight:700; text-shadow:0 1px 3px rgba(0,0,0,0.8);">âœ¨ Click to Flip â†—</span>
+                    <span style="font-size:0.68rem; color:#fff; font-weight:700; text-shadow:0 1px 3px rgba(0,0,0,0.8);">Ã¢Å“Â¨ Click to Flip Ã¢â€ â€”</span>
                   </div>
                 </div>
                 <div class="deck-card-info">
@@ -3920,15 +4028,15 @@ function initBeyondTheBrief() {
                     <span class="deck-card-tag">${current.categoryLabel}</span>
                   </div>
                   <div class="deck-card-title">${current.title}</div>
-                  <div class="deck-card-sub">${current.format} Â· ${current.tools.slice(0, 3).join(' Â· ')}</div>
+                  <div class="deck-card-sub">${current.format} Ã‚Â· ${current.tools.slice(0, 3).join(' Ã‚Â· ')}</div>
                   <div class="deck-card-cta">
-                    <span>âœ¦ Click to Flip &amp; Open Site</span>
-                    <span class="arrow">â†’</span>
+                    <span>Ã¢Å“Â¦ Click to Flip &amp; Open Site</span>
+                    <span class="arrow">Ã¢â€ â€™</span>
                   </div>
                 </div>
               </div>
               <div class="deck-card-face deck-card-back">
-                <div class="deck-back-spark">âœ¦</div>
+                <div class="deck-back-spark">Ã¢Å“Â¦</div>
                 <div class="deck-back-eyebrow">FLIPPING &amp; LAUNCHING</div>
                 <div class="deck-back-title">${current.title}</div>
                 <div class="deck-back-format">${current.format}</div>
@@ -3942,7 +4050,7 @@ function initBeyondTheBrief() {
 
           <!-- Controls Below Cards -->
           <div class="shabnam-deck-controls">
-            <div class="shabnam-deck-hint">â‡„ Drag card left / right to browse â€¢ Click to flip &amp; open site</div>
+            <div class="shabnam-deck-hint">Ã¢â€¡â€ž Drag card left / right to browse Ã¢â‚¬Â¢ Click to flip &amp; open site</div>
             <div class="shabnam-deck-pills-row">
               <button type="button" class="deck-ctrl-btn" id="win-deck-ctrl-prev" aria-label="Previous card">
                 <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"></polyline></svg>
@@ -4051,11 +4159,11 @@ function initBeyondTheBrief() {
           <img src="${item.img}" alt="${item.title}" class="beyond-img" loading="lazy">
           <div class="beyond-spine-shadow"></div>
           <div class="beyond-img-overlay">
-            ${item.hasSite ? `<span class="beyond-site-pill">âœ¨ Interactive Experience</span>` : ''}
+            ${item.hasSite ? `<span class="beyond-site-pill">Ã¢Å“Â¨ Interactive Experience</span>` : ''}
             <span class="beyond-format-pill">${item.format}</span>
           </div>
           <div class="beyond-cover-hover">
-            <span>${item.hasSite ? 'âœ¦ Explore Experience â†—' : 'âœ¦ View Document â†—'}</span>
+            <span>${item.hasSite ? 'Ã¢Å“Â¦ Explore Experience Ã¢â€ â€”' : 'Ã¢Å“Â¦ View Document Ã¢â€ â€”'}</span>
           </div>
         </div>
         <div class="beyond-info">
