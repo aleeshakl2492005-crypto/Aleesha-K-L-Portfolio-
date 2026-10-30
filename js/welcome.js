@@ -212,10 +212,6 @@ class WelcomeScreenManager {
         this.screen.classList.add('unlocked');
         setTimeout(() => {
           this.screen.style.display = 'none';
-          // Send notification toast
-          if (window.showToast) {
-            window.showToast('Aleesha OS Ready', 'Welcome! Click any project icon or use the dock to explore 3D designs & resume.');
-          }
           window.dispatchEvent(new MouseEvent('mousemove', { clientX: window.innerWidth / 2, clientY: window.innerHeight / 2 }));
         }, 700);
       }
