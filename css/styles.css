@@ -1,4 +1,4 @@
-﻿/* ==========================================================================
+/* ==========================================================================
    ALEESHA OS - WINDOWS DESKTOP & UI ENVIRONMENT
    Fluent Glassmorphism, Windows 11/10 hybrid aesthetics, Taskbar,
    Start Menu, Window System & Tray Widgets
@@ -603,6 +603,111 @@ body, html {
   .desktop-floating-dock { bottom: 64px; padding: 4px 12px; gap: 8px; }
   .dock-btn { width: 38px; height: 38px; }
 }
+
+@media (max-width: 640px) {
+  .desktop-character-3d .character-img {
+    height: min(44vh, 310px);
+    max-width: 68vw;
+  }
+  .character-reflection {
+    height: 28%;
+    bottom: -16%;
+  }
+  .character-shadow {
+    width: min(260px, 60vw);
+    height: 16px;
+  }
+
+  /* Frosted Glass Windows 11 Dock */
+  .desktop-floating-dock {
+    bottom: calc(var(--taskbar-height) + 8px);
+    padding: 4px 10px;
+    gap: 6px;
+    border-radius: 20px;
+    max-width: 95vw;
+  }
+  .dock-btn {
+    width: 35px;
+    height: 35px;
+    border-radius: 10px;
+  }
+  .dock-img-icon {
+    width: 30px;
+    height: 30px;
+  }
+  .dock-btn-avatar .dock-avatar-circle {
+    width: 28px;
+    height: 28px;
+  }
+  .dock-btn-win svg, .dock-btn-search svg {
+    width: 18px;
+    height: 18px;
+  }
+  .dock-divider {
+    height: 20px;
+    margin: 0 1px;
+  }
+
+  /* Desktop Mockup Icons Flanking the Character */
+  .mockup-icon {
+    width: 64px;
+    min-height: 52px;
+    touch-action: manipulation;
+  }
+  .mockup-thumb-card {
+    width: 52px;
+    height: 46px;
+    border-radius: 10px;
+  }
+  .mockup-icon-label {
+    font-size: 0.65rem;
+    padding: 1px 4px;
+    margin-top: 2px;
+    max-width: 68px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .mockup-icon[data-pos="projects"]    { top: 2%; left: 8px; right: auto; }
+  .mockup-icon[data-pos="about"]       { top: 21%; left: 8px; right: auto; }
+  .mockup-icon[data-pos="resume"]      { top: 40%; left: 8px; right: auto; }
+  .mockup-icon[data-pos="contact"]     { top: 59%; left: 8px; right: auto; }
+
+  .mockup-icon[data-pos="spatial"]     { top: 2%; right: 8px; left: auto; }
+  .mockup-icon[data-pos="photography"] { top: 21%; right: 8px; left: auto; }
+  .mockup-icon[data-pos="playground"]  { top: 40%; right: 8px; left: auto; }
+  .mockup-icon[data-pos="beyond"]      { top: 59%; right: 8px; left: auto; }
+}
+
+@media (max-width: 380px) {
+  .mockup-icon {
+    width: 54px;
+  }
+  .mockup-thumb-card {
+    width: 46px;
+    height: 40px;
+    border-radius: 8px;
+  }
+  .mockup-icon-label {
+    font-size: 0.58rem;
+    padding: 1px 3px;
+    max-width: 58px;
+  }
+  .mockup-icon[data-pos="projects"]    { left: 4px; }
+  .mockup-icon[data-pos="about"]       { left: 4px; }
+  .mockup-icon[data-pos="resume"]      { left: 4px; }
+  .mockup-icon[data-pos="contact"]     { left: 4px; }
+  .mockup-icon[data-pos="spatial"]     { right: 4px; }
+  .mockup-icon[data-pos="photography"] { right: 4px; }
+  .mockup-icon[data-pos="playground"]  { right: 4px; }
+  .mockup-icon[data-pos="beyond"]      { right: 4px; }
+  .desktop-character-3d .character-img {
+    height: min(38vh, 270px);
+    max-width: 60vw;
+  }
+}
+
 
 /* ==========================================================================
    WINDOWS TASKBAR (BOTTOM) — Soft Light Acrylic
@@ -1572,43 +1677,140 @@ body, html {
 
 /* Responsive Rules for Small Devices (Tablets / Mobile) */
 @media (max-width: 768px) {
-  .taskbar-search-box {
-    display: none;
+  :root {
+    --taskbar-height: 48px;
   }
-  .desktop-icons-container {
-    top: 10px;
-    left: 10px;
-    gap: 8px 10px;
-  }
-  .desktop-icon {
-    width: 74px;
-    padding: 6px 4px;
-  }
-  .icon-img-wrap {
-    width: 40px;
-    height: 40px;
-  }
-  .icon-label {
-    font-size: 0.72rem;
-  }
-  #start-menu {
-    left: 6px;
-    right: 6px;
-    width: auto;
-    bottom: calc(var(--taskbar-height) + 6px);
-  }
-  .start-pinned-grid {
-    grid-template-columns: repeat(4, 1fr);
-  }
-  .start-rec-list {
-    grid-template-columns: 1fr;
-  }
+
+  /* Full Screen Mobile Window Manager */
   .os-window {
     top: 0 !important;
     left: 0 !important;
-    width: 100% !important;
-    height: 100% !important;
+    width: 100vw !important;
+    max-width: 100vw !important;
+    height: calc(100dvh - var(--taskbar-height)) !important;
+    max-height: calc(100dvh - var(--taskbar-height)) !important;
     border-radius: 0 !important;
+    border: none !important;
+    box-shadow: none !important;
+    margin: 0 !important;
+  }
+
+  .window-titlebar {
+    height: 44px;
+    padding: 0 8px 0 12px;
+    border-radius: 0 !important;
+    background: #ffffff !important;
+    border-bottom: 1.5px solid #e2e8f0;
+    touch-action: none;
+  }
+
+  .window-title-left {
+    gap: 8px;
+  }
+
+  .window-title-text {
+    font-size: 0.82rem;
+    font-weight: 700;
+  }
+
+  .window-controls {
+    margin-right: -4px;
+    height: 100%;
+  }
+
+  .win-btn {
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+    min-height: 44px;
+    touch-action: manipulation;
+  }
+
+  .win-btn svg {
+    width: 13px;
+    height: 13px;
+  }
+
+  /* Maximize button is unnecessary on mobile because windows fill the screen */
+  .win-btn.btn-max {
+    display: none !important;
+  }
+
+  .window-content {
+    border-radius: 0 !important;
+    height: calc(100% - 44px);
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Start Menu Adaptation */
+  #start-menu {
+    left: 8px !important;
+    right: 8px !important;
+    width: auto !important;
+    bottom: calc(var(--taskbar-height) + 8px) !important;
+    max-height: 75dvh !important;
+    border-radius: 16px !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .start-pinned-grid {
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 8px !important;
+  }
+
+  .start-rec-list {
+    grid-template-columns: 1fr !important;
+  }
+
+  .start-app-item {
+    padding: 6px 4px !important;
+    min-height: 44px;
+  }
+
+  .start-app-icon {
+    width: 32px !important;
+    height: 32px !important;
+  }
+
+  .start-app-name {
+    font-size: 0.68rem !important;
+  }
+
+  /* Taskbar Adaptation & Safe Area Insets */
+  #taskbar {
+    height: calc(48px + env(safe-area-inset-bottom, 0px));
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+    padding-left: max(8px, env(safe-area-inset-left, 0px));
+    padding-right: max(8px, env(safe-area-inset-right, 0px));
+  }
+
+  .taskbar-search-pill .search-placeholder {
+    display: none;
+  }
+
+  .taskbar-search-pill {
+    padding: 6px;
+    border-radius: 50%;
+    min-width: 36px;
+    min-height: 36px;
+    justify-content: center;
+  }
+
+  #tray-chevron-btn,
+  .tray-item[title*="CreativeNet"],
+  #tray-notif-btn {
+    display: none !important;
+  }
+
+  .tray-clock-col {
+    font-size: 0.68rem;
+  }
+
+  /* Hide Desktop Owl Cursor Companion on mobile touch devices */
+  .desktop-owl-companion {
+    display: none !important;
   }
 }
 

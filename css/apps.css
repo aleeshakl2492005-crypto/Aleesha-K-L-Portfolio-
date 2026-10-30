@@ -2562,6 +2562,12 @@
   height: 100%;
   overflow: hidden;
   position: relative;
+  cursor: grab;
+  touch-action: none;
+}
+
+.photo-marquee-col.is-dragging {
+  cursor: grabbing !important;
 }
 
 .photo-col-track {
@@ -2569,6 +2575,7 @@
   flex-direction: column;
   width: 100%;
   will-change: transform;
+  transform: translate3d(0, 0, 0);
 }
 
 .photo-track-group {
@@ -2576,43 +2583,6 @@
   flex-direction: column;
   width: 100%;
   flex-shrink: 0;
-}
-
-/* Alternating Up and Down Slow Smooth Infinite Scroll */
-.photo-marquee-col.scroll-up .photo-col-track {
-  animation: photoMarqueeUp var(--marquee-duration, 58s) linear infinite;
-}
-
-.photo-marquee-col.scroll-down .photo-col-track {
-  animation: photoMarqueeDown var(--marquee-duration, 54s) linear infinite;
-}
-
-/* Pause that specific line/column on hover! */
-.photo-marquee-col:hover .photo-col-track {
-  animation-play-state: paused !important;
-}
-
-/* Global pause modifier if user clicks Pause button */
-.photo-marquee-wall.is-paused .photo-col-track {
-  animation-play-state: paused !important;
-}
-
-@keyframes photoMarqueeUp {
-  0% {
-    transform: translate3d(0, 0, 0);
-  }
-  100% {
-    transform: translate3d(0, -50%, 0);
-  }
-}
-
-@keyframes photoMarqueeDown {
-  0% {
-    transform: translate3d(0, -50%, 0);
-  }
-  100% {
-    transform: translate3d(0, 0, 0);
-  }
 }
 
 /* Photo Item inside Column */
@@ -4000,6 +3970,448 @@
   background: #ffffff;
   display: block;
 }
+
+/* ==========================================================================
+   ALEESHA OS - COMPREHENSIVE MOBILE RESPONSIVE ADAPTATIONS
+   Supports 320px, 360px, 375px, 390px, 414px, 430px, and Tablets
+   Zero horizontal overflow, original aspect ratios preserved, 44px touch targets
+   ========================================================================== */
+
+/* ── 1. PROJECTS WINDOW (SOLARI SYSTEM & CASE STUDIES) ── */
+@media (max-width: 768px) {
+  .solari-brand-header {
+    padding: 12px 14px 6px 14px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  .solari-brand-tagline {
+    font-size: 0.78rem;
+  }
+  .solari-brand-stats {
+    width: 100%;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .solari-pill-badge {
+    padding: 3px 8px;
+    font-size: 0.7rem;
+  }
+
+  .solari-folder-container {
+    padding: 0 8px 40px 8px;
+    margin-top: 14px;
+  }
+
+  .solari-tab-ear {
+    width: 110px;
+    padding: 0 10px;
+    gap: 8px;
+  }
+  .solari-tab-num {
+    font-size: 1.25rem;
+  }
+  .solari-tab-name {
+    font-size: 0.78rem;
+  }
+  .solari-ear-raised {
+    width: 110px;
+    border-radius: 12px 12px 0 0;
+  }
+  .solari-strip-top {
+    margin-left: 107.5px;
+  }
+  .solari-tab-strip {
+    padding: 0 10px;
+    gap: 8px;
+  }
+  .solari-strip-item:not(.solari-strip-action) {
+    display: none;
+  }
+  .solari-strip-action {
+    margin-left: auto;
+    padding: 6px 12px;
+    font-size: 0.75rem;
+    min-height: 36px;
+    touch-action: manipulation;
+  }
+
+  .solari-row-photo-deck {
+    height: 185px;
+    padding: 12px 8px 16px 8px;
+  }
+  .solari-deck-card {
+    width: 135px;
+    height: 160px;
+    border-radius: 10px;
+    touch-action: manipulation;
+  }
+  .solari-deck-badge {
+    font-size: 0.65rem;
+    padding: 2px 6px;
+  }
+
+  /* Projects Case Study Detail View */
+  .solari-detail-nav {
+    padding: 8px 10px;
+    gap: 8px;
+    flex-wrap: nowrap;
+  }
+  .solari-back-btn {
+    padding: 6px 12px;
+    font-size: 0.75rem;
+    min-height: 40px;
+    touch-action: manipulation;
+  }
+  .solari-detail-pills {
+    justify-content: flex-start;
+    padding: 2px 0;
+    -webkit-overflow-scrolling: touch;
+  }
+  .solari-nav-pill {
+    padding: 5px 10px;
+    font-size: 0.72rem;
+    min-height: 36px;
+    touch-action: manipulation;
+  }
+  .solari-detail-fullscreen-btn {
+    padding: 6px 12px;
+    font-size: 0.72rem;
+    min-height: 40px;
+    touch-action: manipulation;
+  }
+  .solari-detail-fullscreen-btn span {
+    display: none;
+  }
+}
+
+@media (max-width: 360px) {
+  .solari-tab-ear {
+    width: 88px;
+    padding: 0 6px;
+    gap: 4px;
+  }
+  .solari-ear-raised {
+    width: 88px;
+  }
+  .solari-strip-top {
+    margin-left: 85.5px;
+  }
+  .solari-tab-num {
+    font-size: 1.05rem;
+  }
+  .solari-tab-name {
+    font-size: 0.7rem;
+  }
+  .solari-strip-action {
+    font-size: 0.68rem;
+    padding: 4px 6px;
+  }
+}
+
+/* ── 2. ABOUT ME (VERTICAL SCRAPBOOK NOTICEBOARD) ── */
+@media (max-width: 768px) {
+  .corkboard-wrapper {
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    -webkit-overflow-scrolling: touch;
+    height: 100%;
+  }
+
+  .cork-top-bar {
+    padding: 8px 10px;
+    flex-wrap: wrap;
+    gap: 6px;
+    justify-content: space-between;
+  }
+  .cork-tagline {
+    display: none;
+  }
+  .cork-btn {
+    padding: 6px 12px;
+    font-size: 0.75rem;
+    min-height: 38px;
+    touch-action: manipulation;
+  }
+
+  .corkboard-surface {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    width: 100% !important;
+    height: auto !important;
+    min-height: 100% !important;
+    padding: 16px 12px 60px 12px !important;
+    gap: 18px !important;
+    overflow: visible !important;
+    position: relative !important;
+  }
+
+  .cork-item {
+    position: relative !important;
+    left: auto !important;
+    top: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    width: 100% !important;
+    max-width: 330px !important;
+    margin: 0 auto !important;
+    transform: none !important;
+    cursor: default !important;
+    touch-action: pan-y !important;
+  }
+
+  .polaroid-card {
+    width: 100% !important;
+    max-width: 320px !important;
+    transform: none !important;
+  }
+  .polaroid-photo-frame {
+    width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 4/3;
+  }
+  .polaroid-photo {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+  }
+
+  .note-intro-card,
+  .pinned-ethos-card,
+  .note-scrap-superpower,
+  .note-grid-obsessions,
+  .note-kraft-offline,
+  .pinned-music-card,
+  .pinned-postit-note {
+    width: 100% !important;
+    max-width: 320px !important;
+    transform: none !important;
+  }
+}
+
+/* ── 3. RESUME VIEWER & TOOLBAR ── */
+@media (max-width: 768px) {
+  .resume-toolbar {
+    height: auto;
+    padding: 10px 12px;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+  }
+  .resume-tool-left {
+    justify-content: space-between;
+  }
+  .resume-tool-actions {
+    width: 100%;
+    gap: 8px;
+  }
+  .resume-email-btn,
+  .resume-download-btn {
+    flex: 1;
+    justify-content: center;
+    min-height: 42px;
+    touch-action: manipulation;
+  }
+  .resume-frame-container {
+    height: calc(100% - 90px);
+  }
+}
+
+/* ── 4. CONTACT / WINDOWS MAIL ── */
+@media (max-width: 768px) {
+  .mail-body {
+    flex-direction: column;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .mail-sidebar {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid #e2e8f0;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 10px 12px;
+  }
+  .mail-info-card {
+    flex: 1 1 calc(50% - 8px);
+    min-width: 130px;
+    padding: 8px 10px;
+  }
+  .mail-compose-area {
+    padding: 14px 16px 30px 16px;
+    overflow: visible;
+  }
+  .mail-input {
+    min-height: 44px;
+    font-size: 16px; /* Prevents auto-zoom on iOS */
+  }
+  .mail-textarea {
+    font-size: 16px;
+  }
+  .mail-send-btn {
+    width: 100%;
+    min-height: 44px;
+    justify-content: center;
+    font-size: 0.9rem;
+    touch-action: manipulation;
+  }
+}
+
+/* ── 5. PHOTOGRAPHY GALLERY (2-COLUMNS WITH TOUCH DRAG & FULLSCREEN LIGHTBOX) ── */
+@media (max-width: 640px) {
+  .photo-marquee-wall {
+    padding: 8px 10px;
+    gap: 8px;
+  }
+  .photo-marquee-col:nth-child(n+3) {
+    display: none !important;
+  }
+  .photo-marquee-col {
+    min-width: 0;
+  }
+  .photo-marquee-item {
+    margin-bottom: 8px;
+    touch-action: manipulation;
+  }
+  .lightbox-topbar {
+    padding: 8px 10px;
+  }
+  .lightbox-close-btn {
+    min-width: 44px;
+    min-height: 44px;
+    font-size: 0.9rem;
+    touch-action: manipulation;
+  }
+}
+
+/* ── 6. 3D & SPATIAL STUDIO ── */
+@media (max-width: 768px) {
+  .studio-toolbar {
+    height: auto;
+    padding: 8px 10px;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .studio-video-tab-btn {
+    padding: 6px 12px;
+    font-size: 0.75rem;
+    min-height: 38px;
+    touch-action: manipulation;
+  }
+  .scene-btn {
+    padding: 6px 10px;
+    font-size: 0.72rem;
+    min-height: 36px;
+    touch-action: manipulation;
+  }
+  #viewport-scene-name {
+    width: 100%;
+    margin-top: 2px;
+  }
+  .viewport-stats-card {
+    font-size: 0.68rem;
+    padding: 6px 10px;
+    max-width: calc(100vw - 32px);
+  }
+}
+
+/* ── 7. SKILLS NOTEPAD ── */
+@media (max-width: 768px) {
+  .skills-menubar {
+    padding: 6px 10px;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .menubar-left {
+    display: none;
+  }
+  .menubar-right {
+    width: 100%;
+    justify-content: space-between;
+  }
+  .skills-search-wrap {
+    flex: 1;
+  }
+  .skills-search-box {
+    width: 100%;
+    min-height: 36px;
+    font-size: 16px;
+  }
+  .skills-tabs {
+    padding: 6px 10px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    gap: 6px;
+  }
+  .skills-tab {
+    padding: 6px 12px;
+    font-size: 0.74rem;
+    white-space: nowrap;
+    min-height: 36px;
+    touch-action: manipulation;
+  }
+  .skills-scroll {
+    padding: 10px 12px 30px 12px;
+  }
+  .skills-logo-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  .skill-pill {
+    padding: 10px 12px;
+    touch-action: manipulation;
+  }
+}
+
+/* ── 8. BEYOND THE BRIEF (SHABNAM DECK & GRID) ── */
+@media (max-width: 768px) {
+  .beyond-toolbar {
+    height: auto;
+    padding: 8px 10px;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .beyond-toolbar .photo-tabs {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    gap: 6px;
+  }
+  .beyond-toolbar .photo-tab-btn {
+    padding: 5px 10px;
+    font-size: 0.72rem;
+    white-space: nowrap;
+    min-height: 36px;
+    touch-action: manipulation;
+  }
+  .deck-view-switcher {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    gap: 6px;
+  }
+  .deck-switch-btn {
+    padding: 5px 10px;
+    font-size: 0.72rem;
+    min-height: 36px;
+    touch-action: manipulation;
+  }
+  .beyond-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .beyond-grid-container {
+    padding: 12px 10px 30px 10px;
+  }
+  .shabnam-deck-stage {
+    width: 250px;
+    height: 340px;
+  }
+}
+
 
 
 

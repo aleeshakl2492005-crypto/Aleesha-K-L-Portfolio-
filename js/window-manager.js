@@ -133,6 +133,7 @@ class WindowManager {
     let initialTop = 0;
 
     const onPointerDown = (e) => {
+      if (window.innerWidth <= 768) return; // Keep windows docked full-screen on mobile
       if (e.target.closest('.window-controls')) return;
       const data = this.windows.get(id);
       if (data.isMaximized) return;
@@ -207,8 +208,13 @@ class WindowManager {
     data.isMinimized = false;
 
     data.el.style.display = 'flex';
-    // Position if not already placed
-    if (!data.el.style.left || data.el.style.left === 'auto') {
+    // On mobile screens, dock windows cleanly to full screen
+    if (window.innerWidth <= 768) {
+      data.el.style.left = '0px';
+      data.el.style.top = '0px';
+      data.el.style.width = '100vw';
+      data.el.style.height = 'calc(100dvh - var(--taskbar-height))';
+    } else if (!data.el.style.left || data.el.style.left === 'auto') {
       if (id === 'projects' || id === 'playground' || id === 'about' || id === 'resume' || id === 'photography') {
         const defaultW = id === 'about' ? 1260 : (id === 'projects' ? 1240 : (id === 'photography' ? 980 : (id === 'resume' ? 880 : 960)));
         const defaultH = id === 'about' ? 760 : (id === 'projects' ? 780 : (id === 'photography' ? 640 : (id === 'resume' ? 620 : 640)));

@@ -3726,8 +3726,54 @@ function initPhotography() {
   const motionLabel = document.getElementById('photo-motion-label');
 
   let isMotionPaused = false;
+  let rafId = null;
+  let columnControllers = [];
+
+  function stopMarqueeLoop() {
+    if (rafId) {
+      cancelAnimationFrame(rafId);
+      rafId = null;
+    }
+  }
+
+  function startMarqueeLoop() {
+    stopMarqueeLoop();
+
+    function loop() {
+      columnControllers.forEach(col => {
+        const groupHeight = col.group1 ? col.group1.offsetHeight : 0;
+        if (groupHeight <= 0) return;
+
+        // Auto-movement when not paused, not hovered, and not dragging
+        if (!isMotionPaused && !col.isHovered && !col.isDragging) {
+          col.targetPos += col.autoSpeed;
+        }
+
+        // Smooth physics-based lerp towards target position
+        col.currentPos += (col.targetPos - col.currentPos) * 0.16;
+
+        // Infinite loop wrap in both directions
+        while (col.currentPos >= groupHeight) {
+          col.currentPos -= groupHeight;
+          col.targetPos -= groupHeight;
+        }
+        while (col.currentPos < 0) {
+          col.currentPos += groupHeight;
+          col.targetPos += groupHeight;
+        }
+
+        col.trackEl.style.transform = `translate3d(0, ${-col.currentPos}px, 0)`;
+      });
+
+      rafId = requestAnimationFrame(loop);
+    }
+
+    rafId = requestAnimationFrame(loop);
+  }
 
   function renderPhotos(filterText = '') {
+    stopMarqueeLoop();
+    columnControllers = [];
     if (!container || !PORTFOLIO_DATA.photography) return;
     container.innerHTML = '';
 
@@ -3757,32 +3803,47 @@ function initPhotography() {
       columnsData[idx % numCols].push(photo);
     });
 
-    // Slow, organic, varied speeds for natural fluid motion (yellowtooths.in style)
-    const colSpeeds = ['58s', '50s', '64s', '54s', '60s'];
+    // Alternating auto-drift speeds: Col 0 up, Col 1 down, Col 2 up, Col 3 down, Col 4 up
+    // Speeds in px/frame (~60fps): ~0.45px/frame is ~27px/sec, slow, smooth and cinematic
+    const speeds = [0.45, -0.4, 0.48, -0.38, 0.44];
 
     const marqueeWrap = document.createElement('div');
-    marqueeWrap.className = 'photo-marquee-wall' + (isMotionPaused ? ' is-paused' : '');
+    marqueeWrap.className = 'photo-marquee-wall';
     marqueeWrap.id = 'photo-marquee-wall';
+
+    // Global wheel support: scroll hovered column (or all columns if in gap)
+    marqueeWrap.addEventListener('wheel', (e) => {
+      e.preventDefault();
+      const hovered = columnControllers.find(c => c.isHovered);
+      if (hovered) {
+        hovered.targetPos += e.deltaY * 0.9;
+      } else {
+        columnControllers.forEach(c => {
+          c.targetPos += e.deltaY * 0.7;
+        });
+      }
+    }, { passive: false });
 
     columnsData.forEach((colItems, colIdx) => {
       if (colItems.length === 0) return;
-      const isUp = colIdx % 2 === 0; // alternating: Col 0 up, Col 1 down, Col 2 up, Col 3 down, Col 4 up
 
       const colEl = document.createElement('div');
-      colEl.className = `photo-marquee-col ${isUp ? 'scroll-up' : 'scroll-down'}`;
-      colEl.style.setProperty('--marquee-duration', colSpeeds[colIdx % colSpeeds.length]);
+      colEl.className = 'photo-marquee-col';
+      colEl.setAttribute('data-col-index', colIdx);
 
       const trackEl = document.createElement('div');
       trackEl.className = 'photo-col-track';
 
-      // We append 2 sets of items so the track scrolls seamlessly and infinitely
-      const duplicateSets = [colItems, colItems];
-      duplicateSets.forEach((set, setIdx) => {
+      let group1El = null;
+
+      // Two identical groups for seamless infinite looping
+      for (let s = 0; s < 2; s++) {
         const groupEl = document.createElement('div');
         groupEl.className = 'photo-track-group';
-        if (setIdx === 1) groupEl.setAttribute('aria-hidden', 'true');
+        if (s === 1) groupEl.setAttribute('aria-hidden', 'true');
+        else group1El = groupEl;
 
-        set.forEach(photo => {
+        colItems.forEach(photo => {
           const itemEl = document.createElement('div');
           itemEl.className = 'photo-marquee-item';
           itemEl.setAttribute('data-id', photo.id);
@@ -3796,9 +3857,10 @@ function initPhotography() {
 
           itemEl.appendChild(img);
 
-          // Click on image opens immediately in full lightbox
+          // Click handler: opens full image unless user was dragging to scroll
           itemEl.addEventListener('click', (e) => {
             e.stopPropagation();
+            if (col.hasDragged) return;
             openLightbox(photo);
           });
 
@@ -3806,13 +3868,73 @@ function initPhotography() {
         });
 
         trackEl.appendChild(groupEl);
-      });
+      }
 
       colEl.appendChild(trackEl);
       marqueeWrap.appendChild(colEl);
+
+      const col = {
+        colEl,
+        trackEl,
+        group1: group1El,
+        autoSpeed: speeds[colIdx % speeds.length],
+        currentPos: (colIdx * 180), // Stagger starting positions for natural layout
+        targetPos: (colIdx * 180),
+        isHovered: false,
+        isDragging: false,
+        hasDragged: false
+      };
+
+      // Hover to pause this line
+      colEl.addEventListener('mouseenter', () => {
+        col.isHovered = true;
+      });
+      colEl.addEventListener('mouseleave', () => {
+        col.isHovered = false;
+        col.hasDragged = false;
+      });
+
+      // Pointer drag to scroll up and down smoothly
+      let dragStartY = 0;
+      let dragStartPos = 0;
+
+      colEl.addEventListener('pointerdown', (e) => {
+        if (e.button !== undefined && e.button !== 0) return;
+        col.isDragging = true;
+        col.hasDragged = false;
+        dragStartY = e.clientY;
+        dragStartPos = col.targetPos;
+        colEl.classList.add('is-dragging');
+        try { colEl.setPointerCapture(e.pointerId); } catch (_) {}
+      });
+
+      colEl.addEventListener('pointermove', (e) => {
+        if (!col.isDragging) return;
+        const dy = e.clientY - dragStartY;
+        if (Math.abs(dy) > 5) {
+          col.hasDragged = true;
+        }
+        col.targetPos = dragStartPos - dy;
+      });
+
+      function onPointerEnd(e) {
+        if (!col.isDragging) return;
+        col.isDragging = false;
+        colEl.classList.remove('is-dragging');
+        try { colEl.releasePointerCapture(e.pointerId); } catch (_) {}
+        setTimeout(() => {
+          col.hasDragged = false;
+        }, 120);
+      }
+
+      colEl.addEventListener('pointerup', onPointerEnd);
+      colEl.addEventListener('pointercancel', onPointerEnd);
+
+      columnControllers.push(col);
     });
 
     container.appendChild(marqueeWrap);
+    startMarqueeLoop();
   }
 
   function openLightbox(photo) {
@@ -3869,10 +3991,6 @@ function initPhotography() {
   if (toggleMotionBtn) {
     toggleMotionBtn.addEventListener('click', () => {
       isMotionPaused = !isMotionPaused;
-      const wall = document.getElementById('photo-marquee-wall');
-      if (wall) {
-        wall.classList.toggle('is-paused', isMotionPaused);
-      }
       if (motionLabel) {
         motionLabel.textContent = isMotionPaused ? '▶ Resume Motion' : '⏸ Pause Motion';
       }
