@@ -26,7 +26,7 @@
   <!-- Core Stylesheets -->
   <link rel="stylesheet" href="css/styles.css?v=43">
   <link rel="stylesheet" href="css/boot-welcome.css?v=33">
-  <link rel="stylesheet" href="css/apps.css?v=55">
+  <link rel="stylesheet" href="css/apps.css?v=56">
 </head>
 
 <body>
@@ -2009,6 +2009,9 @@
             </div>
 
             <div class="win-exp-actions">
+              <button type="button" id="btn-toggle-photo-motion" class="win-exp-action-btn" title="Pause / Resume Motion">
+                <span id="photo-motion-label">⏸ Pause Motion</span>
+              </button>
               <button type="button" id="btn-open-studio-jury" class="win-exp-action-btn">
                 <span>✦ Studio Jury Site ↗</span>
               </button>
@@ -2019,10 +2022,10 @@
             </div>
           </div>
 
-          <!-- Windows Light Grid Container -->
+          <!-- Windows Moving Wall Container (yellowtooths.in style) -->
           <div class="win-photo-grid-scroll">
             <div class="win-photo-grid" id="photo-cards-container">
-              <!-- Rendered dynamically as Windows thumbnail cards with creative titles -->
+              <!-- Rendered dynamically as vertical alternating marquee columns -->
             </div>
           </div>
 
@@ -2031,11 +2034,10 @@
             <div class="win-status-left">
               <span id="win-photo-count">98 items</span>
               <span class="win-status-divider">|</span>
-              <span id="win-photo-selected">1 item selected</span>
+              <span id="win-photo-selected">Hover column to pause • Click image to view full</span>
             </div>
             <div class="win-status-right">
-              <span class="win-view-mode-icon active" title="Large icons">☷</span>
-              <span class="win-view-mode-icon" title="Details">☰</span>
+              <span class="win-view-mode-icon active" title="Moving Columns (yellowtooths.in style)">⇅</span>
             </div>
           </div>
 
@@ -2655,7 +2657,7 @@
   <!-- Core Script Modules -->
   <script src="js/audio.js"></script>
   <script src="js/window-manager.js?v=37"></script>
-  <script src="js/apps.js?v=53"></script>
+  <script src="js/apps.js?v=54"></script>
   <script src="js/main.js?v=46"></script>
   <script src="js/welcome.js?v=33"></script>
   <script src="js/owl-companion.js?v=33"></script>

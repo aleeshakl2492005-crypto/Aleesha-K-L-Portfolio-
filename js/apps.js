@@ -3722,8 +3722,10 @@ function initPhotography() {
   const searchInput = document.getElementById('photo-search-input');
   const countSpan = document.getElementById('win-photo-count');
   const selectedSpan = document.getElementById('win-photo-selected');
+  const toggleMotionBtn = document.getElementById('btn-toggle-photo-motion');
+  const motionLabel = document.getElementById('photo-motion-label');
 
-  let activePhotoId = null;
+  let isMotionPaused = false;
 
   function renderPhotos(filterText = '') {
     if (!container || !PORTFOLIO_DATA.photography) return;
@@ -3741,70 +3743,87 @@ function initPhotography() {
 
     if (photos.length === 0) {
       container.innerHTML = `
-        <div style="grid-column: 1/-1; text-align: center; color: #737373; padding: 48px 16px; font-size: 0.82rem;">
+        <div style="width: 100%; text-align: center; color: #737373; padding: 48px 16px; font-size: 0.82rem;">
           No items match "${filterText}".
         </div>
       `;
       return;
     }
 
+    // Determine number of columns (up to 5 for expansive layout like yellowtooths.in)
+    const numCols = Math.min(5, Math.max(1, Math.ceil(photos.length / 4)));
+    const columnsData = Array.from({ length: numCols }, () => []);
     photos.forEach((photo, idx) => {
-      const card = document.createElement('div');
-      card.className = 'win-file-card';
-      if (photo.id === activePhotoId) card.classList.add('is-selected');
-      card.setAttribute('data-id', photo.id);
-      
-      card.innerHTML = `
-        <div class="win-thumb-frame">
-          <img src="${photo.thumb || photo.img}" alt="${photo.name}" loading="lazy">
-        </div>
-      `;
-
-      // Single click: select item with Windows focus highlight
-      card.addEventListener('click', (e) => {
-        e.stopPropagation();
-        container.querySelectorAll('.win-file-card').forEach(c => c.classList.remove('is-selected'));
-        card.classList.add('is-selected');
-        activePhotoId = photo.id;
-        if (selectedSpan) {
-          selectedSpan.textContent = '1 item selected';
-        }
-      });
-
-      // Double click: open high-res image in Photos lightbox
-      card.addEventListener('dblclick', (e) => {
-        e.stopPropagation();
-        openLightbox(photo);
-      });
-
-      container.appendChild(card);
+      columnsData[idx % numCols].push(photo);
     });
 
-    // Deselect if clicking on empty background
-    const scrollWrap = document.querySelector('.win-photo-grid-scroll');
-    if (scrollWrap && !scrollWrap.hasAttribute('data-bound-click')) {
-      scrollWrap.setAttribute('data-bound-click', 'true');
-      scrollWrap.addEventListener('click', (e) => {
-        if (!e.target.closest('.win-file-card')) {
-          container.querySelectorAll('.win-file-card').forEach(c => c.classList.remove('is-selected'));
-          activePhotoId = null;
-          if (selectedSpan) {
-            selectedSpan.textContent = '0 items selected';
-          }
-        }
+    // Slow, organic, varied speeds for natural fluid motion (yellowtooths.in style)
+    const colSpeeds = ['58s', '50s', '64s', '54s', '60s'];
+
+    const marqueeWrap = document.createElement('div');
+    marqueeWrap.className = 'photo-marquee-wall' + (isMotionPaused ? ' is-paused' : '');
+    marqueeWrap.id = 'photo-marquee-wall';
+
+    columnsData.forEach((colItems, colIdx) => {
+      if (colItems.length === 0) return;
+      const isUp = colIdx % 2 === 0; // alternating: Col 0 up, Col 1 down, Col 2 up, Col 3 down, Col 4 up
+
+      const colEl = document.createElement('div');
+      colEl.className = `photo-marquee-col ${isUp ? 'scroll-up' : 'scroll-down'}`;
+      colEl.style.setProperty('--marquee-duration', colSpeeds[colIdx % colSpeeds.length]);
+
+      const trackEl = document.createElement('div');
+      trackEl.className = 'photo-col-track';
+
+      // We append 2 sets of items so the track scrolls seamlessly and infinitely
+      const duplicateSets = [colItems, colItems];
+      duplicateSets.forEach((set, setIdx) => {
+        const groupEl = document.createElement('div');
+        groupEl.className = 'photo-track-group';
+        if (setIdx === 1) groupEl.setAttribute('aria-hidden', 'true');
+
+        set.forEach(photo => {
+          const itemEl = document.createElement('div');
+          itemEl.className = 'photo-marquee-item';
+          itemEl.setAttribute('data-id', photo.id);
+          itemEl.title = 'Click to view full photo';
+
+          const img = document.createElement('img');
+          img.src = photo.thumb || photo.img;
+          img.alt = photo.name || '';
+          img.loading = 'lazy';
+          img.className = 'photo-marquee-img';
+
+          itemEl.appendChild(img);
+
+          // Click on image opens immediately in full lightbox
+          itemEl.addEventListener('click', (e) => {
+            e.stopPropagation();
+            openLightbox(photo);
+          });
+
+          groupEl.appendChild(itemEl);
+        });
+
+        trackEl.appendChild(groupEl);
       });
-    }
+
+      colEl.appendChild(trackEl);
+      marqueeWrap.appendChild(colEl);
+    });
+
+    container.appendChild(marqueeWrap);
   }
 
   function openLightbox(photo) {
     if (!lightbox) return;
     if (lightboxImg) {
       lightboxImg.src = photo.img;
-      lightboxImg.alt = photo.name;
+      lightboxImg.alt = photo.name || '';
     }
     const titleEl = document.getElementById('lightbox-file-title');
     if (titleEl) {
-      titleEl.innerHTML = `<svg width="15" height="15" viewBox="0 0 24 24" fill="#0284c7" style="flex-shrink:0;"><circle cx="12" cy="12" r="3"/><path d="M19 4h-3.17L14.41 2H9.59L8.17 4H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2z"/></svg> `;
+      titleEl.innerHTML = `<svg width="15" height="15" viewBox="0 0 24 24" fill="#0284c7" style="flex-shrink:0;"><circle cx="12" cy="12" r="3"/><path d="M19 4h-3.17L14.41 2H9.59L8.17 4H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2z"/></svg>`;
     }
     lightbox.classList.add('open');
   }
@@ -3847,11 +3866,23 @@ function initPhotography() {
     });
   }
 
+  if (toggleMotionBtn) {
+    toggleMotionBtn.addEventListener('click', () => {
+      isMotionPaused = !isMotionPaused;
+      const wall = document.getElementById('photo-marquee-wall');
+      if (wall) {
+        wall.classList.toggle('is-paused', isMotionPaused);
+      }
+      if (motionLabel) {
+        motionLabel.textContent = isMotionPaused ? '▶ Resume Motion' : '⏸ Pause Motion';
+      }
+    });
+  }
+
   renderPhotos();
 }
 
-// ==========================================================================
-// 8. VISUAL PLAYGROUND (UI/UX, BRANDING, PACKAGING)
+
 // ==========================================================================
 function initVisualPlayground() {
   const container = document.getElementById('playground-cards-container');
