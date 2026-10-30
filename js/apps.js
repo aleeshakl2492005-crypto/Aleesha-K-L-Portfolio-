@@ -3753,13 +3753,11 @@ function initPhotography() {
       card.className = 'win-file-card';
       if (photo.id === activePhotoId) card.classList.add('is-selected');
       card.setAttribute('data-id', photo.id);
-      card.title = `${photo.name}\nDouble-click to open picture`;
-
+      
       card.innerHTML = `
         <div class="win-thumb-frame">
           <img src="${photo.thumb || photo.img}" alt="${photo.name}" loading="lazy">
         </div>
-        <div class="win-file-label" title="${photo.name}">${photo.name}</div>
       `;
 
       // Single click: select item with Windows focus highlight
@@ -3806,7 +3804,7 @@ function initPhotography() {
     }
     const titleEl = document.getElementById('lightbox-file-title');
     if (titleEl) {
-      titleEl.innerHTML = `<svg width="15" height="15" viewBox="0 0 24 24" fill="#0284c7" style="flex-shrink:0;"><circle cx="12" cy="12" r="3"/><path d="M19 4h-3.17L14.41 2H9.59L8.17 4H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2z"/></svg> <span>${photo.name}</span>`;
+      titleEl.innerHTML = `<svg width="15" height="15" viewBox="0 0 24 24" fill="#0284c7" style="flex-shrink:0;"><circle cx="12" cy="12" r="3"/><path d="M19 4h-3.17L14.41 2H9.59L8.17 4H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2z"/></svg> `;
     }
     lightbox.classList.add('open');
   }

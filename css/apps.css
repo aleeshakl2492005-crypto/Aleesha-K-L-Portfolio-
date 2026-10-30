@@ -2564,12 +2564,13 @@
 /* Picture Thumbnail Frame with natural aspect ratio & drop-shadow */
 .win-thumb-frame {
   width: 100%;
-  height: 96px;
+  height: 124px;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
   position: relative;
+  border-radius: 4px;
 }
 
 .win-thumb-frame img {
@@ -2580,43 +2581,18 @@
   object-fit: contain;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12), 0 1px 3px rgba(0, 0, 0, 0.08);
   border: 1px solid rgba(0, 0, 0, 0.06);
-  border-radius: 2px;
+  border-radius: 3px;
   transition: transform 0.15s ease;
   background: #f8fafc;
 }
 
 .win-file-card:hover .win-thumb-frame img {
-  transform: scale(1.02);
+  transform: scale(1.03);
 }
 
-/* Windows Explorer File Name Caption */
+/* Windows Explorer File Name Caption (Hidden per user request) */
 .win-file-label {
-  margin-top: 6px;
-  font-size: 0.72rem;
-  font-weight: 500;
-  color: #1e293b;
-  text-align: center;
-  line-height: 1.25;
-  word-break: normal;
-  overflow-wrap: break-word;
-  max-width: 120px;
-  padding: 2px 5px;
-  border-radius: 2px;
-  font-family: 'Segoe UI', -apple-system, sans-serif;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.win-file-card:hover .win-file-label {
-  color: #0f172a;
-}
-
-.win-file-card.is-selected .win-file-label {
-  background: #0078d4;
-  color: #ffffff;
+  display: none !important;
 }
 
 /* Windows Status Bar */
