@@ -209,9 +209,9 @@ class WindowManager {
     data.el.style.display = 'flex';
     // Position if not already placed
     if (!data.el.style.left || data.el.style.left === 'auto') {
-      if (id === 'playground' || id === 'about') {
-        const defaultW = id === 'about' ? 1260 : 960;
-        const defaultH = id === 'about' ? 760 : 640;
+      if (id === 'playground' || id === 'about' || id === 'resume') {
+        const defaultW = id === 'about' ? 1260 : (id === 'resume' ? 880 : 960);
+        const defaultH = id === 'about' ? 760 : (id === 'resume' ? 620 : 640);
         const winW = Math.min(window.innerWidth - 30, defaultW);
         const winH = Math.min(window.innerHeight - 70, defaultH);
         const posX = Math.max(10, Math.round((window.innerWidth - winW) / 2));
@@ -418,3 +418,12 @@ class WindowManager {
 }
 
 window.windowManager = new WindowManager();
+
+// Global helper for opening windows
+window.openWindow = function(winId) {
+  if (!winId) return;
+  const cleanId = winId.replace(/^window-/, '');
+  if (window.windowManager) {
+    window.windowManager.open(cleanId);
+  }
+};

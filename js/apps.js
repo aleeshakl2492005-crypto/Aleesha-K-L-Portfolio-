@@ -1616,7 +1616,9 @@ function initSolariProjects() {
   if (resumeBtn) {
     resumeBtn.addEventListener('click', (e) => {
       e.stopPropagation();
-      if (typeof window.openWindow === 'function') {
+      if (window.windowManager) {
+        window.windowManager.open('resume');
+      } else if (typeof window.openWindow === 'function') {
         window.openWindow('window-resume');
       }
     });
@@ -1626,7 +1628,9 @@ function initSolariProjects() {
   if (contactBtn) {
     contactBtn.addEventListener('click', (e) => {
       e.stopPropagation();
-      if (typeof window.openWindow === 'function') {
+      if (window.windowManager) {
+        window.windowManager.open('mail');
+      } else if (typeof window.openWindow === 'function') {
         window.openWindow('window-mail');
       }
     });
