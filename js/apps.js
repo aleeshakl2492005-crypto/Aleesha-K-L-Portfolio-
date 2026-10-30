@@ -191,595 +191,692 @@ const PORTFOLIO_DATA = {
 
   photography: [
     {
-        "img":  "photography/anarkali.webp",
-        "name":  "anarkali.webp",
-        "id":  "anarkali",
-        "thumb":  "photography/thumbs/anarkali.jpg"
+      id: "anarkali",
+      name: "Regal Anarkali Silhouette",
+      fileName: "anarkali.webp",
+      img: "photography/anarkali.webp",
+      thumb: "photography/thumbs/anarkali.jpg"
     },
     {
-        "img":  "photography/DSC04887.webp",
-        "name":  "DSC04887.webp",
-        "id":  "DSC04887",
-        "thumb":  "photography/thumbs/DSC04887.jpg"
+      id: "DSC04887",
+      name: "Botanical Bloom in Morning Light",
+      fileName: "DSC04887.webp",
+      img: "photography/DSC04887.webp",
+      thumb: "photography/thumbs/DSC04887.jpg"
     },
     {
-        "img":  "photography/DSC04915_1.webp",
-        "name":  "DSC04915_1.webp",
-        "id":  "DSC04915_1",
-        "thumb":  "photography/thumbs/DSC04915_1.jpg"
+      id: "DSC04915_1",
+      name: "Sun-Dappled Canopy",
+      fileName: "DSC04915_1.webp",
+      img: "photography/DSC04915_1.webp",
+      thumb: "photography/thumbs/DSC04915_1.jpg"
     },
     {
-        "img":  "photography/DSC04968.webp",
-        "name":  "DSC04968.webp",
-        "id":  "DSC04968",
-        "thumb":  "photography/thumbs/DSC04968.jpg"
+      id: "DSC04968",
+      name: "Ethereal Forest Walk",
+      fileName: "DSC04968.webp",
+      img: "photography/DSC04968.webp",
+      thumb: "photography/thumbs/DSC04968.jpg"
     },
     {
-        "img":  "photography/DSC04978 (1).webp",
-        "name":  "DSC04978 (1).webp",
-        "id":  "DSC04978",
-        "thumb":  "photography/thumbs/DSC04978 (1).jpg"
+      id: "DSC04978",
+      name: "Golden Flora and Wild Sun",
+      fileName: "DSC04978 (1).webp",
+      img: "photography/DSC04978 (1).webp",
+      thumb: "photography/thumbs/DSC04978 (1).jpg"
     },
     {
-        "img":  "photography/lessy.webp",
-        "name":  "lessy.webp",
-        "id":  "lessy",
-        "thumb":  "photography/thumbs/lessy.jpg"
+      id: "lessy",
+      name: "Golden Hour Grace",
+      fileName: "lessy.webp",
+      img: "photography/lessy.webp",
+      thumb: "photography/thumbs/lessy.jpg"
     },
     {
-        "img":  "photography/mini.webp",
-        "name":  "mini.webp",
-        "id":  "mini",
-        "thumb":  "photography/thumbs/mini.jpg"
+      id: "mini",
+      name: "Intimate Portrait Study",
+      fileName: "mini.webp",
+      img: "photography/mini.webp",
+      thumb: "photography/thumbs/mini.jpg"
     },
     {
-        "img":  "photography/mohan p c.webp",
-        "name":  "mohan p c.webp",
-        "id":  "mohan_p_c",
-        "thumb":  "photography/thumbs/mohan p c.jpg"
+      id: "mohan_p_c",
+      name: "Portrait of Mohan P. C.",
+      fileName: "mohan p c.webp",
+      img: "photography/mohan p c.webp",
+      thumb: "photography/thumbs/mohan p c.jpg"
     },
     {
-        "img":  "photography/EDITORIAL.png",
-        "name":  "EDITORIAL.png",
-        "id":  "EDITORIAL",
-        "thumb":  "photography/thumbs/EDITORIAL.jpg"
+      id: "EDITORIAL",
+      name: "Vogue Concept Editorial Spread",
+      fileName: "EDITORIAL.png",
+      img: "photography/EDITORIAL.png",
+      thumb: "photography/thumbs/EDITORIAL.jpg"
     },
     {
-        "img":  "photography/fashionshoot_.png",
-        "name":  "fashionshoot_.png",
-        "id":  "fashionshoot_",
-        "thumb":  "photography/thumbs/fashionshoot_.jpg"
+      id: "fashionshoot_",
+      name: "Contemporary Haute Couture",
+      fileName: "fashionshoot_.png",
+      img: "photography/fashionshoot_.png",
+      thumb: "photography/thumbs/fashionshoot_.jpg"
     },
     {
-        "img":  "photography/Bblunt.finalpng.png",
-        "name":  "Bblunt.finalpng.png",
-        "id":  "Bblunt",
-        "thumb":  "photography/thumbs/Bblunt.finalpng.jpg"
+      id: "Bblunt",
+      name: "Luminous Volume - Commercial Hair Campaign",
+      fileName: "Bblunt.finalpng.png",
+      img: "photography/Bblunt.finalpng.png",
+      thumb: "photography/thumbs/Bblunt.finalpng.jpg"
     },
     {
-        "img":  "photography/Photo Background Teen Magazine Cover (1).png",
-        "name":  "Photo Background Teen Magazine Cover (1).png",
-        "id":  "Teen_Magazine",
-        "thumb":  "photography/thumbs/Photo Background Teen Magazine Cover (1).jpg"
+      id: "Teen_Magazine",
+      name: "Teen Beat Magazine Cover Feature",
+      fileName: "Photo Background Teen Magazine Cover (1).png",
+      img: "photography/Photo Background Teen Magazine Cover (1).png",
+      thumb: "photography/thumbs/Photo Background Teen Magazine Cover (1).jpg"
     },
     {
-        "img":  "photography/Picnic.png",
-        "name":  "Picnic.png",
-        "id":  "Picnic",
-        "thumb":  "photography/thumbs/Picnic.jpg"
+      id: "Picnic",
+      name: "Pastoral Picnic Golden Hour Story",
+      fileName: "Picnic.png",
+      img: "photography/Picnic.png",
+      thumb: "photography/thumbs/Picnic.jpg"
     },
     {
-        "img":  "photography/mirandaFINAL.png",
-        "name":  "mirandaFINAL.png",
-        "id":  "miranda",
-        "thumb":  "photography/thumbs/mirandaFINAL.jpg"
+      id: "miranda",
+      name: "Miranda Citrus Glow Campaign",
+      fileName: "mirandaFINAL.png",
+      img: "photography/mirandaFINAL.png",
+      thumb: "photography/thumbs/mirandaFINAL.jpg"
     },
     {
-        "img":  "photography/babanana.png",
-        "name":  "babanana.png",
-        "id":  "babanana",
-        "thumb":  "photography/thumbs/babanana.jpg"
+      id: "babanana",
+      name: "Baba Nana Pop Art Packaging",
+      fileName: "babanana.png",
+      img: "photography/babanana.png",
+      thumb: "photography/thumbs/babanana.jpg"
     },
     {
-        "img":  "photography/final.png",
-        "name":  "final.png",
-        "id":  "final",
-        "thumb":  "photography/thumbs/final.jpg"
+      id: "final",
+      name: "Monochrome Form and Tone Study",
+      fileName: "final.png",
+      img: "photography/final.png",
+      thumb: "photography/thumbs/final.jpg"
     },
     {
-        "img":  "photography/nothing.finalpng.png",
-        "name":  "nothing.finalpng.png",
-        "id":  "nothing",
-        "thumb":  "photography/thumbs/nothing.finalpng.jpg"
+      id: "nothing",
+      name: "Streetwear Lookbook and Styling",
+      fileName: "nothing.finalpng.png",
+      img: "photography/nothing.finalpng.png",
+      thumb: "photography/thumbs/nothing.finalpng.jpg"
     },
     {
-        "img":  "photography/BABA NANA.jpg",
-        "name":  "BABA NANA.jpg",
-        "id":  "BABA_NANA",
-        "thumb":  "photography/thumbs/BABA NANA.jpg"
+      id: "BABA_NANA",
+      name: "Baba Nana Brand Craft Story",
+      fileName: "BABA NANA.jpg",
+      img: "photography/BABA NANA.jpg",
+      thumb: "photography/thumbs/BABA NANA.jpg"
     },
     {
-        "id":  "_DSC0013",
-        "name":  "_DSC0013.JPG",
-        "img":  "photography/_DSC0013.jpg",
-        "thumb":  "photography/thumbs/_DSC0013.jpg"
+      id: "_DSC0013",
+      name: "Candid Expression in Natural Light",
+      fileName: "_DSC0013.JPG",
+      img: "photography/_DSC0013.jpg",
+      thumb: "photography/thumbs/_DSC0013.jpg"
     },
     {
-        "id":  "_DSC0140",
-        "name":  "_DSC0140.JPG",
-        "img":  "photography/_DSC0140.jpg",
-        "thumb":  "photography/thumbs/_DSC0140.jpg"
+      id: "_DSC0140",
+      name: "Submerged Timber - Periyar Lake",
+      fileName: "_DSC0140.JPG",
+      img: "photography/_DSC0140.jpg",
+      thumb: "photography/thumbs/_DSC0140.jpg"
     },
     {
-        "id":  "_DSC0147",
-        "name":  "_DSC0147.JPG",
-        "img":  "photography/_DSC0147.jpg",
-        "thumb":  "photography/thumbs/_DSC0147.jpg"
+      id: "_DSC0147",
+      name: "Silent Waters and Mist Reflection",
+      fileName: "_DSC0147.JPG",
+      img: "photography/_DSC0147.jpg",
+      thumb: "photography/thumbs/_DSC0147.jpg"
     },
     {
-        "id":  "_DSC0154",
-        "name":  "_DSC0154.JPG",
-        "img":  "photography/_DSC0154.jpg",
-        "thumb":  "photography/thumbs/_DSC0154.jpg"
+      id: "_DSC0154",
+      name: "Sunlit Canopy at the Waters Edge",
+      fileName: "_DSC0154.JPG",
+      img: "photography/_DSC0154.jpg",
+      thumb: "photography/thumbs/_DSC0154.jpg"
     },
     {
-        "id":  "_DSC0156",
-        "name":  "_DSC0156.JPG",
-        "img":  "photography/_DSC0156.jpg",
-        "thumb":  "photography/thumbs/_DSC0156.jpg"
+      id: "_DSC0156",
+      name: "Ancient Tree Stumps in Still Water",
+      fileName: "_DSC0156.JPG",
+      img: "photography/_DSC0156.jpg",
+      thumb: "photography/thumbs/_DSC0156.jpg"
     },
     {
-        "id":  "_DSC0159",
-        "name":  "_DSC0159.JPG",
-        "img":  "photography/_DSC0159.jpg",
-        "thumb":  "photography/thumbs/_DSC0159.jpg"
+      id: "_DSC0159",
+      name: "Periyar Shallows and Wild Grass",
+      fileName: "_DSC0159.JPG",
+      img: "photography/_DSC0159.jpg",
+      thumb: "photography/thumbs/_DSC0159.jpg"
     },
     {
-        "id":  "_DSC0284",
-        "name":  "_DSC0284.JPG",
-        "img":  "photography/_DSC0284.jpg",
-        "thumb":  "photography/thumbs/_DSC0284.jpg"
+      id: "_DSC0284",
+      name: "Artisanal Handloom Loom Detail",
+      fileName: "_DSC0284.JPG",
+      img: "photography/_DSC0284.jpg",
+      thumb: "photography/thumbs/_DSC0284.jpg"
     },
     {
-        "id":  "_DSC0285",
-        "name":  "_DSC0285.JPG",
-        "img":  "photography/_DSC0285.jpg",
-        "thumb":  "photography/thumbs/_DSC0285.jpg"
+      id: "_DSC0285",
+      name: "Master Weaver at the Heritage Loom",
+      fileName: "_DSC0285.JPG",
+      img: "photography/_DSC0285.jpg",
+      thumb: "photography/thumbs/_DSC0285.jpg"
     },
     {
-        "id":  "_DSC0296",
-        "name":  "_DSC0296.JPG",
-        "img":  "photography/_DSC0296.jpg",
-        "thumb":  "photography/thumbs/_DSC0296.jpg"
+      id: "_DSC0296",
+      name: "Wooden Shuttle and Taut Warp Threads",
+      fileName: "_DSC0296.JPG",
+      img: "photography/_DSC0296.jpg",
+      thumb: "photography/thumbs/_DSC0296.jpg"
     },
     {
-        "id":  "_DSC0313",
-        "name":  "_DSC0313.JPG",
-        "img":  "photography/_DSC0313.jpg",
-        "thumb":  "photography/thumbs/_DSC0313.jpg"
+      id: "_DSC0313",
+      name: "Rhythmic Treadle Footwork",
+      fileName: "_DSC0313.JPG",
+      img: "photography/_DSC0313.jpg",
+      thumb: "photography/thumbs/_DSC0313.jpg"
     },
     {
-        "id":  "_DSC0411",
-        "name":  "_DSC0411.JPG",
-        "img":  "photography/_DSC0411.jpg",
-        "thumb":  "photography/thumbs/_DSC0411.jpg"
+      id: "_DSC0411",
+      name: "Light Trail Geometry - Studio Study I",
+      fileName: "_DSC0411.JPG",
+      img: "photography/_DSC0411.jpg",
+      thumb: "photography/thumbs/_DSC0411.jpg"
     },
     {
-        "id":  "_DSC0412",
-        "name":  "_DSC0412.ARW",
-        "img":  "photography/_DSC0412.jpg",
-        "thumb":  "photography/thumbs/_DSC0412.jpg"
+      id: "_DSC0412",
+      name: "Luminescent Spirals - Studio Study II",
+      fileName: "_DSC0412.ARW",
+      img: "photography/_DSC0412.jpg",
+      thumb: "photography/thumbs/_DSC0412.jpg"
     },
     {
-        "id":  "_DSC0461",
-        "name":  "_DSC0461.ARW",
-        "img":  "photography/_DSC0461.jpg",
-        "thumb":  "photography/thumbs/_DSC0461.jpg"
+      id: "_DSC0461",
+      name: "Chiaroscuro Motion Trails",
+      fileName: "_DSC0461.ARW",
+      img: "photography/_DSC0461.jpg",
+      thumb: "photography/thumbs/_DSC0461.jpg"
     },
     {
-        "id":  "_DSC0513",
-        "name":  "_DSC0513.ARW",
-        "img":  "photography/_DSC0513.jpg",
-        "thumb":  "photography/thumbs/_DSC0513.jpg"
+      id: "_DSC0513",
+      name: "Abstract Kinetic Light Ribbon",
+      fileName: "_DSC0513.ARW",
+      img: "photography/_DSC0513.jpg",
+      thumb: "photography/thumbs/_DSC0513.jpg"
     },
     {
-        "id":  "_DSC0557",
-        "name":  "_DSC0557.ARW",
-        "img":  "photography/_DSC0557.jpg",
-        "thumb":  "photography/thumbs/_DSC0557.jpg"
+      id: "_DSC0557",
+      name: "Prismatic Refraction in Motion",
+      fileName: "_DSC0557.ARW",
+      img: "photography/_DSC0557.jpg",
+      thumb: "photography/thumbs/_DSC0557.jpg"
     },
     {
-        "id":  "_DSC0611",
-        "name":  "_DSC0611.ARW",
-        "img":  "photography/_DSC0611.jpg",
-        "thumb":  "photography/thumbs/_DSC0611.jpg"
+      id: "_DSC0611",
+      name: "Long Exposure Light Sculpture",
+      fileName: "_DSC0611.ARW",
+      img: "photography/_DSC0611.jpg",
+      thumb: "photography/thumbs/_DSC0611.jpg"
     },
     {
-        "id":  "_DSC0620",
-        "name":  "_DSC0620.JPG",
-        "img":  "photography/_DSC0620.jpg",
-        "thumb":  "photography/thumbs/_DSC0620.jpg"
+      id: "_DSC0620",
+      name: "Street Vendor and Morning Bananas",
+      fileName: "_DSC0620.JPG",
+      img: "photography/_DSC0620.jpg",
+      thumb: "photography/thumbs/_DSC0620.jpg"
     },
     {
-        "id":  "_DSC0623",
-        "name":  "_DSC0623.JPG",
-        "img":  "photography/_DSC0623.jpg",
-        "thumb":  "photography/thumbs/_DSC0623.jpg"
+      id: "_DSC0623",
+      name: "Market Artisan Weighing Spices",
+      fileName: "_DSC0623.JPG",
+      img: "photography/_DSC0623.jpg",
+      thumb: "photography/thumbs/_DSC0623.jpg"
     },
     {
-        "id":  "_DSC0662",
-        "name":  "_DSC0662.JPG",
-        "img":  "photography/_DSC0662.jpg",
-        "thumb":  "photography/thumbs/_DSC0662.jpg"
+      id: "_DSC0662",
+      name: "Lively Bazaar Vegetable Stall",
+      fileName: "_DSC0662.JPG",
+      img: "photography/_DSC0662.jpg",
+      thumb: "photography/thumbs/_DSC0662.jpg"
     },
     {
-        "id":  "_DSC0683",
-        "name":  "_DSC0683.JPG",
-        "img":  "photography/_DSC0683.jpg",
-        "thumb":  "photography/thumbs/_DSC0683.jpg"
+      id: "_DSC0683",
+      name: "Fresh Produce and Sunlight Weave",
+      fileName: "_DSC0683.JPG",
+      img: "photography/_DSC0683.jpg",
+      thumb: "photography/thumbs/_DSC0683.jpg"
     },
     {
-        "id":  "_DSC0688",
-        "name":  "_DSC0688.JPG",
-        "img":  "photography/_DSC0688.jpg",
-        "thumb":  "photography/thumbs/_DSC0688.jpg"
+      id: "_DSC0688",
+      name: "Clay Pot Artisan in Old Market",
+      fileName: "_DSC0688.JPG",
+      img: "photography/_DSC0688.jpg",
+      thumb: "photography/thumbs/_DSC0688.jpg"
     },
     {
-        "id":  "_DSC0746",
-        "name":  "_DSC0746.JPG",
-        "img":  "photography/_DSC0746.jpg",
-        "thumb":  "photography/thumbs/_DSC0746.jpg"
+      id: "_DSC0746",
+      name: "Handcrafted Cane Basket Weaver",
+      fileName: "_DSC0746.JPG",
+      img: "photography/_DSC0746.jpg",
+      thumb: "photography/thumbs/_DSC0746.jpg"
     },
     {
-        "id":  "_DSC0749",
-        "name":  "_DSC0749.JPG",
-        "img":  "photography/_DSC0749.jpg",
-        "thumb":  "photography/thumbs/_DSC0749.jpg"
+      id: "_DSC0749",
+      name: "Rustic Woven Textures and Shadows",
+      fileName: "_DSC0749.JPG",
+      img: "photography/_DSC0749.jpg",
+      thumb: "photography/thumbs/_DSC0749.jpg"
     },
     {
-        "id":  "_DSC0766",
-        "name":  "_DSC0766.JPG",
-        "img":  "photography/_DSC0766.jpg",
-        "thumb":  "photography/thumbs/_DSC0766.jpg"
+      id: "_DSC0766",
+      name: "Candid Merchant by the Street Counter",
+      fileName: "_DSC0766.JPG",
+      img: "photography/_DSC0766.jpg",
+      thumb: "photography/thumbs/_DSC0766.jpg"
     },
     {
-        "id":  "_DSC0809",
-        "name":  "_DSC0809.JPG",
-        "img":  "photography/_DSC0809.jpg",
-        "thumb":  "photography/thumbs/_DSC0809.jpg"
+      id: "_DSC0809",
+      name: "Kannur Bazaar Toy Merchant",
+      fileName: "_DSC0809.JPG",
+      img: "photography/_DSC0809.jpg",
+      thumb: "photography/thumbs/_DSC0809.jpg"
     },
     {
-        "id":  "_DSC0830",
-        "name":  "_DSC0830.JPG",
-        "img":  "photography/_DSC0830.jpg",
-        "thumb":  "photography/thumbs/_DSC0830.jpg"
+      id: "_DSC0830",
+      name: "Marigold Flower Garlands at Dawn",
+      fileName: "_DSC0830.JPG",
+      img: "photography/_DSC0830.jpg",
+      thumb: "photography/thumbs/_DSC0830.jpg"
     },
     {
-        "id":  "_DSC0834",
-        "name":  "_DSC0834.JPG",
-        "img":  "photography/_DSC0834.jpg",
-        "thumb":  "photography/thumbs/_DSC0834.jpg"
+      id: "_DSC0834",
+      name: "Architectural Facade and Spatial Geometry",
+      fileName: "_DSC0834.JPG",
+      img: "photography/_DSC0834.jpg",
+      thumb: "photography/thumbs/_DSC0834.jpg"
     },
     {
-        "id":  "_DSC0847",
-        "name":  "_DSC0847.JPG",
-        "img":  "photography/_DSC0847.jpg",
-        "thumb":  "photography/thumbs/_DSC0847.jpg"
+      id: "_DSC0847",
+      name: "Geometric Shadow Play and Modern Forms",
+      fileName: "_DSC0847.JPG",
+      img: "photography/_DSC0847.jpg",
+      thumb: "photography/thumbs/_DSC0847.jpg"
     },
     {
-        "id":  "_DSC0858",
-        "name":  "_DSC0858.JPG",
-        "img":  "photography/_DSC0858.jpg",
-        "thumb":  "photography/thumbs/_DSC0858.jpg"
+      id: "_DSC0858",
+      name: "Urban Elevation and Structural Perspectives",
+      fileName: "_DSC0858.JPG",
+      img: "photography/_DSC0858.jpg",
+      thumb: "photography/thumbs/_DSC0858.jpg"
     },
     {
-        "id":  "_DSC0867",
-        "name":  "_DSC0867.JPG",
-        "img":  "photography/_DSC0867.jpg",
-        "thumb":  "photography/thumbs/_DSC0867.jpg"
+      id: "_DSC0867",
+      name: "Spatial Sightlines and Pavilion Clearances",
+      fileName: "_DSC0867.JPG",
+      img: "photography/_DSC0867.jpg",
+      thumb: "photography/thumbs/_DSC0867.jpg"
     },
     {
-        "id":  "_DSC0880",
-        "name":  "_DSC0880.JPG",
-        "img":  "photography/_DSC0880.jpg",
-        "thumb":  "photography/thumbs/_DSC0880.jpg"
+      id: "_DSC0880",
+      name: "Outdoor Stage and Ambient Atmosphere",
+      fileName: "_DSC0880.JPG",
+      img: "photography/_DSC0880.jpg",
+      thumb: "photography/thumbs/_DSC0880.jpg"
     },
     {
-        "id":  "_DSC0903",
-        "name":  "_DSC0903.JPG",
-        "img":  "photography/_DSC0903.jpg",
-        "thumb":  "photography/thumbs/_DSC0903.jpg"
+      id: "_DSC0903",
+      name: "Kerala Waterfront and Event Setting",
+      fileName: "_DSC0903.JPG",
+      img: "photography/_DSC0903.jpg",
+      thumb: "photography/thumbs/_DSC0903.jpg"
     },
     {
-        "id":  "_DSC0956",
-        "name":  "_DSC0956.JPG",
-        "img":  "photography/_DSC0956.jpg",
-        "thumb":  "photography/thumbs/_DSC0956.jpg"
+      id: "_DSC0956",
+      name: "Festival Pavilion Truss Framework",
+      fileName: "_DSC0956.JPG",
+      img: "photography/_DSC0956.jpg",
+      thumb: "photography/thumbs/_DSC0956.jpg"
     },
     {
-        "id":  "_DSC1004",
-        "name":  "_DSC1004.JPG",
-        "img":  "photography/_DSC1004.jpg",
-        "thumb":  "photography/thumbs/_DSC1004.jpg"
+      id: "_DSC1004",
+      name: "Acoustic Stage Setup and Cable Runs",
+      fileName: "_DSC1004.JPG",
+      img: "photography/_DSC1004.jpg",
+      thumb: "photography/thumbs/_DSC1004.jpg"
     },
     {
-        "id":  "_DSC1020",
-        "name":  "_DSC1020.JPG",
-        "img":  "photography/_DSC1020.jpg",
-        "thumb":  "photography/thumbs/_DSC1020.jpg"
+      id: "_DSC1020",
+      name: "Sound Engineer at the Mixing Console",
+      fileName: "_DSC1020.JPG",
+      img: "photography/_DSC1020.jpg",
+      thumb: "photography/thumbs/_DSC1020.jpg"
     },
     {
-        "id":  "_DSC1045",
-        "name":  "_DSC1045.JPG",
-        "img":  "photography/_DSC1045.jpg",
-        "thumb":  "photography/thumbs/_DSC1045.jpg"
+      id: "_DSC1045",
+      name: "Backstage Stagehand Rigging",
+      fileName: "_DSC1045.JPG",
+      img: "photography/_DSC1045.jpg",
+      thumb: "photography/thumbs/_DSC1045.jpg"
     },
     {
-        "id":  "_DSC1069",
-        "name":  "_DSC1069.JPG",
-        "img":  "photography/_DSC1069.jpg",
-        "thumb":  "photography/thumbs/_DSC1069.jpg"
+      id: "_DSC1069",
+      name: "Stage Lighting Rig and Color Gels",
+      fileName: "_DSC1069.JPG",
+      img: "photography/_DSC1069.jpg",
+      thumb: "photography/thumbs/_DSC1069.jpg"
     },
     {
-        "id":  "_DSC1090",
-        "name":  "_DSC1090.JPG",
-        "img":  "photography/_DSC1090.jpg",
-        "thumb":  "photography/thumbs/_DSC1090.jpg"
+      id: "_DSC1090",
+      name: "Audience Gathering at Dusk",
+      fileName: "_DSC1090.JPG",
+      img: "photography/_DSC1090.jpg",
+      thumb: "photography/thumbs/_DSC1090.jpg"
     },
     {
-        "id":  "_DSC1092",
-        "name":  "_DSC1092.JPG",
-        "img":  "photography/_DSC1092.jpg",
-        "thumb":  "photography/thumbs/_DSC1092.jpg"
+      id: "_DSC1092",
+      name: "Crowd Anticipation Before Showtime",
+      fileName: "_DSC1092.JPG",
+      img: "photography/_DSC1092.jpg",
+      thumb: "photography/thumbs/_DSC1092.jpg"
     },
     {
-        "id":  "_DSC1094",
-        "name":  "_DSC1094.JPG",
-        "img":  "photography/_DSC1094.jpg",
-        "thumb":  "photography/thumbs/_DSC1094.jpg"
+      id: "_DSC1094",
+      name: "Stage Spotlight Flare and Dust Particles",
+      fileName: "_DSC1094.JPG",
+      img: "photography/_DSC1094.jpg",
+      thumb: "photography/thumbs/_DSC1094.jpg"
     },
     {
-        "id":  "_DSC1103",
-        "name":  "_DSC1103.JPG",
-        "img":  "photography/_DSC1103.jpg",
-        "thumb":  "photography/thumbs/_DSC1103.jpg"
+      id: "_DSC1103",
+      name: "Festival Staging and Roadshow Crowd Dynamics",
+      fileName: "_DSC1103.JPG",
+      img: "photography/_DSC1103.jpg",
+      thumb: "photography/thumbs/_DSC1103.jpg"
     },
     {
-        "id":  "_DSC1104",
-        "name":  "_DSC1104.JPG",
-        "img":  "photography/_DSC1104.jpg",
-        "thumb":  "photography/thumbs/_DSC1104.jpg"
+      id: "_DSC1104",
+      name: "Night Roadshow Lighting and Truss Illumination",
+      fileName: "_DSC1104.JPG",
+      img: "photography/_DSC1104.jpg",
+      thumb: "photography/thumbs/_DSC1104.jpg"
     },
     {
-        "id":  "_DSC1106",
-        "name":  "_DSC1106.JPG",
-        "img":  "photography/_DSC1106.jpg",
-        "thumb":  "photography/thumbs/_DSC1106.jpg"
+      id: "_DSC1106",
+      name: "Live Performance Audio Rig and Stage",
+      fileName: "_DSC1106.JPG",
+      img: "photography/_DSC1106.jpg",
+      thumb: "photography/thumbs/_DSC1106.jpg"
     },
     {
-        "id":  "_DSC1110",
-        "name":  "_DSC1110.JPG",
-        "img":  "photography/_DSC1110.jpg",
-        "thumb":  "photography/thumbs/_DSC1110.jpg"
+      id: "_DSC1110",
+      name: "Spadikam Roadshow Stage Elevation",
+      fileName: "_DSC1110.JPG",
+      img: "photography/_DSC1110.jpg",
+      thumb: "photography/thumbs/_DSC1110.jpg"
     },
     {
-        "id":  "_DSC1136",
-        "name":  "_DSC1136.JPG",
-        "img":  "photography/_DSC1136.jpg",
-        "thumb":  "photography/thumbs/_DSC1136.jpg"
+      id: "_DSC1136",
+      name: "Concert Spotlight Beams Over the Arena",
+      fileName: "_DSC1136.JPG",
+      img: "photography/_DSC1136.jpg",
+      thumb: "photography/thumbs/_DSC1136.jpg"
     },
     {
-        "id":  "_DSC1144",
-        "name":  "_DSC1144.JPG",
-        "img":  "photography/_DSC1144.jpg",
-        "thumb":  "photography/thumbs/_DSC1144.jpg"
+      id: "_DSC1144",
+      name: "Traditional Cultural Ritual Documentation",
+      fileName: "_DSC1144.JPG",
+      img: "photography/_DSC1144.jpg",
+      thumb: "photography/thumbs/_DSC1144.jpg"
     },
     {
-        "id":  "_DSC1163",
-        "name":  "_DSC1163.JPG",
-        "img":  "photography/_DSC1163.jpg",
-        "thumb":  "photography/thumbs/_DSC1163.jpg"
+      id: "_DSC1163",
+      name: "Golden Nilavilakku Brass Lamp Flame",
+      fileName: "_DSC1163.JPG",
+      img: "photography/_DSC1163.jpg",
+      thumb: "photography/thumbs/_DSC1163.jpg"
     },
     {
-        "id":  "_DSC1165",
-        "name":  "_DSC1165.JPG",
-        "img":  "photography/_DSC1165.jpg",
-        "thumb":  "photography/thumbs/_DSC1165.jpg"
+      id: "_DSC1165",
+      name: "Temple Courtyard Pooja Offerings",
+      fileName: "_DSC1165.JPG",
+      img: "photography/_DSC1165.jpg",
+      thumb: "photography/thumbs/_DSC1165.jpg"
     },
     {
-        "id":  "_DSC1174",
-        "name":  "_DSC1174.JPG",
-        "img":  "photography/_DSC1174.jpg",
-        "thumb":  "photography/thumbs/_DSC1174.jpg"
+      id: "_DSC1174",
+      name: "Sandalwood Paste and Hibiscus Petals",
+      fileName: "_DSC1174.JPG",
+      img: "photography/_DSC1174.jpg",
+      thumb: "photography/thumbs/_DSC1174.jpg"
     },
     {
-        "id":  "_DSC1184",
-        "name":  "_DSC1184.JPG",
-        "img":  "photography/_DSC1184.jpg",
-        "thumb":  "photography/thumbs/_DSC1184.jpg"
+      id: "_DSC1184",
+      name: "Ceremonial Bell and Incense Smoke",
+      fileName: "_DSC1184.JPG",
+      img: "photography/_DSC1184.jpg",
+      thumb: "photography/thumbs/_DSC1184.jpg"
     },
     {
-        "id":  "_DSC1197",
-        "name":  "_DSC1197.JPG",
-        "img":  "photography/_DSC1197.jpg",
-        "thumb":  "photography/thumbs/_DSC1197.jpg"
+      id: "_DSC1197",
+      name: "Devotees Walking the Stone Corridor",
+      fileName: "_DSC1197.JPG",
+      img: "photography/_DSC1197.jpg",
+      thumb: "photography/thumbs/_DSC1197.jpg"
     },
     {
-        "id":  "_DSC1204",
-        "name":  "_DSC1204.JPG",
-        "img":  "photography/_DSC1204.jpg",
-        "thumb":  "photography/thumbs/_DSC1204.jpg"
+      id: "_DSC1204",
+      name: "Ancient Stone Carvings and Oil Patina",
+      fileName: "_DSC1204.JPG",
+      img: "photography/_DSC1204.jpg",
+      thumb: "photography/thumbs/_DSC1204.jpg"
     },
     {
-        "id":  "_DSC1208",
-        "name":  "_DSC1208.JPG",
-        "img":  "photography/_DSC1208.jpg",
-        "thumb":  "photography/thumbs/_DSC1208.jpg"
+      id: "_DSC1208",
+      name: "Temple Pillar Sunlight Slice",
+      fileName: "_DSC1208.JPG",
+      img: "photography/_DSC1208.jpg",
+      thumb: "photography/thumbs/_DSC1208.jpg"
     },
     {
-        "id":  "_DSC1245",
-        "name":  "_DSC1245.JPG",
-        "img":  "photography/_DSC1245.jpg",
-        "thumb":  "photography/thumbs/_DSC1245.jpg"
+      id: "_DSC1245",
+      name: "Sacred Water Tank and Stone Steps",
+      fileName: "_DSC1245.JPG",
+      img: "photography/_DSC1245.jpg",
+      thumb: "photography/thumbs/_DSC1245.jpg"
     },
     {
-        "id":  "_DSC1257",
-        "name":  "_DSC1257.JPG",
-        "img":  "photography/_DSC1257.jpg",
-        "thumb":  "photography/thumbs/_DSC1257.jpg"
+      id: "_DSC1257",
+      name: "Elderly Artisan at the Spinning Charkha",
+      fileName: "_DSC1257.JPG",
+      img: "photography/_DSC1257.jpg",
+      thumb: "photography/thumbs/_DSC1257.jpg"
     },
     {
-        "id":  "_DSC1265",
-        "name":  "_DSC1265.JPG",
-        "img":  "photography/_DSC1265.jpg",
-        "thumb":  "photography/thumbs/_DSC1265.jpg"
+      id: "_DSC1265",
+      name: "Artisan Portrait - Expressions in Craft",
+      fileName: "_DSC1265.JPG",
+      img: "photography/_DSC1265.jpg",
+      thumb: "photography/thumbs/_DSC1265.jpg"
     },
     {
-        "id":  "_DSC1276",
-        "name":  "_DSC1276.JPG",
-        "img":  "photography/_DSC1276.jpg",
-        "thumb":  "photography/thumbs/_DSC1276.jpg"
+      id: "_DSC1276",
+      name: "Weathered Hands Guiding Spun Fiber",
+      fileName: "_DSC1276.JPG",
+      img: "photography/_DSC1276.jpg",
+      thumb: "photography/thumbs/_DSC1276.jpg"
     },
     {
-        "id":  "_DSC1335",
-        "name":  "_DSC1335.JPG",
-        "img":  "photography/_DSC1335.jpg",
-        "thumb":  "photography/thumbs/_DSC1335.jpg"
+      id: "_DSC1335",
+      name: "Warping Mill Wheel in Fast Motion",
+      fileName: "_DSC1335.JPG",
+      img: "photography/_DSC1335.jpg",
+      thumb: "photography/thumbs/_DSC1335.jpg"
     },
     {
-        "id":  "_DSC1340",
-        "name":  "_DSC1340.JPG",
-        "img":  "photography/_DSC1340.jpg",
-        "thumb":  "photography/thumbs/_DSC1340.jpg"
+      id: "_DSC1340",
+      name: "Skeins of Natural Undyed Cotton",
+      fileName: "_DSC1340.JPG",
+      img: "photography/_DSC1340.jpg",
+      thumb: "photography/thumbs/_DSC1340.jpg"
     },
     {
-        "id":  "_DSC1343",
-        "name":  "_DSC1343.JPG",
-        "img":  "photography/_DSC1343.jpg",
-        "thumb":  "photography/thumbs/_DSC1343.jpg"
+      id: "_DSC1343",
+      name: "Tactile Yarn Textures and Fiber Detail",
+      fileName: "_DSC1343.JPG",
+      img: "photography/_DSC1343.jpg",
+      thumb: "photography/thumbs/_DSC1343.jpg"
     },
     {
-        "id":  "_DSC1454",
-        "name":  "_DSC1454.JPG",
-        "img":  "photography/_DSC1454.jpg",
-        "thumb":  "photography/thumbs/_DSC1454.jpg"
+      id: "_DSC1454",
+      name: "Heritage Veranda with Teak Wood Pillars",
+      fileName: "_DSC1454.JPG",
+      img: "photography/_DSC1454.jpg",
+      thumb: "photography/thumbs/_DSC1454.jpg"
     },
     {
-        "id":  "_DSC1460",
-        "name":  "_DSC1460.JPG",
-        "img":  "photography/_DSC1460.jpg",
-        "thumb":  "photography/thumbs/_DSC1460.jpg"
+      id: "_DSC1460",
+      name: "Central Sunlit Courtyard (Nadumuttam)",
+      fileName: "_DSC1460.JPG",
+      img: "photography/_DSC1460.jpg",
+      thumb: "photography/thumbs/_DSC1460.jpg"
     },
     {
-        "id":  "_DSC1461",
-        "name":  "_DSC1461.JPG",
-        "img":  "photography/_DSC1461.jpg",
-        "thumb":  "photography/thumbs/_DSC1461.jpg"
+      id: "_DSC1461",
+      name: "Rain Chain and Eaves Water Feature",
+      fileName: "_DSC1461.JPG",
+      img: "photography/_DSC1461.jpg",
+      thumb: "photography/thumbs/_DSC1461.jpg"
     },
     {
-        "id":  "_DSC1463",
-        "name":  "_DSC1463.JPG",
-        "img":  "photography/_DSC1463.jpg",
-        "thumb":  "photography/thumbs/_DSC1463.jpg"
+      id: "_DSC1463",
+      name: "Carved Wooden Jali Screen and Shadows",
+      fileName: "_DSC1463.JPG",
+      img: "photography/_DSC1463.jpg",
+      thumb: "photography/thumbs/_DSC1463.jpg"
     },
     {
-        "id":  "_DSC1471",
-        "name":  "_DSC1471.JPG",
-        "img":  "photography/_DSC1471.jpg",
-        "thumb":  "photography/thumbs/_DSC1471.jpg"
+      id: "_DSC1471",
+      name: "Traditional Louvered Teak Window",
+      fileName: "_DSC1471.JPG",
+      img: "photography/_DSC1471.jpg",
+      thumb: "photography/thumbs/_DSC1471.jpg"
     },
     {
-        "id":  "_DSC1506",
-        "name":  "_DSC1506.JPG",
-        "img":  "photography/_DSC1506.jpg",
-        "thumb":  "photography/thumbs/_DSC1506.jpg"
+      id: "_DSC1506",
+      name: "Antique Brass Door Lock and Studded Wood",
+      fileName: "_DSC1506.JPG",
+      img: "photography/_DSC1506.jpg",
+      thumb: "photography/thumbs/_DSC1506.jpg"
     },
     {
-        "id":  "_DSC1518",
-        "name":  "_DSC1518.JPG",
-        "img":  "photography/_DSC1518.jpg",
-        "thumb":  "photography/thumbs/_DSC1518.jpg"
+      id: "_DSC1518",
+      name: "Heritage Architecture and Traditional Woodwork",
+      fileName: "_DSC1518.JPG",
+      img: "photography/_DSC1518.jpg",
+      thumb: "photography/thumbs/_DSC1518.jpg"
     },
     {
-        "id":  "_DSC1521",
-        "name":  "_DSC1521.JPG",
-        "img":  "photography/_DSC1521.jpg",
-        "thumb":  "photography/thumbs/_DSC1521.jpg"
+      id: "_DSC1521",
+      name: "Gable Rafters and Handcrafted Eaves",
+      fileName: "_DSC1521.JPG",
+      img: "photography/_DSC1521.jpg",
+      thumb: "photography/thumbs/_DSC1521.jpg"
     },
     {
-        "id":  "_DSC1537",
-        "name":  "_DSC1537.JPG",
-        "img":  "photography/_DSC1537.jpg",
-        "thumb":  "photography/thumbs/_DSC1537.jpg"
+      id: "_DSC1537",
+      name: "Interlocking Timber Joinery in Roof Trusses",
+      fileName: "_DSC1537.JPG",
+      img: "photography/_DSC1537.jpg",
+      thumb: "photography/thumbs/_DSC1537.jpg"
     },
     {
-        "id":  "_DSC1539",
-        "name":  "_DSC1539.JPG",
-        "img":  "photography/_DSC1539.jpg",
-        "thumb":  "photography/thumbs/_DSC1539.jpg"
+      id: "_DSC1539",
+      name: "Koothambalam Stage Wooden Canopy",
+      fileName: "_DSC1539.JPG",
+      img: "photography/_DSC1539.jpg",
+      thumb: "photography/thumbs/_DSC1539.jpg"
     },
     {
-        "id":  "_DSC1540",
-        "name":  "_DSC1540.JPG",
-        "img":  "photography/_DSC1540.jpg",
-        "thumb":  "photography/thumbs/_DSC1540.jpg"
+      id: "_DSC1540",
+      name: "Carved Lotus Medallion on Temple Beam",
+      fileName: "_DSC1540.JPG",
+      img: "photography/_DSC1540.jpg",
+      thumb: "photography/thumbs/_DSC1540.jpg"
     },
     {
-        "id":  "_DSC1542",
-        "name":  "_DSC1542.JPG",
-        "img":  "photography/_DSC1542.jpg",
-        "thumb":  "photography/thumbs/_DSC1542.jpg"
+      id: "_DSC1542",
+      name: "Symmetric Timber Ridge Beam Geometry",
+      fileName: "_DSC1542.JPG",
+      img: "photography/_DSC1542.jpg",
+      thumb: "photography/thumbs/_DSC1542.jpg"
     },
     {
-        "id":  "_DSC1550",
-        "name":  "_DSC1550.JPG",
-        "img":  "photography/_DSC1550.jpg",
-        "thumb":  "photography/thumbs/_DSC1550.jpg"
+      id: "_DSC1550",
+      name: "High Gable Louver Letting in Skylight",
+      fileName: "_DSC1550.JPG",
+      img: "photography/_DSC1550.jpg",
+      thumb: "photography/thumbs/_DSC1550.jpg"
     },
     {
-        "id":  "_DSC1551",
-        "name":  "_DSC1551.JPG",
-        "img":  "photography/_DSC1551.jpg",
-        "thumb":  "photography/thumbs/_DSC1551.jpg"
+      id: "_DSC1551",
+      name: "Temple Rafters and Classical Roof Geometry",
+      fileName: "_DSC1551.JPG",
+      img: "photography/_DSC1551.jpg",
+      thumb: "photography/thumbs/_DSC1551.jpg"
     },
     {
-        "id":  "_DSC1552",
-        "name":  "_DSC1552.JPG",
-        "img":  "photography/_DSC1552.jpg",
-        "thumb":  "photography/thumbs/_DSC1552.jpg"
+      id: "_DSC1552",
+      name: "Deep Woodgrain and Traditional Natural Resin",
+      fileName: "_DSC1552.JPG",
+      img: "photography/_DSC1552.jpg",
+      thumb: "photography/thumbs/_DSC1552.jpg"
     },
     {
-        "id":  "_DSC1562",
-        "name":  "_DSC1562.JPG",
-        "img":  "photography/_DSC1562.jpg",
-        "thumb":  "photography/thumbs/_DSC1562.jpg"
+      id: "_DSC1562",
+      name: "Ceremonial Brass Urli with Floating Flowers",
+      fileName: "_DSC1562.JPG",
+      img: "photography/_DSC1562.jpg",
+      thumb: "photography/thumbs/_DSC1562.jpg"
     },
     {
-        "id":  "_DSC1574",
-        "name":  "_DSC1574.JPG",
-        "img":  "photography/_DSC1574.jpg",
-        "thumb":  "photography/thumbs/_DSC1574.jpg"
+      id: "_DSC1574",
+      name: "Evening Twilight on Clay Roof Tiles",
+      fileName: "_DSC1574.JPG",
+      img: "photography/_DSC1574.jpg",
+      thumb: "photography/thumbs/_DSC1574.jpg"
     },
     {
-        "id":  "_DSC1583",
-        "name":  "_DSC1583.JPG",
-        "img":  "photography/_DSC1583.jpg",
-        "thumb":  "photography/thumbs/_DSC1583.jpg"
+      id: "_DSC1583",
+      name: "Row of Handcrafted Terracotta Diyas",
+      fileName: "_DSC1583.JPG",
+      img: "photography/_DSC1583.jpg",
+      thumb: "photography/thumbs/_DSC1583.jpg"
     },
     {
-        "id":  "_DSC1584",
-        "name":  "_DSC1584.JPG",
-        "img":  "photography/_DSC1584.jpg",
-        "thumb":  "photography/thumbs/_DSC1584.jpg"
+      id: "_DSC1584",
+      name: "Sacred Diyas and Ambient Deeparadhana Glow",
+      fileName: "_DSC1584.JPG",
+      img: "photography/_DSC1584.jpg",
+      thumb: "photography/thumbs/_DSC1584.jpg"
     },
     {
-        "id":  "_DSC1588",
-        "name":  "_DSC1588.JPG",
-        "img":  "photography/_DSC1588.jpg",
-        "thumb":  "photography/thumbs/_DSC1588.jpg"
+      id: "_DSC1588",
+      name: "Warm Golden Ember Trails at Festival Finale",
+      fileName: "_DSC1588.JPG",
+      img: "photography/_DSC1588.jpg",
+      thumb: "photography/thumbs/_DSC1588.jpg"
     }
-],
-
+  ],
 
   playground: [
     {
@@ -3650,7 +3747,7 @@ function initPhotography() {
     const query = filterText.trim().toLowerCase();
     const photos = PORTFOLIO_DATA.photography.filter(p => {
       if (!query) return true;
-      return (p.name && p.name.toLowerCase().includes(query)) || (p.id && p.id.toLowerCase().includes(query));
+      return (p.name && p.name.toLowerCase().includes(query)) || (p.fileName && p.fileName.toLowerCase().includes(query)) || (p.id && p.id.toLowerCase().includes(query));
     });
 
     if (countSpan) {
@@ -3677,7 +3774,7 @@ function initPhotography() {
         <div class="win-thumb-frame">
           <img src="${photo.thumb || photo.img}" alt="${photo.name}" loading="lazy">
         </div>
-        <div class="win-file-label">${photo.name}</div>
+        <div class="win-file-label" title="${photo.name}">${photo.name}</div>
       `;
 
       // Single click: select item with Windows focus highlight
@@ -3724,7 +3821,7 @@ function initPhotography() {
     }
     const titleEl = document.getElementById('lightbox-file-title');
     if (titleEl) {
-      titleEl.innerHTML = `<span style="color:#0284c7;">ðŸ“</span> ${photo.name}`;
+      titleEl.innerHTML = `<svg width="15" height="15" viewBox="0 0 24 24" fill="#0284c7" style="flex-shrink:0;"><circle cx="12" cy="12" r="3"/><path d="M19 4h-3.17L14.41 2H9.59L8.17 4H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2z"/></svg> <span>${photo.name}</span>`;
     }
     lightbox.classList.add('open');
   }
@@ -4219,3 +4316,4 @@ document.addEventListener('DOMContentLoaded', () => {
   initMailClient();
   initRecycleBin();
 });
+
