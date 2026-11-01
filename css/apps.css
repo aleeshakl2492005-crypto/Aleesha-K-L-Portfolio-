@@ -1418,11 +1418,11 @@
 /* 3. Kraft Paper Note (Offline Mode & Adventures) */
 .note-kraft-offline {
   position: absolute;
-  width: 220px;
+  width: 235px;
   background-color: #fefce8;
   background-image: repeating-linear-gradient(transparent, transparent 17px, #fef08a 17px, #fef08a 18px);
   border-radius: 3px;
-  padding: 12px 12px 10px;
+  padding: 8px 10px 6px;
   color: #422006;
   box-shadow: 0 10px 22px rgba(0, 0, 0, 0.22);
   border-left: 3px solid #eab308;
@@ -1436,26 +1436,26 @@
 }
 
 .note-kraft-offline .kraft-header {
-  font-size: 0.73rem;
+  font-size: 0.68rem;
   font-weight: 800;
   color: #854d0e;
   text-transform: uppercase;
   letter-spacing: 0.04em;
-  margin-bottom: 5px;
+  margin-bottom: 4px;
 }
 
 .note-kraft-offline .kraft-bullets {
   margin: 0;
-  padding-left: 14px;
+  padding-left: 13px;
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 2px;
 }
 
 .note-kraft-offline .kraft-bullets li {
-  font-size: 0.69rem;
+  font-size: 0.65rem;
   color: #713f12;
-  line-height: 1.28;
+  line-height: 1.22;
 }
 
 /* 4. Cute Pastel Pink Scrap (Secret Superpower) */
@@ -1561,6 +1561,104 @@
   margin: 0;
   font-style: italic;
   font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+/* 6. Manila Index Card (My Creative Journey) */
+.note-journey-card {
+  position: absolute;
+  width: 220px;
+  background-color: #fbf7ee;
+  border-radius: 4px;
+  padding: 8px 10px 6px;
+  color: #292524;
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.22);
+  border-left: 3px solid #f97316;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+  transform: rotate(-1.2deg);
+  z-index: 12;
+  box-sizing: border-box;
+}
+
+.note-journey-card:hover {
+  transform: rotate(0deg) translateY(-3px) scale(1.02);
+}
+
+.note-journey-card .journey-tag {
+  font-size: 0.55rem;
+  font-weight: 800;
+  color: #ea580c;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  display: block;
+  margin-bottom: 2px;
+}
+
+.note-journey-card .journey-title {
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: #1c1917;
+  margin: 0 0 3px;
+  letter-spacing: -0.01em;
+}
+
+.note-journey-card .journey-bullets {
+  margin: 0;
+  padding-left: 13px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.note-journey-card .journey-bullets li {
+  font-size: 0.65rem;
+  color: #44403c;
+  line-height: 1.22;
+}
+
+/* 7. Mint Pastel Card (A Little Random Fact) */
+.note-random-facts {
+  position: absolute;
+  width: 260px;
+  background-color: #f0fdf4;
+  border-radius: 4px;
+  padding: 8px 10px 6px;
+  color: #14532d;
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.22);
+  border-left: 3px solid #10b981;
+  border-bottom: 1px solid rgba(16, 185, 129, 0.2);
+  transform: rotate(-1deg);
+  z-index: 12;
+  box-sizing: border-box;
+}
+
+.note-random-facts:hover {
+  transform: rotate(0deg) translateY(-3px) scale(1.02);
+}
+
+.note-random-facts .facts-header {
+  font-size: 0.65rem;
+  font-weight: 800;
+  color: #047857;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 4px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.note-random-facts .facts-bullets {
+  margin: 0;
+  padding-left: 13px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.note-random-facts .facts-bullets li {
+  font-size: 0.65rem;
+  color: #166534;
+  line-height: 1.22;
 }
 
 /* Polaroid Photo Cards */
@@ -4183,12 +4281,32 @@
   .note-scrap-superpower,
   .note-grid-obsessions,
   .note-kraft-offline,
+  .note-journey-card,
+  .note-random-facts,
   .pinned-music-card,
   .pinned-postit-note {
     width: 100% !important;
     max-width: 320px !important;
     transform: none !important;
   }
+
+  /* Mobile Scrapbook Alternating Reading Sequence */
+  #cork-item-intro { order: 1 !important; }
+  #cork-photo-1 { order: 2 !important; }
+  #cork-item-ethos { order: 3 !important; }
+  #cork-item-journey { order: 4 !important; }
+  #cork-photo-2 { order: 5 !important; }
+  #cork-item-obsessions { order: 6 !important; }
+  #cork-photo-3 { order: 7 !important; }
+  #cork-item-offline { order: 8 !important; }
+  #cork-photo-4 { order: 9 !important; }
+  #cork-item-superpower { order: 10 !important; }
+  #cork-photo-5 { order: 11 !important; }
+  #cork-item-facts { order: 12 !important; }
+  #cork-photo-6 { order: 13 !important; }
+  #cork-photo-7 { order: 14 !important; }
+  #cork-item-music { order: 15 !important; }
+  #cork-item-postit { order: 16 !important; }
 }
 
 /* ── 3. RESUME VIEWER & TOOLBAR ── */
